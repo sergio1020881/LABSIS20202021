@@ -1,0 +1,31 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.1.57</VERSION>
+ <DEVICE>"ATmega88"</DEVICE>
+ <WORKING_DIR>C:\Users\Sergio\documents\atmel studio\6.2\1Hz asm int\1Hz asm int\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR Assembler\Native\2.1.1175\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\Sergio\documents\atmel studio\6.2\1Hz asm int\1Hz asm int\1Hz asm int.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR Assembler\Native\2.1.1175\avrassembler\Include\m88def.inc</FILE>
+  <FILE>C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR Assembler\Native\2.1.1175\avrassembler\Include\M88DEF.INC</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\Sergio\documents\atmel studio\6.2\1Hz asm int\1Hz asm int\Debug/1Hz asm int.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>1Hz asm int.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>1Hz asm int.map</FILE>
+  <FILE>1Hz asm int.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <RESET><FILE>C:\Users\Sergio\documents\atmel studio\6.2\1Hz asm int\1Hz asm int\1Hz asm int.asm</FILE><LINE>13</LINE></RESET>
+  <TIM0_COMPA><FILE>C:\Users\Sergio\documents\atmel studio\6.2\1Hz asm int\1Hz asm int\1Hz asm int.asm</FILE><LINE>49</LINE></TIM0_COMPA>
+  <INTRUP_10ms><FILE>C:\Users\Sergio\documents\atmel studio\6.2\1Hz asm int\1Hz asm int\1Hz asm int.asm</FILE><LINE>30</LINE></INTRUP_10ms>
+  <MAIN><FILE>C:\Users\Sergio\documents\atmel studio\6.2\1Hz asm int\1Hz asm int\1Hz asm int.asm</FILE><LINE>41</LINE></MAIN>
+  <INIC><FILE>C:\Users\Sergio\documents\atmel studio\6.2\1Hz asm int\1Hz asm int\1Hz asm int.asm</FILE><LINE>44</LINE></INIC>
+ </LABELS>
+</ASSEMBLER_INFO>

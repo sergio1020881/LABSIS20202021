@@ -1,0 +1,1021 @@
+
+Led dimmer_1.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000003a6  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          00000004  00800100  00800100  0000041a  2**0
+                  ALLOC
+  2 .comment      00000030  00000000  00000000  0000041a  2**0
+                  CONTENTS, READONLY
+  3 .debug_aranges 00000068  00000000  00000000  0000044a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   00000347  00000000  00000000  000004b2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 000001a0  00000000  00000000  000007f9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   00000230  00000000  00000000  00000999  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  000000ec  00000000  00000000  00000bcc  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    0000025e  00000000  00000000  00000cb8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    000006d0  00000000  00000000  00000f16  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 00000058  00000000  00000000  000015e6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	3f c0       	rjmp	.+126    	; 0x80 <__ctors_end>
+   2:	4e c0       	rjmp	.+156    	; 0xa0 <__bad_interrupt>
+   4:	4d c0       	rjmp	.+154    	; 0xa0 <__bad_interrupt>
+   6:	4c c0       	rjmp	.+152    	; 0xa0 <__bad_interrupt>
+   8:	4b c0       	rjmp	.+150    	; 0xa0 <__bad_interrupt>
+   a:	4a c0       	rjmp	.+148    	; 0xa0 <__bad_interrupt>
+   c:	49 c0       	rjmp	.+146    	; 0xa0 <__bad_interrupt>
+   e:	48 c0       	rjmp	.+144    	; 0xa0 <__bad_interrupt>
+  10:	47 c0       	rjmp	.+142    	; 0xa0 <__bad_interrupt>
+  12:	46 c0       	rjmp	.+140    	; 0xa0 <__bad_interrupt>
+  14:	45 c0       	rjmp	.+138    	; 0xa0 <__bad_interrupt>
+  16:	44 c0       	rjmp	.+136    	; 0xa0 <__bad_interrupt>
+  18:	43 c0       	rjmp	.+134    	; 0xa0 <__bad_interrupt>
+  1a:	42 c0       	rjmp	.+132    	; 0xa0 <__bad_interrupt>
+  1c:	6b c1       	rjmp	.+726    	; 0x2f4 <__vector_14>
+  1e:	40 c0       	rjmp	.+128    	; 0xa0 <__bad_interrupt>
+  20:	3f c0       	rjmp	.+126    	; 0xa0 <__bad_interrupt>
+  22:	3e c0       	rjmp	.+124    	; 0xa0 <__bad_interrupt>
+  24:	3d c0       	rjmp	.+122    	; 0xa0 <__bad_interrupt>
+  26:	3c c0       	rjmp	.+120    	; 0xa0 <__bad_interrupt>
+  28:	3b c0       	rjmp	.+118    	; 0xa0 <__bad_interrupt>
+  2a:	8d c1       	rjmp	.+794    	; 0x346 <__vector_21>
+  2c:	39 c0       	rjmp	.+114    	; 0xa0 <__bad_interrupt>
+  2e:	38 c0       	rjmp	.+112    	; 0xa0 <__bad_interrupt>
+  30:	37 c0       	rjmp	.+110    	; 0xa0 <__bad_interrupt>
+  32:	36 c0       	rjmp	.+108    	; 0xa0 <__bad_interrupt>
+  34:	76 c0       	rjmp	.+236    	; 0x122 <TIMER1A_SETUP+0x68>
+  36:	4e c0       	rjmp	.+156    	; 0xd4 <TIMER1A_SETUP+0x1a>
+  38:	50 c0       	rjmp	.+160    	; 0xda <TIMER1A_SETUP+0x20>
+  3a:	52 c0       	rjmp	.+164    	; 0xe0 <TIMER1A_SETUP+0x26>
+  3c:	54 c0       	rjmp	.+168    	; 0xe6 <TIMER1A_SETUP+0x2c>
+  3e:	56 c0       	rjmp	.+172    	; 0xec <TIMER1A_SETUP+0x32>
+  40:	58 c0       	rjmp	.+176    	; 0xf2 <TIMER1A_SETUP+0x38>
+  42:	5a c0       	rjmp	.+180    	; 0xf8 <TIMER1A_SETUP+0x3e>
+  44:	5c c0       	rjmp	.+184    	; 0xfe <TIMER1A_SETUP+0x44>
+  46:	5e c0       	rjmp	.+188    	; 0x104 <TIMER1A_SETUP+0x4a>
+  48:	60 c0       	rjmp	.+192    	; 0x10a <TIMER1A_SETUP+0x50>
+  4a:	62 c0       	rjmp	.+196    	; 0x110 <TIMER1A_SETUP+0x56>
+  4c:	40 c0       	rjmp	.+128    	; 0xce <TIMER1A_SETUP+0x14>
+  4e:	63 c0       	rjmp	.+198    	; 0x116 <TIMER1A_SETUP+0x5c>
+  50:	65 c0       	rjmp	.+202    	; 0x11c <TIMER1A_SETUP+0x62>
+  52:	9b c0       	rjmp	.+310    	; 0x18a <TIMER1A_SETUP+0xd0>
+  54:	7e c0       	rjmp	.+252    	; 0x152 <TIMER1A_SETUP+0x98>
+  56:	7f c0       	rjmp	.+254    	; 0x156 <TIMER1A_SETUP+0x9c>
+  58:	80 c0       	rjmp	.+256    	; 0x15a <TIMER1A_SETUP+0xa0>
+  5a:	81 c0       	rjmp	.+258    	; 0x15e <TIMER1A_SETUP+0xa4>
+  5c:	82 c0       	rjmp	.+260    	; 0x162 <TIMER1A_SETUP+0xa8>
+  5e:	83 c0       	rjmp	.+262    	; 0x166 <TIMER1A_SETUP+0xac>
+  60:	84 c0       	rjmp	.+264    	; 0x16a <TIMER1A_SETUP+0xb0>
+  62:	85 c0       	rjmp	.+266    	; 0x16e <TIMER1A_SETUP+0xb4>
+  64:	86 c0       	rjmp	.+268    	; 0x172 <TIMER1A_SETUP+0xb8>
+  66:	87 c0       	rjmp	.+270    	; 0x176 <TIMER1A_SETUP+0xbc>
+  68:	88 c0       	rjmp	.+272    	; 0x17a <TIMER1A_SETUP+0xc0>
+  6a:	89 c0       	rjmp	.+274    	; 0x17e <TIMER1A_SETUP+0xc4>
+  6c:	8a c0       	rjmp	.+276    	; 0x182 <TIMER1A_SETUP+0xc8>
+  6e:	8b c0       	rjmp	.+278    	; 0x186 <TIMER1A_SETUP+0xcc>
+  70:	d4 c0       	rjmp	.+424    	; 0x21a <ADC_ENABLE+0x14>
+  72:	d6 c0       	rjmp	.+428    	; 0x220 <ADC_ENABLE+0x1a>
+  74:	d8 c0       	rjmp	.+432    	; 0x226 <ADC_ENABLE+0x20>
+  76:	da c0       	rjmp	.+436    	; 0x22c <ADC_ENABLE+0x26>
+  78:	dc c0       	rjmp	.+440    	; 0x232 <ADC_ENABLE+0x2c>
+  7a:	de c0       	rjmp	.+444    	; 0x238 <ADC_ENABLE+0x32>
+  7c:	cc c0       	rjmp	.+408    	; 0x216 <ADC_ENABLE+0x10>
+  7e:	e1 c0       	rjmp	.+450    	; 0x242 <ADC_ENABLE+0x3c>
+
+00000080 <__ctors_end>:
+  80:	11 24       	eor	r1, r1
+  82:	1f be       	out	0x3f, r1	; 63
+  84:	cf ef       	ldi	r28, 0xFF	; 255
+  86:	d4 e0       	ldi	r29, 0x04	; 4
+  88:	de bf       	out	0x3e, r29	; 62
+  8a:	cd bf       	out	0x3d, r28	; 61
+
+0000008c <__do_clear_bss>:
+  8c:	21 e0       	ldi	r18, 0x01	; 1
+  8e:	a0 e0       	ldi	r26, 0x00	; 0
+  90:	b1 e0       	ldi	r27, 0x01	; 1
+  92:	01 c0       	rjmp	.+2      	; 0x96 <.do_clear_bss_start>
+
+00000094 <.do_clear_bss_loop>:
+  94:	1d 92       	st	X+, r1
+
+00000096 <.do_clear_bss_start>:
+  96:	a4 30       	cpi	r26, 0x04	; 4
+  98:	b2 07       	cpc	r27, r18
+  9a:	e1 f7       	brne	.-8      	; 0x94 <.do_clear_bss_loop>
+  9c:	11 d1       	rcall	.+546    	; 0x2c0 <main>
+  9e:	81 c1       	rjmp	.+770    	; 0x3a2 <_exit>
+
+000000a0 <__bad_interrupt>:
+  a0:	af cf       	rjmp	.-162    	; 0x0 <__vectors>
+
+000000a2 <TIMER0ASETUP>:
+void PORTINIT(void)
+{
+}
+/*********************************************************************************************/
+void TIMER0ASETUP(void){
+	DDRD=(1<<PORTD6);
+  a2:	80 e4       	ldi	r24, 0x40	; 64
+  a4:	8a b9       	out	0x0a, r24	; 10
+	/***T=10ms***/
+	TCCR0A=(1<<WGM01); //|(1<<WGM00); CTC
+  a6:	82 e0       	ldi	r24, 0x02	; 2
+  a8:	84 bd       	out	0x24, r24	; 36
+	TIMSK0=(1<<OCIE0A); // OCR0A interrupção ativada;
+  aa:	80 93 6e 00 	sts	0x006E, r24
+	OCR0A=156; // 10ms implica OCR0A=156
+  ae:	8c e9       	ldi	r24, 0x9C	; 156
+  b0:	87 bd       	out	0x27, r24	; 39
+	TCCR0B|=(1<<CS02); //|(1<<CS01); // N=256 e inicia contador
+  b2:	85 b5       	in	r24, 0x25	; 37
+  b4:	84 60       	ori	r24, 0x04	; 4
+  b6:	85 bd       	out	0x25, r24	; 37
+  b8:	08 95       	ret
+
+000000ba <TIMER1A_SETUP>:
+}
+/*********************************************************************************************/
+void TIMER1A_SETUP(uint8_t wavegenmode, uint8_t compoutAmode,uint8_t interruptmask)
+{
+  ba:	26 2f       	mov	r18, r22
+	uint8_t TCCR1A_tmp=0x00;
+	uint8_t TCCR1B_tmp=0x00;
+	uint8_t TIMSK1_tmp=0x00;
+	switch(wavegenmode){
+  bc:	90 e0       	ldi	r25, 0x00	; 0
+  be:	fc 01       	movw	r30, r24
+  c0:	31 97       	sbiw	r30, 0x01	; 1
+  c2:	ef 30       	cpi	r30, 0x0F	; 15
+  c4:	f1 05       	cpc	r31, r1
+  c6:	18 f4       	brcc	.+6      	; 0xce <TIMER1A_SETUP+0x14>
+  c8:	e6 5e       	subi	r30, 0xE6	; 230
+  ca:	ff 4f       	sbci	r31, 0xFF	; 255
+  cc:	09 94       	ijmp
+}
+/*********************************************************************************************/
+void TIMER1A_SETUP(uint8_t wavegenmode, uint8_t compoutAmode,uint8_t interruptmask)
+{
+	uint8_t TCCR1A_tmp=0x00;
+	uint8_t TCCR1B_tmp=0x00;
+  ce:	30 e0       	ldi	r19, 0x00	; 0
+	TCCR0B|=(1<<CS02); //|(1<<CS01); // N=256 e inicia contador
+}
+/*********************************************************************************************/
+void TIMER1A_SETUP(uint8_t wavegenmode, uint8_t compoutAmode,uint8_t interruptmask)
+{
+	uint8_t TCCR1A_tmp=0x00;
+  d0:	80 e0       	ldi	r24, 0x00	; 0
+  d2:	29 c0       	rjmp	.+82     	; 0x126 <TIMER1A_SETUP+0x6c>
+	uint8_t TCCR1B_tmp=0x00;
+  d4:	30 e0       	ldi	r19, 0x00	; 0
+			break;
+		case 1:
+			TCCR1A_tmp=(1<<WGM10);
+			break;
+		case 2:
+			TCCR1A_tmp=(1<<WGM11);
+  d6:	82 e0       	ldi	r24, 0x02	; 2
+			break;
+  d8:	26 c0       	rjmp	.+76     	; 0x126 <TIMER1A_SETUP+0x6c>
+}
+/*********************************************************************************************/
+void TIMER1A_SETUP(uint8_t wavegenmode, uint8_t compoutAmode,uint8_t interruptmask)
+{
+	uint8_t TCCR1A_tmp=0x00;
+	uint8_t TCCR1B_tmp=0x00;
+  da:	30 e0       	ldi	r19, 0x00	; 0
+			break;
+		case 2:
+			TCCR1A_tmp=(1<<WGM11);
+			break;
+		case 3:
+			TCCR1A_tmp=(3<<WGM10);
+  dc:	83 e0       	ldi	r24, 0x03	; 3
+			break;
+  de:	23 c0       	rjmp	.+70     	; 0x126 <TIMER1A_SETUP+0x6c>
+		case 4:
+			TCCR1B_tmp=(1<<WGM12);
+  e0:	38 e0       	ldi	r19, 0x08	; 8
+	TCCR0B|=(1<<CS02); //|(1<<CS01); // N=256 e inicia contador
+}
+/*********************************************************************************************/
+void TIMER1A_SETUP(uint8_t wavegenmode, uint8_t compoutAmode,uint8_t interruptmask)
+{
+	uint8_t TCCR1A_tmp=0x00;
+  e2:	80 e0       	ldi	r24, 0x00	; 0
+		case 3:
+			TCCR1A_tmp=(3<<WGM10);
+			break;
+		case 4:
+			TCCR1B_tmp=(1<<WGM12);
+			break;
+  e4:	20 c0       	rjmp	.+64     	; 0x126 <TIMER1A_SETUP+0x6c>
+		case 5:
+			TCCR1A_tmp=(1<<WGM10);
+			TCCR1B_tmp=(1<<WGM12);
+  e6:	38 e0       	ldi	r19, 0x08	; 8
+			break;
+		case 4:
+			TCCR1B_tmp=(1<<WGM12);
+			break;
+		case 5:
+			TCCR1A_tmp=(1<<WGM10);
+  e8:	81 e0       	ldi	r24, 0x01	; 1
+			TCCR1B_tmp=(1<<WGM12);
+			break;
+  ea:	1d c0       	rjmp	.+58     	; 0x126 <TIMER1A_SETUP+0x6c>
+		case 6:
+			TCCR1A_tmp=(1<<WGM11);
+			TCCR1B_tmp=(1<<WGM12);
+  ec:	38 e0       	ldi	r19, 0x08	; 8
+		case 5:
+			TCCR1A_tmp=(1<<WGM10);
+			TCCR1B_tmp=(1<<WGM12);
+			break;
+		case 6:
+			TCCR1A_tmp=(1<<WGM11);
+  ee:	82 e0       	ldi	r24, 0x02	; 2
+			TCCR1B_tmp=(1<<WGM12);
+			break;
+  f0:	1a c0       	rjmp	.+52     	; 0x126 <TIMER1A_SETUP+0x6c>
+		case 7:
+			TCCR1A_tmp=(3<<WGM10);
+			TCCR1B_tmp=(1<<WGM12);
+  f2:	38 e0       	ldi	r19, 0x08	; 8
+		case 6:
+			TCCR1A_tmp=(1<<WGM11);
+			TCCR1B_tmp=(1<<WGM12);
+			break;
+		case 7:
+			TCCR1A_tmp=(3<<WGM10);
+  f4:	83 e0       	ldi	r24, 0x03	; 3
+			TCCR1B_tmp=(1<<WGM12);
+			break;
+  f6:	17 c0       	rjmp	.+46     	; 0x126 <TIMER1A_SETUP+0x6c>
+		case 8:
+			TCCR1B_tmp=(1<<WGM13);
+  f8:	30 e1       	ldi	r19, 0x10	; 16
+	TCCR0B|=(1<<CS02); //|(1<<CS01); // N=256 e inicia contador
+}
+/*********************************************************************************************/
+void TIMER1A_SETUP(uint8_t wavegenmode, uint8_t compoutAmode,uint8_t interruptmask)
+{
+	uint8_t TCCR1A_tmp=0x00;
+  fa:	80 e0       	ldi	r24, 0x00	; 0
+			TCCR1A_tmp=(3<<WGM10);
+			TCCR1B_tmp=(1<<WGM12);
+			break;
+		case 8:
+			TCCR1B_tmp=(1<<WGM13);
+			break;
+  fc:	14 c0       	rjmp	.+40     	; 0x126 <TIMER1A_SETUP+0x6c>
+		case 9:
+			TCCR1A_tmp=(1<<WGM10);
+			TCCR1B_tmp=(1<<WGM13);
+  fe:	30 e1       	ldi	r19, 0x10	; 16
+			break;
+		case 8:
+			TCCR1B_tmp=(1<<WGM13);
+			break;
+		case 9:
+			TCCR1A_tmp=(1<<WGM10);
+ 100:	81 e0       	ldi	r24, 0x01	; 1
+			TCCR1B_tmp=(1<<WGM13);
+			break;
+ 102:	11 c0       	rjmp	.+34     	; 0x126 <TIMER1A_SETUP+0x6c>
+		case 10:
+			TCCR1A_tmp=(1<<WGM11);
+			TCCR1B_tmp=(1<<WGM13);
+ 104:	30 e1       	ldi	r19, 0x10	; 16
+		case 9:
+			TCCR1A_tmp=(1<<WGM10);
+			TCCR1B_tmp=(1<<WGM13);
+			break;
+		case 10:
+			TCCR1A_tmp=(1<<WGM11);
+ 106:	82 e0       	ldi	r24, 0x02	; 2
+			TCCR1B_tmp=(1<<WGM13);
+			break;
+ 108:	0e c0       	rjmp	.+28     	; 0x126 <TIMER1A_SETUP+0x6c>
+		case 11:
+			TCCR1A_tmp=(3<<WGM10);
+			TCCR1B_tmp=(1<<WGM13);
+ 10a:	30 e1       	ldi	r19, 0x10	; 16
+		case 10:
+			TCCR1A_tmp=(1<<WGM11);
+			TCCR1B_tmp=(1<<WGM13);
+			break;
+		case 11:
+			TCCR1A_tmp=(3<<WGM10);
+ 10c:	83 e0       	ldi	r24, 0x03	; 3
+			TCCR1B_tmp=(1<<WGM13);
+			break;
+ 10e:	0b c0       	rjmp	.+22     	; 0x126 <TIMER1A_SETUP+0x6c>
+		case 12:
+			TCCR1B_tmp=(3<<WGM12);
+ 110:	38 e1       	ldi	r19, 0x18	; 24
+	TCCR0B|=(1<<CS02); //|(1<<CS01); // N=256 e inicia contador
+}
+/*********************************************************************************************/
+void TIMER1A_SETUP(uint8_t wavegenmode, uint8_t compoutAmode,uint8_t interruptmask)
+{
+	uint8_t TCCR1A_tmp=0x00;
+ 112:	80 e0       	ldi	r24, 0x00	; 0
+			TCCR1A_tmp=(3<<WGM10);
+			TCCR1B_tmp=(1<<WGM13);
+			break;
+		case 12:
+			TCCR1B_tmp=(3<<WGM12);
+			break;
+ 114:	08 c0       	rjmp	.+16     	; 0x126 <TIMER1A_SETUP+0x6c>
+		case 14:
+			TCCR1A_tmp=(1<<WGM11);
+			TCCR1B_tmp=(3<<WGM12);
+ 116:	38 e1       	ldi	r19, 0x18	; 24
+			break;
+		case 12:
+			TCCR1B_tmp=(3<<WGM12);
+			break;
+		case 14:
+			TCCR1A_tmp=(1<<WGM11);
+ 118:	82 e0       	ldi	r24, 0x02	; 2
+			TCCR1B_tmp=(3<<WGM12);
+			break;
+ 11a:	05 c0       	rjmp	.+10     	; 0x126 <TIMER1A_SETUP+0x6c>
+		case 15:
+			TCCR1A_tmp=(3<<WGM10);
+			TCCR1B_tmp=(3<<WGM12);
+ 11c:	38 e1       	ldi	r19, 0x18	; 24
+		case 14:
+			TCCR1A_tmp=(1<<WGM11);
+			TCCR1B_tmp=(3<<WGM12);
+			break;
+		case 15:
+			TCCR1A_tmp=(3<<WGM10);
+ 11e:	83 e0       	ldi	r24, 0x03	; 3
+			TCCR1B_tmp=(3<<WGM12);
+			break;
+ 120:	02 c0       	rjmp	.+4      	; 0x126 <TIMER1A_SETUP+0x6c>
+}
+/*********************************************************************************************/
+void TIMER1A_SETUP(uint8_t wavegenmode, uint8_t compoutAmode,uint8_t interruptmask)
+{
+	uint8_t TCCR1A_tmp=0x00;
+	uint8_t TCCR1B_tmp=0x00;
+ 122:	30 e0       	ldi	r19, 0x00	; 0
+	uint8_t TIMSK1_tmp=0x00;
+	switch(wavegenmode){
+		case 0:
+			break;
+		case 1:
+			TCCR1A_tmp=(1<<WGM10);
+ 124:	81 e0       	ldi	r24, 0x01	; 1
+			TCCR1B_tmp=(3<<WGM12);
+			break;
+		default:
+			break;
+	};
+	switch(compoutAmode){
+ 126:	22 30       	cpi	r18, 0x02	; 2
+ 128:	31 f0       	breq	.+12     	; 0x136 <TIMER1A_SETUP+0x7c>
+ 12a:	23 30       	cpi	r18, 0x03	; 3
+ 12c:	31 f0       	breq	.+12     	; 0x13a <TIMER1A_SETUP+0x80>
+ 12e:	21 30       	cpi	r18, 0x01	; 1
+ 130:	29 f4       	brne	.+10     	; 0x13c <TIMER1A_SETUP+0x82>
+		case 0:
+			break;
+		case 1:
+			TCCR1A_tmp|=(1<<COM1A0);
+ 132:	80 64       	ori	r24, 0x40	; 64
+			break;
+ 134:	03 c0       	rjmp	.+6      	; 0x13c <TIMER1A_SETUP+0x82>
+		case 2:
+			TCCR1A_tmp|=(1<<COM1A1);
+ 136:	80 68       	ori	r24, 0x80	; 128
+			break;
+ 138:	01 c0       	rjmp	.+2      	; 0x13c <TIMER1A_SETUP+0x82>
+		case 3:
+			TCCR1A_tmp|=(3<<COM1A0);
+ 13a:	80 6c       	ori	r24, 0xC0	; 192
+			break;
+		default:
+			break;
+	};
+	switch(interruptmask){
+ 13c:	50 e0       	ldi	r21, 0x00	; 0
+ 13e:	fa 01       	movw	r30, r20
+ 140:	31 97       	sbiw	r30, 0x01	; 1
+ 142:	ef 30       	cpi	r30, 0x0F	; 15
+ 144:	f1 05       	cpc	r31, r1
+ 146:	18 f4       	brcc	.+6      	; 0x14e <TIMER1A_SETUP+0x94>
+ 148:	e7 5d       	subi	r30, 0xD7	; 215
+ 14a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 14c:	09 94       	ijmp
+/*********************************************************************************************/
+void TIMER1A_SETUP(uint8_t wavegenmode, uint8_t compoutAmode,uint8_t interruptmask)
+{
+	uint8_t TCCR1A_tmp=0x00;
+	uint8_t TCCR1B_tmp=0x00;
+	uint8_t TIMSK1_tmp=0x00;
+ 14e:	90 e0       	ldi	r25, 0x00	; 0
+ 150:	1d c0       	rjmp	.+58     	; 0x18c <TIMER1A_SETUP+0xd2>
+			break;
+		case 1:
+			TIMSK1_tmp=(1<<TOIE1);
+			break;
+		case 2:
+			TIMSK1_tmp=(1<<OCIE1A);
+ 152:	92 e0       	ldi	r25, 0x02	; 2
+			break;
+ 154:	1b c0       	rjmp	.+54     	; 0x18c <TIMER1A_SETUP+0xd2>
+		case 3:
+			TIMSK1_tmp=(3<<TOIE1);
+ 156:	93 e0       	ldi	r25, 0x03	; 3
+			break;
+ 158:	19 c0       	rjmp	.+50     	; 0x18c <TIMER1A_SETUP+0xd2>
+		case 4:
+			TIMSK1_tmp=(1<<OCIE1B);
+ 15a:	94 e0       	ldi	r25, 0x04	; 4
+			break;
+ 15c:	17 c0       	rjmp	.+46     	; 0x18c <TIMER1A_SETUP+0xd2>
+		case 5:
+			TIMSK1_tmp=((1<<OCIE1B)|(1<<TOIE1));
+ 15e:	95 e0       	ldi	r25, 0x05	; 5
+			break;
+ 160:	15 c0       	rjmp	.+42     	; 0x18c <TIMER1A_SETUP+0xd2>
+		case 6:
+			TIMSK1_tmp=((3<<OCIE1A));
+ 162:	96 e0       	ldi	r25, 0x06	; 6
+			break;
+ 164:	13 c0       	rjmp	.+38     	; 0x18c <TIMER1A_SETUP+0xd2>
+		case 7:
+			TIMSK1_tmp=(7<<TOIE1);
+ 166:	97 e0       	ldi	r25, 0x07	; 7
+			break;
+ 168:	11 c0       	rjmp	.+34     	; 0x18c <TIMER1A_SETUP+0xd2>
+		case 8:
+			TIMSK1_tmp=(1<<ICIE1);
+ 16a:	90 e2       	ldi	r25, 0x20	; 32
+			break;
+ 16c:	0f c0       	rjmp	.+30     	; 0x18c <TIMER1A_SETUP+0xd2>
+		case 9:
+			TIMSK1_tmp=((1<<ICIE1)|(1<<TOIE1));
+ 16e:	91 e2       	ldi	r25, 0x21	; 33
+			break;
+ 170:	0d c0       	rjmp	.+26     	; 0x18c <TIMER1A_SETUP+0xd2>
+		case 10:
+			TIMSK1_tmp=((1<<ICIE1)|(1<<OCIE1A));
+ 172:	92 e2       	ldi	r25, 0x22	; 34
+			break;
+ 174:	0b c0       	rjmp	.+22     	; 0x18c <TIMER1A_SETUP+0xd2>
+		case 11:
+			TIMSK1_tmp=((1<<ICIE1)|(3<<TOIE1));
+ 176:	93 e2       	ldi	r25, 0x23	; 35
+			break;
+ 178:	09 c0       	rjmp	.+18     	; 0x18c <TIMER1A_SETUP+0xd2>
+		case 12:
+			TIMSK1_tmp=((1<<ICIE1)|(1<<OCIE1B));
+ 17a:	94 e2       	ldi	r25, 0x24	; 36
+			break;
+ 17c:	07 c0       	rjmp	.+14     	; 0x18c <TIMER1A_SETUP+0xd2>
+		case 13:
+			TIMSK1_tmp=((1<<ICIE1)|(1<<OCIE1B)|(1<<TOIE1));
+ 17e:	95 e2       	ldi	r25, 0x25	; 37
+			break;
+ 180:	05 c0       	rjmp	.+10     	; 0x18c <TIMER1A_SETUP+0xd2>
+		case 14:
+			TIMSK1_tmp=((1<<ICIE1)|(3<<OCIE1A));
+ 182:	96 e2       	ldi	r25, 0x26	; 38
+			break;
+ 184:	03 c0       	rjmp	.+6      	; 0x18c <TIMER1A_SETUP+0xd2>
+		case 15:
+			TIMSK1_tmp=((1<<ICIE1)|(7<<TOIE1));
+ 186:	97 e2       	ldi	r25, 0x27	; 39
+			break;
+ 188:	01 c0       	rjmp	.+2      	; 0x18c <TIMER1A_SETUP+0xd2>
+	};
+	switch(interruptmask){
+		case 0:
+			break;
+		case 1:
+			TIMSK1_tmp=(1<<TOIE1);
+ 18a:	91 e0       	ldi	r25, 0x01	; 1
+			TIMSK1_tmp=((1<<ICIE1)|(7<<TOIE1));
+			break;
+		default:
+			break;
+	};
+	TCCR1A=TCCR1A_tmp;
+ 18c:	80 93 80 00 	sts	0x0080, r24
+	TCCR1B=TCCR1B_tmp;
+ 190:	30 93 81 00 	sts	0x0081, r19
+	if(compoutAmode){
+ 194:	21 11       	cpse	r18, r1
+		DDRB|=(1<<PB1);
+ 196:	21 9a       	sbi	0x04, 1	; 4
+	}
+	TIMSK1=TIMSK1_tmp;
+ 198:	90 93 6f 00 	sts	0x006F, r25
+ 19c:	08 95       	ret
+
+0000019e <TIMER1A_STARTSTOP>:
+}
+void TIMER1A_STARTSTOP(uint16_t prescaler)
+{
+	uint8_t TCCR1B_tmp=0x00;
+	switch(prescaler){
+ 19e:	83 30       	cpi	r24, 0x03	; 3
+ 1a0:	91 05       	cpc	r25, r1
+ 1a2:	31 f1       	breq	.+76     	; 0x1f0 <TIMER1A_STARTSTOP+0x52>
+ 1a4:	28 f4       	brcc	.+10     	; 0x1b0 <TIMER1A_STARTSTOP+0x12>
+ 1a6:	81 30       	cpi	r24, 0x01	; 1
+ 1a8:	91 05       	cpc	r25, r1
+ 1aa:	89 f0       	breq	.+34     	; 0x1ce <TIMER1A_STARTSTOP+0x30>
+ 1ac:	90 f0       	brcs	.+36     	; 0x1d2 <TIMER1A_STARTSTOP+0x34>
+ 1ae:	1e c0       	rjmp	.+60     	; 0x1ec <TIMER1A_STARTSTOP+0x4e>
+ 1b0:	80 34       	cpi	r24, 0x40	; 64
+ 1b2:	91 05       	cpc	r25, r1
+ 1b4:	a9 f0       	breq	.+42     	; 0x1e0 <TIMER1A_STARTSTOP+0x42>
+ 1b6:	18 f4       	brcc	.+6      	; 0x1be <TIMER1A_STARTSTOP+0x20>
+ 1b8:	08 97       	sbiw	r24, 0x08	; 8
+ 1ba:	f1 f0       	breq	.+60     	; 0x1f8 <TIMER1A_STARTSTOP+0x5a>
+ 1bc:	1b c0       	rjmp	.+54     	; 0x1f4 <TIMER1A_STARTSTOP+0x56>
+ 1be:	81 15       	cp	r24, r1
+ 1c0:	21 e0       	ldi	r18, 0x01	; 1
+ 1c2:	92 07       	cpc	r25, r18
+ 1c4:	79 f0       	breq	.+30     	; 0x1e4 <TIMER1A_STARTSTOP+0x46>
+ 1c6:	81 15       	cp	r24, r1
+ 1c8:	94 40       	sbci	r25, 0x04	; 4
+ 1ca:	71 f0       	breq	.+28     	; 0x1e8 <TIMER1A_STARTSTOP+0x4a>
+ 1cc:	13 c0       	rjmp	.+38     	; 0x1f4 <TIMER1A_STARTSTOP+0x56>
+		case 0:
+			TCCR1B&=~((1<<CS12)|(1<<CS11)|(1<<CS10));
+			break;
+		case 1:
+			TCCR1B_tmp=(1<<CS10);
+ 1ce:	91 e0       	ldi	r25, 0x01	; 1
+ 1d0:	14 c0       	rjmp	.+40     	; 0x1fa <TIMER1A_STARTSTOP+0x5c>
+void TIMER1A_STARTSTOP(uint16_t prescaler)
+{
+	uint8_t TCCR1B_tmp=0x00;
+	switch(prescaler){
+		case 0:
+			TCCR1B&=~((1<<CS12)|(1<<CS11)|(1<<CS10));
+ 1d2:	e1 e8       	ldi	r30, 0x81	; 129
+ 1d4:	f0 e0       	ldi	r31, 0x00	; 0
+ 1d6:	80 81       	ld	r24, Z
+ 1d8:	88 7f       	andi	r24, 0xF8	; 248
+ 1da:	80 83       	st	Z, r24
+	}
+	TIMSK1=TIMSK1_tmp;
+}
+void TIMER1A_STARTSTOP(uint16_t prescaler)
+{
+	uint8_t TCCR1B_tmp=0x00;
+ 1dc:	90 e0       	ldi	r25, 0x00	; 0
+	switch(prescaler){
+		case 0:
+			TCCR1B&=~((1<<CS12)|(1<<CS11)|(1<<CS10));
+			break;
+ 1de:	0d c0       	rjmp	.+26     	; 0x1fa <TIMER1A_STARTSTOP+0x5c>
+			break;
+		case 8:
+			TCCR1B_tmp=(1<<CS11);
+			break;
+		case 64:
+			TCCR1B_tmp=(3<<CS10);
+ 1e0:	93 e0       	ldi	r25, 0x03	; 3
+			break;
+ 1e2:	0b c0       	rjmp	.+22     	; 0x1fa <TIMER1A_STARTSTOP+0x5c>
+		case 256:
+			TCCR1B_tmp=(1<<CS12);
+ 1e4:	94 e0       	ldi	r25, 0x04	; 4
+			break;
+ 1e6:	09 c0       	rjmp	.+18     	; 0x1fa <TIMER1A_STARTSTOP+0x5c>
+		case 1024:
+			TCCR1B_tmp=((1<<CS12)|(1<<CS10));
+ 1e8:	95 e0       	ldi	r25, 0x05	; 5
+			break;
+ 1ea:	07 c0       	rjmp	.+14     	; 0x1fa <TIMER1A_STARTSTOP+0x5c>
+		case 2:
+			TCCR1B_tmp=(3<<CS11);
+ 1ec:	96 e0       	ldi	r25, 0x06	; 6
+			break;
+ 1ee:	05 c0       	rjmp	.+10     	; 0x1fa <TIMER1A_STARTSTOP+0x5c>
+		case 3:
+			TCCR1B_tmp=((1<<CS12)|(1<<CS10));
+ 1f0:	95 e0       	ldi	r25, 0x05	; 5
+			break;
+ 1f2:	03 c0       	rjmp	.+6      	; 0x1fa <TIMER1A_STARTSTOP+0x5c>
+		default:
+			TCCR1B_tmp=(7<<CS10);
+ 1f4:	97 e0       	ldi	r25, 0x07	; 7
+ 1f6:	01 c0       	rjmp	.+2      	; 0x1fa <TIMER1A_STARTSTOP+0x5c>
+			break;
+		case 1:
+			TCCR1B_tmp=(1<<CS10);
+			break;
+		case 8:
+			TCCR1B_tmp=(1<<CS11);
+ 1f8:	92 e0       	ldi	r25, 0x02	; 2
+			TCCR1B_tmp=((1<<CS12)|(1<<CS10));
+			break;
+		default:
+			TCCR1B_tmp=(7<<CS10);
+	}
+	TCCR1B|=TCCR1B_tmp;
+ 1fa:	e1 e8       	ldi	r30, 0x81	; 129
+ 1fc:	f0 e0       	ldi	r31, 0x00	; 0
+ 1fe:	80 81       	ld	r24, Z
+ 200:	89 2b       	or	r24, r25
+ 202:	80 83       	st	Z, r24
+ 204:	08 95       	ret
+
+00000206 <ADC_ENABLE>:
+/********************************************************************************************/
+void ADC_ENABLE(uint8_t ADC_channel, uint8_t ADC_Vref, uint8_t ADC_lar, uint8_t ADC_Div)
+{
+	uint8_t ADMUX_tmp;
+	uint8_t ADCSRA_tmp;
+	switch(ADC_channel){
+ 206:	90 e0       	ldi	r25, 0x00	; 0
+ 208:	88 30       	cpi	r24, 0x08	; 8
+ 20a:	91 05       	cpc	r25, r1
+ 20c:	c0 f4       	brcc	.+48     	; 0x23e <ADC_ENABLE+0x38>
+ 20e:	fc 01       	movw	r30, r24
+ 210:	e8 5c       	subi	r30, 0xC8	; 200
+ 212:	ff 4f       	sbci	r31, 0xFF	; 255
+ 214:	09 94       	ijmp
+		case 5:
+			DDRC&=~(1<<PC5);
+			ADMUX_tmp=0x05;
+			break;
+		case 6:
+			ADMUX_tmp=0x06;
+ 216:	86 e0       	ldi	r24, 0x06	; 6
+ 218:	15 c0       	rjmp	.+42     	; 0x244 <ADC_ENABLE+0x3e>
+{
+	uint8_t ADMUX_tmp;
+	uint8_t ADCSRA_tmp;
+	switch(ADC_channel){
+		case 0:
+			DDRC&=~(1<<PC0);
+ 21a:	38 98       	cbi	0x07, 0	; 7
+			ADMUX_tmp=0x00;
+ 21c:	80 e0       	ldi	r24, 0x00	; 0
+			break;
+ 21e:	12 c0       	rjmp	.+36     	; 0x244 <ADC_ENABLE+0x3e>
+		case 1:
+			DDRC&=~(1<<PC1);
+ 220:	39 98       	cbi	0x07, 1	; 7
+			ADMUX_tmp=0x01;
+ 222:	81 e0       	ldi	r24, 0x01	; 1
+			break;
+ 224:	0f c0       	rjmp	.+30     	; 0x244 <ADC_ENABLE+0x3e>
+		case 2:
+			DDRC&=~(1<<PC2);
+ 226:	3a 98       	cbi	0x07, 2	; 7
+			ADMUX_tmp=0x02;
+ 228:	82 e0       	ldi	r24, 0x02	; 2
+			break;
+ 22a:	0c c0       	rjmp	.+24     	; 0x244 <ADC_ENABLE+0x3e>
+		case 3:
+			DDRC&=~(1<<PC3);
+ 22c:	3b 98       	cbi	0x07, 3	; 7
+			ADMUX_tmp=0x03;
+ 22e:	83 e0       	ldi	r24, 0x03	; 3
+			break;
+ 230:	09 c0       	rjmp	.+18     	; 0x244 <ADC_ENABLE+0x3e>
+		case 4:
+			DDRC&=~(1<<PC4);
+ 232:	3c 98       	cbi	0x07, 4	; 7
+			ADMUX_tmp=0x04;
+ 234:	84 e0       	ldi	r24, 0x04	; 4
+			break;
+ 236:	06 c0       	rjmp	.+12     	; 0x244 <ADC_ENABLE+0x3e>
+		case 5:
+			DDRC&=~(1<<PC5);
+ 238:	3d 98       	cbi	0x07, 5	; 7
+			ADMUX_tmp=0x05;
+ 23a:	85 e0       	ldi	r24, 0x05	; 5
+			break;
+ 23c:	03 c0       	rjmp	.+6      	; 0x244 <ADC_ENABLE+0x3e>
+			break;
+		case 7:
+			ADMUX_tmp=0x07;
+			break;
+		default:
+		ADMUX_tmp=0x00;
+ 23e:	80 e0       	ldi	r24, 0x00	; 0
+ 240:	01 c0       	rjmp	.+2      	; 0x244 <ADC_ENABLE+0x3e>
+			break;
+		case 6:
+			ADMUX_tmp=0x06;
+			break;
+		case 7:
+			ADMUX_tmp=0x07;
+ 242:	87 e0       	ldi	r24, 0x07	; 7
+			break;
+		default:
+		ADMUX_tmp=0x00;
+	};
+	switch(ADC_Vref){
+ 244:	61 30       	cpi	r22, 0x01	; 1
+ 246:	21 f0       	breq	.+8      	; 0x250 <ADC_ENABLE+0x4a>
+ 248:	40 f0       	brcs	.+16     	; 0x25a <ADC_ENABLE+0x54>
+ 24a:	63 30       	cpi	r22, 0x03	; 3
+ 24c:	19 f0       	breq	.+6      	; 0x254 <ADC_ENABLE+0x4e>
+ 24e:	04 c0       	rjmp	.+8      	; 0x258 <ADC_ENABLE+0x52>
+		case 0:
+			break;
+		case 1:
+			ADMUX_tmp|=(1<<REFS0);
+ 250:	80 64       	ori	r24, 0x40	; 64
+			break;
+ 252:	03 c0       	rjmp	.+6      	; 0x25a <ADC_ENABLE+0x54>
+		case 3:
+			ADMUX_tmp|=(3<<REFS0);
+ 254:	80 6c       	ori	r24, 0xC0	; 192
+			break;
+ 256:	01 c0       	rjmp	.+2      	; 0x25a <ADC_ENABLE+0x54>
+		default:
+			ADMUX_tmp|=(1<<REFS0);
+ 258:	80 64       	ori	r24, 0x40	; 64
+	};
+	switch(ADC_lar){
+ 25a:	41 30       	cpi	r20, 0x01	; 1
+ 25c:	09 f4       	brne	.+2      	; 0x260 <ADC_ENABLE+0x5a>
+		case 0:
+			break;
+		case 1:
+			ADMUX_tmp|=(1<<ADLAR);
+ 25e:	80 62       	ori	r24, 0x20	; 32
+			break;
+		default:
+			break;
+	};
+	switch(ADC_Div){
+ 260:	28 30       	cpi	r18, 0x08	; 8
+ 262:	a9 f0       	breq	.+42     	; 0x28e <ADC_ENABLE+0x88>
+ 264:	38 f4       	brcc	.+14     	; 0x274 <ADC_ENABLE+0x6e>
+ 266:	21 30       	cpi	r18, 0x01	; 1
+ 268:	e0 f0       	brcs	.+56     	; 0x2a2 <ADC_ENABLE+0x9c>
+ 26a:	23 30       	cpi	r18, 0x03	; 3
+ 26c:	70 f0       	brcs	.+28     	; 0x28a <ADC_ENABLE+0x84>
+ 26e:	24 30       	cpi	r18, 0x04	; 4
+ 270:	d1 f0       	breq	.+52     	; 0x2a6 <ADC_ENABLE+0xa0>
+ 272:	17 c0       	rjmp	.+46     	; 0x2a2 <ADC_ENABLE+0x9c>
+ 274:	20 32       	cpi	r18, 0x20	; 32
+ 276:	79 f0       	breq	.+30     	; 0x296 <ADC_ENABLE+0x90>
+ 278:	18 f4       	brcc	.+6      	; 0x280 <ADC_ENABLE+0x7a>
+ 27a:	20 31       	cpi	r18, 0x10	; 16
+ 27c:	51 f0       	breq	.+20     	; 0x292 <ADC_ENABLE+0x8c>
+ 27e:	11 c0       	rjmp	.+34     	; 0x2a2 <ADC_ENABLE+0x9c>
+ 280:	20 34       	cpi	r18, 0x40	; 64
+ 282:	59 f0       	breq	.+22     	; 0x29a <ADC_ENABLE+0x94>
+ 284:	20 38       	cpi	r18, 0x80	; 128
+ 286:	59 f0       	breq	.+22     	; 0x29e <ADC_ENABLE+0x98>
+ 288:	0c c0       	rjmp	.+24     	; 0x2a2 <ADC_ENABLE+0x9c>
+		case 1:
+			ADCSRA_tmp=(1<<ADPS0);
+ 28a:	91 e0       	ldi	r25, 0x01	; 1
+ 28c:	0d c0       	rjmp	.+26     	; 0x2a8 <ADC_ENABLE+0xa2>
+			break;
+		case 4:
+			ADCSRA_tmp=(1<<ADPS1);
+			break;
+		case 8:
+			ADCSRA_tmp=(3<<ADPS0);
+ 28e:	93 e0       	ldi	r25, 0x03	; 3
+			break;
+ 290:	0b c0       	rjmp	.+22     	; 0x2a8 <ADC_ENABLE+0xa2>
+		case 16:
+			ADCSRA_tmp=(1<<ADPS2);
+ 292:	94 e0       	ldi	r25, 0x04	; 4
+			break;
+ 294:	09 c0       	rjmp	.+18     	; 0x2a8 <ADC_ENABLE+0xa2>
+		case 32:
+			ADCSRA_tmp=(5<<ADPS0);
+ 296:	95 e0       	ldi	r25, 0x05	; 5
+			break;
+ 298:	07 c0       	rjmp	.+14     	; 0x2a8 <ADC_ENABLE+0xa2>
+		case 64:
+			ADCSRA_tmp=(3<<ADPS1);
+ 29a:	96 e0       	ldi	r25, 0x06	; 6
+			break;
+ 29c:	05 c0       	rjmp	.+10     	; 0x2a8 <ADC_ENABLE+0xa2>
+		case 128:
+			ADCSRA_tmp=(7<<ADPS0);
+ 29e:	97 e0       	ldi	r25, 0x07	; 7
+			break;
+ 2a0:	03 c0       	rjmp	.+6      	; 0x2a8 <ADC_ENABLE+0xa2>
+		default:
+			ADCSRA_tmp=(7<<ADPS0);
+ 2a2:	97 e0       	ldi	r25, 0x07	; 7
+			break;
+ 2a4:	01 c0       	rjmp	.+2      	; 0x2a8 <ADC_ENABLE+0xa2>
+			break;
+		case 2:
+			ADCSRA_tmp=(1<<ADPS0);
+			break;
+		case 4:
+			ADCSRA_tmp=(1<<ADPS1);
+ 2a6:	92 e0       	ldi	r25, 0x02	; 2
+			break;
+		default:
+			ADCSRA_tmp=(7<<ADPS0);
+			break;
+	};
+	ADMUX=ADMUX_tmp;
+ 2a8:	80 93 7c 00 	sts	0x007C, r24
+	ADCSRA_tmp|=(1<<ADIE);
+	ADCSRA_tmp|=(1<<ADEN);
+	ADCSRA_tmp|=(1<<ADSC);
+	ADCSRA_tmp|=(1<<ADATE);
+ 2ac:	98 6e       	ori	r25, 0xE8	; 232
+	ADCSRA=ADCSRA_tmp;
+ 2ae:	90 93 7a 00 	sts	0x007A, r25
+	ADCSRB&=~(7<<ADTS0);
+ 2b2:	eb e7       	ldi	r30, 0x7B	; 123
+ 2b4:	f0 e0       	ldi	r31, 0x00	; 0
+ 2b6:	80 81       	ld	r24, Z
+ 2b8:	88 7f       	andi	r24, 0xF8	; 248
+ 2ba:	80 83       	st	Z, r24
+	sei();
+ 2bc:	78 94       	sei
+ 2be:	08 95       	ret
+
+000002c0 <main>:
+/***MAIN_MAIN_MAIN***/
+int main(void)
+{
+	//PORTINIT();
+	/******/
+	TIMER0ASETUP();
+ 2c0:	f0 de       	rcall	.-544    	; 0xa2 <TIMER0ASETUP>
+	count=REPEAT;
+ 2c2:	84 e6       	ldi	r24, 0x64	; 100
+ 2c4:	90 e0       	ldi	r25, 0x00	; 0
+ 2c6:	90 93 03 01 	sts	0x0103, r25
+ 2ca:	80 93 02 01 	sts	0x0102, r24
+	/******/
+	TIMER1A_SETUP(5,3,0);
+ 2ce:	40 e0       	ldi	r20, 0x00	; 0
+ 2d0:	63 e0       	ldi	r22, 0x03	; 3
+ 2d2:	85 e0       	ldi	r24, 0x05	; 5
+ 2d4:	f2 de       	rcall	.-540    	; 0xba <TIMER1A_SETUP>
+	}
+	TCCR1B|=TCCR1B_tmp;
+}
+void TIMER1A_trigger(uint16_t Atrigger)
+{
+	OCR1A=Atrigger;
+ 2d6:	80 e8       	ldi	r24, 0x80	; 128
+ 2d8:	90 e0       	ldi	r25, 0x00	; 0
+ 2da:	90 93 89 00 	sts	0x0089, r25
+ 2de:	80 93 88 00 	sts	0x0088, r24
+	TIMER0ASETUP();
+	count=REPEAT;
+	/******/
+	TIMER1A_SETUP(5,3,0);
+	TIMER1A_trigger(128);
+	TIMER1A_STARTSTOP(8);
+ 2e2:	88 e0       	ldi	r24, 0x08	; 8
+ 2e4:	90 e0       	ldi	r25, 0x00	; 0
+ 2e6:	5b df       	rcall	.-330    	; 0x19e <TIMER1A_STARTSTOP>
+	/******/
+	ADC_ENABLE(0, 1, 0, 128);
+ 2e8:	20 e8       	ldi	r18, 0x80	; 128
+ 2ea:	40 e0       	ldi	r20, 0x00	; 0
+ 2ec:	61 e0       	ldi	r22, 0x01	; 1
+ 2ee:	80 e0       	ldi	r24, 0x00	; 0
+ 2f0:	8a df       	rcall	.-236    	; 0x206 <ADC_ENABLE>
+ 2f2:	ff cf       	rjmp	.-2      	; 0x2f2 <main+0x32>
+
+000002f4 <__vector_14>:
+	ADCSRA=ADCSRA_tmp;
+	ADCSRB&=~(7<<ADTS0);
+	sei();
+}	
+/***Interrupt***/
+ISR(TIMER0_COMPA_vect){
+ 2f4:	1f 92       	push	r1
+ 2f6:	0f 92       	push	r0
+ 2f8:	0f b6       	in	r0, 0x3f	; 63
+ 2fa:	0f 92       	push	r0
+ 2fc:	11 24       	eor	r1, r1
+ 2fe:	2f 93       	push	r18
+ 300:	8f 93       	push	r24
+ 302:	9f 93       	push	r25
+	uint8_t sREG=SREG;
+ 304:	2f b7       	in	r18, 0x3f	; 63
+	cli();
+ 306:	f8 94       	cli
+	count--;
+ 308:	80 91 02 01 	lds	r24, 0x0102
+ 30c:	90 91 03 01 	lds	r25, 0x0103
+ 310:	01 97       	sbiw	r24, 0x01	; 1
+ 312:	90 93 03 01 	sts	0x0103, r25
+ 316:	80 93 02 01 	sts	0x0102, r24
+	if(!count){
+ 31a:	89 2b       	or	r24, r25
+ 31c:	51 f4       	brne	.+20     	; 0x332 <__vector_14+0x3e>
+		PORTD^=(1<<PORTD6);
+ 31e:	9b b1       	in	r25, 0x0b	; 11
+ 320:	80 e4       	ldi	r24, 0x40	; 64
+ 322:	89 27       	eor	r24, r25
+ 324:	8b b9       	out	0x0b, r24	; 11
+		count=REPEAT;
+ 326:	84 e6       	ldi	r24, 0x64	; 100
+ 328:	90 e0       	ldi	r25, 0x00	; 0
+ 32a:	90 93 03 01 	sts	0x0103, r25
+ 32e:	80 93 02 01 	sts	0x0102, r24
+	}
+	SREG=sREG;
+ 332:	2f bf       	out	0x3f, r18	; 63
+	sei();
+ 334:	78 94       	sei
+}
+ 336:	9f 91       	pop	r25
+ 338:	8f 91       	pop	r24
+ 33a:	2f 91       	pop	r18
+ 33c:	0f 90       	pop	r0
+ 33e:	0f be       	out	0x3f, r0	; 63
+ 340:	0f 90       	pop	r0
+ 342:	1f 90       	pop	r1
+ 344:	18 95       	reti
+
+00000346 <__vector_21>:
+/******/
+ISR(ADC_vect)
+{
+ 346:	1f 92       	push	r1
+ 348:	0f 92       	push	r0
+ 34a:	0f b6       	in	r0, 0x3f	; 63
+ 34c:	0f 92       	push	r0
+ 34e:	11 24       	eor	r1, r1
+ 350:	2f 93       	push	r18
+ 352:	8f 93       	push	r24
+ 354:	9f 93       	push	r25
+	//uint8_t sREG=SREG;
+	//cli();
+	adc_tmp=ADCL;
+ 356:	80 91 78 00 	lds	r24, 0x0078
+ 35a:	90 e0       	ldi	r25, 0x00	; 0
+ 35c:	90 93 01 01 	sts	0x0101, r25
+ 360:	80 93 00 01 	sts	0x0100, r24
+	adc_tmp|=(ADCH<<8);
+ 364:	20 91 79 00 	lds	r18, 0x0079
+ 368:	80 91 00 01 	lds	r24, 0x0100
+ 36c:	90 91 01 01 	lds	r25, 0x0101
+ 370:	92 2b       	or	r25, r18
+ 372:	90 93 01 01 	sts	0x0101, r25
+ 376:	80 93 00 01 	sts	0x0100, r24
+	TIMER1A_trigger(adc_tmp>>2);
+ 37a:	80 91 00 01 	lds	r24, 0x0100
+ 37e:	90 91 01 01 	lds	r25, 0x0101
+ 382:	96 95       	lsr	r25
+ 384:	87 95       	ror	r24
+ 386:	96 95       	lsr	r25
+ 388:	87 95       	ror	r24
+	}
+	TCCR1B|=TCCR1B_tmp;
+}
+void TIMER1A_trigger(uint16_t Atrigger)
+{
+	OCR1A=Atrigger;
+ 38a:	90 93 89 00 	sts	0x0089, r25
+ 38e:	80 93 88 00 	sts	0x0088, r24
+	adc_tmp=ADCL;
+	adc_tmp|=(ADCH<<8);
+	TIMER1A_trigger(adc_tmp>>2);
+	//SREG=sREG;
+	//sei();
+}
+ 392:	9f 91       	pop	r25
+ 394:	8f 91       	pop	r24
+ 396:	2f 91       	pop	r18
+ 398:	0f 90       	pop	r0
+ 39a:	0f be       	out	0x3f, r0	; 63
+ 39c:	0f 90       	pop	r0
+ 39e:	1f 90       	pop	r1
+ 3a0:	18 95       	reti
+
+000003a2 <_exit>:
+ 3a2:	f8 94       	cli
+
+000003a4 <__stop_program>:
+ 3a4:	ff cf       	rjmp	.-2      	; 0x3a4 <__stop_program>

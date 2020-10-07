@@ -1,0 +1,79 @@
+\begin{thebibliography}{10}
+  \providebibliographyfont{name}{}%
+  \providebibliographyfont{lastname}{}%
+  \providebibliographyfont{title}{\emph}%
+  \providebibliographyfont{jtitle}{\btxtitlefont}%
+  \providebibliographyfont{etal}{\emph}%
+  \providebibliographyfont{journal}{}%
+  \providebibliographyfont{volume}{}%
+  \providebibliographyfont{ISBN}{\MakeUppercase}%
+  \providebibliographyfont{ISSN}{\MakeUppercase}%
+  \providebibliographyfont{url}{\url}%
+  \providebibliographyfont{numeral}{}%
+  \expandafter\btxselectlanguage\expandafter {\btxfallbacklanguage}
+
+\expandafter\btxselectlanguage\expandafter {\btxfallbacklanguage}
+\bibitem {book_3}
+\btxtitlefont {The C Programming Language}.
+\newblock \btxpublisherfont {Prentice Hall}, •.
+
+\bibitem {booklet_1}
+\btxtitlefont {\btxifchangecase {Curso de introdução ao latex}{Curso de
+  Introdução ao LATEX}}.
+
+\bibitem {book_4}
+\btxtitlefont {Teach Yourself Electricity and Electronics}.
+\newblock \btxpublisherfont {McGraw-Hill}, •.
+
+\bibitem {book_8}
+\btxtitlefont {Electr\'{o}nica Anal\'{o}gica}.
+\newblock \btxpublisherfont {McGraw Hill}, 1993.
+
+\bibitem {book_9}
+\btxtitlefont {C\'{a}lculo Diferencial e Integral em $\mathbb{R}$ e
+  $\mathbb{R}^n$}.
+\newblock \btxpublisherfont {McGraw Hill}, 1995.
+
+\bibitem {book_10}
+\btxtitlefont {Power Electronic Converter Harmonics}.
+\newblock \btxpublisherfont {IEEE Press Editorial Board}, 1996.
+
+\bibitem {book_11}
+\btxtitlefont {Power Electronic Control in Electrical Systems}.
+\newblock \btxpublisherfont {Newnes Power Engeneering Series}, 2002.
+
+\bibitem {book_6}
+\btxtitlefont {The Maxima Book}.
+\newblock \btxpublisherfont {•}, 2004.
+
+\bibitem {book_2}
+\btxtitlefont {C Programming for Microcontrollers}.
+\newblock \btxpublisherfont {SMILEY MICROS}, 2005.
+
+\bibitem {book_5}
+\btxtitlefont {HIGHER ENGINEERING MATHEMATICS}.
+\newblock \btxpublisherfont {Published by Elsevier Ltd}, 2006.
+
+\bibitem {book_7}
+\btxtitlefont {PSIM® User’s Guide}.
+\newblock \btxpublisherfont {Powersim Inc.}, 2009.
+
+\bibitem {book_1}
+\btxtitlefont {the avr microcontroller and embedded systems}.
+\newblock \btxpublisherfont {Prentice Hall}, 2011.
+
+\bibitem {incollection_2}
+\btxnamefont {\btxlastnamefont {Fidalgo}, Andr\'{e}}\btxauthorcolon\
+  \btxtitlefont {\btxifchangecase {Sistemas el\'{e}ctricos de corrente
+  alternada}{Sistemas El\'{e}ctricos de Corrente Alternada}}.
+\newblock \btxpublisherfont {\Btxinlong {}\ \btxtitlefont {Unidade de Ensino
+  2}}.
+
+\bibitem {incollection_1}
+\btxnamefont {\btxlastnamefont {Fidalgo}, Andr\'{e}}\btxauthorcolon\
+  \btxtitlefont {\btxifchangecase {Sistemas el\'{e}ctricos de corrente
+  cont\'{i}nua}{Sistemas El\'{e}ctricos de Corrente Cont\'{i}nua}}.
+\newblock \btxpublisherfont {\Btxinlong {}\ \btxtitlefont {Unidade de Ensino
+  1}}.
+
+\end{thebibliography}

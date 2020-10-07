@@ -1,0 +1,16 @@
+﻿------ Clean started: Project: Led dimmer_1, Configuration: Debug AVR ------
+Build started.
+Project "Led dimmer_1.cproj" (Clean target(s)):
+Target "Clean" in file "C:\Program Files (x86)\Atmel\Atmel Studio 6.2\Vs\Compiler.targets" from project "C:\Users\Sergio\documents\atmel studio\6.2\Led dimmer_1\Led dimmer_1\Led dimmer_1.cproj" (entry point):
+	Task "RunCompilerTask"
+		Shell Utils Path C:\Program Files (x86)\Atmel\Atmel Studio 6.2\shellUtils
+		C:\Program Files (x86)\Atmel\Atmel Studio 6.2\shellUtils\make.exe clean 
+		rm -rf  "Led dimmer_1.o"   
+		rm -rf  "Led dimmer_1.d"   
+		rm -rf "Led dimmer_1.elf" "Led dimmer_1.a" "Led dimmer_1.hex" "Led dimmer_1.lss" "Led dimmer_1.eep" "Led dimmer_1.map" "Led dimmer_1.srec" "Led dimmer_1.usersignatures"
+	Done executing task "RunCompilerTask".
+Done building target "Clean" in project "Led dimmer_1.cproj".
+Done building project "Led dimmer_1.cproj".
+
+Build succeeded.
+========== Clean: 1 succeeded, 0 failed, 0 skipped ==========

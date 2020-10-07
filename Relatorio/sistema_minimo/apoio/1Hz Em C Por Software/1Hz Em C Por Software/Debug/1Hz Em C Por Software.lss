@@ -1,0 +1,170 @@
+
+1Hz Em C Por Software.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000007a  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .comment      00000030  00000000  00000000  000000ce  2**0
+                  CONTENTS, READONLY
+  2 .debug_aranges 00000028  00000000  00000000  000000fe  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_info   000000ce  00000000  00000000  00000126  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_abbrev 00000085  00000000  00000000  000001f4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_line   000000ec  00000000  00000000  00000279  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_frame  00000034  00000000  00000000  00000368  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_str    00000156  00000000  00000000  0000039c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_loc    000000be  00000000  00000000  000004f2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_ranges 00000018  00000000  00000000  000005b0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	19 c0       	rjmp	.+50     	; 0x34 <__ctors_end>
+   2:	20 c0       	rjmp	.+64     	; 0x44 <__bad_interrupt>
+   4:	1f c0       	rjmp	.+62     	; 0x44 <__bad_interrupt>
+   6:	1e c0       	rjmp	.+60     	; 0x44 <__bad_interrupt>
+   8:	1d c0       	rjmp	.+58     	; 0x44 <__bad_interrupt>
+   a:	1c c0       	rjmp	.+56     	; 0x44 <__bad_interrupt>
+   c:	1b c0       	rjmp	.+54     	; 0x44 <__bad_interrupt>
+   e:	1a c0       	rjmp	.+52     	; 0x44 <__bad_interrupt>
+  10:	19 c0       	rjmp	.+50     	; 0x44 <__bad_interrupt>
+  12:	18 c0       	rjmp	.+48     	; 0x44 <__bad_interrupt>
+  14:	17 c0       	rjmp	.+46     	; 0x44 <__bad_interrupt>
+  16:	16 c0       	rjmp	.+44     	; 0x44 <__bad_interrupt>
+  18:	15 c0       	rjmp	.+42     	; 0x44 <__bad_interrupt>
+  1a:	14 c0       	rjmp	.+40     	; 0x44 <__bad_interrupt>
+  1c:	13 c0       	rjmp	.+38     	; 0x44 <__bad_interrupt>
+  1e:	12 c0       	rjmp	.+36     	; 0x44 <__bad_interrupt>
+  20:	11 c0       	rjmp	.+34     	; 0x44 <__bad_interrupt>
+  22:	10 c0       	rjmp	.+32     	; 0x44 <__bad_interrupt>
+  24:	0f c0       	rjmp	.+30     	; 0x44 <__bad_interrupt>
+  26:	0e c0       	rjmp	.+28     	; 0x44 <__bad_interrupt>
+  28:	0d c0       	rjmp	.+26     	; 0x44 <__bad_interrupt>
+  2a:	0c c0       	rjmp	.+24     	; 0x44 <__bad_interrupt>
+  2c:	0b c0       	rjmp	.+22     	; 0x44 <__bad_interrupt>
+  2e:	0a c0       	rjmp	.+20     	; 0x44 <__bad_interrupt>
+  30:	09 c0       	rjmp	.+18     	; 0x44 <__bad_interrupt>
+  32:	08 c0       	rjmp	.+16     	; 0x44 <__bad_interrupt>
+
+00000034 <__ctors_end>:
+  34:	11 24       	eor	r1, r1
+  36:	1f be       	out	0x3f, r1	; 63
+  38:	cf ef       	ldi	r28, 0xFF	; 255
+  3a:	d4 e0       	ldi	r29, 0x04	; 4
+  3c:	de bf       	out	0x3e, r29	; 62
+  3e:	cd bf       	out	0x3d, r28	; 61
+  40:	06 d0       	rcall	.+12     	; 0x4e <main>
+  42:	19 c0       	rjmp	.+50     	; 0x76 <_exit>
+
+00000044 <__bad_interrupt>:
+  44:	dd cf       	rjmp	.-70     	; 0x0 <__vectors>
+
+00000046 <PORTINIT>:
+		PORTD^=(1<<PORTD6);
+	}
+}
+/***Procedure and Function***/
+void PORTINIT(void){
+	DDRD=(1<<PORTD6);
+  46:	80 e4       	ldi	r24, 0x40	; 64
+  48:	8a b9       	out	0x0a, r24	; 10
+	PORTD=(1<<PORTD6);
+  4a:	8b b9       	out	0x0b, r24	; 11
+  4c:	08 95       	ret
+
+0000004e <main>:
+void PORTINIT(void);
+/***MAIN***/
+int main(void)
+{
+	uint8_t i,j,k;
+	PORTINIT();
+  4e:	fb df       	rcall	.-10     	; 0x46 <PORTINIT>
+/***Global Variable***/
+/***Prototypes***/
+void PORTINIT(void);
+/***MAIN***/
+int main(void)
+{
+  50:	56 ea       	ldi	r21, 0xA6	; 166
+  52:	2a ef       	ldi	r18, 0xFA	; 250
+			for(j=166;j;j--){//nested loop
+				for(k=250;k;k--){//nested loop
+				}
+			}
+		}
+		PORTD^=(1<<PORTD6);
+  54:	40 e4       	ldi	r20, 0x40	; 64
+/***Global Variable***/
+/***Prototypes***/
+void PORTINIT(void);
+/***MAIN***/
+int main(void)
+{
+  56:	30 e2       	ldi	r19, 0x20	; 32
+  58:	08 c0       	rjmp	.+16     	; 0x6a <main+0x1c>
+  5a:	81 50       	subi	r24, 0x01	; 1
+    while(TRUE)
+    {
+        //TODO:: Please write your application code
+		for(i=32;i;i--){//delay
+			for(j=166;j;j--){//nested loop
+				for(k=250;k;k--){//nested loop
+  5c:	f1 f7       	brne	.-4      	; 0x5a <main+0xc>
+  5e:	91 50       	subi	r25, 0x01	; 1
+	PORTINIT();
+    while(TRUE)
+    {
+        //TODO:: Please write your application code
+		for(i=32;i;i--){//delay
+			for(j=166;j;j--){//nested loop
+  60:	11 f0       	breq	.+4      	; 0x66 <main+0x18>
+/***Global Variable***/
+/***Prototypes***/
+void PORTINIT(void);
+/***MAIN***/
+int main(void)
+{
+  62:	82 2f       	mov	r24, r18
+  64:	fa cf       	rjmp	.-12     	; 0x5a <main+0xc>
+  66:	31 50       	subi	r19, 0x01	; 1
+	uint8_t i,j,k;
+	PORTINIT();
+    while(TRUE)
+    {
+        //TODO:: Please write your application code
+		for(i=32;i;i--){//delay
+  68:	11 f0       	breq	.+4      	; 0x6e <main+0x20>
+/***Global Variable***/
+/***Prototypes***/
+void PORTINIT(void);
+/***MAIN***/
+int main(void)
+{
+  6a:	95 2f       	mov	r25, r21
+  6c:	fa cf       	rjmp	.-12     	; 0x62 <main+0x14>
+			for(j=166;j;j--){//nested loop
+				for(k=250;k;k--){//nested loop
+				}
+			}
+		}
+		PORTD^=(1<<PORTD6);
+  6e:	8b b1       	in	r24, 0x0b	; 11
+  70:	84 27       	eor	r24, r20
+  72:	8b b9       	out	0x0b, r24	; 11
+	}
+  74:	f0 cf       	rjmp	.-32     	; 0x56 <main+0x8>
+
+00000076 <_exit>:
+  76:	f8 94       	cli
+
+00000078 <__stop_program>:
+  78:	ff cf       	rjmp	.-2      	; 0x78 <__stop_program>
