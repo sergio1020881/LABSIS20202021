@@ -26,71 +26,71 @@ int main(void)
 	uint8_t count=0;
 	PORTINIT();
     /* Replace with your application code */
-	PORTD = ~(1<<7); //output clock
-	PORTB = ~(1<<ZERO); //shift CLOCK input disable
+	PORTD &= ~(1<<7); //output clock
+	PORTD &= ~(1<<5); //shift CLOCK input disable
     while (TRUE)
     {	
 		while(!count){
-		/***1***/
+		//1
 		_delay_ms(1000);
 		PORTD = (1<<4); //Data Serial in high
-		PORTB = (1<<ZERO); // shift CLOCK input read
-		//PORTD = (1<<7); //output clock
-		PORTB = ~(1<<ZERO); //shift CLOCK input disable
-		//PORTD = ~(1<<7); //output clock
-		/***2***/
+		PORTD |= (1<<5); // shift CLOCK input read
+		PORTD |= (1<<7); //output clock
+		PORTD &= ~(1<<5); //shift CLOCK input disable
+		PORTD &= ~(1<<7); //output clock
+		//2
 		_delay_ms(1000);
 		PORTD = (1<<4); //Data Serial in high
-		PORTB = (1<<ZERO); // shift CLOCK input read
-		//PORTD = (1<<7); //output clock
-		PORTB = ~(1<<ZERO); //shift CLOCK input disable
-		//PORTD = ~(1<<7); //output clock
-		/***3***/
+		PORTD |= (1<<5); // shift CLOCK input read
+		PORTD |= (1<<7); //output clock
+		PORTD &= ~(1<<5); //shift CLOCK input disable
+		PORTD &= ~(1<<7); //output clock
+		//3
 		_delay_ms(1000);
 		PORTD = (1<<4); //Data Serial in high
-		PORTB = (1<<ZERO); // shift CLOCK input read
-		//PORTD = (1<<7); //output clock
-		PORTB = ~(1<<ZERO); //shift CLOCK input disable
-		//PORTD = ~(1<<7); //output clock
-		/***4***/
+		PORTD |= (1<<5); // shift CLOCK input read
+		PORTD |= (1<<7); //output clock
+		PORTD &= ~(1<<5); //shift CLOCK input disable
+		PORTD &= ~(1<<7); //output clock
+		//4
 		_delay_ms(1000);
 		PORTD = (1<<4); //Data Serial in high
-		PORTB = (1<<ZERO); // shift CLOCK input read
-		//PORTD = (1<<7); //output clock
-		PORTB = ~(1<<ZERO); //shift CLOCK input disable
-		//PORTD = ~(1<<7); //output clock
-		/***5***/
+		PORTD |= (1<<5); // shift CLOCK input read
+		PORTD |= (1<<7); //output clock
+		PORTD &= ~(1<<5); //shift CLOCK input disable
+		PORTD &= ~(1<<7); //output clock
+		//5
 		_delay_ms(1000);
 		PORTD = (1<<4); //Data Serial in high
-		PORTB = (1<<ZERO); // shift CLOCK input read
-		//PORTD = (1<<7); //output clock
-		PORTB = ~(1<<ZERO); //shift CLOCK input disable
-		//PORTD = ~(1<<7); //output clock
-		/***6***/
+		PORTD |= (1<<5); // shift CLOCK input read
+		PORTD |= (1<<7); //output clock
+		PORTD &= ~(1<<5); //shift CLOCK input disable
+		PORTD &= ~(1<<7); //output clock
+		//6
 		_delay_ms(1000);
 		PORTD = (1<<4); //Data Serial in high
-		PORTB = (1<<ZERO); // shift CLOCK input read
-		//PORTD = (1<<7); //output clock
-		PORTB = ~(1<<ZERO); //shift CLOCK input disable
-		//PORTD = ~(1<<7); //output clock
-		/***7***/
+		PORTD |= (1<<5); // shift CLOCK input read
+		PORTD |= (1<<7); //output clock
+		PORTD &= ~(1<<5); //shift CLOCK input disable
+		PORTD &= ~(1<<7); //output clock
+		//7
 		_delay_ms(1000);
 		PORTD = (1<<4); //Data Serial in high
-		PORTB = (1<<ZERO); // shift CLOCK input read
-		//PORTD = (1<<7); //output clock
-		PORTB = ~(1<<ZERO); //shift CLOCK input disable
-		//PORTD = ~(1<<7); //output clock
-		/***8***/
+		PORTD |= (1<<5); // shift CLOCK input read
+		PORTD |= (1<<7); //output clock
+		PORTD &= ~(1<<5); //shift CLOCK input disable
+		PORTD &= ~(1<<7); //output clock
+		//8
 		_delay_ms(1000);
 		PORTD = (1<<4); //Data Serial in high
-		PORTB = (1<<ZERO); // shift CLOCK input read
-		//PORTD = (1<<7); //output clock
-		PORTB = ~(1<<ZERO); //shift CLOCK input disable
-		//PORTD = ~(1<<7); //output clock
-		/******/
-		PORTD = (1<<7); //output clock
-		PORTD = ~(1<<7); //output clock
-		/******/
+		PORTD |= (1<<5); // shift CLOCK input read
+		PORTD |= (1<<7); //output clock
+		PORTD &= ~(1<<5); //shift CLOCK input disable
+		PORTD &= ~(1<<7); //output clock
+		//
+		//PORTD |= (1<<7); //output clock
+		//PORTD &= ~(1<<7); //output clock
+		
 		count++;
 		}
 		
@@ -98,10 +98,10 @@ int main(void)
 }
 void PORTINIT()
 {
-	DDRB = (1<<ZERO); //Serial Clock
 	DDRD = (1<<4); //Serial Data
-	DDRD = (1<<7); //Serial Store
-	PORTB = ~(1<<ZERO);
-	PORTD = ~(1<<4);
-	PORTD = ~(1<<7);
+	DDRD |= (1<<5); //Serial Clock
+	DDRD |= (1<<7); //Serial Store
+	PORTD = ~(1<<4); //Serial Data
+	PORTD &= ~(1<<5); //Serial Clock
+	PORTD &= ~(1<<7); //Serial Store
 }
