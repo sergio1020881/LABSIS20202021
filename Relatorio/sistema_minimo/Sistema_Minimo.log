@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.25)  25 SEP 2020 02:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.25)  8 OCT 2020 15:26
 entering extended mode
 **./Sistema_Minimo.tex
 (Sistema_Minimo.tex
@@ -1072,7 +1072,7 @@ File: tikzlibrarycalc.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 
 
 Writing index file Sistema_Minimo.idx
-) (Sistema_Minimo.aux (include/CAPA.aux))
+) (Sistema_Minimo.aux (include/CAPAREPORT.aux))
 \openout1 = `Sistema_Minimo.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
@@ -1209,17 +1209,17 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 )
 ABD: EveryShipout initializing macros
-\openout2 = `./include/CAPA.aux'.
+\openout2 = `./include/CAPAREPORT.aux'.
 
- (include/CAPA.tex
-<./image/Capa/ISEP_marca_cor_grande.png, id=46, 730.6497pt x 278.2395pt>
-File: ./image/Capa/ISEP_marca_cor_grande.png Graphic file (type png)
-<use ./image/Capa/ISEP_marca_cor_grande.png>
-Package pdftex.def Info: ./image/Capa/ISEP_marca_cor_grande.png  used on input 
-line 4.
+ (include/CAPAREPORT.tex
+<./image/capa/ISEP_marca_cor_grande.png, id=46, 730.6497pt x 278.2395pt>
+File: ./image/capa/ISEP_marca_cor_grande.png Graphic file (type png)
+<use ./image/capa/ISEP_marca_cor_grande.png>
+Package pdftex.def Info: ./image/capa/ISEP_marca_cor_grande.png  used on input 
+line 34.
 (pdftex.def)             Requested size: 438.3932pt x 166.94498pt.
 LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
- 10.
+ 36.
 
 ("C:\Program Files\MiKTeX\tex/latex/psnfss\ot1ztmcm.fd"
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
@@ -1229,19 +1229,19 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line
- 10.
+ 36.
 
 ("C:\Program Files\MiKTeX\tex/latex/psnfss\omlztmcm.fd"
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line
- 10.
+ 36.
 
 ("C:\Program Files\MiKTeX\tex/latex/psnfss\omsztmcm.fd"
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line
- 10.
+ 36.
 
 ("C:\Program Files\MiKTeX\tex/latex/psnfss\omxztmcm.fd"
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
@@ -1256,88 +1256,53 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+esint on input line 1
-0.
+LaTeX Font Info:    Trying to load font information for U+esint on input line 3
+6.
 
 ("C:\Program Files\MiKTeX\tex/latex/esint\uesint.fd"
 File: uesint.fd 
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 10
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 36
 .
 
 ("C:\Program Files\MiKTeX\tex/latex/base\ulasy.fd"
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 1
-0.
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 3
+6.
 
 ("C:\Program Files\MiKTeX\tex/latex/psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 10.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 10.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 10.
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 10
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 36
 .
 
 ("C:\Program Files\MiKTeX\tex/latex/jknappen\ursfs.fd"
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 10.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 10.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 10.
- [1
-
-
-{C:/Users/sergi/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./image/Capa/IS
-EP_marca_cor_grande.png>])
-<./image/ARCHITECTURE/Harvard_architecture.png, id=56, 539.01375pt x 359.84438p
-t>
-File: ./image/ARCHITECTURE/Harvard_architecture.png Graphic file (type png)
-<use ./image/ARCHITECTURE/Harvard_architecture.png>
-Package pdftex.def Info: ./image/ARCHITECTURE/Harvard_architecture.png  used on
- input line 41.
-(pdftex.def)             Requested size: 404.25931pt x 269.88261pt.
-<./image/ARCHITECTURE/Block_diagram.png, id=57, 333.49594pt x 453.94594pt>
-File: ./image/ARCHITECTURE/Block_diagram.png Graphic file (type png)
-<use ./image/ARCHITECTURE/Block_diagram.png>
-Package pdftex.def Info: ./image/ARCHITECTURE/Block_diagram.png  used on input 
-line 51.
-(pdftex.def)             Requested size: 333.49512pt x 453.94482pt.
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.57 
-      [1
-
-
- <./image/ARCHITECTURE/Harvard_architecture.png>]
-<./image/PACKAGE/Configuracao_pin.png, id=65, 596.2275pt x 419.31656pt>
-File: ./image/PACKAGE/Configuracao_pin.png Graphic file (type png)
-<use ./image/PACKAGE/Configuracao_pin.png>
-Package pdftex.def Info: ./image/PACKAGE/Configuracao_pin.png  used on input li
-ne 66.
-(pdftex.def)             Requested size: 447.16953pt x 314.48663pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 61--68
-
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
+)
+Overfull \hbox (15.0pt too wide) in paragraph at lines 33--7
+[]$[]$ 
  []
 
-[2 <./image/ARCHITECTURE/Block_diagram.png>]
-<./image/ISP_JTAG/isp_6pin.png, id=71, 371.13657pt x 146.04562pt>
-File: ./image/ISP_JTAG/isp_6pin.png Graphic file (type png)
-<use ./image/ISP_JTAG/isp_6pin.png>
-Package pdftex.def Info: ./image/ISP_JTAG/isp_6pin.png  used on input line 72.
-(pdftex.def)             Requested size: 278.35173pt x 109.53392pt.
+[1
 
-Underfull \hbox (badness 10000) in paragraph at lines 69--74
+
+{C:/Users/sergi/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./image/capa/IS
+EP_marca_cor_grande.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 61--77
 
  []
 
@@ -1381,7 +1346,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 88--173
 
  []
 
-[3 <./image/PACKAGE/Configuracao_pin.png> <./image/ISP_JTAG/isp_6pin.png>]
+[2
+
+
+]
 Overfull \hbox (36.90001pt too wide) in paragraph at lines 175--265
 []$[]$  $[]$ 
  []
@@ -1396,7 +1364,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 175--265
 
  []
 
-[4]
+[3]
 Underfull \hbox (badness 10000) in paragraph at lines 268--315
 
  []
@@ -1421,7 +1389,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 267--359
 
  []
 
-[5]
+[4]
 Overfull \hbox (36.90001pt too wide) in paragraph at lines 363--461
 []$[]$  $[]$ 
  []
@@ -1436,43 +1404,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 363--461
 
  []
 
-[6] [7] [8] (input/EQUACAO.tex [9
+[5] [6] [7] (input/EQUACAO.tex
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
-]
-<./image/equacoes_1.png, id=108, 423.83344pt x 78.2925pt>
-File: ./image/equacoes_1.png Graphic file (type png)
-<use ./image/equacoes_1.png>
-Package pdftex.def Info: ./image/equacoes_1.png  used on input line 45.
-(pdftex.def)             Requested size: 317.87428pt x 58.71922pt.
-<./image/equacoes_2.png, id=109, 597.73312pt x 93.34875pt>
-File: ./image/equacoes_2.png Graphic file (type png)
-<use ./image/equacoes_2.png>
-Package pdftex.def Info: ./image/equacoes_2.png  used on input line 54.
-(pdftex.def)             Requested size: 448.29874pt x 70.01138pt.
-<./image/equacoes_3.png, id=110, 173.14688pt x 63.98906pt>
-File: ./image/equacoes_3.png Graphic file (type png)
-<use ./image/equacoes_3.png>
-Package pdftex.def Info: ./image/equacoes_3.png  used on input line 73.
-(pdftex.def)             Requested size: 129.85983pt x 47.99167pt.
-<./image/equacoes_4.png, id=111, 189.70876pt x 82.80937pt>
-File: ./image/equacoes_4.png Graphic file (type png)
-<use ./image/equacoes_4.png>
-Package pdftex.def Info: ./image/equacoes_4.png  used on input line 81.
-(pdftex.def)             Requested size: 142.2812pt x 62.10686pt.
- [10 <./image/equacoes_1.png> <./image/equacoes_2.png> <./image/equacoes_3.png>
- <./image/equacoes_4.png>]
-<./image/equacoes_5.png, id=125, 428.35031pt x 78.2925pt>
-File: ./image/equacoes_5.png Graphic file (type png)
-<use ./image/equacoes_5.png>
-Package pdftex.def Info: ./image/equacoes_5.png  used on input line 100.
-(pdftex.def)             Requested size: 321.26193pt x 58.71922pt.
-<./image/equacoes_6.png, id=126, 494.59781pt x 93.34875pt>
-File: ./image/equacoes_6.png Graphic file (type png)
-<use ./image/equacoes_6.png>
-Package pdftex.def Info: ./image/equacoes_6.png  used on input line 109.
-(pdftex.def)             Requested size: 370.94743pt x 70.01138pt.
- [11 <./image/equacoes_5.png> <./image/equacoes_6.png>]) (Sistema_Minimo.bbl [1
-2]
+ []
+
+
+LaTeX Warning: Characters dropped after `\end{comment}' on input line 165.
+
+) (Sistema_Minimo.bbl [8]
 babelbib: Using the BibTeX style's default font for `name'.
 babelbib: Using the BibTeX style's default font for `lastname'.
 babelbib: Using the BibTeX style's default font for `title'.
@@ -1488,18 +1428,18 @@ LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
 8.
 ("C:\Program Files\MiKTeX\tex/latex/psnfss\ts1ptm.fd"
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)) [13
+)) [9
 
 ]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 490.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 490.
- [14]
+ [10]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 492.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 492.
 
-(Sistema_Minimo.aux (include/CAPA.aux))
+(Sistema_Minimo.aux (include/CAPAREPORT.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 492.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 492.
 Package rerunfilecheck Info: File `Sistema_Minimo.out' has not changed.
@@ -1507,13 +1447,13 @@ Package rerunfilecheck Info: File `Sistema_Minimo.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 492.
  ) 
 Here is how much of TeX's memory you used:
- 28352 strings out of 480790
- 521497 string characters out of 2907055
- 866681 words of memory out of 3000000
- 43510 multiletter control sequences out of 15000+200000
- 622286 words of font info for 242 fonts, out of 3000000 for 9000
+ 28255 strings out of 480790
+ 519615 string characters out of 2907055
+ 866308 words of memory out of 3000000
+ 43448 multiletter control sequences out of 15000+200000
+ 622066 words of font info for 237 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,14n,62p,493b,809s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 63i,15n,62p,493b,809s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exi
 st, replaced by a fixed one
 
@@ -1524,12 +1464,11 @@ ype1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/
 amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/c
 msy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.p
 fb><C:/Program Files/MiKTeX/fonts/type1/urw/symbol/usyr.pfb><C:/Program Files/M
-iKTeX/fonts/type1/urw/symbol/usyr.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/
-times/utmb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/
-Program Files/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Sistema_Minimo.pdf (15 pages, 384584 bytes).
+iKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw
+/times/utmr8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Sistema_Minimo.pdf (10 pages, 189479 bytes).
 PDF statistics:
- 225 PDF objects out of 1000 (max. 8388607)
- 59 named destinations out of 1000 (max. 500000)
- 49300 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 172 PDF objects out of 1000 (max. 8388607)
+ 44 named destinations out of 1000 (max. 500000)
+ 49762 words of extra memory for PDF output out of 51595 (max. 10000000)
 

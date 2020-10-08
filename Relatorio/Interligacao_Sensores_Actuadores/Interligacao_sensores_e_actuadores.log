@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.25)  25 SEP 2020 02:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.25)  8 OCT 2020 15:30
 entering extended mode
 **./Interligacao_sensores_e_actuadores.tex
 (Interligacao_sensores_e_actuadores.tex
@@ -1072,7 +1072,7 @@ File: tikzlibrarycalc.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 
 
 Writing index file Interligacao_sensores_e_actuadores.idx
-) (Interligacao_sensores_e_actuadores.aux (include/CAPA.aux))
+) (Interligacao_sensores_e_actuadores.aux (include/CAPAREPORT.aux))
 \openout1 = `Interligacao_sensores_e_actuadores.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
@@ -1210,17 +1210,17 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 )
 ABD: EveryShipout initializing macros
-\openout2 = `./include/CAPA.aux'.
+\openout2 = `./include/CAPAREPORT.aux'.
 
- (include/CAPA.tex
-<./image/Capa/ISEP_marca_cor_grande.png, id=38, 730.6497pt x 278.2395pt>
-File: ./image/Capa/ISEP_marca_cor_grande.png Graphic file (type png)
-<use ./image/Capa/ISEP_marca_cor_grande.png>
-Package pdftex.def Info: ./image/Capa/ISEP_marca_cor_grande.png  used on input 
-line 4.
+ (include/CAPAREPORT.tex
+<./image/capa/ISEP_marca_cor_grande.png, id=38, 730.6497pt x 278.2395pt>
+File: ./image/capa/ISEP_marca_cor_grande.png Graphic file (type png)
+<use ./image/capa/ISEP_marca_cor_grande.png>
+Package pdftex.def Info: ./image/capa/ISEP_marca_cor_grande.png  used on input 
+line 34.
 (pdftex.def)             Requested size: 438.3932pt x 166.94498pt.
 LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
- 10.
+ 36.
 
 ("C:\Program Files\MiKTeX\tex/latex/psnfss\ot1ztmcm.fd"
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
@@ -1230,19 +1230,19 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line
- 10.
+ 36.
 
 ("C:\Program Files\MiKTeX\tex/latex/psnfss\omlztmcm.fd"
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line
- 10.
+ 36.
 
 ("C:\Program Files\MiKTeX\tex/latex/psnfss\omsztmcm.fd"
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line
- 10.
+ 36.
 
 ("C:\Program Files\MiKTeX\tex/latex/psnfss\omxztmcm.fd"
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
@@ -1257,58 +1257,58 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+esint on input line 1
-0.
+LaTeX Font Info:    Trying to load font information for U+esint on input line 3
+6.
 
 ("C:\Program Files\MiKTeX\tex/latex/esint\uesint.fd"
 File: uesint.fd 
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 10
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 36
 .
 
 ("C:\Program Files\MiKTeX\tex/latex/base\ulasy.fd"
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 1
-0.
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 3
+6.
 
 ("C:\Program Files\MiKTeX\tex/latex/psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 10.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 10.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 10.
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 10
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 36
 .
 
 ("C:\Program Files\MiKTeX\tex/latex/jknappen\ursfs.fd"
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 10.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 10.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 10.
- [1
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
+)
+Overfull \hbox (15.0pt too wide) in paragraph at lines 33--7
+[]$[]$ 
+ []
+
+[1
 
 
-{C:/Users/sergi/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./image/Capa/IS
-EP_marca_cor_grande.png>])
-<./image/Board/DevBoard_1.JPG, id=48, 4015.0pt x 3011.25pt>
+{C:/Users/sergi/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./image/capa/IS
+EP_marca_cor_grande.png>]
+<./image/Board/DevBoard_1.JPG, id=49, 4015.0pt x 3011.25pt>
 File: ./image/Board/DevBoard_1.JPG Graphic file (type jpg)
 <use ./image/Board/DevBoard_1.JPG>
 Package pdftex.def Info: ./image/Board/DevBoard_1.JPG  used on input line 48.
 (pdftex.def)             Requested size: 200.76176pt x 150.57132pt.
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.60 
-      [1
+ [2
 
 
  <./image/Board/DevBoard_1.JPG>]
@@ -1334,12 +1334,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 143--163
 
  []
 
-[2]
+[3]
 Underfull \hbox (badness 10000) in paragraph at lines 220--243
 
  []
 
-[3]
+[4]
 Package textcomp Info: Symbol \texttildelow not provided by
 (textcomp)             font family ptm in TS1 encoding.
 (textcomp)             Default family used instead on input line 451.
@@ -1369,7 +1369,7 @@ Overfull \hbox (39.60783pt too wide) in paragraph at lines 247--610
 [][] | [] | [] 
  []
 
-[4]
+[5]
 Overfull \hbox (32.26202pt too wide) in paragraph at lines 664--687
 [][] 
  []
@@ -1379,7 +1379,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 664--687
 
  []
 
-[5] [6] (input/DEFINICAO.tex) (Interligacao_sensores_e_actuadores.bbl [7]
+[6] [7] (input/DEFINICAO.tex) (Interligacao_sensores_e_actuadores.bbl [8]
 babelbib: Using the BibTeX style's default font for `name'.
 babelbib: Using the BibTeX style's default font for `lastname'.
 babelbib: Using the BibTeX style's default font for `title'.
@@ -1395,16 +1395,16 @@ LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
 8.
 ("C:\Program Files\MiKTeX\tex/latex/psnfss\ts1ptm.fd"
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)) [8
+)) [9
 
 ]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 718.
- [9]
+ [10]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 719.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 719.
 
-(Interligacao_sensores_e_actuadores.aux (include/CAPA.aux))
+(Interligacao_sensores_e_actuadores.aux (include/CAPAREPORT.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 719.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 719.
 Package rerunfilecheck Info: File `Interligacao_sensores_e_actuadores.out' has 
@@ -1413,13 +1413,13 @@ not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 719.
  ) 
 Here is how much of TeX's memory you used:
- 28040 strings out of 480790
- 516290 string characters out of 2907055
- 873926 words of memory out of 3000000
- 43215 multiletter control sequences out of 15000+200000
- 630011 words of font info for 253 fonts, out of 3000000 for 9000
+ 28043 strings out of 480790
+ 516628 string characters out of 2907055
+ 873906 words of memory out of 3000000
+ 43216 multiletter control sequences out of 15000+200000
+ 632733 words of font info for 255 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,13n,62p,816b,837s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 63i,15n,62p,816b,837s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exi
 st, replaced by a fixed one
 
@@ -1434,10 +1434,10 @@ bm10.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/symbol/usyr.pfb><C:/Program F
 iles/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX/fonts/typ
 e1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmri8a.
 pfb>
-Output written on Interligacao_sensores_e_actuadores.pdf (10 pages, 2861827 byt
+Output written on Interligacao_sensores_e_actuadores.pdf (10 pages, 2862320 byt
 es).
 PDF statistics:
- 168 PDF objects out of 1000 (max. 8388607)
- 41 named destinations out of 1000 (max. 500000)
- 51287 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 169 PDF objects out of 1000 (max. 8388607)
+ 42 named destinations out of 1000 (max. 500000)
+ 51799 words of extra memory for PDF output out of 61914 (max. 10000000)
 

@@ -4,7 +4,7 @@
 \renewcommand\thesection{\arabic{section}}
 \renewcommand\thesubsection{\thesection.\arabic{subsection}}
 \renewcommand\thesubsubsection{\thesection.\thesubsection.\arabic{subsubsection}}
-\include{./include/CAPA}%titlepage
+\include{./include/CAPAREPORT}%titlepage
 %\tableofcontents
 %\appendix
 \pagestyle{plain}%plain headings empty
@@ -35,24 +35,24 @@
 	Este tipo de arquitetura tem dois  busses (barramentos) um dedicado a leitura das instru\c{c}\~{o}es a executar e outra para escrita e leitura de data (informa\c{c}\~{a}o ou dados), isto assegura que uma nova instru\c{c}\~{a}o pode ser executada em cada ciclo de rel\'{o}gio, na qual elimina estados de espera quando n\~{a}o ha instru\c{c}\~{o}es prontas a executar. \par
 	Nos microcontroladores da AVR os barramentos est\~{a}o configurados de forma a dar prioridade ao barramento das instru\c{c}\~{o}es do CPU acesso a memoria flash enquanto o barramento da CPU de dados tem prioridade de acesso a {\bf SRAM} (Static Random Access Memory). \par
 	O espa\c{c}o de memoria de dados \'{e} dividida em tr\^{e}s, os {\bf GPR} (General Purpose Registers) as {\bf SFRs} (Special Function Registers) ou memoria de I/O e a data SRAM. \par
-	%\begin{comment}
+	\begin{comment}
 	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.75]{./image/ARCHITECTURE/Harvard_architecture.png}\\
 		\caption{Arquitetura Harvard}
 		\label{Arquitetura Harvard}
 	\end{figure}\par
-	%\end{comment}
+	\end{comment}
 	Os microcontroladores da AVR utiliza uma arquitetura de instru\c{c}\~{o}es {\bf RISC} (Reduced Instruction Set Computer ou Reduced COMPLEXITY Instruction Set Computer) na qual reduz a complexidade dos circuitos na codifica\c{c}\~{a}o de cada instru\c{c}\~{a}o. \par
 	Dai que os microcontroladores que se baseiam nestes tipos de arquitetura s\~{a}o sinonimo de c\'{o}digo reduzido, alta performance e baixo consumo energ\'{e}tico \par
-	%\begin{comment}
+	\begin{comment}
 	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=1]{./image/ARCHITECTURE/Block_diagram.png}\\
 		\caption{Diagrama de blocos}
 		\label{Diagrama de blocos}
 	\end{figure}
-	%\end{comment}
+	\end{comment}
 %\newpage
 
 	\section{Hardware}
@@ -60,7 +60,7 @@
 	Para Facilitar seu desenvolvimento foi feito numa placa pre furada sua implementa\c{c}\~{a}o de forma a ser alimentada diretamente ao PC pela alimenta\c{c}\~{a}o da porta USB. \par
 	Para programa\c{c}\~{a}o e debug do integrado \'{e} usado um Atmel-ICE, uma ferramenta de desenvolvimento que neste caso do i.c Atmega88 tem dispon\'{i}vel programa\c{c}\~{a}o via {\bf ISP} e debug por {\bf debugWIRE}. \\
 	Os Par\^{a}metros de configura\c{c}\~{a}o do integrado s\~{a}o os seguintes, Device Signature do Atmega88=0x1E930A, {\bf ISP} clock a 1Mhz, BOOTZ=1024W\_0C00, SPIEN=ON, BODLEVEL=2V7, SUT\_CKSEL=EXTXOSC\_8MHZ\_XX\_16KCK\_14CK\_65MS , EXTENDED FUSE= 0xF9,HIGH FUSE=0xDD, LOW FUSE=0xFF com os restantes bits OFF. \\
-	%\begin{comment}	
+	\begin{comment}	
 	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.75]{./image/PACKAGE/Configuracao_pin.png}\\
@@ -72,7 +72,7 @@
 		\includegraphics[scale=0.75]{./image/ISP_JTAG/isp_6pin.png}\\
 		\caption{Ficha ISP}
 	\end{figure}\par
-	%\end{comment}
+	\end{comment}
 %\newpage
 
 	\section{Software}
