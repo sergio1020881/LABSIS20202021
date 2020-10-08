@@ -28,7 +28,6 @@ void TIMER1A_SETUP(uint8_t wagenmode, uint8_t compoutAmode,uint8_t interruptmask
 void TIMER1A_STARTSTOP(uint16_t prescaler);
 void TIMER1A_trigger(uint16_t Atrigger);
 void TIMER1_intcapture(uint16_t capture);
-/******/
 void ADC_ENABLE(uint8_t ADC_channel, uint8_t ADC_Vref, uint8_t ADC_lar, uint8_t ADC_Div);
 /***MAIN_MAIN_MAIN***/
 int main(void)

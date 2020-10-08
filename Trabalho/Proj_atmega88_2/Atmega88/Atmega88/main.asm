@@ -1,9 +1,10 @@
-/*
- * dimmer_led_assembly.asm
- *
- *  Created: 24/03/2015 18:27:20
- *   Author: Sergio
- */
+;	dimmer_led_assembly.asm
+;
+; Created: 08/10/2020 00:55:58
+; Author: Sergio Santos
+;	<sergio.salazar.santos@gmail.com>
+; Commnet:
+;	stable
  .EQU REPEAT = 100 ; 100
  .EQU MASK = (1<<PD6)
  .INCLUDE<M88DEF.INC>
