@@ -1,0 +1,290 @@
+
+Atmega88.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  0000018e  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         0000013a  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      00000030  00000000  00000000  0000018e  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000001c0  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000028  00000000  00000000  000001fc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   000008bd  00000000  00000000  00000224  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000690  00000000  00000000  00000ae1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000377  00000000  00000000  00001171  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000034  00000000  00000000  000014e8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000003b0  00000000  00000000  0000151c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000260  00000000  00000000  000018cc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000018  00000000  00000000  00001b2c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	19 c0       	rjmp	.+50     	; 0x34 <__ctors_end>
+   2:	20 c0       	rjmp	.+64     	; 0x44 <__bad_interrupt>
+   4:	1f c0       	rjmp	.+62     	; 0x44 <__bad_interrupt>
+   6:	1e c0       	rjmp	.+60     	; 0x44 <__bad_interrupt>
+   8:	1d c0       	rjmp	.+58     	; 0x44 <__bad_interrupt>
+   a:	1c c0       	rjmp	.+56     	; 0x44 <__bad_interrupt>
+   c:	1b c0       	rjmp	.+54     	; 0x44 <__bad_interrupt>
+   e:	1a c0       	rjmp	.+52     	; 0x44 <__bad_interrupt>
+  10:	19 c0       	rjmp	.+50     	; 0x44 <__bad_interrupt>
+  12:	18 c0       	rjmp	.+48     	; 0x44 <__bad_interrupt>
+  14:	17 c0       	rjmp	.+46     	; 0x44 <__bad_interrupt>
+  16:	16 c0       	rjmp	.+44     	; 0x44 <__bad_interrupt>
+  18:	15 c0       	rjmp	.+42     	; 0x44 <__bad_interrupt>
+  1a:	14 c0       	rjmp	.+40     	; 0x44 <__bad_interrupt>
+  1c:	13 c0       	rjmp	.+38     	; 0x44 <__bad_interrupt>
+  1e:	12 c0       	rjmp	.+36     	; 0x44 <__bad_interrupt>
+  20:	11 c0       	rjmp	.+34     	; 0x44 <__bad_interrupt>
+  22:	10 c0       	rjmp	.+32     	; 0x44 <__bad_interrupt>
+  24:	0f c0       	rjmp	.+30     	; 0x44 <__bad_interrupt>
+  26:	0e c0       	rjmp	.+28     	; 0x44 <__bad_interrupt>
+  28:	0d c0       	rjmp	.+26     	; 0x44 <__bad_interrupt>
+  2a:	0c c0       	rjmp	.+24     	; 0x44 <__bad_interrupt>
+  2c:	0b c0       	rjmp	.+22     	; 0x44 <__bad_interrupt>
+  2e:	0a c0       	rjmp	.+20     	; 0x44 <__bad_interrupt>
+  30:	09 c0       	rjmp	.+18     	; 0x44 <__bad_interrupt>
+  32:	08 c0       	rjmp	.+16     	; 0x44 <__bad_interrupt>
+
+00000034 <__ctors_end>:
+  34:	11 24       	eor	r1, r1
+  36:	1f be       	out	0x3f, r1	; 63
+  38:	cf ef       	ldi	r28, 0xFF	; 255
+  3a:	d4 e0       	ldi	r29, 0x04	; 4
+  3c:	de bf       	out	0x3e, r29	; 62
+  3e:	cd bf       	out	0x3d, r28	; 61
+  40:	0f d0       	rcall	.+30     	; 0x60 <main>
+  42:	79 c0       	rjmp	.+242    	; 0x136 <_exit>
+
+00000044 <__bad_interrupt>:
+  44:	dd cf       	rjmp	.-70     	; 0x0 <__vectors>
+
+00000046 <PORTINIT>:
+		
+    }
+}
+void PORTINIT()
+{
+	DDRB = (1<<ZERO); //Serial Clock
+  46:	81 e0       	ldi	r24, 0x01	; 1
+  48:	84 b9       	out	0x04, r24	; 4
+	DDRD = (1<<4); //Serial Data
+  4a:	80 e1       	ldi	r24, 0x10	; 16
+  4c:	8a b9       	out	0x0a, r24	; 10
+	DDRD = (1<<7); //Serial Store
+  4e:	80 e8       	ldi	r24, 0x80	; 128
+  50:	8a b9       	out	0x0a, r24	; 10
+	PORTB = ~(1<<ZERO);
+  52:	8e ef       	ldi	r24, 0xFE	; 254
+  54:	85 b9       	out	0x05, r24	; 5
+	PORTD = ~(1<<4);
+  56:	8f ee       	ldi	r24, 0xEF	; 239
+  58:	8b b9       	out	0x0b, r24	; 11
+	PORTD = ~(1<<7);
+  5a:	8f e7       	ldi	r24, 0x7F	; 127
+  5c:	8b b9       	out	0x0b, r24	; 11
+  5e:	08 95       	ret
+
+00000060 <main>:
+void PORTINIT();
+/***MAINMAIN***/
+int main(void)
+{
+	uint8_t count=0;
+	PORTINIT();
+  60:	f2 df       	rcall	.-28     	; 0x46 <PORTINIT>
+    /* Replace with your application code */
+	PORTD = ~(1<<7); //output clock
+  62:	3f e7       	ldi	r19, 0x7F	; 127
+  64:	3b b9       	out	0x0b, r19	; 11
+	PORTB = ~(1<<ZERO); //shift CLOCK input disable
+  66:	8e ef       	ldi	r24, 0xFE	; 254
+  68:	85 b9       	out	0x05, r24	; 5
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  6a:	2f ef       	ldi	r18, 0xFF	; 255
+  6c:	49 e6       	ldi	r20, 0x69	; 105
+  6e:	58 e1       	ldi	r21, 0x18	; 24
+  70:	21 50       	subi	r18, 0x01	; 1
+  72:	40 40       	sbci	r20, 0x00	; 0
+  74:	50 40       	sbci	r21, 0x00	; 0
+  76:	e1 f7       	brne	.-8      	; 0x70 <main+0x10>
+  78:	00 c0       	rjmp	.+0      	; 0x7a <main+0x1a>
+  7a:	00 00       	nop
+    while (TRUE)
+    {	
+		while(!count){
+		/***1***/
+		_delay_ms(1000);
+		PORTD = (1<<4); //Data Serial in high
+  7c:	20 e1       	ldi	r18, 0x10	; 16
+  7e:	2b b9       	out	0x0b, r18	; 11
+		PORTB = (1<<ZERO); // shift CLOCK input read
+  80:	91 e0       	ldi	r25, 0x01	; 1
+  82:	95 b9       	out	0x05, r25	; 5
+		//PORTD = (1<<7); //output clock
+		PORTB = ~(1<<ZERO); //shift CLOCK input disable
+  84:	85 b9       	out	0x05, r24	; 5
+  86:	6f ef       	ldi	r22, 0xFF	; 255
+  88:	49 e6       	ldi	r20, 0x69	; 105
+  8a:	58 e1       	ldi	r21, 0x18	; 24
+  8c:	61 50       	subi	r22, 0x01	; 1
+  8e:	40 40       	sbci	r20, 0x00	; 0
+  90:	50 40       	sbci	r21, 0x00	; 0
+  92:	e1 f7       	brne	.-8      	; 0x8c <main+0x2c>
+  94:	00 c0       	rjmp	.+0      	; 0x96 <main+0x36>
+  96:	00 00       	nop
+		//PORTD = ~(1<<7); //output clock
+		/***2***/
+		_delay_ms(1000);
+		PORTD = (1<<4); //Data Serial in high
+  98:	2b b9       	out	0x0b, r18	; 11
+		PORTB = (1<<ZERO); // shift CLOCK input read
+  9a:	95 b9       	out	0x05, r25	; 5
+		//PORTD = (1<<7); //output clock
+		PORTB = ~(1<<ZERO); //shift CLOCK input disable
+  9c:	85 b9       	out	0x05, r24	; 5
+  9e:	6f ef       	ldi	r22, 0xFF	; 255
+  a0:	49 e6       	ldi	r20, 0x69	; 105
+  a2:	58 e1       	ldi	r21, 0x18	; 24
+  a4:	61 50       	subi	r22, 0x01	; 1
+  a6:	40 40       	sbci	r20, 0x00	; 0
+  a8:	50 40       	sbci	r21, 0x00	; 0
+  aa:	e1 f7       	brne	.-8      	; 0xa4 <main+0x44>
+  ac:	00 c0       	rjmp	.+0      	; 0xae <main+0x4e>
+  ae:	00 00       	nop
+		//PORTD = ~(1<<7); //output clock
+		/***3***/
+		_delay_ms(1000);
+		PORTD = (1<<4); //Data Serial in high
+  b0:	2b b9       	out	0x0b, r18	; 11
+		PORTB = (1<<ZERO); // shift CLOCK input read
+  b2:	95 b9       	out	0x05, r25	; 5
+		//PORTD = (1<<7); //output clock
+		PORTB = ~(1<<ZERO); //shift CLOCK input disable
+  b4:	85 b9       	out	0x05, r24	; 5
+  b6:	6f ef       	ldi	r22, 0xFF	; 255
+  b8:	49 e6       	ldi	r20, 0x69	; 105
+  ba:	58 e1       	ldi	r21, 0x18	; 24
+  bc:	61 50       	subi	r22, 0x01	; 1
+  be:	40 40       	sbci	r20, 0x00	; 0
+  c0:	50 40       	sbci	r21, 0x00	; 0
+  c2:	e1 f7       	brne	.-8      	; 0xbc <main+0x5c>
+  c4:	00 c0       	rjmp	.+0      	; 0xc6 <main+0x66>
+  c6:	00 00       	nop
+		//PORTD = ~(1<<7); //output clock
+		/***4***/
+		_delay_ms(1000);
+		PORTD = (1<<4); //Data Serial in high
+  c8:	2b b9       	out	0x0b, r18	; 11
+		PORTB = (1<<ZERO); // shift CLOCK input read
+  ca:	95 b9       	out	0x05, r25	; 5
+		//PORTD = (1<<7); //output clock
+		PORTB = ~(1<<ZERO); //shift CLOCK input disable
+  cc:	85 b9       	out	0x05, r24	; 5
+  ce:	6f ef       	ldi	r22, 0xFF	; 255
+  d0:	49 e6       	ldi	r20, 0x69	; 105
+  d2:	58 e1       	ldi	r21, 0x18	; 24
+  d4:	61 50       	subi	r22, 0x01	; 1
+  d6:	40 40       	sbci	r20, 0x00	; 0
+  d8:	50 40       	sbci	r21, 0x00	; 0
+  da:	e1 f7       	brne	.-8      	; 0xd4 <main+0x74>
+  dc:	00 c0       	rjmp	.+0      	; 0xde <main+0x7e>
+  de:	00 00       	nop
+		//PORTD = ~(1<<7); //output clock
+		/***5***/
+		_delay_ms(1000);
+		PORTD = (1<<4); //Data Serial in high
+  e0:	2b b9       	out	0x0b, r18	; 11
+		PORTB = (1<<ZERO); // shift CLOCK input read
+  e2:	95 b9       	out	0x05, r25	; 5
+		//PORTD = (1<<7); //output clock
+		PORTB = ~(1<<ZERO); //shift CLOCK input disable
+  e4:	85 b9       	out	0x05, r24	; 5
+  e6:	6f ef       	ldi	r22, 0xFF	; 255
+  e8:	49 e6       	ldi	r20, 0x69	; 105
+  ea:	58 e1       	ldi	r21, 0x18	; 24
+  ec:	61 50       	subi	r22, 0x01	; 1
+  ee:	40 40       	sbci	r20, 0x00	; 0
+  f0:	50 40       	sbci	r21, 0x00	; 0
+  f2:	e1 f7       	brne	.-8      	; 0xec <main+0x8c>
+  f4:	00 c0       	rjmp	.+0      	; 0xf6 <main+0x96>
+  f6:	00 00       	nop
+		//PORTD = ~(1<<7); //output clock
+		/***6***/
+		_delay_ms(1000);
+		PORTD = (1<<4); //Data Serial in high
+  f8:	2b b9       	out	0x0b, r18	; 11
+		PORTB = (1<<ZERO); // shift CLOCK input read
+  fa:	95 b9       	out	0x05, r25	; 5
+		//PORTD = (1<<7); //output clock
+		PORTB = ~(1<<ZERO); //shift CLOCK input disable
+  fc:	85 b9       	out	0x05, r24	; 5
+  fe:	6f ef       	ldi	r22, 0xFF	; 255
+ 100:	49 e6       	ldi	r20, 0x69	; 105
+ 102:	58 e1       	ldi	r21, 0x18	; 24
+ 104:	61 50       	subi	r22, 0x01	; 1
+ 106:	40 40       	sbci	r20, 0x00	; 0
+ 108:	50 40       	sbci	r21, 0x00	; 0
+ 10a:	e1 f7       	brne	.-8      	; 0x104 <main+0xa4>
+ 10c:	00 c0       	rjmp	.+0      	; 0x10e <main+0xae>
+ 10e:	00 00       	nop
+		//PORTD = ~(1<<7); //output clock
+		/***7***/
+		_delay_ms(1000);
+		PORTD = (1<<4); //Data Serial in high
+ 110:	2b b9       	out	0x0b, r18	; 11
+		PORTB = (1<<ZERO); // shift CLOCK input read
+ 112:	95 b9       	out	0x05, r25	; 5
+		//PORTD = (1<<7); //output clock
+		PORTB = ~(1<<ZERO); //shift CLOCK input disable
+ 114:	85 b9       	out	0x05, r24	; 5
+ 116:	6f ef       	ldi	r22, 0xFF	; 255
+ 118:	49 e6       	ldi	r20, 0x69	; 105
+ 11a:	58 e1       	ldi	r21, 0x18	; 24
+ 11c:	61 50       	subi	r22, 0x01	; 1
+ 11e:	40 40       	sbci	r20, 0x00	; 0
+ 120:	50 40       	sbci	r21, 0x00	; 0
+ 122:	e1 f7       	brne	.-8      	; 0x11c <main+0xbc>
+ 124:	00 c0       	rjmp	.+0      	; 0x126 <main+0xc6>
+ 126:	00 00       	nop
+		//PORTD = ~(1<<7); //output clock
+		/***8***/
+		_delay_ms(1000);
+		PORTD = (1<<4); //Data Serial in high
+ 128:	2b b9       	out	0x0b, r18	; 11
+		PORTB = (1<<ZERO); // shift CLOCK input read
+ 12a:	95 b9       	out	0x05, r25	; 5
+		//PORTD = (1<<7); //output clock
+		PORTB = ~(1<<ZERO); //shift CLOCK input disable
+ 12c:	85 b9       	out	0x05, r24	; 5
+		//PORTD = ~(1<<7); //output clock
+		/******/
+		PORTD = (1<<7); //output clock
+ 12e:	80 e8       	ldi	r24, 0x80	; 128
+ 130:	8b b9       	out	0x0b, r24	; 11
+		PORTD = ~(1<<7); //output clock
+ 132:	3b b9       	out	0x0b, r19	; 11
+ 134:	ff cf       	rjmp	.-2      	; 0x134 <main+0xd4>
+
+00000136 <_exit>:
+ 136:	f8 94       	cli
+
+00000138 <__stop_program>:
+ 138:	ff cf       	rjmp	.-2      	; 0x138 <__stop_program>
