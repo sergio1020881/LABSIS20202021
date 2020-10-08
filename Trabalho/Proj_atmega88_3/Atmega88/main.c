@@ -21,10 +21,11 @@ Author: Sergio Santos
 /***Procedure & Function Def***/
 void PORTINIT();
 void shift_bit(uint8_t bool);
+void shift_byte(uint8_t byte);
 /***MAINMAIN***/
 int main(void)
 {
-	uint8_t i;
+	//uint8_t i;
 	PORTINIT();
     /* Replace with your application code */
 	PORTD &= ~(1<<7); //output clock
@@ -32,11 +33,16 @@ int main(void)
     while (TRUE)
     {
 		
-		for(i=0;i<8;i++)
-			shift_bit(1);
+		//for(i=0;i<8;i++)
+			//shift_bit(1);
 		 
-		for(i=0;i<8;i++)
-			shift_bit(0);
+		//for(i=0;i<8;i++)
+			//shift_bit(0);
+			
+		shift_byte(85);
+		shift_byte(170);
+		shift_byte(255);
+		shift_byte(0);
 			
     }
 }
@@ -53,11 +59,17 @@ void shift_bit(uint8_t bool)
 {
 	_delay_ms(100);
 	if (bool)
-		PORTD |= (1<<4); //Data Serial in high
+		PORTD |= (1<<4); //Data bit HIGH
 	else
-		PORTD &= ~(1<<4); //Data Serial in high
-	PORTD |= (1<<5); // shift CLOCK input read
-	PORTD |= (1<<7); //output clock
-	PORTD &= ~(1<<5); //shift CLOCK input disable
-	PORTD &= ~(1<<7); //output clock
+		PORTD &= ~(1<<4); //Data bit LOW
+	PORTD |= (1<<5); // shift bit
+	PORTD &= ~(1<<5); //shift disable
+}
+void shift_byte(uint8_t byte)
+{
+	uint8_t i;
+	for(i=0;i<8;i++)
+		shift_bit(byte & (1<<i));
+	PORTD |= (1<<7); //output enable
+	PORTD &= ~(1<<7); //output disable
 }

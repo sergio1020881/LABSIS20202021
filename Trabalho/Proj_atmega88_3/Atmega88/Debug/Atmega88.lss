@@ -3,29 +3,29 @@ Atmega88.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000000  00800100  00800100  000000f2  2**0
+  0 .data         00000000  00800100  00800100  00000128  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         0000009e  00000000  00000000  00000054  2**1
+  1 .text         000000d4  00000000  00000000  00000054  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .comment      00000030  00000000  00000000  000000f2  2**0
+  2 .comment      00000030  00000000  00000000  00000128  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000124  2**2
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000158  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000030  00000000  00000000  00000160  2**0
+  4 .debug_aranges 00000038  00000000  00000000  00000194  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00000772  00000000  00000000  00000190  2**0
+  5 .debug_info   000007ce  00000000  00000000  000001cc  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 000006db  00000000  00000000  00000902  2**0
+  6 .debug_abbrev 00000704  00000000  00000000  0000099a  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   000002ee  00000000  00000000  00000fdd  2**0
+  7 .debug_line   00000321  00000000  00000000  0000109e  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000044  00000000  00000000  000012cc  2**2
+  8 .debug_frame  00000070  00000000  00000000  000013c0  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    000003b9  00000000  00000000  00001310  2**0
+  9 .debug_str    000003c4  00000000  00000000  00001430  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    000000a7  00000000  00000000  000016c9  2**0
+ 10 .debug_loc    00000101  00000000  00000000  000017f4  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000020  00000000  00000000  00001770  2**0
+ 11 .debug_ranges 00000028  00000000  00000000  000018f5  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -65,14 +65,14 @@ Disassembly of section .text:
   3a:	d4 e0       	ldi	r29, 0x04	; 4
   3c:	de bf       	out	0x3e, r29	; 62
   3e:	cd bf       	out	0x3d, r28	; 61
-  40:	1e d0       	rcall	.+60     	; 0x7e <main>
-  42:	2b c0       	rjmp	.+86     	; 0x9a <_exit>
+  40:	3b d0       	rcall	.+118    	; 0xb8 <main>
+  42:	46 c0       	rjmp	.+140    	; 0xd0 <_exit>
 
 00000044 <__bad_interrupt>:
   44:	dd cf       	rjmp	.-70     	; 0x0 <__vectors>
 
 00000046 <PORTINIT>:
-		
+			
     }
 }
 void PORTINIT()
@@ -116,77 +116,100 @@ void shift_bit(uint8_t bool)
 	if (bool)
   6a:	88 23       	and	r24, r24
   6c:	11 f0       	breq	.+4      	; 0x72 <shift_bit+0x1a>
-		PORTD |= (1<<4); //Data Serial in high
+		PORTD |= (1<<4); //Data bit HIGH
   6e:	5c 9a       	sbi	0x0b, 4	; 11
   70:	01 c0       	rjmp	.+2      	; 0x74 <shift_bit+0x1c>
 	else
-		PORTD &= ~(1<<4); //Data Serial in high
+		PORTD &= ~(1<<4); //Data bit LOW
   72:	5c 98       	cbi	0x0b, 4	; 11
-	PORTD |= (1<<5); // shift CLOCK input read
+	PORTD |= (1<<5); // shift bit
   74:	5d 9a       	sbi	0x0b, 5	; 11
-	PORTD |= (1<<7); //output clock
-  76:	5f 9a       	sbi	0x0b, 7	; 11
-	PORTD &= ~(1<<5); //shift CLOCK input disable
-  78:	5d 98       	cbi	0x0b, 5	; 11
-	PORTD &= ~(1<<7); //output clock
-  7a:	5f 98       	cbi	0x0b, 7	; 11
-  7c:	08 95       	ret
+	PORTD &= ~(1<<5); //shift disable
+  76:	5d 98       	cbi	0x0b, 5	; 11
+  78:	08 95       	ret
 
-0000007e <main>:
-void shift_bit(uint8_t bool);
-/***MAINMAIN***/
-int main(void)
+0000007a <shift_byte>:
+}
+void shift_byte(uint8_t byte)
+{
+  7a:	ff 92       	push	r15
+  7c:	0f 93       	push	r16
+  7e:	1f 93       	push	r17
+  80:	cf 93       	push	r28
+  82:	df 93       	push	r29
+  84:	f8 2e       	mov	r15, r24
+  86:	c0 e0       	ldi	r28, 0x00	; 0
+  88:	d0 e0       	ldi	r29, 0x00	; 0
+	uint8_t i;
+	for(i=0;i<8;i++)
+		shift_bit(byte & (1<<i));
+  8a:	01 e0       	ldi	r16, 0x01	; 1
+  8c:	10 e0       	ldi	r17, 0x00	; 0
+  8e:	c8 01       	movw	r24, r16
+  90:	0c 2e       	mov	r0, r28
+  92:	02 c0       	rjmp	.+4      	; 0x98 <shift_byte+0x1e>
+  94:	88 0f       	add	r24, r24
+  96:	99 1f       	adc	r25, r25
+  98:	0a 94       	dec	r0
+  9a:	e2 f7       	brpl	.-8      	; 0x94 <shift_byte+0x1a>
+  9c:	8f 21       	and	r24, r15
+  9e:	dc df       	rcall	.-72     	; 0x58 <shift_bit>
+  a0:	21 96       	adiw	r28, 0x01	; 1
+	PORTD &= ~(1<<5); //shift disable
+}
+void shift_byte(uint8_t byte)
 {
 	uint8_t i;
-	PORTINIT();
-  7e:	e3 df       	rcall	.-58     	; 0x46 <PORTINIT>
-    /* Replace with your application code */
-	PORTD &= ~(1<<7); //output clock
-  80:	5f 98       	cbi	0x0b, 7	; 11
-	PORTD &= ~(1<<5); //shift CLOCK input disable
-  82:	5d 98       	cbi	0x0b, 5	; 11
-/***Procedure & Function Def***/
-void PORTINIT();
-void shift_bit(uint8_t bool);
+	for(i=0;i<8;i++)
+  a2:	c8 30       	cpi	r28, 0x08	; 8
+  a4:	d1 05       	cpc	r29, r1
+  a6:	99 f7       	brne	.-26     	; 0x8e <shift_byte+0x14>
+		shift_bit(byte & (1<<i));
+	PORTD |= (1<<7); //output enable
+  a8:	5f 9a       	sbi	0x0b, 7	; 11
+	PORTD &= ~(1<<7); //output disable
+  aa:	5f 98       	cbi	0x0b, 7	; 11
+  ac:	df 91       	pop	r29
+  ae:	cf 91       	pop	r28
+  b0:	1f 91       	pop	r17
+  b2:	0f 91       	pop	r16
+  b4:	ff 90       	pop	r15
+  b6:	08 95       	ret
+
+000000b8 <main>:
+void shift_byte(uint8_t byte);
 /***MAINMAIN***/
 int main(void)
 {
-  84:	c8 e0       	ldi	r28, 0x08	; 8
-	PORTD &= ~(1<<5); //shift CLOCK input disable
-    while (TRUE)
-    {
-		
-		for(i=0;i<8;i++)
-			shift_bit(1);
-  86:	81 e0       	ldi	r24, 0x01	; 1
-  88:	e7 df       	rcall	.-50     	; 0x58 <shift_bit>
-  8a:	c1 50       	subi	r28, 0x01	; 1
+	//uint8_t i;
+	PORTINIT();
+  b8:	c6 df       	rcall	.-116    	; 0x46 <PORTINIT>
+    /* Replace with your application code */
 	PORTD &= ~(1<<7); //output clock
+  ba:	5f 98       	cbi	0x0b, 7	; 11
 	PORTD &= ~(1<<5); //shift CLOCK input disable
-    while (TRUE)
-    {
-		
-		for(i=0;i<8;i++)
-  8c:	e1 f7       	brne	.-8      	; 0x86 <main+0x8>
-  8e:	c8 e0       	ldi	r28, 0x08	; 8
-			shift_bit(1);
+  bc:	5d 98       	cbi	0x0b, 5	; 11
+			//shift_bit(1);
 		 
-		for(i=0;i<8;i++)
-			shift_bit(0);
-  90:	80 e0       	ldi	r24, 0x00	; 0
-  92:	e2 df       	rcall	.-60     	; 0x58 <shift_bit>
-  94:	c1 50       	subi	r28, 0x01	; 1
-    {
-		
-		for(i=0;i<8;i++)
-			shift_bit(1);
-		 
-		for(i=0;i<8;i++)
-  96:	e1 f7       	brne	.-8      	; 0x90 <main+0x12>
-  98:	f5 cf       	rjmp	.-22     	; 0x84 <main+0x6>
+		//for(i=0;i<8;i++)
+			//shift_bit(0);
+			
+		shift_byte(85);
+  be:	85 e5       	ldi	r24, 0x55	; 85
+  c0:	dc df       	rcall	.-72     	; 0x7a <shift_byte>
+		shift_byte(170);
+  c2:	8a ea       	ldi	r24, 0xAA	; 170
+  c4:	da df       	rcall	.-76     	; 0x7a <shift_byte>
+		shift_byte(255);
+  c6:	8f ef       	ldi	r24, 0xFF	; 255
+  c8:	d8 df       	rcall	.-80     	; 0x7a <shift_byte>
+		shift_byte(0);
+  ca:	80 e0       	ldi	r24, 0x00	; 0
+  cc:	d6 df       	rcall	.-84     	; 0x7a <shift_byte>
+  ce:	f7 cf       	rjmp	.-18     	; 0xbe <main+0x6>
 
-0000009a <_exit>:
-  9a:	f8 94       	cli
+000000d0 <_exit>:
+  d0:	f8 94       	cli
 
-0000009c <__stop_program>:
-  9c:	ff cf       	rjmp	.-2      	; 0x9c <__stop_program>
+000000d2 <__stop_program>:
+  d2:	ff cf       	rjmp	.-2      	; 0xd2 <__stop_program>
