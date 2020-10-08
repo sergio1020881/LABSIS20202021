@@ -20,142 +20,24 @@ Author: Sergio Santos
 /***Global Variable***/
 /***Procedure & Function Def***/
 void PORTINIT();
+void shift_bit(uint8_t bool);
 /***MAINMAIN***/
 int main(void)
 {
-	uint8_t count=0;
+	uint8_t i;
 	PORTINIT();
     /* Replace with your application code */
 	PORTD &= ~(1<<7); //output clock
 	PORTD &= ~(1<<5); //shift CLOCK input disable
     while (TRUE)
-    {	
-		while(!count){
-		//1
-		_delay_ms(1000);
-		PORTD |= (1<<4); //Data Serial in high
-		PORTD |= (1<<5); // shift CLOCK input read
-		PORTD |= (1<<7); //output clock
-		PORTD &= ~(1<<5); //shift CLOCK input disable
-		PORTD &= ~(1<<7); //output clock
-		//2
-		_delay_ms(1000);
-		PORTD |= (1<<4); //Data Serial in high
-		PORTD |= (1<<5); // shift CLOCK input read
-		PORTD |= (1<<7); //output clock
-		PORTD &= ~(1<<5); //shift CLOCK input disable
-		PORTD &= ~(1<<7); //output clock
-		//3
-		_delay_ms(1000);
-		PORTD |= (1<<4); //Data Serial in high
-		PORTD |= (1<<5); // shift CLOCK input read
-		PORTD |= (1<<7); //output clock
-		PORTD &= ~(1<<5); //shift CLOCK input disable
-		PORTD &= ~(1<<7); //output clock
-		//4
-		_delay_ms(1000);
-		PORTD |= (1<<4); //Data Serial in high
-		PORTD |= (1<<5); // shift CLOCK input read
-		PORTD |= (1<<7); //output clock
-		PORTD &= ~(1<<5); //shift CLOCK input disable
-		PORTD &= ~(1<<7); //output clock
-		//5
-		_delay_ms(1000);
-		PORTD |= (1<<4); //Data Serial in high
-		PORTD |= (1<<5); // shift CLOCK input read
-		PORTD |= (1<<7); //output clock
-		PORTD &= ~(1<<5); //shift CLOCK input disable
-		PORTD &= ~(1<<7); //output clock
-		//6
-		_delay_ms(1000);
-		PORTD |= (1<<4); //Data Serial in high
-		PORTD |= (1<<5); // shift CLOCK input read
-		PORTD |= (1<<7); //output clock
-		PORTD &= ~(1<<5); //shift CLOCK input disable
-		PORTD &= ~(1<<7); //output clock
-		//7
-		_delay_ms(1000);
-		PORTD |= (1<<4); //Data Serial in high
-		PORTD |= (1<<5); // shift CLOCK input read
-		PORTD |= (1<<7); //output clock
-		PORTD &= ~(1<<5); //shift CLOCK input disable
-		PORTD &= ~(1<<7); //output clock
-		//8
-		_delay_ms(1000);
-		PORTD |= (1<<4); //Data Serial in high
-		PORTD |= (1<<5); // shift CLOCK input read
-		PORTD |= (1<<7); //output clock
-		PORTD &= ~(1<<5); //shift CLOCK input disable
-		PORTD &= ~(1<<7); //output clock
-		//
-		_delay_ms(1000);
-		PORTD &= ~(1<<4); //Data Serial in high
-		PORTD |= (1<<5); // shift CLOCK input read
-		PORTD |= (1<<7); //output clock
-		PORTD &= ~(1<<5); //shift CLOCK input disable
-		PORTD &= ~(1<<7); //output clock
-		//2
-		_delay_ms(1000);
-		PORTD &= ~(1<<4); //Data Serial in high
-		PORTD |= (1<<5); // shift CLOCK input read
-		PORTD |= (1<<7); //output clock
-		PORTD &= ~(1<<5); //shift CLOCK input disable
-		PORTD &= ~(1<<7); //output clock
-		//3
-		_delay_ms(1000);
-		PORTD &= ~(1<<4); //Data Serial in high
-		PORTD |= (1<<5); // shift CLOCK input read
-		PORTD |= (1<<7); //output clock
-		PORTD &= ~(1<<5); //shift CLOCK input disable
-		PORTD &= ~(1<<7); //output clock
-		//4
-		_delay_ms(1000);
-		PORTD &= ~(1<<4); //Data Serial in high
-		PORTD |= (1<<5); // shift CLOCK input read
-		PORTD |= (1<<7); //output clock
-		PORTD &= ~(1<<5); //shift CLOCK input disable
-		PORTD &= ~(1<<7); //output clock
-		//5
-		_delay_ms(1000);
-		PORTD &= ~(1<<4); //Data Serial in high
-		PORTD |= (1<<5); // shift CLOCK input read
-		PORTD |= (1<<7); //output clock
-		PORTD &= ~(1<<5); //shift CLOCK input disable
-		PORTD &= ~(1<<7); //output clock
-		//6
-		_delay_ms(1000);
-		PORTD &= ~(1<<4); //Data Serial in high
-		PORTD |= (1<<5); // shift CLOCK input read
-		PORTD |= (1<<7); //output clock
-		PORTD &= ~(1<<5); //shift CLOCK input disable
-		PORTD &= ~(1<<7); //output clock
-		//7
-		_delay_ms(1000);
-		PORTD &= ~(1<<4); //Data Serial in high
-		PORTD |= (1<<5); // shift CLOCK input read
-		PORTD |= (1<<7); //output clock
-		PORTD &= ~(1<<5); //shift CLOCK input disable
-		PORTD &= ~(1<<7); //output clock
-		//8
-		_delay_ms(1000);
-		PORTD &= ~(1<<4); //Data Serial in high
-		PORTD |= (1<<5); // shift CLOCK input read
-		PORTD |= (1<<7); //output clock
-		PORTD &= ~(1<<5); //shift CLOCK input disable
-		PORTD &= ~(1<<7); //output clock
+    {
 		
-		
-		
-		
-		
-		
-		
-		//PORTD |= (1<<7); //output clock
-		//PORTD &= ~(1<<7); //output clock
-		
-		//count++;
-		}
-		
+		for(i=0;i<8;i++)
+			shift_bit(1);
+		 
+		for(i=0;i<8;i++)
+			shift_bit(0);
+			
     }
 }
 void PORTINIT()
@@ -166,4 +48,16 @@ void PORTINIT()
 	PORTD = ~(1<<4); //Serial Data
 	PORTD &= ~(1<<5); //Serial Clock
 	PORTD &= ~(1<<7); //Serial Store
+}
+void shift_bit(uint8_t bool)
+{
+	_delay_ms(100);
+	if (bool)
+		PORTD |= (1<<4); //Data Serial in high
+	else
+		PORTD &= ~(1<<4); //Data Serial in high
+	PORTD |= (1<<5); // shift CLOCK input read
+	PORTD |= (1<<7); //output clock
+	PORTD &= ~(1<<5); //shift CLOCK input disable
+	PORTD &= ~(1<<7); //output clock
 }
