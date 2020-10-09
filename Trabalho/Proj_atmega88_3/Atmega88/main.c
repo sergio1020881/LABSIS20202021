@@ -40,9 +40,30 @@ int main(void)
 			shift.out();
 		}
 		_delay_ms(1000);
-		shift.byte(255);
+		shift.byte(3);
 		_delay_ms(1000);
-		shift.byte(0);
+		shift.byte(12);
+		_delay_ms(1000);
+		shift.byte(48);
+		_delay_ms(1000);
+		shift.byte(192);
+		_delay_ms(1000);
+		shift.byte(48);
+		_delay_ms(1000);
+		shift.byte(12);
+		_delay_ms(1000);
+		shift.byte(3);
+		_delay_ms(1000);
+		shift.byte(24);
+		_delay_ms(1000);
+		for(i=0;i<256;i++){
+			shift.byte(i);
+			_delay_ms(1000);
+		}
+		
+		
+		
+		
     }
 }
 /***EOF***/
