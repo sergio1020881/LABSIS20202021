@@ -3,31 +3,31 @@ Atmega88.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000000  00800100  00800100  00000300  2**0
+  0 .data         00000000  00800100  00800100  00000334  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         0000028c  00000000  00000000  00000074  2**1
+  1 .text         000002c0  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          00000007  00800100  00800100  00000300  2**0
+  2 .bss          00000007  00800100  00800100  00000334  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  00000300  2**0
+  3 .comment      00000030  00000000  00000000  00000334  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000330  2**2
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000364  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000058  00000000  00000000  0000036c  2**0
+  5 .debug_aranges 00000058  00000000  00000000  000003a0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00000a66  00000000  00000000  000003c4  2**0
+  6 .debug_info   00000af9  00000000  00000000  000003f8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 0000086c  00000000  00000000  00000e2a  2**0
+  7 .debug_abbrev 00000878  00000000  00000000  00000ef1  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   0000041a  00000000  00000000  00001696  2**0
+  8 .debug_line   00000444  00000000  00000000  00001769  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000000bc  00000000  00000000  00001ab0  2**2
+  9 .debug_frame  000000bc  00000000  00000000  00001bb0  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000453  00000000  00000000  00001b6c  2**0
+ 10 .debug_str    00000453  00000000  00000000  00001c6c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00000391  00000000  00000000  00001fbf  2**0
+ 11 .debug_loc    0000043d  00000000  00000000  000020bf  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000038  00000000  00000000  00002350  2**0
+ 12 .debug_ranges 00000038  00000000  00000000  000024fc  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -82,7 +82,7 @@ Disassembly of section .text:
   4c:	b2 07       	cpc	r27, r18
   4e:	e1 f7       	brne	.-8      	; 0x48 <.do_clear_bss_loop>
   50:	df d0       	rcall	.+446    	; 0x210 <main>
-  52:	1a c1       	rjmp	.+564    	; 0x288 <_exit>
+  52:	34 c1       	rjmp	.+616    	; 0x2bc <_exit>
 
 00000054 <__bad_interrupt>:
   54:	d5 cf       	rjmp	.-86     	; 0x0 <__vectors>
@@ -387,84 +387,122 @@ int main(void)
  238:	7e 83       	std	Y+6, r23	; 0x06
  23a:	c9 80       	ldd	r12, Y+1	; 0x01
  23c:	da 80       	ldd	r13, Y+2	; 0x02
- 23e:	ed 80       	ldd	r14, Y+5	; 0x05
- 240:	fe 80       	ldd	r15, Y+6	; 0x06
+ 23e:	ab 80       	ldd	r10, Y+3	; 0x03
+ 240:	bc 80       	ldd	r11, Y+4	; 0x04
+ 242:	ed 80       	ldd	r14, Y+5	; 0x05
+ 244:	fe 80       	ldd	r15, Y+6	; 0x06
 #define ZERO 0
 /***Global Variable***/
 /***Procedure & Function Def***/
 /***MAINMAIN***/
 int main(void)
 {
- 242:	18 e0       	ldi	r17, 0x08	; 8
+ 246:	18 e0       	ldi	r17, 0x08	; 8
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
- 244:	2f ef       	ldi	r18, 0xFF	; 255
- 246:	89 e6       	ldi	r24, 0x69	; 105
- 248:	98 e1       	ldi	r25, 0x18	; 24
- 24a:	21 50       	subi	r18, 0x01	; 1
- 24c:	80 40       	sbci	r24, 0x00	; 0
- 24e:	90 40       	sbci	r25, 0x00	; 0
- 250:	e1 f7       	brne	.-8      	; 0x24a <main+0x3a>
- 252:	00 c0       	rjmp	.+0      	; 0x254 <main+0x44>
- 254:	00 00       	nop
+ 248:	2f ef       	ldi	r18, 0xFF	; 255
+ 24a:	80 e7       	ldi	r24, 0x70	; 112
+ 24c:	92 e0       	ldi	r25, 0x02	; 2
+ 24e:	21 50       	subi	r18, 0x01	; 1
+ 250:	80 40       	sbci	r24, 0x00	; 0
+ 252:	90 40       	sbci	r25, 0x00	; 0
+ 254:	e1 f7       	brne	.-8      	; 0x24e <main+0x3e>
+ 256:	00 c0       	rjmp	.+0      	; 0x258 <main+0x48>
+ 258:	00 00       	nop
     /* Replace with your application code */
     while (TRUE)
     {
 		for(i=0;i<8;i++){
-			_delay_ms(1000);
+			_delay_ms(100);
 			shift.bit(1);
- 256:	81 e0       	ldi	r24, 0x01	; 1
- 258:	f6 01       	movw	r30, r12
- 25a:	09 95       	icall
-			shift.out();
- 25c:	f7 01       	movw	r30, r14
+ 25a:	81 e0       	ldi	r24, 0x01	; 1
+ 25c:	f6 01       	movw	r30, r12
  25e:	09 95       	icall
- 260:	11 50       	subi	r17, 0x01	; 1
+			shift.out();
+ 260:	f7 01       	movw	r30, r14
+ 262:	09 95       	icall
+ 264:	11 50       	subi	r17, 0x01	; 1
 	//Local Variables
 	HC595 shift = HC595enable(&DDRD,&PORTD,4,5,7);
     /* Replace with your application code */
     while (TRUE)
     {
 		for(i=0;i<8;i++){
- 262:	81 f7       	brne	.-32     	; 0x244 <main+0x34>
- 264:	18 e0       	ldi	r17, 0x08	; 8
- 266:	ff ef       	ldi	r31, 0xFF	; 255
- 268:	29 e6       	ldi	r18, 0x69	; 105
- 26a:	88 e1       	ldi	r24, 0x18	; 24
- 26c:	f1 50       	subi	r31, 0x01	; 1
- 26e:	20 40       	sbci	r18, 0x00	; 0
- 270:	80 40       	sbci	r24, 0x00	; 0
- 272:	e1 f7       	brne	.-8      	; 0x26c <main+0x5c>
- 274:	00 c0       	rjmp	.+0      	; 0x276 <main+0x66>
- 276:	00 00       	nop
+ 266:	81 f7       	brne	.-32     	; 0x248 <main+0x38>
+ 268:	18 e0       	ldi	r17, 0x08	; 8
+ 26a:	ff ef       	ldi	r31, 0xFF	; 255
+ 26c:	20 e7       	ldi	r18, 0x70	; 112
+ 26e:	82 e0       	ldi	r24, 0x02	; 2
+ 270:	f1 50       	subi	r31, 0x01	; 1
+ 272:	20 40       	sbci	r18, 0x00	; 0
+ 274:	80 40       	sbci	r24, 0x00	; 0
+ 276:	e1 f7       	brne	.-8      	; 0x270 <main+0x60>
+ 278:	00 c0       	rjmp	.+0      	; 0x27a <main+0x6a>
+ 27a:	00 00       	nop
 			shift.bit(1);
 			shift.out();
 		}
 		for(i=0;i<8;i++){
-			_delay_ms(1000);
+			_delay_ms(100);
 			shift.bit(0);
- 278:	80 e0       	ldi	r24, 0x00	; 0
- 27a:	f6 01       	movw	r30, r12
- 27c:	09 95       	icall
-			shift.out();
- 27e:	f7 01       	movw	r30, r14
+ 27c:	80 e0       	ldi	r24, 0x00	; 0
+ 27e:	f6 01       	movw	r30, r12
  280:	09 95       	icall
- 282:	11 50       	subi	r17, 0x01	; 1
+			shift.out();
+ 282:	f7 01       	movw	r30, r14
+ 284:	09 95       	icall
+ 286:	11 50       	subi	r17, 0x01	; 1
 		for(i=0;i<8;i++){
-			_delay_ms(1000);
+			_delay_ms(100);
 			shift.bit(1);
 			shift.out();
 		}
 		for(i=0;i<8;i++){
- 284:	81 f7       	brne	.-32     	; 0x266 <main+0x56>
- 286:	dd cf       	rjmp	.-70     	; 0x242 <main+0x32>
+ 288:	81 f7       	brne	.-32     	; 0x26a <main+0x5a>
+ 28a:	ff ef       	ldi	r31, 0xFF	; 255
+ 28c:	29 e6       	ldi	r18, 0x69	; 105
+ 28e:	88 e1       	ldi	r24, 0x18	; 24
+ 290:	f1 50       	subi	r31, 0x01	; 1
+ 292:	20 40       	sbci	r18, 0x00	; 0
+ 294:	80 40       	sbci	r24, 0x00	; 0
+ 296:	e1 f7       	brne	.-8      	; 0x290 <main+0x80>
+ 298:	00 c0       	rjmp	.+0      	; 0x29a <main+0x8a>
+ 29a:	00 00       	nop
+			_delay_ms(100);
+			shift.bit(0);
+			shift.out();
+		}
+		_delay_ms(1000);
+		shift.byte(255);
+ 29c:	8f ef       	ldi	r24, 0xFF	; 255
+ 29e:	f5 01       	movw	r30, r10
+ 2a0:	09 95       	icall
+ 2a2:	ff ef       	ldi	r31, 0xFF	; 255
+ 2a4:	29 e6       	ldi	r18, 0x69	; 105
+ 2a6:	88 e1       	ldi	r24, 0x18	; 24
+ 2a8:	f1 50       	subi	r31, 0x01	; 1
+ 2aa:	20 40       	sbci	r18, 0x00	; 0
+ 2ac:	80 40       	sbci	r24, 0x00	; 0
+ 2ae:	e1 f7       	brne	.-8      	; 0x2a8 <main+0x98>
+ 2b0:	00 c0       	rjmp	.+0      	; 0x2b2 <main+0xa2>
+ 2b2:	00 00       	nop
+		_delay_ms(1000);
+		shift.byte(0);
+ 2b4:	80 e0       	ldi	r24, 0x00	; 0
+ 2b6:	f5 01       	movw	r30, r10
+ 2b8:	09 95       	icall
+		
+		
+		
+    }
+ 2ba:	c5 cf       	rjmp	.-118    	; 0x246 <main+0x36>
 
-00000288 <_exit>:
- 288:	f8 94       	cli
+000002bc <_exit>:
+ 2bc:	f8 94       	cli
 
-0000028a <__stop_program>:
- 28a:	ff cf       	rjmp	.-2      	; 0x28a <__stop_program>
+000002be <__stop_program>:
+ 2be:	ff cf       	rjmp	.-2      	; 0x2be <__stop_program>

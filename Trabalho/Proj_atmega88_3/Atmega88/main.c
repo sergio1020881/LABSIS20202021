@@ -30,15 +30,19 @@ int main(void)
     while (TRUE)
     {
 		for(i=0;i<8;i++){
-			_delay_ms(1000);
+			_delay_ms(100);
 			shift.bit(1);
 			shift.out();
 		}
 		for(i=0;i<8;i++){
-			_delay_ms(1000);
+			_delay_ms(100);
 			shift.bit(0);
 			shift.out();
 		}
+		_delay_ms(1000);
+		shift.byte(255);
+		_delay_ms(1000);
+		shift.byte(0);
     }
 }
 /***EOF***/
