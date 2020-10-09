@@ -14,69 +14,31 @@ Author: Sergio Santos
 #include <avr/interrupt.h>
 #include <util/delay.h>
 #include <inttypes.h>
+#include "74hc595.h"
 /***Constant and Macros***/
 #define TRUE 1
 #define ZERO 0
-#define Datapin 4
-#define Clkpin 5
-#define Outpin 7
 /***Global Variable***/
 /***Procedure & Function Def***/
-void PORTINIT();
-void shift_bit(uint8_t bool, uint8_t datapin, uint8_t clkpin);
-void shift_byte(uint8_t byte, uint8_t datapin, uint8_t clkpin, uint8_t outpin);
 /***MAINMAIN***/
 int main(void)
 {
-	//uint8_t i;
-	PORTINIT();
+	uint8_t i;
+	//Local Variables
+	HC595 shift = HC595enable(&DDRD,&PORTD,4,5,7);
     /* Replace with your application code */
-	PORTD &= ~(1<<Outpin); //Output clock
-	PORTD &= ~(1<<Clkpin); //Shift CLOCK input disable
     while (TRUE)
     {
-		
-		//for(i=0;i<8;i++)
-			//shift_bit(1);
-		 
-		//for(i=0;i<8;i++)
-			//shift_bit(0);
-			
-		shift_byte(85, 4, 5, 7);
-		shift_byte(170, 4, 5, 7);
-		shift_byte(255, 4, 5, 7);
-		shift_byte(0, 4, 5, 7);
-			
+		for(i=0;i<8;i++){
+			_delay_ms(1000);
+			shift.bit(1);
+			shift.out();
+		}
+		for(i=0;i<8;i++){
+			_delay_ms(1000);
+			shift.bit(0);
+			shift.out();
+		}
     }
-}
-void PORTINIT()
-{
-	DDRD = (1<<Datapin); //Serial Data
-	DDRD |= (1<<Clkpin); //Serial Clock
-	DDRD |= (1<<Outpin); //Serial Store
-	PORTD = ~(1<<Datapin); //Serial Data
-	PORTD &= ~(1<<Clkpin); //Serial Clock
-	PORTD &= ~(1<<Outpin); //Serial Store
-}
-void shift_bit(uint8_t bool, uint8_t datapin, uint8_t clkpin)
-{
-	if (bool)
-		PORTD |= (1<<datapin); //Data bit HIGH
-	else
-		PORTD &= ~(1<<datapin); //Data bit LOW
-	PORTD |= (1<<clkpin); // Shift bit
-	PORTD &= ~(1<<clkpin); //Shift disable
-}
-void shift_byte(uint8_t byte, uint8_t datapin, uint8_t clkpin, uint8_t outpin)
-{
-	uint8_t i;
-	for(i=0;i<8;i++){
-		_delay_ms(100);
-		shift_bit(byte & (1<<i), datapin, clkpin);
-		PORTD |= (1<<outpin); //Output enable
-		PORTD &= ~(1<<outpin); //Output disable
-	}
-	PORTD |= (1<<outpin); //Output enable
-	PORTD &= ~(1<<outpin); //Output disable
 }
 /***EOF***/
