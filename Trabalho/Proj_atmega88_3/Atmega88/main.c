@@ -56,9 +56,9 @@ int main(void)
 		_delay_ms(1000);
 		shift.byte(24);
 		_delay_ms(1000);
-		for(i=0;i<256;i++){
+		for(i=0;i<255;i++){
 			shift.byte(i);
-			_delay_ms(1000);
+			_delay_ms(50);
 		}
 		
 		
