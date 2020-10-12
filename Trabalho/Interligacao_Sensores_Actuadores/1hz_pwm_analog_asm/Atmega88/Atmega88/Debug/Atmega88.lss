@@ -1,12 +1,12 @@
 
-AVRASM ver. 2.2.7  C:\Users\sergi\Documents\GITHUB\LABSIS20202021\Trabalho\sistema_minimo\1hz_asm_int\Atmega88\Atmega88\main.asm Mon Oct 12 16:11:28 2020
+AVRASM ver. 2.2.7  C:\Users\sergi\Desktop\1hz_pwm_analog_asm\Atmega88\Atmega88\main.asm Mon Oct 12 16:19:03 2020
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m88def.inc'
-C:\Users\sergi\Documents\GITHUB\LABSIS20202021\Trabalho\sistema_minimo\1hz_asm_int\Atmega88\Atmega88\main.asm(3): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\M88DEF.INC'
+C:\Users\sergi\Desktop\1hz_pwm_analog_asm\Atmega88\Atmega88\main.asm(4): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\M88DEF.INC'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m88def.inc'
-C:\Users\sergi\Documents\GITHUB\LABSIS20202021\Trabalho\sistema_minimo\1hz_asm_int\Atmega88\Atmega88\main.asm(3): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\M88DEF.INC'
+C:\Users\sergi\Desktop\1hz_pwm_analog_asm\Atmega88\Atmega88\main.asm(4): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\M88DEF.INC'
                                  
-                                 .EQU REPEAT = 100
+                                 ;assembly code
                                  
                                  ;***** Created: 2011-02-09 12:03 ******* Source: ATmega88.xml ************
                                  ;*************************************************************************
@@ -982,7 +982,8 @@ C:\Users\sergi\Documents\GITHUB\LABSIS20202021\Trabalho\sistema_minimo\1hz_asm_i
                                  
                                  ; ***** END OF FILE ******************************************************
                                  
-                                 .EQU MASK = (1<<6)
+                                 .EQU REPEAT = 100
+                                 .EQU MASK = (1<<PD6)
                                  .INCLUDE "M88DEF.INC"
                                  
                                  ;***** Created: 2011-02-09 12:03 ******* Source: ATmega88.xml ************
@@ -1028,11 +1029,13 @@ C:\Users\sergi\Documents\GITHUB\LABSIS20202021\Trabalho\sistema_minimo\1hz_asm_i
                                  
                                  ; ***** END OF FILE ******************************************************
                                  .ORG 0
-000000 c0ff                      	RJMP RESET
-                                 .ORG 0x20
-000020 c0f8                      	RJMP TIM0_COMPA
+000000 c0ff                      RJMP RESET
+                                 .ORG 0x015
+000015 c1de                      RJMP ADC_vect
+                                 .ORG 0X00E
+00000e c181                      RJMP TIM0_COMPA_vect
                                  .ORG 0x100
-                                 	RESET:
+                                 RESET:
 000100 e004                      	LDI R16, HIGH(RAMEND)
 000101 bf0e                      	OUT SPH, R16
 000102 ef0f                      	LDI R16, LOW(RAMEND)
@@ -1041,30 +1044,66 @@ C:\Users\sergi\Documents\GITHUB\LABSIS20202021\Trabalho\sistema_minimo\1hz_asm_i
 000105 e410                      	LDI R17, MASK
 000106 e624                      	LDI R18, REPEAT
 000107 9a56                      	SBI DDRD, 6
-000108 9a5e                      	SBI PORTD, 6
-000109 d001                      	RCALL INTRUP_10ms
-00010a c00a                      	RJMP MAIN
-                                 ; Setup Periodo 10ms
-                                 INTRUP_10ms:
-00010b e032                      	LDI R19, (1<<OCIE0A)
-00010c 9330 006e                 	STS TIMSK0, R19
-00010e e93c                      	LDI R19, 156
-00010f bd37                      	OUT OCR0A, R19
-000110 e032                      	LDI R19, (1<<WGM01)
-000111 bd34                      	OUT TCCR0A, R19
-000112 e034                      	LDI R19, (1<<CS02)
-000113 bd35                      	OUT TCCR0B, R19
-000114 9478                      	SEI
+000108 9822                      	CBI DDRB, (1<<PB1)
+000109 985e                      	CBI PORTD, 6
+00010a d003                      	RCALL TIMER0A_setup
+00010b d00c                      	RCALL TIMER1A_setup
+00010c d01c                      	RCALL ADC_setup
+00010d c029                      	RJMP MAIN
+                                 ;— 10ms Setup
+                                 TIMER0A_setup:
+00010e e032                      	LDI R19, (1<<OCIE0A)
+00010f 9330 006e                 	STS TIMSK0, R19
+000111 e93c                      	LDI R19, 156 ;OCR0A
+000112 bd37                      	OUT OCR0A, R19
+000113 e032                      	LDI R19, (1<<WGM01)
+000114 bd34                      	OUT TCCR0A, R19
+000115 e034                      	LDI R19, (1<<CS02)
+000116 bd35                      	OUT TCCR0B, R19
+000117 9508                      	RET
+                                 TIMER1A_setup:
+000118 e031                      	LDI R19, (1<<WGM10)
+000119 6c30                      	ORI R19, (3<<COM1A0)
+00011a 9330 0080                 	STS TCCR1A, R19
+00011c e038                      	LDI R19, (1<<WGM12)
+00011d 9330 0081                 	STS TCCR1B, R19
+00011f 9a21                      	SBI DDRB, PB1
+000120 e830                      	LDI R19, 128
+000121 9330 0088                 	STS OCR1AL, R19
+000123 9130 0081                 	LDS R19, TCCR1B
+000125 6034                      	ORI R19, (1<<CS12)
+000126 9330 0081                 	STS TCCR1B, R19
+000128 9508                      	RET
+                                 ADC_setup:
+000129 9838                      	CBI DDRC, PC0
+00012a e430                      	LDI R19, (1<<REFS0)
+00012b 6230                      	ORI R19, (1<<ADLAR)
+00012c 9330 007c                 	STS ADMUX, R19
+00012e e037                      	LDI R19, (7<<ADPS0)
+00012f 6038                      	ORI R19, (1<<ADIE)
+000130 6830                      	ORI R19, (1<<ADEN)
+000131 6430                      	ORI R19, (1<<ADSC)
+000132 6230                      	ORI R19, (1<<ADATE)
+000133 9330 007a                 	STS ADCSRA, R19
+000135 9478                      	SEI
+000136 9508                      	RET
                                  MAIN:
-000115 cfff                      	RJMP MAIN
+000137 cfff                      	RJMP MAIN
+                                 	.ORG 400
+                                 TIM0_COMPA_vect:
+000190 952a                      	DEC R18
+000191 f009                      	BREQ INIC
+000192 9518                      	RETI
                                  INIC:
-000116 e624                      	LDI R18, REPEAT
-000117 2701                      	EOR R16, R17
-000118 b90b                      	OUT PORTD, R16
-                                 TIM0_COMPA:
-000119 952a                      	DEC R18
-00011a f3d9                      	BREQ INIC
-00011b 9518                      	RETI
+000193 e624                      	LDI R18, REPEAT
+000194 2701                      	EOR R16, R17
+000195 b90b                      	OUT PORTD, R16
+                                 	.ORG 500
+                                 ADC_vect:
+0001f4 9140 0078                 	LDS R20, ADCL
+0001f6 9140 0079                 	LDS R20, ADCH
+0001f8 9340 0088                 	STS OCR1AL, R20
+0001fa 9518                      	RETI
                                  ;EOF
 
 
@@ -1085,10 +1124,10 @@ counted separately from r26..r31 here.
 "ATmega88" register use summary:
 x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:   7 r17:   2 r18:   3 r19:   8 r20:   0 
+r13:   0 r14:   0 r15:   0 r16:   7 r17:   2 r18:   3 r19:  27 r20:   3 
 r21:   0 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
 r29:   0 r30:   0 r31:   0 
-Registers used: 4 out of 35 (11.4%)
+Registers used: 5 out of 35 (14.3%)
 
 "ATmega88" instruction use summary:
 .lds  :   0 .sts  :   0 adc   :   0 add   :   0 adiw  :   0 and   :   0 
@@ -1096,26 +1135,26 @@ andi  :   0 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0
 brcc  :   0 brcs  :   0 break :   0 breq  :   1 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
 brne  :   0 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
-brvs  :   0 bset  :   0 bst   :   0 cbi   :   0 cbr   :   0 clc   :   0 
+brvs  :   0 bset  :   0 bst   :   0 cbi   :   3 cbr   :   0 clc   :   0 
 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0 clt   :   0 
 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 cpi   :   0 
 cpse  :   0 dec   :   1 eor   :   1 fmul  :   0 fmuls :   0 fmulsu:   0 
 icall :   0 ijmp  :   0 in    :   0 inc   :   0 ld    :   0 ldd   :   0 
-ldi   :  10 lds   :   0 lpm   :   0 lsl   :   0 lsr   :   0 mov   :   0 
+ldi   :  15 lds   :   3 lpm   :   0 lsl   :   0 lsr   :   0 mov   :   0 
 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 neg   :   0 nop   :   0 
-or    :   0 ori   :   0 out   :   6 pop   :   0 push  :   0 rcall :   1 
-ret   :   0 reti  :   1 rjmp  :   4 rol   :   0 ror   :   0 sbc   :   0 
+or    :   0 ori   :   7 out   :   6 pop   :   0 push  :   0 rcall :   3 
+ret   :   3 reti  :   2 rjmp  :   5 rol   :   0 ror   :   0 sbc   :   0 
 sbci  :   0 sbi   :   2 sbic  :   0 sbis  :   0 sbiw  :   0 sbr   :   0 
 sbrc  :   0 sbrs  :   0 sec   :   0 seh   :   0 sei   :   1 sen   :   0 
 ser   :   0 ses   :   0 set   :   0 sev   :   0 sez   :   0 sleep :   0 
-spm   :   0 st    :   0 std   :   0 sts   :   1 sub   :   0 subi  :   0 
+spm   :   0 st    :   0 std   :   0 sts   :   8 sub   :   0 subi  :   0 
 swap  :   0 tst   :   0 wdr   :   0 
-Instructions used: 11 out of 111 (9.9%)
+Instructions used: 15 out of 111 (13.5%)
 
 "ATmega88" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x000238     60      0     60    8192   0.7%
+[.cseg] 0x000000 0x0003f6    144      0    144    8192   1.8%
 [.dseg] 0x000100 0x000100      0      0      0    1024   0.0%
 [.eseg] 0x000000 0x000000      0      0      0     512   0.0%
 
