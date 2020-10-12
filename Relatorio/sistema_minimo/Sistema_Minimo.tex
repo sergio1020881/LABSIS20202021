@@ -56,10 +56,10 @@
 %\newpage
 
 	\section{Hardware}
-	O micro-controlador a ser usado \'{e} um Atmega88, seu Datasheet (Manual do Componente) \'{e} uma pe\c{c}a fundamental para usar como suporte na sua utiliza\c{c}\~{a}o. \'{E} ligado uma ficha ISP aos respectivos pinos para programa\c{c}\~{a}o e debug. \\
+	O micro-controlador a ser usado \'{e} um Atmega88, seu Datasheet (Manual do Componente) \'{e} uma pe\c{c}a fundamental para usar como suporte na sua utiliza\c{c}\~{a}o. \'{E} ligado uma ficha ISP aos respetivos pinos para programa\c{c}\~{a}o e debug. \\
 	Para Facilitar seu desenvolvimento foi feito numa placa pre furada sua implementa\c{c}\~{a}o de forma a ser alimentada diretamente ao PC pela alimenta\c{c}\~{a}o da porta USB. \par
 	Para programa\c{c}\~{a}o e debug do integrado \'{e} usado um Atmel-ICE, uma ferramenta de desenvolvimento que neste caso do i.c Atmega88 tem dispon\'{i}vel programa\c{c}\~{a}o via {\bf ISP} e debug por {\bf debugWIRE}. \\
-	Os Par\^{a}metros de configura\c{c}\~{a}o do integrado s\~{a}o os seguintes, Device Signature do Atmega88=0x1E930A, {\bf ISP} clock a 1Mhz, BOOTZ=1024W\_0C00, SPIEN=ON, BODLEVEL=2V7, SUT\_CKSEL=EXTXOSC\_8MHZ\_XX\_16KCK\_14CK\_65MS , EXTENDED FUSE= 0xF9,HIGH FUSE=0xDD, LOW FUSE=0xFF com os restantes bits OFF. \\
+	Os Par\^{a}metros de configura\c{c}\~{a}o do integrado s\~{a}o os seguintes, Device Signature do Atmega88=0x1E930A, {\bf ISP} clock a 125Khz, BOOTZ=1024W\_0C00, SPIEN=ON, BODLEVEL=2V7, SUT\_CKSEL=Int. RC. Osc. 8MHZ\_XX\_16KCK\_14CK\_65MS , EXTENDED FUSE= 0xF9,HIGH FUSE=0xD5, LOW FUSE=0xE2 e Lock bits OFF ou seja 0xFF. \\
 	\begin{comment}	
 	\begin{figure}[H]
 		\centering
@@ -194,9 +194,9 @@ int main(void) \\
 \hspace*{.5cm}	PORTINIT(); \\
 \hspace*{.5cm}    while(TRUE) \\
 \hspace*{.5cm}    \textbraceleft \\
-\hspace*{1cm}		for(i=32;i;i- -)\textbraceleft \\
-\hspace*{1.5cm}			for(j=166;j;j- -)\textbraceleft \\
-\hspace*{2cm}				for(k=250;k;k- -); \\
+\hspace*{1cm}		for(i=32;i;i--)\textbraceleft \\
+\hspace*{1.5cm}			for(j=166;j;j--)\textbraceleft \\
+\hspace*{2cm}				for(k=250;k;k--); \\
 \hspace*{1.5cm}			\textbraceright \\
 \hspace*{1cm}		\textbraceright \\
 \hspace*{1cm}		PORTD\textasciicircum = (1$<<$PORTD6); \\
@@ -408,7 +408,7 @@ void TIMER0ASETUP(void)\textbraceleft \\
 \textbraceright \\
 /***Interrupt***/ \\
 ISR(TIMER0{\_}COMPA{\_}vect)\textbraceleft \\
-\hspace*{.5cm}	count- -; \\
+\hspace*{.5cm}	count--; \\
 \hspace*{.5cm}	if(!count)\textbraceleft \\
 \hspace*{1cm}		PORTD\textasciicircum = (1$<<$PORTD6); \\
 \hspace*{1cm}		count = REPEAT; \\
