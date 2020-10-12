@@ -1,2 +1,0 @@
-Libraria para controlar shift register 74HC595
-
