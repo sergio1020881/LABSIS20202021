@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.25)  12 OCT 2020 13:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.25)  12 OCT 2020 15:35
 entering extended mode
 **./Sistema_Minimo.tex
 (Sistema_Minimo.tex
@@ -1449,7 +1449,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 492.
 Here is how much of TeX's memory you used:
  28255 strings out of 480790
  519615 string characters out of 2907055
- 866308 words of memory out of 3000000
+ 866307 words of memory out of 3000000
  43448 multiletter control sequences out of 15000+200000
  622066 words of font info for 237 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1466,7 +1466,7 @@ msy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.p
 fb><C:/Program Files/MiKTeX/fonts/type1/urw/symbol/usyr.pfb><C:/Program Files/M
 iKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw
 /times/utmr8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Sistema_Minimo.pdf (10 pages, 189452 bytes).
+Output written on Sistema_Minimo.pdf (10 pages, 189417 bytes).
 PDF statistics:
  172 PDF objects out of 1000 (max. 8388607)
  44 named destinations out of 1000 (max. 500000)

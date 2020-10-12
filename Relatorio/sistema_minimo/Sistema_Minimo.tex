@@ -26,8 +26,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\chapter*{Sistema Simplificado}
 	\section{Introdu\c{c}\~{a}o}
-	Este relat\'{o}rio tem como objetivo a introdu\c{c}\~{a}o aos microcontroladores da AVR come\c{c}ando pelo \textquotedblleft Meu Primeiro Programa \textquotedblright, que \'{e} por um {\bf LED} (light emitting diode) a piscar no mundo dos {\bf MCU} (Microcontroller Unit). \par
-	Vai se recorrer ao Assembler e Linguagem C para cumprir estas tarefas, a temporiza\c{c}\~{a}o vai primeiro ser feita por software e de seguida por interm\'{e}dio de interup\c{c}\~{o}es, \'{a} frqu\^{e}ncia de oscila\c{c}\~{a}o de 1{\it Hz}.
+	Este relatório tem como objetivo a introdução aos microcontroladores da AVR come\c{c}ando pelo \textquotedblleft Meu Primeiro Programa \textquotedblright, que \'{e} por um {\bf LED} (light emitting diode) a piscar no mundo dos {\bf MCU} (Microcontroller Unit). \par
+	Vai se recorrer ao Assembler e Linguagem C para cumprir estas tarefas, a temporização vai primeiro ser feita por software e de seguida por intermédio de interrupções, á frequência de oscilação de 1{\it Hz}.
 %\newpage
 
 	\section{Arquitetura}
@@ -98,9 +98,9 @@
 BACK: \\
 \hspace*{.5cm}	EOR R16, R17 \\
 \hspace*{.5cm}	OUT PORTD, R16 \\
-\hspace*{.5cm}	CALL DELAY\_ HalfSec \\
+\hspace*{.5cm}	RCALL DELAY\_HalfSec \\
 \hspace*{.5cm}	RJMP BACK \\
-DELAY\_ HalfSec: \\
+DELAY\_HalfSec: \\
 \hspace*{.5cm}	LDI R20, 32 \\
 L1:	\hspace{.5cm} LDI R21, 100 \\
 L2:	\hspace{.5cm} LDI R22, 250 \\
