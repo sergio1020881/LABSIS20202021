@@ -1,19 +1,19 @@
 <ASSEMBLER_INFO>
  <VERSION>2.2.7</VERSION>
  <DEVICE>"ATmega88"</DEVICE>
- <WORKING_DIR>C:\Users\sergi\Desktop\1hz_pwm_analog_asm\Atmega88\Atmega88\Debug</WORKING_DIR>
+ <WORKING_DIR>C:\Users\sergi\Documents\GITHUB\LABSIS20202021\Trabalho\Interligacao_Sensores_Actuadores\1hz_pwm_analog_asm\Atmega88\Atmega88\Debug</WORKING_DIR>
  <INCLUDE_PATH>
   <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>
   <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
   <DIR></DIR>
  </INCLUDE_PATH>
- <SOURCE_FILE>C:\Users\sergi\Desktop\1hz_pwm_analog_asm\Atmega88\Atmega88\main.asm</SOURCE_FILE>
+ <SOURCE_FILE>C:\Users\sergi\Documents\GITHUB\LABSIS20202021\Trabalho\Interligacao_Sensores_Actuadores\1hz_pwm_analog_asm\Atmega88\Atmega88\main.asm</SOURCE_FILE>
  <INCLUDED_FILES>
   <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m88def.inc</FILE>
   <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\M88DEF.INC</FILE>
  </INCLUDED_FILES>
  <OBJECT_FILES>
-  <FILE>C:\Users\sergi\Desktop\1hz_pwm_analog_asm\Atmega88\Atmega88\Debug\Atmega88.obj</FILE>
+  <FILE>C:\Users\sergi\Documents\GITHUB\LABSIS20202021\Trabalho\Interligacao_Sensores_Actuadores\1hz_pwm_analog_asm\Atmega88\Atmega88\Debug\Atmega88.obj</FILE>
  </OBJECT_FILES>
  <HEX_FILES>
   <FILE>Atmega88.hex</FILE>
@@ -23,13 +23,13 @@
   <FILE>Atmega88.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <RESET><FILE>C:\Users\sergi\Desktop\1hz_pwm_analog_asm\Atmega88\Atmega88\main.asm</FILE><LINE>12</LINE></RESET>
-  <ADC_vect><FILE>C:\Users\sergi\Desktop\1hz_pwm_analog_asm\Atmega88\Atmega88\main.asm</FILE><LINE>76</LINE></ADC_vect>
-  <TIM0_COMPA_vect><FILE>C:\Users\sergi\Desktop\1hz_pwm_analog_asm\Atmega88\Atmega88\main.asm</FILE><LINE>67</LINE></TIM0_COMPA_vect>
-  <TIMER0A_setup><FILE>C:\Users\sergi\Desktop\1hz_pwm_analog_asm\Atmega88\Atmega88\main.asm</FILE><LINE>28</LINE></TIMER0A_setup>
-  <TIMER1A_setup><FILE>C:\Users\sergi\Desktop\1hz_pwm_analog_asm\Atmega88\Atmega88\main.asm</FILE><LINE>38</LINE></TIMER1A_setup>
-  <ADC_setup><FILE>C:\Users\sergi\Desktop\1hz_pwm_analog_asm\Atmega88\Atmega88\main.asm</FILE><LINE>51</LINE></ADC_setup>
-  <MAIN><FILE>C:\Users\sergi\Desktop\1hz_pwm_analog_asm\Atmega88\Atmega88\main.asm</FILE><LINE>64</LINE></MAIN>
-  <INIC><FILE>C:\Users\sergi\Desktop\1hz_pwm_analog_asm\Atmega88\Atmega88\main.asm</FILE><LINE>71</LINE></INIC>
+  <RESET><FILE>C:\Users\sergi\Documents\GITHUB\LABSIS20202021\Trabalho\Interligacao_Sensores_Actuadores\1hz_pwm_analog_asm\Atmega88\Atmega88\main.asm</FILE><LINE>12</LINE></RESET>
+  <ADC_vect><FILE>C:\Users\sergi\Documents\GITHUB\LABSIS20202021\Trabalho\Interligacao_Sensores_Actuadores\1hz_pwm_analog_asm\Atmega88\Atmega88\main.asm</FILE><LINE>76</LINE></ADC_vect>
+  <TIM0_COMPA_vect><FILE>C:\Users\sergi\Documents\GITHUB\LABSIS20202021\Trabalho\Interligacao_Sensores_Actuadores\1hz_pwm_analog_asm\Atmega88\Atmega88\main.asm</FILE><LINE>67</LINE></TIM0_COMPA_vect>
+  <TIMER0A_setup><FILE>C:\Users\sergi\Documents\GITHUB\LABSIS20202021\Trabalho\Interligacao_Sensores_Actuadores\1hz_pwm_analog_asm\Atmega88\Atmega88\main.asm</FILE><LINE>28</LINE></TIMER0A_setup>
+  <TIMER1A_setup><FILE>C:\Users\sergi\Documents\GITHUB\LABSIS20202021\Trabalho\Interligacao_Sensores_Actuadores\1hz_pwm_analog_asm\Atmega88\Atmega88\main.asm</FILE><LINE>38</LINE></TIMER1A_setup>
+  <ADC_setup><FILE>C:\Users\sergi\Documents\GITHUB\LABSIS20202021\Trabalho\Interligacao_Sensores_Actuadores\1hz_pwm_analog_asm\Atmega88\Atmega88\main.asm</FILE><LINE>51</LINE></ADC_setup>
+  <MAIN><FILE>C:\Users\sergi\Documents\GITHUB\LABSIS20202021\Trabalho\Interligacao_Sensores_Actuadores\1hz_pwm_analog_asm\Atmega88\Atmega88\main.asm</FILE><LINE>64</LINE></MAIN>
+  <INIC><FILE>C:\Users\sergi\Documents\GITHUB\LABSIS20202021\Trabalho\Interligacao_Sensores_Actuadores\1hz_pwm_analog_asm\Atmega88\Atmega88\main.asm</FILE><LINE>71</LINE></INIC>
  </LABELS>
 </ASSEMBLER_INFO>

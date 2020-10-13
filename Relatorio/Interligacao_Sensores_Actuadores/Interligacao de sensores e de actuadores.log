@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.25)  12 OCT 2020 20:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.25)  13 OCT 2020 10:16
 entering extended mode
-**./Sistema_Minimo.tex
-(Sistema_Minimo.tex
+**"./Interligacao de Sensores e de Actuadores.tex"
+("Interligacao de Sensores e de Actuadores.tex"
 LaTeX2e <2020-02-02> patch level 5
 L3 programming layer <2020-06-18>
 ("C:\Program Files\MiKTeX\tex/latex/base\report.cls"
@@ -1068,12 +1068,12 @@ File: tikzlibrarycalc.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \c@definition=\count369
 \c@notation=\count370
 \@indexfile=\write4
-\openout4 = `Sistema_Minimo.idx'.
+\openout4 = `"Interligacao de Sensores e de Actuadores.idx"'.
 
 
-Writing index file Sistema_Minimo.idx
-) (Sistema_Minimo.aux (include/CAPAREPORT.aux))
-\openout1 = `Sistema_Minimo.aux'.
+Writing index file "Interligacao de Sensores e de Actuadores".idx
+) ("Interligacao de Sensores e de Actuadores.aux" (include/CAPAREPORT.aux))
+\openout1 = `"Interligacao de Sensores e de Actuadores.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
@@ -1185,9 +1185,10 @@ LaTeX Info: Redefining \ref on input line 3.
 LaTeX Info: Redefining \pageref on input line 3.
 LaTeX Info: Redefining \nameref on input line 3.
 
-(Sistema_Minimo.out) (Sistema_Minimo.out)
+("Interligacao de Sensores e de Actuadores.out")
+("Interligacao de Sensores e de Actuadores.out")
 \@outlinefile=\write5
-\openout5 = `Sistema_Minimo.out'.
+\openout5 = `"Interligacao de Sensores e de Actuadores.out"'.
 
 \c@lstlisting=\count378
 
@@ -1212,7 +1213,7 @@ ABD: EveryShipout initializing macros
 \openout2 = `./include/CAPAREPORT.aux'.
 
  (include/CAPAREPORT.tex
-<./image/capa/ISEP_marca_cor_grande.png, id=46, 730.6497pt x 278.2395pt>
+<./image/capa/ISEP_marca_cor_grande.png, id=54, 730.6497pt x 278.2395pt>
 File: ./image/capa/ISEP_marca_cor_grande.png Graphic file (type png)
 <use ./image/capa/ISEP_marca_cor_grande.png>
 Package pdftex.def Info: ./image/capa/ISEP_marca_cor_grande.png  used on input 
@@ -1302,109 +1303,197 @@ Overfull \hbox (15.0pt too wide) in paragraph at lines 33--7
 
 {C:/Users/sergi/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./image/capa/IS
 EP_marca_cor_grande.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 61--77
+Underfull \hbox (badness 10000) in paragraph at lines 30--37
 
  []
 
+<./image/Board/DevBoard_1.JPG, id=65, 4015.0pt x 3011.25pt>
+File: ./image/Board/DevBoard_1.JPG Graphic file (type jpg)
+<use ./image/Board/DevBoard_1.JPG>
+Package pdftex.def Info: ./image/Board/DevBoard_1.JPG  used on input line 83.
+(pdftex.def)             Requested size: 200.76176pt x 150.57132pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 89--120
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 89--120
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 89--120
-
- []
-
-
-Overfull \hbox (36.90001pt too wide) in paragraph at lines 88--173
-[]$[]$  $[]$ 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 88--173
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 88--173
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 88--173
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 88--173
+Underfull \hbox (badness 10000) in paragraph at lines 87--90
 
  []
 
 [2
 
 
-]
-Overfull \hbox (36.90001pt too wide) in paragraph at lines 175--265
+ <./image/Board/DevBoard_1.JPG>]
+Underfull \hbox (badness 10000) in paragraph at lines 111--140
+
+ []
+
+
+Overfull \hbox (36.90001pt too wide) in paragraph at lines 110--193
 []$[]$  $[]$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 175--265
+Underfull \hbox (badness 10000) in paragraph at lines 110--193
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 175--265
+Underfull \hbox (badness 10000) in paragraph at lines 110--193
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--193
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--193
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 268--315
-
- []
-
-
-Overfull \hbox (36.90001pt too wide) in paragraph at lines 267--359
+Overfull \hbox (36.90001pt too wide) in paragraph at lines 195--285
 []$[]$  $[]$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 267--359
+Underfull \hbox (badness 10000) in paragraph at lines 195--285
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 267--359
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 267--359
+Underfull \hbox (badness 10000) in paragraph at lines 195--285
 
  []
 
 [4]
-Overfull \hbox (36.90001pt too wide) in paragraph at lines 363--461
+Underfull \hbox (badness 10000) in paragraph at lines 288--335
+
+ []
+
+
+Overfull \hbox (36.90001pt too wide) in paragraph at lines 287--379
 []$[]$  $[]$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 363--461
+Underfull \hbox (badness 10000) in paragraph at lines 287--379
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 363--461
+Underfull \hbox (badness 10000) in paragraph at lines 287--379
 
  []
 
-[5] [6] [7] (input/EQUACAO.tex
+
+Underfull \hbox (badness 10000) in paragraph at lines 287--379
+
+ []
+
+[5]
+Overfull \hbox (36.90001pt too wide) in paragraph at lines 383--482
+[]$[]$  $[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 383--482
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 383--482
+
+ []
+
+[6]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 488.
+
+Underfull \hbox (badness 10000) in paragraph at lines 486--552
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 486--552
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 556--576
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 556--576
+
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 633--656
+
+ []
+
+[8]
+Package textcomp Info: Symbol \texttildelow not provided by
+(textcomp)             font family ptm in TS1 encoding.
+(textcomp)             Default family used instead on input line 864.
+Package textcomp Info: Symbol \texttildelow not provided by
+(textcomp)             font family ptm in TS1 encoding.
+(textcomp)             Default family used instead on input line 911.
+Package textcomp Info: Symbol \texttildelow not provided by
+(textcomp)             font family ptm in TS1 encoding.
+(textcomp)             Default family used instead on input line 915.
+Package textcomp Info: Symbol \texttildelow not provided by
+(textcomp)             font family ptm in TS1 encoding.
+(textcomp)             Default family used instead on input line 919.
+Package textcomp Info: Symbol \texttildelow not provided by
+(textcomp)             font family ptm in TS1 encoding.
+(textcomp)             Default family used instead on input line 923.
+Package textcomp Info: Symbol \texttildelow not provided by
+(textcomp)             font family ptm in TS1 encoding.
+(textcomp)             Default family used instead on input line 927.
+Package textcomp Info: Symbol \texttildelow not provided by
+(textcomp)             font family ptm in TS1 encoding.
+(textcomp)             Default family used instead on input line 931.
+Package textcomp Info: Symbol \texttildelow not provided by
+(textcomp)             font family ptm in TS1 encoding.
+(textcomp)             Default family used instead on input line 999.
+
+Overfull \hbox (39.60783pt too wide) in paragraph at lines 660--1023
+[][] | [] | [] 
+ []
+
+[9]
+Overfull \hbox (32.26202pt too wide) in paragraph at lines 1077--1100
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1100
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1024--1107
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1024--1107
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1024--1107
+
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 1115--1116
+
+ []
+
+[11] (input/EQUACAO.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
@@ -1412,7 +1501,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
 LaTeX Warning: Characters dropped after `\end{comment}' on input line 165.
 
-) (Sistema_Minimo.bbl [8]
+) ("Interligacao de Sensores e de Actuadores.bbl" [12]
 babelbib: Using the BibTeX style's default font for `name'.
 babelbib: Using the BibTeX style's default font for `lastname'.
 babelbib: Using the BibTeX style's default font for `title'.
@@ -1428,47 +1517,50 @@ LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
 8.
 ("C:\Program Files\MiKTeX\tex/latex/psnfss\ts1ptm.fd"
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)) [9
+)) [13
 
 ]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 490.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 490.
- [10]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 492.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 492.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1137.
+ [14]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1139.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1139.
 
-(Sistema_Minimo.aux (include/CAPAREPORT.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 492.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 492.
-Package rerunfilecheck Info: File `Sistema_Minimo.out' has not changed.
-(rerunfilecheck)             Checksum: 80A3321BE3B904ADD443F3E5FA2B2A64;664.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 492.
+("Interligacao de Sensores e de Actuadores.aux" (include/CAPAREPORT.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1139.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1139.
+
+Package rerunfilecheck Info: File `"Interligacao de Sensores e de Actuadores".o
+ut' has not changed.
+(rerunfilecheck)             Checksum: 1568C40C8A0ADFEA3681C8B2195564B0;846.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1139.
  ) 
 Here is how much of TeX's memory you used:
- 28258 strings out of 480790
- 519639 string characters out of 2907055
- 866307 words of memory out of 3000000
- 43448 multiletter control sequences out of 15000+200000
- 622196 words of font info for 239 fonts, out of 3000000 for 9000
+ 28318 strings out of 480790
+ 521288 string characters out of 2907055
+ 879471 words of memory out of 3000000
+ 43476 multiletter control sequences out of 15000+200000
+ 632993 words of font info for 259 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,15n,62p,493b,809s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 63i,15n,62p,824b,837s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exi
 st, replaced by a fixed one
 
  <C:\Users\sergi\AppData\Local\MiKTeX\fonts/pk/ljfour/public/esint/dpi600\esint
-10.pk>{C:/Program Files/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/c
-msy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.p
-fb><C:/Program Files/MiKTeX/fonts/type1/urw/symbol/usyr.pfb><C:/Program Files/M
-iKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw
-/times/utmr8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Sistema_Minimo.pdf (10 pages, 189489 bytes).
+10.pk> <C:\Users\sergi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
+tcrm0500.pk>{C:/Program Files/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Program Fi
+les/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/ms
+bm10.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/symbol/usyr.pfb><C:/Program F
+iles/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX/fonts/typ
+e1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmri8a.
+pfb>
+Output written on "Interligacao de Sensores e de Actuadores.pdf" (14 pages, 287
+9138 bytes).
 PDF statistics:
- 172 PDF objects out of 1000 (max. 8388607)
- 44 named destinations out of 1000 (max. 500000)
- 49762 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 205 PDF objects out of 1000 (max. 8388607)
+ 51 named destinations out of 1000 (max. 500000)
+ 51831 words of extra memory for PDF output out of 61914 (max. 10000000)
 

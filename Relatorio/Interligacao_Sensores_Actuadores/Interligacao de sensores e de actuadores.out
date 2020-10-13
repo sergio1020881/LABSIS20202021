@@ -6,5 +6,7 @@
 \BOOKMARK [2][-]{subsection.0.4.2}{Led pisca 1 Hz em C por Software.}{section.0.4}% 6
 \BOOKMARK [2][-]{subsection.0.4.3}{Led pisca 1 Hz em Assembly por Interrup\347\343o.}{section.0.4}% 7
 \BOOKMARK [2][-]{subsection.0.4.4}{Led pisca 1 Hz em C por Interrup\347\343o.}{section.0.4}% 8
-\BOOKMARK [1][-]{section.0.5}{Resultados}{}% 9
-\BOOKMARK [1][-]{section.0.6}{Conclus\365es}{}% 10
+\BOOKMARK [2][-]{subsection.0.4.5}{C\363digo DIMMER e led Pisca em Assembler}{section.0.4}% 9
+\BOOKMARK [2][-]{subsection.0.4.6}{C\363digo DIMMER e led Pisca em C}{section.0.4}% 10
+\BOOKMARK [1][-]{section.0.5}{Resultados}{}% 11
+\BOOKMARK [1][-]{section.0.6}{Conclus\365es}{}% 12

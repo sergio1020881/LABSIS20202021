@@ -1,6 +1,8 @@
-\begin{comment}
-\part*{Equa\c{c}\~{o}es} \label{eq}
+%\part*{Equa\c{c}\~{o}es} \label{eq}
 %
+{\huge Definições} \\
+
+\begin{comment}
 \begin{flushleft}
 {\bf Corrente Continua Condi\c{c}\~{o}es \index{Condi\c{c}\~{o}es} iniciais \index{iniciais} nulas \index{nulas}.}\par
 \end{flushleft}
@@ -42,16 +44,16 @@ $V_L(t)=L\dfrac{di(t)}{dt}$\par
 %
 \begin{minipage}{0.95\linewidth}
 \makebox[\linewidth]{
-\includegraphics[scale=0.75]{./Image/equacoes_1.png}
+\includegraphics[scale=0.75]{./image/equacoes_1.png}
 }
 \end{minipage}\par
 %
 \item
-$V_C(t)=\frac{1}{C}\int_{0}^{t}i(t)$\par
+$V_C(t)=\frac{1}{C}\int_0^ti(t)$\par
 %
 \begin{minipage}{0.95\linewidth}
 \makebox[\linewidth]{
-\includegraphics[scale=0.75]{./Image/equacoes_2.png}
+\includegraphics[scale=0.75]{./image/equacoes_2.png}
 }
 \end{minipage}\par
 %
@@ -70,7 +72,7 @@ $V_L(t)=L\dfrac{di(t)}{dt}$\par
 %
 \begin{minipage}{0.95\linewidth}
 \makebox[\linewidth]{
-\includegraphics[scale=0.75]{./Image/equacoes_3.png}
+\includegraphics[scale=0.75]{./image/equacoes_3.png}
 }
 \end{minipage}\par
 %
@@ -78,7 +80,7 @@ $V_L(t)=L\dfrac{di(t)}{dt}$\par
 $V_C(t)=\frac{1}{C}\int_0^ti(t)$\par
 \begin{minipage}{0.95\linewidth}
 \makebox[\linewidth]{
-\includegraphics[scale=0.75]{./Image/equacoes_4.png}
+\includegraphics[scale=0.75]{./image/equacoes_4.png}
 }
 \end{minipage}\par
 %
@@ -97,7 +99,7 @@ $V_L(t)=L\dfrac{di(t)}{dt}$\par
 %
 \begin{minipage}{0.95\linewidth}
 \makebox[\linewidth]{
-\includegraphics[scale=0.75]{./Image/equacoes_5.png}
+\includegraphics[scale=0.75]{./image/equacoes_5.png}
 }
 \end{minipage}\par
 %
@@ -106,7 +108,7 @@ $V_C(t)=\frac{1}{C}\int_0^ti(t)$\par
 %
 \begin{minipage}{0.95\linewidth}
 \makebox[\linewidth]{
-\includegraphics[scale=0.75]{./Image/equacoes_6.png}
+\includegraphics[scale=0.75]{./image/equacoes_6.png}
 }
 \end{minipage}\par
 %
@@ -150,12 +152,22 @@ $C_1=\frac{V_{m\acute{a}x}}{R^2 + (\omega L)^2}(R \sin (\alpha) - L \omega \cos(
 $C_2=\frac{V_{m\acute{a}x}}{R^2 + (\omega L)^2}(R \cos (\alpha) + L \omega \sin (\alpha))$
 %
 \end{itemize}
-\end{comment}
+	\begin{equation}
+\boxed{F_{OCnxPWM}=\frac{F_{clk\_I/O}}{N.256}}
+	\end{equation} \par
+	\begin{equation}
+\boxed{F_{OCnxPCPWM}=\frac{F_{clk\_I/O}}{N.510}}
+	\end{equation} \par
+O valor de N representa os valores do divisor de frequ\^{e}ncia ou prescaler (1, 8, 32, 64, 128, 256, ou 1024).
+	\begin{equation}
+\boxed{ADC=\frac{V_{IN}.1024}{V_{REF}}}
+	\end{equation} \par
+\end{comment}]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{definition}
 Capacit\^{a}ncia
 \begin{flalign*}
-Q_c(t) =& \int^{t} i(t) \quad dt & \\
+Q_c(t) =& \int^t i(t) \quad dt & \\
 =& Q_c(0^-)+\int_{0^-}^t i(t) \quad dt & \\
 V_c(t) =& \frac{Q_c(t)}{C} & \\
 =& \frac{1}{C} \quad \int^t i_c(t) \quad dt & \\
@@ -200,12 +212,3 @@ X_{ef} =& \sqrt{ \frac{1}{T} \; \int_0^T \overset{\text{2}}{X(t)} dt } &
 \end{flalign*}\par
 \end{definition}
 %
-\begin{definition}
-Energia \\
-\begin{tabular}{l l}
-W = &$P\times t$ \qquad \qquad [Work] \\
-	&$P=U \times I$ \qquad [Power]\\
-	&$P=R \times I^{2}$ \\
-	&$P=\frac{U^{2}}{R}$ \\
-\end{tabular}
-\end{definition}
