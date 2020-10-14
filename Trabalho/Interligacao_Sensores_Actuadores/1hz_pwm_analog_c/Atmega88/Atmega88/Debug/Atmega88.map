@@ -76,7 +76,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x100 src/ASF/common/boards/user_board/init.o
  .debug_macro   0x00000000      0x2d2 src/ASF/common/boards/user_board/init.o
  .debug_line    0x00000000      0x390 src/ASF/common/boards/user_board/init.o
- .debug_str     0x00000000     0xfd0a src/ASF/common/boards/user_board/init.o
+ .debug_str     0x00000000     0xfd4c src/ASF/common/boards/user_board/init.o
  .comment       0x00000000       0x31 src/ASF/common/boards/user_board/init.o
  .debug_frame   0x00000000       0x24 src/ASF/common/boards/user_board/init.o
  .group         0x00000000        0x8 src/main.o
