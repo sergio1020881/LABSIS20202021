@@ -19,15 +19,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   7 .debug_abbrev 00001435  00000000  00000000  0000774c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00002b43  00000000  00000000  00008b81  2**0
+  8 .debug_line   00002b3d  00000000  00000000  00008b81  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000ae4  00000000  00000000  0000b6c4  2**2
+  9 .debug_frame  00000ae4  00000000  00000000  0000b6c0  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000ff1  00000000  00000000  0000c1a8  2**0
+ 10 .debug_str    00000ff1  00000000  00000000  0000c1a4  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    000034f2  00000000  00000000  0000d199  2**0
+ 11 .debug_loc    000034f2  00000000  00000000  0000d195  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000003d0  00000000  00000000  0001068b  2**0
+ 12 .debug_ranges 000003d0  00000000  00000000  00010687  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -4944,32 +4944,25 @@ int main(void)
     1d44:	f8 83       	st	Y, r31
     1d46:	c8 5a       	subi	r28, 0xA8	; 168
     1d48:	d0 40       	sbci	r29, 0x00	; 0
-				lcd0.gotoxy(0,0);
-				lcd0.string_size(keypad.gets(),5);
-				if(!strcmp(keypad.data(),""));
-				else
 					strcpy(keytmp,keypad.data());
 				timer1.compareB(function.trimmer(function.strToInt(keytmp),0,180,450,2450));
-    1d4a:	0f 2e       	mov	r0, r31
-    1d4c:	f9 e0       	ldi	r31, 0x09	; 9
-    1d4e:	9f 2e       	mov	r9, r31
-    1d50:	f0 2d       	mov	r31, r0
 				break;
-			case '2':
+			case '1':
 				lcd0.gotoxy(0,0);
 				adcvalue=analog.read(0);
-    1d52:	c7 54       	subi	r28, 0x47	; 71
-    1d54:	df 4f       	sbci	r29, 0xFF	; 255
-    1d56:	79 82       	std	Y+1, r7	; 0x01
-    1d58:	68 82       	st	Y, r6
-    1d5a:	c9 5b       	subi	r28, 0xB9	; 185
-    1d5c:	d0 40       	sbci	r29, 0x00	; 0
-				lcd0.gotoxy(0,0);
-				lcd0.string_size(keypad.gets(),5);
-				if(!strcmp(keypad.data(),""));
-				else
-					strcpy(keytmp,keypad.data());
-				timer1.compareB(function.trimmer(function.strToInt(keytmp),0,180,450,2450));
+    1d4a:	c7 54       	subi	r28, 0x47	; 71
+    1d4c:	df 4f       	sbci	r29, 0xFF	; 255
+    1d4e:	79 82       	std	Y+1, r7	; 0x01
+    1d50:	68 82       	st	Y, r6
+    1d52:	c9 5b       	subi	r28, 0xB9	; 185
+    1d54:	d0 40       	sbci	r29, 0x00	; 0
+				function.itoa(adcvalue,analogtmp);
+				lcd0.string_size(analogtmp,5);
+				timer1.compareB(function.trimmer(adcvalue,0,1023,450,2450));
+    1d56:	0f 2e       	mov	r0, r31
+    1d58:	f9 e0       	ldi	r31, 0x09	; 9
+    1d5a:	9f 2e       	mov	r9, r31
+    1d5c:	f0 2d       	mov	r31, r0
     1d5e:	0f 2e       	mov	r0, r31
     1d60:	f2 e9       	ldi	r31, 0x92	; 146
     1d62:	8f 2e       	mov	r8, r31
@@ -4999,12 +4992,12 @@ int main(void)
     1d80:	c8 5a       	subi	r28, 0xA8	; 168
     1d82:	d0 40       	sbci	r29, 0x00	; 0
     1d84:	81 33       	cpi	r24, 0x31	; 49
-    1d86:	21 f0       	breq	.+8      	; 0x1d90 <main+0x1e8>
-    1d88:	82 33       	cpi	r24, 0x32	; 50
-    1d8a:	09 f4       	brne	.+2      	; 0x1d8e <main+0x1e6>
-    1d8c:	63 c0       	rjmp	.+198    	; 0x1e54 <main+0x2ac>
+    1d86:	09 f4       	brne	.+2      	; 0x1d8a <main+0x1e2>
+    1d88:	65 c0       	rjmp	.+202    	; 0x1e54 <main+0x2ac>
+    1d8a:	82 33       	cpi	r24, 0x32	; 50
+    1d8c:	09 f0       	breq	.+2      	; 0x1d90 <main+0x1e8>
     1d8e:	b3 c0       	rjmp	.+358    	; 0x1ef6 <main+0x34e>
-			case '1':
+			case '2':
 				lcd0.gotoxy(0,0);
     1d90:	60 e0       	ldi	r22, 0x00	; 0
     1d92:	70 e0       	ldi	r23, 0x00	; 0
@@ -5110,7 +5103,7 @@ int main(void)
     1e4e:	0f 90       	pop	r0
     1e50:	0f 90       	pop	r0
     1e52:	b3 c0       	rjmp	.+358    	; 0x1fba <main+0x412>
-			case '2':
+			case '1':
 				lcd0.gotoxy(0,0);
     1e54:	60 e0       	ldi	r22, 0x00	; 0
     1e56:	70 e0       	ldi	r23, 0x00	; 0

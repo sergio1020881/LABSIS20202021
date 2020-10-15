@@ -5,6 +5,11 @@ File:     $Id: MAIN,v 1.8.2.1 2015/04/11 13:00:00 sergio Exp $
 Software: AVR-GCC 4.1, AVR Libc 1.4
 Hardware: 
     Atmega128 by ETT ET-BASE
+	-PORTA LCD
+	-PORTC Keyboard
+	-PF0 Sensor LDR
+	-PB6 Servo Motor
+	
 License:  GNU General Public License
 Usage:    see Doxygen manual
 LICENSE:
@@ -86,7 +91,7 @@ int main(void)
 		keypad.activate();
 		//TODO:: Please write your application code
 		switch(Mode){
-			case '1':
+			case '2':
 				lcd0.gotoxy(0,0);
 				lcd0.string_size(keypad.gets(),5);
 				if(!strcmp(keypad.data(),""));
@@ -94,7 +99,7 @@ int main(void)
 					strcpy(keytmp,keypad.data());
 				timer1.compareB(function.trimmer(function.strToInt(keytmp),0,180,450,2450));
 				break;
-			case '2':
+			case '1':
 				lcd0.gotoxy(0,0);
 				adcvalue=analog.read(0);
 				function.itoa(adcvalue,analogtmp);
