@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.25)  13 OCT 2020 10:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.25)  15 OCT 2020 15:33
 entering extended mode
 **"./Interligacao de Sensores e de Actuadores.tex"
 ("Interligacao de Sensores e de Actuadores.tex"
@@ -1307,11 +1307,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 30--37
 
  []
 
-<./image/Board/DevBoard_1.JPG, id=65, 4015.0pt x 3011.25pt>
+<./image/Board/DevBoard_1.JPG, id=65, 1739.49875pt x 1659.19875pt>
 File: ./image/Board/DevBoard_1.JPG Graphic file (type jpg)
 <use ./image/Board/DevBoard_1.JPG>
 Package pdftex.def Info: ./image/Board/DevBoard_1.JPG  used on input line 83.
-(pdftex.def)             Requested size: 200.76176pt x 150.57132pt.
+(pdftex.def)             Requested size: 147.8687pt x 141.04268pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 87--90
 
@@ -1541,11 +1541,11 @@ ut' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1141.
  ) 
 Here is how much of TeX's memory you used:
- 28322 strings out of 480790
- 521339 string characters out of 2907055
- 879471 words of memory out of 3000000
+ 28325 strings out of 480790
+ 521391 string characters out of 2907055
+ 879478 words of memory out of 3000000
  43478 multiletter control sequences out of 15000+200000
- 635761 words of font info for 261 fonts, out of 3000000 for 9000
+ 635891 words of font info for 263 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,15n,62p,829b,837s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exi
@@ -1562,8 +1562,8 @@ bm10.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/symbol/usyr.pfb><C:/Program F
 iles/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX/fonts/typ
 e1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmr8a.
 pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "Interligacao de Sensores e de Actuadores.pdf" (14 pages, 288
-5705 bytes).
+Output written on "Interligacao de Sensores e de Actuadores.pdf" (14 pages, 145
+3133 bytes).
 PDF statistics:
  209 PDF objects out of 1000 (max. 8388607)
  51 named destinations out of 1000 (max. 500000)
