@@ -1647,6 +1647,10 @@ TIMER_COUNTER2 TIMER_COUNTER2enable(unsigned char wavegenmode, unsigned char int
 /*
 ** interrupt
 */
+//ISR(TIMER0_COMP_vect){ }
+//ISR(TIMER1_COMP_vect){ }
+//ISR(TIMER2_COMP_vect){ }
+//ISR(TIMER3_COMP_vect){ }
 /***EOF***/
 /***COMMENTS
 interrupt to be defined in MAIN file

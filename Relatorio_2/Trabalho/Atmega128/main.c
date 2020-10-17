@@ -70,6 +70,7 @@ int main(void)
 	ANALOG analog = ANALOGenable(1, 128, 1, 0); // channel 0 for position
 	TIMER_COUNTER0 timer0 = TIMER_COUNTER0enable(2,2); // for clock
 	TIMER_COUNTER1 timer1 = TIMER_COUNTER1enable(9,0); // PWM positioning
+	//TIMER_COUNTER3 timer3 = TIMER_COUNTER3enable(12,12);
 	relogio=CLOCKenable(12,0,0);
 	/******/
 	char Mode='1';
@@ -84,6 +85,8 @@ int main(void)
 	timer1.compareA(20000);
 	timer1.start(8);
 	timer0.start(64);
+	//timer3.compoutmodeC(1);
+	//timer3.start(255);
 	/**********/
 	while(TRUE){
 		//PREAMBLE

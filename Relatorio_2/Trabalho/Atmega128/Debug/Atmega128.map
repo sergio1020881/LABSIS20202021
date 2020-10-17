@@ -104,7 +104,7 @@ Discarded input sections
                 0x00000000       0x48 Libraria/i2c.o
  .debug_ranges  0x00000000       0x38 Libraria/i2c.o
  .debug_line    0x00000000      0x226 Libraria/i2c.o
- .debug_str     0x00000000      0x252 Libraria/i2c.o
+ .debug_str     0x00000000      0x238 Libraria/i2c.o
  .comment       0x00000000       0x31 Libraria/i2c.o
  .debug_frame   0x00000000       0x74 Libraria/i2c.o
  .text          0x00000000        0x0 Libraria/lcd.o
@@ -1108,23 +1108,23 @@ END GROUP
  .debug_frame   0x00000850      0x1f4 Libraria/timer.o
  .debug_frame   0x00000a44       0xa0 main.o
 
-.debug_str      0x00000000      0xff1
+.debug_str      0x00000000      0xfd7
  *(.debug_str)
  .debug_str     0x00000000      0x27d C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega128/avr51/crtatmega128.o
- .debug_str     0x0000027d      0x26f Libraria/analog.o
-                                0x2b5 (size before relaxing)
- .debug_str     0x000004ec      0x14a Libraria/clock.o
-                                0x35d (size before relaxing)
- .debug_str     0x00000636      0x259 Libraria/function.o
-                                0x51b (size before relaxing)
- .debug_str     0x0000088f      0x23a Libraria/lcd.o
-                                0x42b (size before relaxing)
- .debug_str     0x00000ac9      0x14e Libraria/mm74c923.o
-                                0x438 (size before relaxing)
- .debug_str     0x00000c17      0x354 Libraria/timer.o
-                                0x54f (size before relaxing)
- .debug_str     0x00000f6b       0x86 main.o
-                                0x55b (size before relaxing)
+ .debug_str     0x0000027d      0x255 Libraria/analog.o
+                                0x29b (size before relaxing)
+ .debug_str     0x000004d2      0x14a Libraria/clock.o
+                                0x343 (size before relaxing)
+ .debug_str     0x0000061c      0x259 Libraria/function.o
+                                0x501 (size before relaxing)
+ .debug_str     0x00000875      0x23a Libraria/lcd.o
+                                0x411 (size before relaxing)
+ .debug_str     0x00000aaf      0x14e Libraria/mm74c923.o
+                                0x41e (size before relaxing)
+ .debug_str     0x00000bfd      0x354 Libraria/timer.o
+                                0x535 (size before relaxing)
+ .debug_str     0x00000f51       0x86 main.o
+                                0x541 (size before relaxing)
 
 .debug_loc      0x00000000     0x34f2
  *(.debug_loc)

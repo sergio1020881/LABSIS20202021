@@ -23,11 +23,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   9 .debug_frame  00000ae4  00000000  00000000  0000b6c0  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000ff1  00000000  00000000  0000c1a4  2**0
+ 10 .debug_str    00000fd7  00000000  00000000  0000c1a4  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    000034f2  00000000  00000000  0000d195  2**0
+ 11 .debug_loc    000034f2  00000000  00000000  0000d17b  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000003d0  00000000  00000000  00010687  2**0
+ 12 .debug_ranges 000003d0  00000000  00000000  0001066d  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -4852,6 +4852,7 @@ int main(void)
     1cb8:	e8 83       	st	Y, r30
     1cba:	cf 5a       	subi	r28, 0xAF	; 175
     1cbc:	d0 40       	sbci	r29, 0x00	; 0
+	//TIMER_COUNTER3 timer3 = TIMER_COUNTER3enable(12,12);
 	relogio=CLOCKenable(12,0,0);
     1cbe:	20 e0       	ldi	r18, 0x00	; 0
     1cc0:	40 e0       	ldi	r20, 0x00	; 0
@@ -4932,9 +4933,9 @@ int main(void)
     1d38:	18 82       	st	Y, r1
     1d3a:	c7 5a       	subi	r28, 0xA7	; 167
     1d3c:	d0 40       	sbci	r29, 0x00	; 0
-	ANALOG analog = ANALOGenable(1, 128, 1, 0); // channel 0 for position
 	TIMER_COUNTER0 timer0 = TIMER_COUNTER0enable(2,2); // for clock
 	TIMER_COUNTER1 timer1 = TIMER_COUNTER1enable(9,0); // PWM positioning
+	//TIMER_COUNTER3 timer3 = TIMER_COUNTER3enable(12,12);
 	relogio=CLOCKenable(12,0,0);
 	/******/
 	char Mode='1';
@@ -4967,8 +4968,8 @@ int main(void)
     1d60:	f2 e9       	ldi	r31, 0x92	; 146
     1d62:	8f 2e       	mov	r8, r31
     1d64:	f0 2d       	mov	r31, r0
-	timer1.start(8);
-	timer0.start(64);
+	//timer3.compoutmodeC(1);
+	//timer3.start(255);
 	/**********/
 	while(TRUE){
 		//PREAMBLE
