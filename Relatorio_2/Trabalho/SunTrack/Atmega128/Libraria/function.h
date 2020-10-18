@@ -1,39 +1,33 @@
 /************************************************************************
-Title:    FUNCTION
-Author:   Sergio Manuel Santos <sergio.salazar.santos@gmail.com>
-File:     $Id: function.h,v 0.1 2015/04/11 15:00:00 sergio Exp $
-Software: AVR-GCC 4.1, AVR Libc 1.4
-Hardware: AVR with built-in ADC, tested on ATmega128 at 16 Mhz
-License:  GNU General Public License 
-Usage:    
-LICENSE:
-    Copyright (C) 2014
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    any later version.
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-COMMENT:
+Title: FUNCTION
+Author: Sergio Santos
+   <sergio.salazar.santos@gmail.com>
+File: $Id: function.h,v 0.1 29/09/2020 Exp $
+License: GNU General Public License 
+Comment:
 	Very Stable
 ************************************************************************/
 #ifndef _FUNCTION_H_
 	#define _FUNCTION_H_
+/*
+** Library
+*/
+#include <inttypes.h>
 /*
 ** constant and macro
 */
 /*
 ** variable
 */
-struct FUNC{
+struct fnctn{
 	/***PROTOTYPES VTABLE***/
-	unsigned int (*power)(uint8_t base, uint8_t n);
+	unsigned int (*power)(uint8_t bs, uint8_t n);
 	int (*stringlength)(const char string[]);
 	void (*reverse)(char s[]);
 	unsigned int (*mayia)(unsigned int xi, unsigned int xf, uint8_t nbits);
 	uint8_t (*pinmatch)(uint8_t match, uint8_t pin, uint8_t HL);
+	uint8_t (*hh)(uint8_t xi, uint8_t xf);
+	uint8_t (*ll)(uint8_t xi, uint8_t xf);
 	uint8_t (*lh)(uint8_t xi, uint8_t xf);
 	uint8_t (*hl)(uint8_t xi, uint8_t xf);
 	uint8_t (*diff)(uint8_t xi, uint8_t xf);
@@ -43,7 +37,9 @@ struct FUNC{
 	void (*copy)(char to[], char from[]);
 	void (*squeeze)(char s[], int c);
 	void (*shellsort)(int v[], int n);
-	void (*itoa)(int32_t n, char s[]);
+	char* (*i16toa)(int16_t n);
+	char* (*ui16toa)(uint16_t n);
+	char* (*i32toa)(int32_t n);
 	int (*trim)(char s[]);
 	int (*pmax)(int a1, int a2);
 	int (*gcd)(int u, int v);
@@ -61,7 +57,7 @@ struct FUNC{
 	unsigned char (*bin2bcd)(unsigned val);
 	long (*gcd1)(long a, long b);
 	uint8_t (*pincheck)(uint8_t port, uint8_t pin);
-	char* (*print_binary)(int number);
+	char* (*print_binary)(uint8_t number);
 	/***pc use***
 	char* (*fltos)(FILE* stream);
 	char* (*ftos)(FILE* stream);
@@ -72,7 +68,7 @@ struct FUNC{
 	int (*readint)(int nmin, int nmax);
 	*/
 };
-typedef struct FUNC FUNC;
+typedef struct fnctn FUNC;
 /*
 ** procedure and function header
 */

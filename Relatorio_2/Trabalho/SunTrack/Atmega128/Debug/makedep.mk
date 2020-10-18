@@ -2,19 +2,33 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-Libraria\analog.c
+Libraria\74hc595.c
+
+Libraria\atmega128analog.c
+
+Libraria\atmega128timer.c
+
+Libraria\atmega128uart.c
 
 Libraria\clock.c
+
+Libraria\eeprom.c
 
 Libraria\function.c
 
 Libraria\i2c.c
 
+Libraria\keypad.c
+
 Libraria\lcd.c
+
+Libraria\lfsm.c
 
 Libraria\mm74c923.c
 
-Libraria\timer.c
+Libraria\pcf8563rtc.c
+
+Libraria\rotenc.c
 
 main.c
 
