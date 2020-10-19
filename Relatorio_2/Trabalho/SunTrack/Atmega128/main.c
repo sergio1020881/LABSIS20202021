@@ -34,6 +34,8 @@ COMMENT:
 #include <avr/interrupt.h>
 #include <util/delay.h>
 #include <inttypes.h>
+#include <stdlib.h>
+#include <string.h>
 /**********/
 #include "atmega128analog.h"
 #include "atmega128timer.h"
@@ -67,7 +69,7 @@ int main(void)
 	/***INICIALIZE OBJECTS***/
 	FUNC function= FUNCenable();
 	LCD0 lcd0 = LCD0enable(&DDRA,&PINA,&PORTA);
-	KEYPAD keypad = KEYPADenable(&DDRC,&PINC,&PORTC);
+	KEYPAD keypad = KEYPADenable(&DDRE,&PINE,&PORTE);
 	ANALOG analog = ANALOGenable(1, 128, 1, 0); // channel 0 for position
 	TIMER_COUNTER0 timer0 = TIMER_COUNTER0enable(2,2); // for clock
 	TIMER_COUNTER1 timer1 = TIMER_COUNTER1enable(9,0); // PWM positioning
@@ -87,12 +89,24 @@ int main(void)
 	//timer3.compoutmodeC(1);
 	//timer3.start(255);
 	/**********/
+	//TODO:: Please write your application code
 	while(TRUE){
 		//PREAMBLE
 		lcd0.reboot();
 		/***Entry***/
-		chr=keypad.getkey();
-		//TODO:: Please write your application code
+		chr=keypad.get().character;
+		lcd0.gotoxy(3,0);
+		lcd0.putch(chr);
+		lcd0.gotoxy(3,10);
+		lcd0.string(keypad.get().string);
+		if(!strcmp(keypad.get().string,"123")){
+			lcd0.gotoxy(2,0);
+			lcd0.string_size("mcu responde ola",16);
+			keypad.flush();	
+		}
+			
+		
+		
 		switch(Menu){
 			case '1':
 				lcd0.gotoxy(0,0);
