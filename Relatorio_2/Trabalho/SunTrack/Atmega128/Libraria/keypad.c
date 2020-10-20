@@ -53,6 +53,8 @@ struct keypadata data;
 char KEYPAD_getkey(void);
 /***string***/
 struct keypadata KEYPAD_get(void);
+/***flush***/
+void KEYPAD_flush(void);
 /***lh***/
 uint8_t KEYPADlh(uint8_t xi, uint8_t xf);
 /***hl***/
@@ -84,6 +86,7 @@ KEYPAD KEYPADenable(volatile uint8_t *ddr, volatile uint8_t *pin, volatile uint8
 	//Direccionar apontadores para PROTOTIPOS
 	keypad.getkey=KEYPAD_getkey;
 	keypad.get=KEYPAD_get;
+	keypad.flush=KEYPAD_flush;
 	SREG=tSREG;
 	//
 	*keypad_PORT|=(1<<KEYPADLINE_1) | (1<<KEYPADLINE_2) | (1<<KEYPADLINE_3) | (1<<KEYPADLINE_4);
@@ -200,12 +203,21 @@ struct keypadata KEYPAD_get(void)
 		if(c==KEYPADENTERKEY){
 			KEYPAD_string[KEYPADSTRINGINDEX-1]='\0';
 			KEYPADSTRINGINDEX=0;
-			data.string=KEYPAD_string;
 			data.printstring="";
-		}else
+			data.string=KEYPAD_string;
+		}else{
 			data.printstring=KEYPAD_string;
+			data.string="";
+		}
 	}
 	return data;
+}
+/***flush***/
+void KEYPAD_flush(void)
+{
+	data.character=' ';
+	data.printstring="";
+	data.string="";
 }
 /***lh***/
 uint8_t KEYPADlh(uint8_t xi, uint8_t xf)

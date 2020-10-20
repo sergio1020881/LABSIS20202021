@@ -45,6 +45,7 @@ struct keypad{
 	//Function Pointers
 	char (*getkey)(void);
 	struct keypadata (*get)(void);
+	void (*flush)(void);
 };
 typedef struct keypad KEYPAD;
 /*
