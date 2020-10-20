@@ -1,36 +1,16 @@
 /*************************************************************************
-Title:    clock.c
-Author:   Sergio Manuel Santos <sergio.salazar.santos@gmail.com>
-File:     $Id: clock.c,v 0.2 2015/04/11 17:00:00 sergio Exp $
-Software: AVR-GCC 4.1, AVR Libc 1.4.6 or higher
-Hardware: ATmega128 at 16 Mhz, 
-License:  GNU General Public License        
-DESCRIPTION:
-USAGE:
-    Refer to the header file clock.h for a description of the routines. 
-NOTES:
-    Based on Atmel Application Note AVR306
-LICENSE:
-    Copyright (C) 2014
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    any later version.
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-    GNU General Public License for more details.
-COMMENT:
-	Very Stable
+CLOCK API START
+Author: Sergio Santos 
+	<sergio.salazar.santos@gmail.com>
 *************************************************************************/
+/***preamble inic***/
 /*
-** library
+** Library
 */
 #include <avr/io.h>
-#include <avr/pgmspace.h>
 #include <inttypes.h>
-/***/
 #include "clock.h"
+/***preamble inic***/
 /*
 ** constant and macro
 */
@@ -165,7 +145,7 @@ uint8_t CLOCK_alarm(uint8_t hour, uint8_t minute, uint8_t second)
 		alarmtime.minute=minute;
 		alarmtime.second=second;
 		CLOCK_alarm_flag=4;
-	}	
+	}
 	return CLOCK_alarm_flag;
 }
 uint8_t CLOCK_second_count(uint16_t second)
@@ -229,8 +209,6 @@ char* CLOCK_show(void)
 /*
 ** interrupt
 */
-/***EOF***/
-/***COMMENTS
-
-***/
-
+/*************************************************************************
+CLOCK API END
+*************************************************************************/

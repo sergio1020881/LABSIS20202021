@@ -1,38 +1,18 @@
 /*************************************************************************
-Title:    FUNCTION
-Author:   Sergio Manuel Santos <sergio.salazar.santos@gmail.com>
-File:     $Id: function.c,v 0.1 2015/04/11 15:00:00 sergio Exp $
-Software: AVR-GCC 4.1, AVR Libc 1.4.6 or higher
-Hardware: AVR with built-in ADC, tested on ATmega128 at 16 Mhz, 
-License:  GNU General Public License        
-DESCRIPTION:
-	Atmega 128 at 16MHZ
-USAGE:
-    Refere to the header file function.h for a description of the routines. 
-NOTES:
-    Based on Atmel Application Note AVR306
-LICENSE:
-    Copyright (C) 2013
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    any later version.
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-COMMENT:
-	Very Stable
+Title: FUNCTION
+Author: Sergio Santos
+   <sergio.salazar.santos@gmail.com>
+File: $Id: function.c,v 0.1 29/09/2020 Exp $ 
+License: GNU General Public License
+Comment:
+    Always try to make general purpose bullet proof functions !!
+    Very Stable
 *************************************************************************/
-#ifndef F_CPU
-	#define F_CPU 16000000UL
-#endif
 /*
 ** library
 */
 #include <avr/io.h>
 #include <avr/pgmspace.h>
-#include <util/delay.h>
 #include <stdarg.h>
 #include <inttypes.h>
 /***pc use***
@@ -47,16 +27,17 @@ COMMENT:
 ** constant and macro
 */
 #ifndef GLOBAL_INTERRUPT_ENABLE
- #define GLOBAL_INTERRUPT_ENABLE 7
+	#define GLOBAL_INTERRUPT_ENABLE 7
 #endif
+#define FUNCSTRSIZE 20
 /*
 ** variable
 */
-char FUNCstr[16];
+char FUNCstr[FUNCSTRSIZE+1];
 /*
 ** procedure and function header
 */
-unsigned int Power(uint8_t base, uint8_t n);
+unsigned int Pwr(uint8_t bs, uint8_t n);
 int StringLength (const char string[]);
 void Reverse(char s[]);
 /******/
@@ -64,6 +45,8 @@ unsigned int FUNCmayia(unsigned int xi, unsigned int xf, uint8_t nbits);
 uint8_t FUNCpinmatch(uint8_t match, uint8_t pin, uint8_t HL);
 uint8_t FUNChmerge(uint8_t X, uint8_t Y);
 uint8_t FUNClmerge(uint8_t X, uint8_t Y);
+uint8_t FUNChh(uint8_t xi, uint8_t xf);
+uint8_t FUNCll(uint8_t xi, uint8_t xf);
 uint8_t FUNClh(uint8_t xi, uint8_t xf);
 uint8_t FUNChl(uint8_t xi, uint8_t xf);
 uint8_t FUNCdiff(uint8_t xi, uint8_t xf);
@@ -71,7 +54,9 @@ void FUNCswap(long *px, long *py);
 void FUNCcopy(char to[], char from[]);
 void FUNCsqueeze(char s[], int c);
 void FUNCshellsort(int v[], int n);
-void FUNCitoa(int32_t n, char s[]);
+char* FUNCi16toa(int16_t n);
+char* FUNCui16toa(uint16_t n);
+char* FUNCi32toa(int32_t n);
 int FUNCtrim(char s[]);
 int FUNCpmax(int a1, int a2);
 int FUNCgcd (int u, int v);
@@ -89,7 +74,8 @@ unsigned char FUNCbcd2bin(unsigned char val);
 unsigned char FUNCbin2bcd(unsigned val);
 long FUNCgcd1(long a, long b);
 uint8_t FUNCpincheck(uint8_t port, uint8_t pin);
-char* FUNCprint_binary(int number);
+char* FUNCprint_binary(uint8_t number);
+uint8_t  bintobcd(uint8_t bin);
 /***pc use***
 char* FUNCfltos(FILE* stream);
 char* FUNCftos(FILE* stream);
@@ -98,7 +84,8 @@ char* FUNCputstr(char* str);
 int FUNCgetnum(char* x);
 unsigned int FUNCgetnumv2(char* x);
 int FUNCreadint(int nmin, int nmax);
-*/
+***/
+// uint8_t TRANupdate(struct TRAN *tr, uint8_t idata);
 /*
 ** procedure and function
 */
@@ -110,13 +97,15 @@ FUNC FUNCenable( void )
 	// struct object
 	FUNC func;
 	// function pointers
-	func.power=Power;
+	func.power=Pwr;
 	func.stringlength=StringLength;
 	func.reverse=Reverse;
 	func.mayia=FUNCmayia;
 	func.pinmatch=FUNCpinmatch;
 	func.hmerge=FUNChmerge;
 	func.lmerge=FUNClmerge;
+	func.hh=FUNChh;
+	func.ll=FUNCll;
 	func.lh=FUNClh;
 	func.hl=FUNChl;
 	func.diff=FUNCdiff;
@@ -124,7 +113,9 @@ FUNC FUNCenable( void )
 	func.copy=FUNCcopy;
 	func.squeeze=FUNCsqueeze;
 	func.shellsort=FUNCshellsort;
-	func.itoa=FUNCitoa;
+	func.i16toa=FUNCi16toa;
+	func.ui16toa=FUNCui16toa;
+	func.i32toa=FUNCi32toa;
 	func.trim=FUNCtrim;
 	func.pmax=FUNCpmax;
 	func.gcd=FUNCgcd;
@@ -162,7 +153,7 @@ unsigned int FUNCmayia(unsigned int xi, unsigned int xf, uint8_t nbits)
 	unsigned int mask;
 	unsigned int diff;
 	unsigned int trans;
-	mask=Power(2,nbits)-1;
+	mask=Pwr(2,nbits)-1;
 	xi&=mask;
 	xf&=mask;
 	diff=xf^xi;
@@ -195,6 +186,20 @@ uint8_t FUNChmerge(uint8_t X, uint8_t Y)
 uint8_t FUNClmerge(uint8_t X, uint8_t Y)
 {
 	return (X & Y);
+}
+// hh
+uint8_t FUNChh(uint8_t xi, uint8_t xf)
+{
+	uint8_t i;
+	i=xi&xf;
+	return i;
+}
+// ll
+uint8_t FUNCll(uint8_t xi, uint8_t xf)
+{
+	uint8_t i;
+	i=xi|xf;
+	return ~i;
 }
 // lh
 uint8_t FUNClh(uint8_t xi, uint8_t xf)
@@ -254,20 +259,51 @@ void FUNCshellsort(int v[], int n)
 				v[j+gap] = temp;
 			}
 }
-// itoa: convert n to characters in s
-void FUNCitoa(int32_t n, char s[])
+// i32toa: convert n to characters in s
+char* FUNCi32toa(int32_t n)
 {
-	int i, sign;
+	uint8_t i;
+	int32_t sign;
+	if ((sign = n) < 0) // record sign
+	n = -n; // make n positive
+	i = 0;
+	do { // generate digits in reverse order
+		FUNCstr[i++] = n % 10 + '0'; // get next digit
+	}while ((n /= 10) > 0); // delete it
+	if (sign < 0)
+	FUNCstr[i++] = '-';
+	FUNCstr[i] = '\0';
+	Reverse(FUNCstr);
+	return FUNCstr;
+}
+// i16toa: convert n to characters in s
+char* FUNCi16toa(int16_t n)
+{
+	uint8_t i;
+	int16_t sign;
 	if ((sign = n) < 0) // record sign
 		n = -n; // make n positive
 	i = 0;
 	do { // generate digits in reverse order
-		s[i++] = n % 10 + '0'; // get next digit
+		FUNCstr[i++] = n % 10 + '0'; // get next digit
 	}while ((n /= 10) > 0); // delete it
 	if (sign < 0)
-		s[i++] = '-';
-	s[i] = '\0';
-	Reverse(s);
+		FUNCstr[i++] = '-';
+	FUNCstr[i] = '\0';
+	Reverse(FUNCstr);
+	return FUNCstr;
+}
+// ui16toa: convert n to characters in s
+char* FUNCui16toa(uint16_t n)
+{
+	uint8_t i;
+	i = 0;
+	do { // generate digits in reverse order
+		FUNCstr[i++] = n % 10 + '0'; // get next digit
+	}while ((n /= 10) > 0); // delete it
+	FUNCstr[i] = '\0';
+	Reverse(FUNCstr);
+	return FUNCstr;
 }
 // trim: remove trailing blanks, tabs, newlines
 int FUNCtrim(char s[])
@@ -417,12 +453,12 @@ long FUNCtrimmer(long x, long in_min, long in_max, long out_min, long out_max)
 	return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
 // power: raise base to n-th power; n >= 0
-unsigned int Power(uint8_t base, uint8_t n)
+unsigned int Pwr(uint8_t bs, uint8_t n)
 {
     unsigned int i, p;
     p = 1;
     for (i = 1; i <= n; ++i)
-        p = p * base;
+        p = p * bs;
     return p;
 }
 // Function to count the number of characters in a string
@@ -473,9 +509,9 @@ uint8_t FUNCpincheck(uint8_t port, uint8_t pin)
 		lh=0;
 	return lh;
 }
-char* FUNCprint_binary(int number)
+char* FUNCprint_binary(uint8_t number)
 {
-	int i,c;
+	uint8_t i,c;
     for(i=128,c=0;i;i>>=1,c++){
 	(number & i) ? (FUNCstr[c]='1') : (FUNCstr[c]='0');
 	}
@@ -493,6 +529,10 @@ uint8_t leap_year_check(uint16_t year){
   	else
     	i=0;
 	return i;
+}
+uint8_t  bintobcd(uint8_t bin)
+{
+	return (((bin) / 10) << 4) + ((bin) % 10);
 }
 /*
 int gcd( int a, int b ) {
@@ -661,7 +701,7 @@ int FUNCreadint(int nmin, int nmax)
 	}
 		return num;
 }
-*/
+***/
 /*
 ** interrupt
 */
@@ -669,4 +709,3 @@ int FUNCreadint(int nmin, int nmax)
 /***COMMENTS
 
 ***/
-

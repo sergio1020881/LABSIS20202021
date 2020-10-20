@@ -1,28 +1,18 @@
 /************************************************************************
-Title:    SUNTRACK.c
-Author:   Sergio Manuel Santos <sergio.salazar.santos@gmail.com>
-File:     $Id: MAIN,v 1.8.2.1 2015/04/11 13:00:00 sergio Exp $
+Title:		SUNTRACK.c
+Author:  Sergio Manuel Santos 
+	<sergio.salazar.santos@gmail.com>
+File:  $Id: MAIN,v 1.8.2.1 20/10/2020 Exp $
 Software: AVR-GCC 4.1, AVR Libc 1.4
 Hardware: 
     Atmega128 by ETT ET-BASE
 	-PORTA LCD
-	-PORTC Keyboard
+	-PORTE Keyboard
 	-PF0 Sensor LDR
 	-PB6 Servo Motor
-	
+	-PORTD RTC
 License:  GNU General Public License
-Usage:    see Doxygen manual
-LICENSE:
-    Copyright (C) 2014
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    any later version.
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-    GNU General Public License for more details.
-COMMENT:
+Comment:
 	In Progress
 ************************************************************************/
 #define F_CPU 16000000UL
@@ -34,29 +24,28 @@ COMMENT:
 #include <avr/interrupt.h>
 #include <util/delay.h>
 #include <inttypes.h>
-/**********/
+#include <stdlib.h>
+#include <string.h>
+#include "atmega128analog.h"
+#include "atmega128timer.h"
 #include "function.h"
 #include "lcd.h"
-#include "analog.h"
-#include "timer.h"
-#include "clock.h"
-#include "mm74c923.h"
-/*********/
-#include<string.h>
+#include "pcf8563rtc.h"
+#include "keypad.h"
 /*
-** constant and macro
+** Constant and Macro
 */
 #define TRUE 1
-#define FALSE 0
-#define GI 7
-#define vector_size 16
+#define ZERO 0
+#define Min 500     // 450
+#define Max 2350    // 2450
 /*
-** variable
+** Global File variable
 */
-uint16_t TIMER0_COMPARE_MATCH;
-CLOCK relogio;
+struct time tm;
+struct date dt;
 /*
-** procedure and function header
+** Header
 */
 void PORTINIT();
 /****MAIN****/
@@ -66,96 +55,227 @@ int main(void)
 	/***INICIALIZE OBJECTS***/
 	FUNC function= FUNCenable();
 	LCD0 lcd0 = LCD0enable(&DDRA,&PINA,&PORTA);
-	MM74C923 keypad = MM74C923enable(&DDRC,&PINC,&PORTC);
+	KEYPAD keypad = KEYPADenable(&DDRE,&PINE,&PORTE);
 	ANALOG analog = ANALOGenable(1, 128, 1, 0); // channel 0 for position
-	TIMER_COUNTER0 timer0 = TIMER_COUNTER0enable(2,2); // for clock
 	TIMER_COUNTER1 timer1 = TIMER_COUNTER1enable(9,0); // PWM positioning
 	//TIMER_COUNTER3 timer3 = TIMER_COUNTER3enable(12,12);
-	relogio=CLOCKenable(12,0,0);
+	PCF8563RTC rtc = PCF8563RTCenable(16);
 	/******/
-	char Mode='1';
-	char keytmp[8];
-	char analogtmp[8];
-	char keychar;
+	char Menu='1';
 	int adcvalue;
-	uint8_t step=0;
+	char str[4]="0";
+	int mvalue=90;
+	char mstr[4]="90";
+	char cal='0';
+	uint16_t set;
 	/***Parameters timers***/
-	timer0.compare(249);
 	timer1.compoutmodeB(2);
 	timer1.compareA(20000);
 	timer1.start(8);
-	timer0.start(64);
-	//timer3.compoutmodeC(1);
-	//timer3.start(255);
+	rtc.SetClkOut(1, 2);
 	/**********/
+	//TODO:: Please write your application code
 	while(TRUE){
 		//PREAMBLE
 		lcd0.reboot();
-		keypad.activate();
-		//TODO:: Please write your application code
-		switch(Mode){
-			case '2':
-				lcd0.gotoxy(0,0);
-				lcd0.string_size(keypad.gets(),5);
-				if(!strcmp(keypad.data(),""));
-				else
-					strcpy(keytmp,keypad.data());
-				timer1.compareB(function.trimmer(function.strToInt(keytmp),0,180,450,2450));
+		keypad.read();
+		/***Entry Start***/
+		lcd0.gotoxy(3,10);
+		lcd0.string_size(keypad.get().printstring,6);
+		/***ENTRY END***/
+		switch(Menu){
+			/***MENU 1***/
+			case '1': //Main Program Menu
+				if(!strcmp(keypad.get().string,"A")){Menu='2';strcpy(mstr,"");keypad.flush();lcd0.clear();}
+				else 
+				if(!strcmp(keypad.get().string,"B")){Menu='3';strcpy(mstr,"");keypad.flush();lcd0.clear();}
+				else{
+					/***RTC***/
+					tm=rtc.GetTime();
+					dt=rtc.GetDate();
+					/***Reading analog***/
+					adcvalue=analog.read(0);
+					/***Set Position***/
+					timer1.compareB(function.trimmer(adcvalue,0,1023,Min,Max));
+					lcd0.gotoxy(0,0);
+					lcd0.string_size("Sensor:",7);
+					//lcd0.hspace(1);
+					strcpy(str,function.i16toa(adcvalue));
+					lcd0.string_size(str,4);
+					lcd0.gotoxy(0,12);
+					lcd0.string_size(function.ui16toa(rtc.bcd2dec(dt.days)),2);
+					lcd0.putch(':');
+					lcd0.string_size(function.ui16toa(rtc.bcd2dec(dt.century_months)),2);
+					lcd0.putch(':');
+					lcd0.string_size(function.ui16toa(rtc.bcd2dec(dt.years)),2);
+					lcd0.gotoxy(1,12);
+					lcd0.string_size(function.ui16toa(rtc.bcd2dec(tm.hours)),2);
+					lcd0.putch(':');
+					lcd0.string_size(function.ui16toa(rtc.bcd2dec(tm.minutes)),2);
+					lcd0.putch(':');
+					lcd0.string_size(function.ui16toa(rtc.bcd2dec(tm.VL_seconds)),2);
+				}
 				break;
-			case '1':
-				lcd0.gotoxy(0,0);
-				adcvalue=analog.read(0);
-				function.itoa(adcvalue,analogtmp);
-				lcd0.string_size(analogtmp,5);
-				timer1.compareB(function.trimmer(adcvalue,0,1023,450,2450));
+			/***MENU 2***/
+			case '2': // Manual position override 
+				if(!strcmp(keypad.get().string,"A")){Menu='3';keypad.flush();lcd0.clear();
+				}else if(!strcmp(keypad.get().string,"B")){Menu='1';keypad.flush();lcd0.clear();
+				}else{
+					lcd0.gotoxy(0,0);
+					lcd0.string_size("Manual: ",8);
+					lcd0.string_size(mstr,6);
+					if(keypad.get().character==KEYPADENTERKEY){
+						strcpy(mstr,keypad.get().string);
+						mvalue=function.strToInt(mstr);
+						if(mvalue >=0 && mvalue <=180){
+							timer1.compareB(function.trimmer(mvalue,0,180,Min,Max));
+						}else{
+							strcpy(mstr,"err");
+						}
+						keypad.flush();
+					}
+				}
 				break;
+			/***MENU 3***/
+			case '3': //Set Time and Date
+				if(!strcmp(keypad.get().string,"A")){Menu='1';keypad.flush();lcd0.clear();
+				}else if(!strcmp(keypad.get().string,"B")){Menu='2';keypad.flush();lcd0.clear();
+				}else{
+					/*** Menu to set RTC Time and Date ***/
+					lcd0.gotoxy(0,0);
+					lcd0.string_size("Date and Time Setup",19);
+					/***Calibrate***/
+					switch(cal){
+						case '0':
+							lcd0.gotoxy(1,0);
+							lcd0.string_size("1-Year",7);
+							lcd0.string_size("2-Month",8);
+							lcd0.string_size("3-Day",5);
+							lcd0.gotoxy(2,0);
+							lcd0.string_size("4-Hour",7);
+							lcd0.string_size("5-Min",8);
+							lcd0.string_size("6-Sec",5);
+							lcd0.gotoxy(3,0);
+							lcd0.string_size("A, B exit",9);
+							if(!strcmp(keypad.get().string,"1")){cal='1';keypad.flush();lcd0.clear();}
+							if(!strcmp(keypad.get().string,"2")){cal='2';keypad.flush();lcd0.clear();}
+							if(!strcmp(keypad.get().string,"3")){cal='3';keypad.flush();lcd0.clear();}
+							if(!strcmp(keypad.get().string,"4")){cal='4';keypad.flush();lcd0.clear();}
+							if(!strcmp(keypad.get().string,"5")){cal='5';keypad.flush();lcd0.clear();}
+							if(!strcmp(keypad.get().string,"6")){cal='6';keypad.flush();lcd0.clear();}
+							//if(keypad.get().character=='1'){cal='1';keypad.flush();lcd0.clear();}
+							break;
+						/********************************************************************/
+						case '1': // YEAR
+							lcd0.gotoxy(1,0);
+							lcd0.string_size("Enter Value:",9);	
+							/***YEAR***/
+							if(keypad.get().character==KEYPADENTERKEY){
+								strcpy(mstr,keypad.get().string);
+								set=function.strToInt(mstr);
+								if(set >=0 && set <100){
+									//lcd0.string_size(mstr,4);
+									rtc.SetYear(rtc.bintobcd(set));
+									cal='0';
+									}else{
+									strcpy(mstr,"err");
+								}
+								keypad.flush();
+							}
+						break;
+						/********************************************************************/
+						case '2': // MONTH
+							lcd0.gotoxy(1,0);
+							lcd0.string_size("Enter Value:",9);
+							/***MONTH***/
+							if(keypad.get().character==KEYPADENTERKEY){
+								strcpy(mstr,keypad.get().string);
+								set=function.strToInt(mstr);
+								if(set >=0 && set <13){
+									rtc.SetMonth(rtc.bintobcd(set));
+									cal='0';
+								}else{
+									strcpy(mstr,"err");
+								}
+								keypad.flush();
+							}
+							break;
+						/********************************************************************/
+						case '3': // DAY
+							lcd0.gotoxy(1,0);
+							lcd0.string_size("Enter Value:",9);
+							/***DAY***/
+							if(keypad.get().character==KEYPADENTERKEY){
+								strcpy(mstr,keypad.get().string);
+								set=function.strToInt(mstr);
+								if(set >=0 && set <32){
+									rtc.SetDay(rtc.bintobcd(set));
+									cal='0';
+								}else{
+									strcpy(mstr,"err");
+								}
+								keypad.flush();
+							}
+						break;
+						/********************************************************************/
+						case '4': // HOUR
+							lcd0.gotoxy(1,0);
+							lcd0.string_size("Enter Value:",9);
+							/***HOUR***/
+							if(keypad.get().character==KEYPADENTERKEY){
+								strcpy(mstr,keypad.get().string);
+								set=function.strToInt(mstr);
+								if(set >=0 && set <24){
+									rtc.SetHour(rtc.bintobcd(set));
+									cal='0';
+								}else{
+									strcpy(mstr,"err");
+								}
+								keypad.flush();
+							}
+						break;
+						/********************************************************************/
+						case '5': // MINUTE
+							lcd0.gotoxy(1,0);
+							lcd0.string_size("Enter Value:",9);
+							/***MINUTE***/
+							if(keypad.get().character==KEYPADENTERKEY){
+								strcpy(mstr,keypad.get().string);
+								set=function.strToInt(mstr);
+								if(set >=0 && set <24){
+									rtc.SetMinute(rtc.bintobcd(set));
+									cal='0';
+								}else{
+									strcpy(mstr,"err");
+								}
+								keypad.flush();
+							}
+						break;
+						/********************************************************************/
+						case '6': // SECOND
+							lcd0.gotoxy(1,0);
+							lcd0.string_size("Enter Value:",9);
+							/***SECOND***/
+							if(keypad.get().character==KEYPADENTERKEY){
+								strcpy(mstr,keypad.get().string);
+								set=function.strToInt(mstr);
+								if(set >=0 && set <24){
+									rtc.SetSecond(rtc.bintobcd(set));
+									cal='0';
+								}else{
+									strcpy(mstr,"err");
+								}
+								keypad.flush();
+							}
+						break;
+						default:
+							cal='0';
+						break;
+					};
+				}
+				break;
+				/********************************************************************/
 			default:
-				lcd0.gotoxy(0,0);
-				lcd0.string_size(keypad.gets(),5);
-				if(!strcmp(keypad.data(),""));
-				else
-					strcpy(keytmp,keypad.data());
-				timer1.compareB(function.trimmer(function.strToInt(keytmp),0,1023,450,2450));
-				break;
-		};
-		lcd0.hspace(3);
-		lcd0.string(relogio.show());
-		/***Menu***/
-		keychar=keypad.getch();
-		switch(step){
-			case 0:
-				lcd0.gotoxy(0,1);
-				lcd0.string_size("Menu -> R+1",12);	
-				lcd0.hspace(4);
-				switch(keychar){
-					case 'Q':
-						step=1;
-					break;
-				};
-				break;
-			case 1:
-				lcd0.gotoxy(0,1);
-				lcd0.string_size("M-1 | A-2 | T-3",15);
-				lcd0.hspace(1);
-				switch(keychar){
-					case '1':
-						Mode='1';
-						step=0;
-						keypad.data_clear();
-						break;
-					case '2':
-						Mode='2';
-						step=0;
-						keypad.data_clear();
-						break;
-					case '3':
-						step=2;
-						break;
-				};
-				break;
-			case 2:
-				step=0;
-				keypad.data_clear();
 				break;
 		};
 	}
@@ -176,22 +296,8 @@ void PORTINIT()
 	DDRC=0XFF;
 	PORTC=0x00;
 	DDRB|=(1<<5) | (1<<6) | (1<<7);
-	//UART0
-	//DDRE=0X02;
-	SREG|=(1<<GI);
 }
 /*
 ** interrupt
 */
-ISR(TIMER0_COMP_vect) // TIMER0_COMP_vect used for clock
-{
-	TIMER0_COMPARE_MATCH++;
-	if(TIMER0_COMPARE_MATCH > 999){
-		TIMER0_COMPARE_MATCH=0;
-		relogio.increment();
-	}
-}
 /***EOF***/
-/***COMMENTS
-set hour mode
-***/
