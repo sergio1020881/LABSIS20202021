@@ -45,7 +45,6 @@ COMMENT:
 #include "mm74c923.h"
 #include "keypad.h"
 /*********/
-#include<string.h>
 /*
 ** constant and macro
 */
@@ -77,9 +76,8 @@ int main(void)
 	relogio=CLOCKenable(12,0,0);
 	/******/
 	char Menu='1';
-	char chr;
 	int adcvalue;
-	char* str=NULL;
+	char str[4]="0";
 	int mvalue=90;
 	char mstr[4]="90";
 	/***Parameters timers***/
@@ -95,58 +93,65 @@ int main(void)
 	while(TRUE){
 		//PREAMBLE
 		lcd0.reboot();
+		keypad.read();
 		/***Entry Start***/
-		chr=keypad.get().character;
 		lcd0.gotoxy(3,0);
-		lcd0.putch(chr);
+		lcd0.putch(keypad.get().character);
 		lcd0.gotoxy(3,10);
 		lcd0.string_size(keypad.get().printstring,10);
 		/***ENTRY END***/
 		switch(Menu){
 			case '1': //Show readings
-				/***Reading analog***/
-				adcvalue=analog.read(0);
-				/***Set Position***/
-				timer1.compareB(function.trimmer(adcvalue,0,1023,450,2450));
-				if(!strcmp(keypad.get().string,"123")){
-					lcd0.gotoxy(2,0);
-					lcd0.string_size("mcu responde ola",16);
-					keypad.flush();
-				}
-				if(!strcmp(keypad.get().string,"B")){
-					lcd0.gotoxy(2,0);
-					lcd0.string_size("nothing here",16);
-					keypad.flush();
-				}
 				if(!strcmp(keypad.get().string,"A")){
 					Menu='2';
-					timer1.compareB(function.trimmer(mvalue,0,180,450,2450));
+					//cleanup
+					strcpy(mstr,"");
+					lcd0.clear();
 					keypad.flush();
+				}else{
+					/***Reading analog***/
+					adcvalue=analog.read(0);
+					/***Set Position***/
+					timer1.compareB(function.trimmer(adcvalue,0,1023,450,2450));
+					lcd0.gotoxy(0,0);
+					lcd0.string_size("Sensor:",7);
+					//lcd0.hspace(1);
+					strcpy(str,function.i16toa(adcvalue));
+					lcd0.string_size(str,4);
 				}
-				lcd0.gotoxy(0,0);
-				lcd0.string_size("Sensor:",7);
-				//lcd0.hspace(1);
-				str=function.i16toa(adcvalue);
-				lcd0.string_size(str,4);
 				break;
 			case '2':
-				lcd0.gotoxy(0,0);
-				lcd0.string_size("Manual: ",8);
+				if(!strcmp(keypad.get().string,"A")){
+					Menu='3';
+					//cleanup
+					lcd0.clear();
+					keypad.flush();
+				}else{
+					lcd0.gotoxy(0,0);
+					lcd0.string_size("Manual:",7);
+					lcd0.string_size(mstr,4);
+					if(keypad.get().character==KEYPADENTERKEY){
+						strcpy(mstr,keypad.get().string);
+						mvalue=function.strToInt(mstr);
+						if(mvalue >=0 && mvalue <=180){
+							timer1.compareB(function.trimmer(mvalue,0,180,450,2450));
+						}else{
+							strcpy(mstr,"err");
+						}
+						keypad.flush();
+					}
+				}
+				break;
+			case '3':
 				if(!strcmp(keypad.get().string,"A")){
 					Menu='1';
+					//cleanup
+					lcd0.clear();
 					keypad.flush();
+				}else{
+					lcd0.gotoxy(1,0);
+					lcd0.string_size("Nothing to see here!",20);
 				}
-				if(keypad.get().character==KEYPADENTERKEY){
-					strcpy(mstr,keypad.get().string);
-					mvalue=function.strToInt(mstr);
-					if(mvalue >=0 && mvalue <=180){
-						timer1.compareB(function.trimmer(mvalue,0,180,450,2450));
-					}else{
-						strcpy(mstr,"err");
-					}
-					keypad.flush();
-				}
-				lcd0.string_size(mstr,4);
 				break;
 			default:
 				lcd0.gotoxy(0,0);

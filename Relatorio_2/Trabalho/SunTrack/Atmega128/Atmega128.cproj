@@ -172,6 +172,9 @@
     <Compile Include="Libraria\function.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Libraria\function.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Libraria\i2c.c">
       <SubType>compile</SubType>
     </Compile>

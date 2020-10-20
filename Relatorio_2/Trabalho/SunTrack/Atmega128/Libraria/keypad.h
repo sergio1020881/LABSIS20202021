@@ -44,6 +44,7 @@ struct keypad{
 	//Local Variables
 	//Function Pointers
 	char (*getkey)(void);
+	struct keypadata (*read)(void);
 	struct keypadata (*get)(void);
 	void (*flush)(void);
 };
