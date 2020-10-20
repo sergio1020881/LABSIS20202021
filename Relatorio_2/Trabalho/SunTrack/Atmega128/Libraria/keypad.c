@@ -16,11 +16,9 @@ Comment:
 /*
 ** Constant and Macro
 */
-#ifndef GLOBAL_INTERRUPT_ENABLE
-	#define GLOBAL_INTERRUPT_ENABLE 7
-#endif
 #define KEYPADLINES 4
 #define KEYPADCOLUMNS 4
+#define ZERO 0
 /*
 ** Global File Variable
 */
@@ -43,6 +41,7 @@ char keypadvalue[KEYPADLINES][KEYPADCOLUMNS]=
 char KEYPAD_string[KEYPADSTRINGSIZE+1];
 volatile uint8_t KEYPADSTRINGINDEX;
 struct keypadata data;
+char KEYPAD_char;
 //can not assign something outside a function
 /*
 ** Procedure and Function Header
@@ -68,7 +67,6 @@ KEYPAD KEYPADenable(volatile uint8_t *ddr, volatile uint8_t *pin, volatile uint8
 	uint8_t tSREG;
 	tSREG=SREG;
 	data.character=' ';
-	SREG&=~(1<<GLOBAL_INTERRUPT_ENABLE);
 	//ALLOCAÇÂO MEMORIA PARA Estrutura
 	KEYPAD keypad;
 	//import parametros
@@ -204,11 +202,11 @@ struct keypadata KEYPAD_read(void)
 		if(c==KEYPADENTERKEY){
 			KEYPAD_string[KEYPADSTRINGINDEX-1]='\0';
 			KEYPADSTRINGINDEX=0;
-			data.printstring="";
+			data.printstring="\0";
 			data.string=KEYPAD_string;
 		}else{
 			data.printstring=KEYPAD_string;
-			data.string="";
+			data.string="\0";
 		}
 	}
 	return data;
@@ -221,9 +219,10 @@ struct keypadata KEYPAD_get(void)
 /***flush***/
 void KEYPAD_flush(void)
 {
+	KEYPADSTRINGINDEX=0;
 	data.character=' ';
-	data.printstring="";
-	data.string="";
+	data.printstring="\0";
+	data.string="\0";
 }
 /***lh***/
 uint8_t KEYPADlh(uint8_t xi, uint8_t xf)

@@ -37,6 +37,8 @@ Comment:
 */
 #define TRUE 1
 #define ZERO 0
+#define Min 500     // 450
+#define Max 2350    // 2450
 /*
 ** Global File variable
 */
@@ -65,6 +67,7 @@ int main(void)
 	int mvalue=90;
 	char mstr[4]="90";
 	char cal='0';
+	uint16_t set;
 	/***Parameters timers***/
 	timer1.compoutmodeB(2);
 	timer1.compareA(20000);
@@ -77,33 +80,23 @@ int main(void)
 		lcd0.reboot();
 		keypad.read();
 		/***Entry Start***/
-		lcd0.gotoxy(3,0);
-		lcd0.putch(keypad.get().character);
 		lcd0.gotoxy(3,10);
-		lcd0.string_size(keypad.get().printstring,10);
+		lcd0.string_size(keypad.get().printstring,6);
 		/***ENTRY END***/
 		switch(Menu){
+			/***MENU 1***/
 			case '1': //Main Program Menu
-				if(!strcmp(keypad.get().string,"A")){
-					Menu='2';
-					//cleanup
-					strcpy(mstr,"");
-					lcd0.clear();
-					keypad.flush();
-				}else if(!strcmp(keypad.get().string,"B")){
-					Menu='3';
-					//cleanup
-					strcpy(mstr,"");
-					lcd0.clear();
-					keypad.flush();
-				}else{
+				if(!strcmp(keypad.get().string,"A")){Menu='2';strcpy(mstr,"");keypad.flush();lcd0.clear();}
+				else 
+				if(!strcmp(keypad.get().string,"B")){Menu='3';strcpy(mstr,"");keypad.flush();lcd0.clear();}
+				else{
 					/***RTC***/
 					tm=rtc.GetTime();
 					dt=rtc.GetDate();
 					/***Reading analog***/
 					adcvalue=analog.read(0);
 					/***Set Position***/
-					timer1.compareB(function.trimmer(adcvalue,0,1023,450,2450));
+					timer1.compareB(function.trimmer(adcvalue,0,1023,Min,Max));
 					lcd0.gotoxy(0,0);
 					lcd0.string_size("Sensor:",7);
 					//lcd0.hspace(1);
@@ -123,26 +116,19 @@ int main(void)
 					lcd0.string_size(function.ui16toa(rtc.bcd2dec(tm.VL_seconds)),2);
 				}
 				break;
+			/***MENU 2***/
 			case '2': // Manual position override 
-				if(!strcmp(keypad.get().string,"A")){
-					Menu='3';
-					//cleanup
-					lcd0.clear();
-					keypad.flush();
-				}else if(!strcmp(keypad.get().string,"B")){
-					Menu='1';
-					//cleanup
-					lcd0.clear();
-					keypad.flush();
+				if(!strcmp(keypad.get().string,"A")){Menu='3';keypad.flush();lcd0.clear();
+				}else if(!strcmp(keypad.get().string,"B")){Menu='1';keypad.flush();lcd0.clear();
 				}else{
 					lcd0.gotoxy(0,0);
-					lcd0.string_size("Manual:",7);
-					lcd0.string_size(mstr,4);
+					lcd0.string_size("Manual: ",8);
+					lcd0.string_size(mstr,6);
 					if(keypad.get().character==KEYPADENTERKEY){
 						strcpy(mstr,keypad.get().string);
 						mvalue=function.strToInt(mstr);
 						if(mvalue >=0 && mvalue <=180){
-							timer1.compareB(function.trimmer(mvalue,0,180,450,2450));
+							timer1.compareB(function.trimmer(mvalue,0,180,Min,Max));
 						}else{
 							strcpy(mstr,"err");
 						}
@@ -150,35 +136,145 @@ int main(void)
 					}
 				}
 				break;
+			/***MENU 3***/
 			case '3': //Set Time and Date
-				if(!strcmp(keypad.get().string,"A")){
-					Menu='1';
-					//cleanup
-					lcd0.clear();
-					keypad.flush();
-				}else if(!strcmp(keypad.get().string,"B")){
-					Menu='2';
-					//cleanup
-					lcd0.clear();
-					keypad.flush();
+				if(!strcmp(keypad.get().string,"A")){Menu='1';keypad.flush();lcd0.clear();
+				}else if(!strcmp(keypad.get().string,"B")){Menu='2';keypad.flush();lcd0.clear();
 				}else{
 					/*** Menu to set RTC Time and Date ***/
+					lcd0.gotoxy(0,0);
+					lcd0.string_size("Date and Time Setup",19);
+					/***Calibrate***/
 					switch(cal){
 						case '0':
-							lcd0.gotoxy(0,0);
-							lcd0.string_size("Date and Time Setup",19);
 							lcd0.gotoxy(1,0);
-							lcd0.string_size("1-Year",6);
-							cal=keypad.get().character;
-						case '1':
-							lcd0.string_size("  Not Yet",9);
-							keypad.flush();
+							lcd0.string_size("1-Year",7);
+							lcd0.string_size("2-Month",8);
+							lcd0.string_size("3-Day",5);
+							lcd0.gotoxy(2,0);
+							lcd0.string_size("4-Hour",7);
+							lcd0.string_size("5-Min",8);
+							lcd0.string_size("6-Sec",5);
+							lcd0.gotoxy(3,0);
+							lcd0.string_size("A, B exit",9);
+							if(!strcmp(keypad.get().string,"1")){cal='1';keypad.flush();lcd0.clear();}
+							if(!strcmp(keypad.get().string,"2")){cal='2';keypad.flush();lcd0.clear();}
+							if(!strcmp(keypad.get().string,"3")){cal='3';keypad.flush();lcd0.clear();}
+							if(!strcmp(keypad.get().string,"4")){cal='4';keypad.flush();lcd0.clear();}
+							if(!strcmp(keypad.get().string,"5")){cal='5';keypad.flush();lcd0.clear();}
+							if(!strcmp(keypad.get().string,"6")){cal='6';keypad.flush();lcd0.clear();}
+							//if(keypad.get().character=='1'){cal='1';keypad.flush();lcd0.clear();}
+							break;
+						/********************************************************************/
+						case '1': // YEAR
+							lcd0.gotoxy(1,0);
+							lcd0.string_size("Enter Value:",9);	
+							/***YEAR***/
+							if(keypad.get().character==KEYPADENTERKEY){
+								strcpy(mstr,keypad.get().string);
+								set=function.strToInt(mstr);
+								if(set >=0 && set <100){
+									//lcd0.string_size(mstr,4);
+									rtc.SetYear(rtc.bintobcd(set));
+									cal='0';
+									}else{
+									strcpy(mstr,"err");
+								}
+								keypad.flush();
+							}
+						break;
+						/********************************************************************/
+						case '2': // MONTH
+							lcd0.gotoxy(1,0);
+							lcd0.string_size("Enter Value:",9);
+							/***MONTH***/
+							if(keypad.get().character==KEYPADENTERKEY){
+								strcpy(mstr,keypad.get().string);
+								set=function.strToInt(mstr);
+								if(set >=0 && set <13){
+									rtc.SetMonth(rtc.bintobcd(set));
+									cal='0';
+								}else{
+									strcpy(mstr,"err");
+								}
+								keypad.flush();
+							}
+							break;
+						/********************************************************************/
+						case '3': // DAY
+							lcd0.gotoxy(1,0);
+							lcd0.string_size("Enter Value:",9);
+							/***DAY***/
+							if(keypad.get().character==KEYPADENTERKEY){
+								strcpy(mstr,keypad.get().string);
+								set=function.strToInt(mstr);
+								if(set >=0 && set <32){
+									rtc.SetDay(rtc.bintobcd(set));
+									cal='0';
+								}else{
+									strcpy(mstr,"err");
+								}
+								keypad.flush();
+							}
+						break;
+						/********************************************************************/
+						case '4': // HOUR
+							lcd0.gotoxy(1,0);
+							lcd0.string_size("Enter Value:",9);
+							/***HOUR***/
+							if(keypad.get().character==KEYPADENTERKEY){
+								strcpy(mstr,keypad.get().string);
+								set=function.strToInt(mstr);
+								if(set >=0 && set <24){
+									rtc.SetHour(rtc.bintobcd(set));
+									cal='0';
+								}else{
+									strcpy(mstr,"err");
+								}
+								keypad.flush();
+							}
+						break;
+						/********************************************************************/
+						case '5': // MINUTE
+							lcd0.gotoxy(1,0);
+							lcd0.string_size("Enter Value:",9);
+							/***MINUTE***/
+							if(keypad.get().character==KEYPADENTERKEY){
+								strcpy(mstr,keypad.get().string);
+								set=function.strToInt(mstr);
+								if(set >=0 && set <24){
+									rtc.SetMinute(rtc.bintobcd(set));
+									cal='0';
+								}else{
+									strcpy(mstr,"err");
+								}
+								keypad.flush();
+							}
+						break;
+						/********************************************************************/
+						case '6': // SECOND
+							lcd0.gotoxy(1,0);
+							lcd0.string_size("Enter Value:",9);
+							/***SECOND***/
+							if(keypad.get().character==KEYPADENTERKEY){
+								strcpy(mstr,keypad.get().string);
+								set=function.strToInt(mstr);
+								if(set >=0 && set <24){
+									rtc.SetSecond(rtc.bintobcd(set));
+									cal='0';
+								}else{
+									strcpy(mstr,"err");
+								}
+								keypad.flush();
+							}
 						break;
 						default:
+							cal='0';
 						break;
 					};
 				}
 				break;
+				/********************************************************************/
 			default:
 				break;
 		};
