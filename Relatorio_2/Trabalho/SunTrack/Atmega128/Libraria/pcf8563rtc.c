@@ -21,8 +21,15 @@ I2C i2c;
 /***Function Header***/
 void PCF8563RTC_Init(void);
 void PCF8563RTC_SetTime(uint8_t var_hour_u8, uint8_t var_min_u8, uint8_t var_sec_u8);
+void PCF8563RTC_SetHour(uint8_t var_hour_u8);
+void PCF8563RTC_SetMinute(uint8_t var_min_u8);
+void PCF8563RTC_SetSecond(uint8_t var_sec_u8);
 void PCF8563RTC_SetClkOut(uint8_t onoff, uint8_t freq);
 void PCF8563RTC_SetDate(uint8_t var_day_u8, uint8_t var_weekday_u8, uint8_t var_month_u8, uint8_t var_year_u8);
+void PCF8563RTC_SetDay(uint8_t var_day_u8);
+void PCF8563RTC_SetWeekday(uint8_t var_weekday_u8);
+void PCF8563RTC_SetMonth(uint8_t var_month_u8);
+void PCF8563RTC_SetYear(uint8_t var_year_u8);
 struct time PCF8563RTC_GetTime(void);
 struct date PCF8563RTC_GetDate(void);
 uint8_t PCF8563RTC_bcd2dec(uint8_t num);
@@ -38,8 +45,15 @@ PCF8563RTC PCF8563RTCenable(uint8_t prescaler)
 	PCF8563RTC_Init();                      //Initialize RTC
 	/***Vtable***/
 	pcf.SetTime=PCF8563RTC_SetTime;
+	pcf.SetHour=PCF8563RTC_SetHour;
+	pcf.SetMinute=PCF8563RTC_SetMinute;
+	pcf.SetSecond=PCF8563RTC_SetSecond;
 	pcf.SetClkOut=PCF8563RTC_SetClkOut;
 	pcf.SetDate=PCF8563RTC_SetDate;
+	pcf.SetDay=PCF8563RTC_SetDay;
+	pcf.SetWeekday=PCF8563RTC_SetWeekday;
+	pcf.SetMonth=PCF8563RTC_SetMonth;
+	pcf.SetYear=PCF8563RTC_SetYear;
 	pcf.GetTime=PCF8563RTC_GetTime;
 	pcf.GetDate=PCF8563RTC_GetDate;
 	pcf.bcd2dec=PCF8563RTC_bcd2dec;
@@ -63,9 +77,36 @@ void PCF8563RTC_SetTime(uint8_t var_hour_u8, uint8_t var_min_u8, uint8_t var_sec
 	i2c.Start();                            // Start I2C communication
 	i2c.Write(PCF8563WriteMode_U8);         // connect to PCF8563 by sending its ID on I2c Bus
 	i2c.Write(PCF8563SecondRegAddress_U8);  // Select the SEC RAM address
-	i2c.Write(var_sec_u8);			        // Write sec from RAM address 00H
-	i2c.Write(var_min_u8);			        // Write min from RAM address 01H
-	i2c.Write(var_hour_u8);			        // Write hour from RAM address 02H
+	i2c.Write(var_sec_u8);			        // Write sec from RAM address 02H
+	i2c.Write(var_min_u8);			        // Write min from RAM address 03H
+	i2c.Write(var_hour_u8);			        // Write hour from RAM address 04H
+	i2c.Stop();           	                // Stop I2C communication after Setting the Time
+}
+/***void PCF8563RTC_SetHour(uint8_t var_hour_u8)***/
+void PCF8563RTC_SetHour(uint8_t var_hour_u8)
+{
+	i2c.Start();                            // Start I2C communication
+	i2c.Write(PCF8563WriteMode_U8);         // connect to PCF8563 by sending its ID on I2c Bus
+	i2c.Write(PCF8563HourRegAddress_U8);    // Select the SEC RAM address
+	i2c.Write(var_hour_u8);			        // Write hour from RAM address 04H
+	i2c.Stop();           	                // Stop I2C communication after Setting the Time
+}
+/***void PCF8563RTC_SetMinute(uint8_t var_min_u8)***/
+void PCF8563RTC_SetMinute(uint8_t var_min_u8)
+{
+	i2c.Start();                            // Start I2C communication
+	i2c.Write(PCF8563WriteMode_U8);         // connect to PCF8563 by sending its ID on I2c Bus
+	i2c.Write(PCF8563MinuteRegAddress_U8);  // Select the SEC RAM address
+	i2c.Write(var_min_u8);			        // Write min from RAM address 03H
+	i2c.Stop();           	                // Stop I2C communication after Setting the Time
+}
+/***void PCF8563RTC_SetSecond(uint8_t var_sec_u8)***/
+void PCF8563RTC_SetSecond(uint8_t var_sec_u8)
+{
+	i2c.Start();                            // Start I2C communication
+	i2c.Write(PCF8563WriteMode_U8);         // connect to PCF8563 by sending its ID on I2c Bus
+	i2c.Write(PCF8563SecondRegAddress_U8);  // Select the SEC RAM address
+	i2c.Write(var_sec_u8);			        // Write sec from RAM address 02H
 	i2c.Stop();           	                // Stop I2C communication after Setting the Time
 }
 /***void PCF8563RTC_SetClkOut(uint8_t onoff, uint8_t freq)***/
@@ -85,11 +126,47 @@ void PCF8563RTC_SetDate(uint8_t var_day_u8, uint8_t var_weekday_u8, uint8_t var_
 {
 	i2c.Start();                          // Start I2C communication
 	i2c.Write(PCF8563WriteMode_U8);	      // connect to PCF8563 by sending its ID on I2c Bus
-	i2c.Write(PCF8563DateRegAddress_U8);  // Request DAY RAM address at 04H
-	i2c.Write(var_day_u8);			      // Write date on RAM address 04H
-	i2c.Write(var_weekday_u8);
-	i2c.Write(var_month_u8);			  // Write month on RAM address 05H
-	i2c.Write(var_year_u8);			      // Write year on RAM address 06h
+	i2c.Write(PCF8563DayRegAddress_U8);  // Request DAY RAM address at 05H
+	i2c.Write(var_day_u8);			      // Write date on RAM address 05H
+	i2c.Write(var_weekday_u8);            // Write date on RAM address 06H
+	i2c.Write(var_month_u8);			  // Write month on RAM address 07H
+	i2c.Write(var_year_u8);			      // Write year on RAM address 08h
+	i2c.Stop();				              // Stop I2C communication after Setting the Date
+}
+/***void PCF8563RTC_SetYear(uint8_t var_year_u8)***/
+void PCF8563RTC_SetYear(uint8_t var_year_u8)
+{
+	i2c.Start();                          // Start I2C communication
+	i2c.Write(PCF8563WriteMode_U8);	      // connect to PCF8563 by sending its ID on I2c Bus
+	i2c.Write(PCF8563YearRegAddress_U8);  // Request DAY RAM address at 08H
+	i2c.Write(var_year_u8);			      // Write year on RAM address 08h
+	i2c.Stop();				              // Stop I2C communication after Setting the Date
+}
+/***void PCF8563RTC_SetMonth(uint8_t var_month_u8)***/
+void PCF8563RTC_SetMonth(uint8_t var_month_u8)
+{
+	i2c.Start();                           // Start I2C communication
+	i2c.Write(PCF8563WriteMode_U8);	       // connect to PCF8563 by sending its ID on I2c Bus
+	i2c.Write(PCF8563MonthRegAddress_U8);  // Request DAY RAM address at 07H
+	i2c.Write(var_month_u8);			   // Write month on RAM address 07H
+	i2c.Stop();				               // Stop I2C communication after Setting the Date
+}
+/***void PCF8563RTC_SetWeekday(uint8_t var_weekday_u8)***/
+void PCF8563RTC_SetWeekday(uint8_t var_weekday_u8)
+{
+	i2c.Start();                             // Start I2C communication
+	i2c.Write(PCF8563WriteMode_U8);	         // connect to PCF8563 by sending its ID on I2c Bus
+	i2c.Write(PCF8563WeekdayRegAddress_U8);  // Request DAY RAM address at 06H
+	i2c.Write(var_weekday_u8);               // Write date on RAM address 06H
+	i2c.Stop();				                 // Stop I2C communication after Setting the Date
+}
+/***void PCF8563RTC_SetDay(uint8_t var_day_u8)***/
+void PCF8563RTC_SetDay(uint8_t var_day_u8)
+{
+	i2c.Start();                          // Start I2C communication
+	i2c.Write(PCF8563WriteMode_U8);	      // connect to PCF8563 by sending its ID on I2c Bus
+	i2c.Write(PCF8563DayRegAddress_U8);  // Request DAY RAM address at 05H
+	i2c.Write(var_day_u8);			      // Write date on RAM address 05H
 	i2c.Stop();				              // Stop I2C communication after Setting the Date
 }
 /***struct time PCF8563RTC_GetTime(void)***/
@@ -114,7 +191,7 @@ struct date PCF8563RTC_GetDate(void)
 	struct date result;
 	i2c.Start();							        // Start I2C communication
 	i2c.Write(PCF8563WriteMode_U8);			        // connect to PCF8563 by sending its ID on I2c Bus
-	i2c.Write(PCF8563DateRegAddress_U8);	        // Request DAY RAM address at 04H
+	i2c.Write(PCF8563DayRegAddress_U8);	            // Request DAY RAM address at 04H
 	i2c.Stop();								        // Stop I2C communication after selecting DAY Register
 	i2c.Start();							        // Start I2C communication
 	i2c.Write(PCF8563ReadMode_U8);			        // connect to PCF8563 (Read mode) by sending its ID

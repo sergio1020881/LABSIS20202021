@@ -64,6 +64,7 @@ int main(void)
 	char str[4]="0";
 	int mvalue=90;
 	char mstr[4]="90";
+	char cal='0';
 	/***Parameters timers***/
 	timer1.compoutmodeB(2);
 	timer1.compareA(20000);
@@ -82,14 +83,23 @@ int main(void)
 		lcd0.string_size(keypad.get().printstring,10);
 		/***ENTRY END***/
 		switch(Menu){
-			case '1': //Show readings
+			case '1': //Main Program Menu
 				if(!strcmp(keypad.get().string,"A")){
 					Menu='2';
 					//cleanup
 					strcpy(mstr,"");
 					lcd0.clear();
 					keypad.flush();
+				}else if(!strcmp(keypad.get().string,"B")){
+					Menu='3';
+					//cleanup
+					strcpy(mstr,"");
+					lcd0.clear();
+					keypad.flush();
 				}else{
+					/***RTC***/
+					tm=rtc.GetTime();
+					dt=rtc.GetDate();
 					/***Reading analog***/
 					adcvalue=analog.read(0);
 					/***Set Position***/
@@ -99,11 +109,28 @@ int main(void)
 					//lcd0.hspace(1);
 					strcpy(str,function.i16toa(adcvalue));
 					lcd0.string_size(str,4);
+					lcd0.gotoxy(0,12);
+					lcd0.string_size(function.ui16toa(rtc.bcd2dec(dt.days)),2);
+					lcd0.putch(':');
+					lcd0.string_size(function.ui16toa(rtc.bcd2dec(dt.century_months)),2);
+					lcd0.putch(':');
+					lcd0.string_size(function.ui16toa(rtc.bcd2dec(dt.years)),2);
+					lcd0.gotoxy(1,12);
+					lcd0.string_size(function.ui16toa(rtc.bcd2dec(tm.hours)),2);
+					lcd0.putch(':');
+					lcd0.string_size(function.ui16toa(rtc.bcd2dec(tm.minutes)),2);
+					lcd0.putch(':');
+					lcd0.string_size(function.ui16toa(rtc.bcd2dec(tm.VL_seconds)),2);
 				}
 				break;
-			case '2':
+			case '2': // Manual position override 
 				if(!strcmp(keypad.get().string,"A")){
 					Menu='3';
+					//cleanup
+					lcd0.clear();
+					keypad.flush();
+				}else if(!strcmp(keypad.get().string,"B")){
+					Menu='1';
 					//cleanup
 					lcd0.clear();
 					keypad.flush();
@@ -123,48 +150,38 @@ int main(void)
 					}
 				}
 				break;
-			case '3':
+			case '3': //Set Time and Date
 				if(!strcmp(keypad.get().string,"A")){
 					Menu='1';
 					//cleanup
 					lcd0.clear();
 					keypad.flush();
+				}else if(!strcmp(keypad.get().string,"B")){
+					Menu='2';
+					//cleanup
+					lcd0.clear();
+					keypad.flush();
 				}else{
-					/* Read the Time from RTC(PCF8563) */
-					tm=rtc.GetTime();
-					lcd0.gotoxy(1,0);
-					lcd0.string_size(function.ui16toa(rtc.bcd2dec(tm.hours)),2);
-					lcd0.putch(':');
-					lcd0.string_size(function.ui16toa(rtc.bcd2dec(tm.minutes)),2);
-					lcd0.putch(':');
-					lcd0.string_size(function.ui16toa(rtc.bcd2dec(tm.VL_seconds)),2);
-					lcd0.hspace(7);
-					lcd0.string_size(function.ui16toa(tm.VL_seconds),2);
-					
-					dt=rtc.GetDate();
-					lcd0.gotoxy(2,0);
-					lcd0.string_size(function.ui16toa(rtc.bcd2dec(dt.days)),2);
-					//lcd.putch(':');
-					//lcd.string_size(function.ui16toa(rtc.bcd2dec(dt.weekdays)),2);
-					lcd0.putch(':');
-					lcd0.string_size(function.ui16toa(rtc.bcd2dec(dt.century_months)),2);
-					lcd0.putch(':');
-					lcd0.string_size(function.ui16toa(rtc.bcd2dec(dt.years)),2);
+					/*** Menu to set RTC Time and Date ***/
+					switch(cal){
+						case '0':
+							lcd0.gotoxy(0,0);
+							lcd0.string_size("Date and Time Setup",19);
+							lcd0.gotoxy(1,0);
+							lcd0.string_size("1-Year",6);
+							cal=keypad.get().character;
+						case '1':
+							lcd0.string_size("  Not Yet",9);
+							keypad.flush();
+						break;
+						default:
+						break;
+					};
 				}
 				break;
 			default:
-				/***Reading analog***/
-				adcvalue=analog.read(0);
-				/***Set Position***/
-				timer1.compareB(function.trimmer(adcvalue,0,1023,450,2450));
-				lcd0.gotoxy(0,0);
-				lcd0.string_size("Sensor:",7);
-				//lcd0.hspace(1);
-				strcpy(str,function.i16toa(adcvalue));
-				lcd0.string_size(str,4);
 				break;
 		};
-		lcd0.gotoxy(0,12);
 	}
 }
 /*
