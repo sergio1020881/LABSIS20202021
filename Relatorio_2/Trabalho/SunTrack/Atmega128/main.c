@@ -77,9 +77,11 @@ int main(void)
 	relogio=CLOCKenable(12,0,0);
 	/******/
 	char Menu='1';
-	char* str=NULL;
 	char chr;
 	int adcvalue;
+	char* str=NULL;
+	int mvalue=90;
+	char mstr[4]="90";
 	/***Parameters timers***/
 	timer0.compare(249);
 	timer1.compoutmodeB(2);
@@ -118,22 +120,33 @@ int main(void)
 				}
 				if(!strcmp(keypad.get().string,"A")){
 					Menu='2';
+					timer1.compareB(function.trimmer(mvalue,0,180,450,2450));
 					keypad.flush();
 				}
 				lcd0.gotoxy(0,0);
+				lcd0.string_size("Sensor:",7);
+				//lcd0.hspace(1);
 				str=function.i16toa(adcvalue);
-				lcd0.string_size(str,5);
+				lcd0.string_size(str,4);
 				break;
 			case '2':
+				lcd0.gotoxy(0,0);
+				lcd0.string_size("Manual: ",8);
 				if(!strcmp(keypad.get().string,"A")){
 					Menu='1';
 					keypad.flush();
 				}
 				if(keypad.get().character==KEYPADENTERKEY){
-					strcpy(str,keypad.get().string);
-					timer1.compareB(function.trimmer(function.strToInt(str),0,180,450,2450));
+					strcpy(mstr,keypad.get().string);
+					mvalue=function.strToInt(mstr);
+					if(mvalue >=0 && mvalue <=180){
+						timer1.compareB(function.trimmer(mvalue,0,180,450,2450));
+					}else{
+						strcpy(mstr,"err");
+					}
 					keypad.flush();
 				}
+				lcd0.string_size(mstr,4);
 				break;
 			default:
 				lcd0.gotoxy(0,0);
@@ -144,7 +157,7 @@ int main(void)
 				timer1.compareB(function.trimmer(function.strToInt(str),0,1023,450,2450));
 				break;
 		};
-		lcd0.gotoxy(0,9);
+		lcd0.gotoxy(0,12);
 		lcd0.string(relogio.show());
 	}
 }
