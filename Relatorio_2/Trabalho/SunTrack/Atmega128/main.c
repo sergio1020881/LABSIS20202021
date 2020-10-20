@@ -94,14 +94,18 @@ int main(void)
 		//PREAMBLE
 		lcd0.reboot();
 		/***Entry***/
-		//chr=keypad.get().character;
-		//lcd0.gotoxy(3,0);
-		//lcd0.putch(chr);
+		chr=keypad.get().character;
+		lcd0.gotoxy(3,0);
+		lcd0.putch(chr);
 		lcd0.gotoxy(3,10);
 		lcd0.string_size(keypad.get().printstring,10);
 		if(keypad.get().character==KEYPADENTERKEY && !strcmp(keypad.get().string,"123")){
 			lcd0.gotoxy(2,0);
 			lcd0.string_size("mcu responde ola",16);
+		}
+		if(keypad.get().character==KEYPADENTERKEY && !strcmp(keypad.get().string,"A")){
+			lcd0.gotoxy(2,0);
+			lcd0.string_size("nothing here",16);
 		}
 		/***Reading***/
 		adcvalue=analog.read(0);
