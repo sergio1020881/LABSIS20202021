@@ -17,7 +17,6 @@ Comment:
 ** Library
 */
 #include <inttypes.h>
-/***preamble inic***/
 /*
 ** constant and macro
 */
@@ -53,9 +52,8 @@ typedef struct keypad KEYPAD;
 ** procedure and function header
 */
 KEYPAD KEYPADenable(volatile uint8_t *ddr, volatile uint8_t *pin, volatile uint8_t *port);
-/***preamble inic***/
+/******/
 #endif
-/***preamble inic***/
 /************************************************************************
 The matrix buttons should have a diode in series so each button would only let current flow in one direction not allowing
 feedbacks. Little defect of keypads !

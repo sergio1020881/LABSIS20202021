@@ -26,16 +26,14 @@ Comment:
 #include <inttypes.h>
 #include <stdlib.h>
 #include <string.h>
-/**********/
 #include "atmega128analog.h"
 #include "atmega128timer.h"
 #include "function.h"
 #include "lcd.h"
 #include "pcf8563rtc.h"
 #include "keypad.h"
-/*********/
 /*
-** constant and macro
+** Constant and Macro
 */
 #define TRUE 1
 #define ZERO 0
@@ -45,7 +43,7 @@ Comment:
 struct time tm;
 struct date dt;
 /*
-** procedure and function header
+** Header
 */
 void PORTINIT();
 /****MAIN****/
@@ -59,6 +57,7 @@ int main(void)
 	ANALOG analog = ANALOGenable(1, 128, 1, 0); // channel 0 for position
 	TIMER_COUNTER1 timer1 = TIMER_COUNTER1enable(9,0); // PWM positioning
 	//TIMER_COUNTER3 timer3 = TIMER_COUNTER3enable(12,12);
+	PCF8563RTC rtc = PCF8563RTCenable(16);
 	/******/
 	char Menu='1';
 	int adcvalue;
@@ -69,8 +68,7 @@ int main(void)
 	timer1.compoutmodeB(2);
 	timer1.compareA(20000);
 	timer1.start(8);
-	PCF8563RTC_Init(16);
-	PCF8563RTC_SetClkOut(1, 2);
+	rtc.SetClkOut(1, 2);
 	/**********/
 	//TODO:: Please write your application code
 	while(TRUE){
@@ -133,34 +131,37 @@ int main(void)
 					keypad.flush();
 				}else{
 					/* Read the Time from RTC(PCF8563) */
-					tm=PCF8563RTC_GetTime();
+					tm=rtc.GetTime();
 					lcd0.gotoxy(1,0);
-					lcd0.string_size(function.ui16toa(PCF8563RTC_bcd2dec(tm.hours)),2);
+					lcd0.string_size(function.ui16toa(rtc.bcd2dec(tm.hours)),2);
 					lcd0.putch(':');
-					lcd0.string_size(function.ui16toa(PCF8563RTC_bcd2dec(tm.minutes)),2);
+					lcd0.string_size(function.ui16toa(rtc.bcd2dec(tm.minutes)),2);
 					lcd0.putch(':');
-					lcd0.string_size(function.ui16toa(PCF8563RTC_bcd2dec(tm.VL_seconds)),2);
+					lcd0.string_size(function.ui16toa(rtc.bcd2dec(tm.VL_seconds)),2);
 					lcd0.hspace(7);
 					lcd0.string_size(function.ui16toa(tm.VL_seconds),2);
 					
-					dt=PCF8563RTC_GetDate();
+					dt=rtc.GetDate();
 					lcd0.gotoxy(2,0);
-					lcd0.string_size(function.ui16toa(PCF8563RTC_bcd2dec(dt.days)),2);
+					lcd0.string_size(function.ui16toa(rtc.bcd2dec(dt.days)),2);
 					//lcd.putch(':');
-					//lcd.string_size(function.ui16toa(PCF8563RTC_bcd2dec(dt.weekdays & ~0xF8)),2);
+					//lcd.string_size(function.ui16toa(rtc.bcd2dec(dt.weekdays)),2);
 					lcd0.putch(':');
-					lcd0.string_size(function.ui16toa(PCF8563RTC_bcd2dec(dt.century_months & ~0xE0)),2);
+					lcd0.string_size(function.ui16toa(rtc.bcd2dec(dt.century_months)),2);
 					lcd0.putch(':');
-					lcd0.string_size(function.ui16toa(PCF8563RTC_bcd2dec(dt.years)),2);
+					lcd0.string_size(function.ui16toa(rtc.bcd2dec(dt.years)),2);
 				}
 				break;
 			default:
+				/***Reading analog***/
+				adcvalue=analog.read(0);
+				/***Set Position***/
+				timer1.compareB(function.trimmer(adcvalue,0,1023,450,2450));
 				lcd0.gotoxy(0,0);
-				lcd0.string_size(keypad.get().string,5);
-				if(!strcmp(keypad.get().string,""));
-				else
-					strcpy(str,keypad.get().string);
-				timer1.compareB(function.trimmer(function.strToInt(str),0,1023,450,2450));
+				lcd0.string_size("Sensor:",7);
+				//lcd0.hspace(1);
+				strcpy(str,function.i16toa(adcvalue));
+				lcd0.string_size(str,4);
 				break;
 		};
 		lcd0.gotoxy(0,12);

@@ -8,13 +8,18 @@ Comment:
  **************************************************************************************************/
 #ifndef _I2C_H
 	#define _I2C_H
+/***Library***/
+#include <inttypes.h>
 /***Function Prototypes***/
-void I2C_Init(uint8_t prescaler);
-void I2C_Start();
-void I2C_Stop(void);
-void I2C_Write(uint8_t );
-uint8_t I2C_Read(uint8_t);
-uint8_t I2C_status(void);
+struct twi{
+	void (*Start)();
+	void (*Stop)(void);
+	void (*Write)(uint8_t );
+	uint8_t (*Read)(uint8_t);
+	uint8_t (*Status)(void);
+};
+typedef struct twi I2C;
+I2C I2Cenable(uint8_t prescaler);
 /******/
 #endif
 /***EOF***/

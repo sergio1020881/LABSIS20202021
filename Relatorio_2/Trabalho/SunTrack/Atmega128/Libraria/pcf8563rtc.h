@@ -9,6 +9,8 @@ Comment:
 #ifndef _PCF8563RTC_H_
 	#define _PCF8563RTC_H_
 /******/
+#include <inttypes.h>
+/******/
 #define PCF8563ReadMode_U8   0xA3  // PCF8563 ID
 #define PCF8563WriteMode_U8  0xA2  // PCF8563 ID
 #define PCF8563SecondRegAddress_U8   0x02   // Address to access PC8563 SEC register
@@ -35,14 +37,17 @@ struct alarm{
 	
 };
 /***Function Prototypes***/
-void PCF8563RTC_Init(uint8_t prescaler);
-void PCF8563RTC_SetTime(uint8_t var_hour_u8, uint8_t var_min_u8, uint8_t var_sec_u8);
-void PCF8563RTC_SetClkOut(uint8_t onoff, uint8_t freq);
-void PCF8563RTC_SetDate(uint8_t var_day_u8, uint8_t var_weekday_u8, uint8_t var_month_u8, uint8_t var_year_u8);
-struct time PCF8563RTC_GetTime(void);
-struct date PCF8563RTC_GetDate(void);
-uint8_t PCF8563RTC_bcd2dec(uint8_t num);
-uint8_t PCF8563RTC_bintobcd(uint8_t bin);
+struct pcfrtc{
+	void (*SetTime)(uint8_t var_hour_u8, uint8_t var_min_u8, uint8_t var_sec_u8);
+	void (*SetClkOut)(uint8_t onoff, uint8_t freq);
+	void (*SetDate)(uint8_t var_day_u8, uint8_t var_weekday_u8, uint8_t var_month_u8, uint8_t var_year_u8);
+	struct time (*GetTime)(void);
+	struct date (*GetDate)(void);
+	uint8_t (*bcd2dec)(uint8_t num);
+	uint8_t (*bintobcd)(uint8_t bin);
+};
+typedef struct pcfrtc PCF8563RTC;
+PCF8563RTC PCF8563RTCenable(uint8_t prescaler);
 /******/
 #endif
 /***EOF***/
