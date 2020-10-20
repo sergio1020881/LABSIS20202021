@@ -36,7 +36,8 @@ Comment:
 */
 struct keypadata{
 	char character;
-	char string[KEYPADSTRINGSIZE+1];
+	char* printstring;
+	char* string;
 };
 /******/
 struct keypad{
@@ -44,7 +45,6 @@ struct keypad{
 	//Function Pointers
 	char (*getkey)(void);
 	struct keypadata (*get)(void);
-	void (*flush)(void);
 };
 typedef struct keypad KEYPAD;
 /*

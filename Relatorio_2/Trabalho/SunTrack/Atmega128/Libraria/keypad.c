@@ -42,8 +42,10 @@ char keypadvalue[KEYPADLINES][KEYPADCOLUMNS]=
 	{'7','8','9','C'},
 	{'*','0',35,'D'}
 };
+char KEYPAD_string[KEYPADSTRINGSIZE+1];
 volatile uint8_t KEYPADSTRINGINDEX;
 struct keypadata data;
+//can not assign something outside a function
 /*
 ** procedure and function header
 */
@@ -51,8 +53,6 @@ struct keypadata data;
 char KEYPAD_getkey(void);
 /***string***/
 struct keypadata KEYPAD_get(void);
-/***flush***/
-void KEYPAD_flush(void);
 /***lh***/
 uint8_t KEYPADlh(uint8_t xi, uint8_t xf);
 /***hl***/
@@ -84,12 +84,10 @@ KEYPAD KEYPADenable(volatile uint8_t *ddr, volatile uint8_t *pin, volatile uint8
 	//Direccionar apontadores para PROTOTIPOS
 	keypad.getkey=KEYPAD_getkey;
 	keypad.get=KEYPAD_get;
-	keypad.flush=KEYPAD_flush;
 	SREG=tSREG;
 	//
 	*keypad_PORT|=(1<<KEYPADLINE_1) | (1<<KEYPADLINE_2) | (1<<KEYPADLINE_3) | (1<<KEYPADLINE_4);
 	//Going to use pull down method.
-	KEYPAD_flush();
 	//Inic String Vec
 	return keypad;
 }
@@ -191,24 +189,23 @@ char KEYPAD_getkey(void)
 struct keypadata KEYPAD_get(void)
 {
 	char c;
-	c=KEYPAD_getkey();
+	c=KEYPAD_getkey(); //returns null all the time when no entry
 	if(c){
 		data.character=c;
 		if(KEYPADSTRINGINDEX<(KEYPADSTRINGSIZE)){
-			data.string[KEYPADSTRINGINDEX]=c;
+			KEYPAD_string[KEYPADSTRINGINDEX]=c;
 			KEYPADSTRINGINDEX++;
+			KEYPAD_string[KEYPADSTRINGINDEX]='\0';
 		}
+		if(c==KEYPADENTERKEY){
+			KEYPAD_string[KEYPADSTRINGINDEX-1]='\0';
+			KEYPADSTRINGINDEX=0;
+			data.string=KEYPAD_string;
+			data.printstring="";
+		}else
+			data.printstring=KEYPAD_string;
 	}
 	return data;
-}
-/***flush***/
-void KEYPAD_flush(void)
-{
-	uint8_t i;
-	data.character=' ';
-	KEYPADSTRINGINDEX=0;
-	for(i=0;i<KEYPADSTRINGSIZE+1;i++)
-        data.string[i]='\0';
 }
 /***lh***/
 uint8_t KEYPADlh(uint8_t xi, uint8_t xf)

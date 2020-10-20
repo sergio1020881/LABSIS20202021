@@ -94,27 +94,26 @@ int main(void)
 		//PREAMBLE
 		lcd0.reboot();
 		/***Entry***/
-		chr=keypad.get().character;
-		lcd0.gotoxy(3,0);
-		lcd0.putch(chr);
+		//chr=keypad.get().character;
+		//lcd0.gotoxy(3,0);
+		//lcd0.putch(chr);
 		lcd0.gotoxy(3,10);
-		lcd0.string(keypad.get().string);
-		if(!strcmp(keypad.get().string,"123")){
+		lcd0.string_size(keypad.get().printstring,10);
+		if(keypad.get().character==KEYPADENTERKEY && !strcmp(keypad.get().string,"123")){
 			lcd0.gotoxy(2,0);
 			lcd0.string_size("mcu responde ola",16);
-			keypad.flush();	
 		}
-			
-		
-		
+		/***Reading***/
+		adcvalue=analog.read(0);
+		/***Set Position***/
+		timer1.compareB(function.trimmer(adcvalue,0,1023,450,2450));
 		switch(Menu){
-			case '1':
+			case '1': //Show readings
 				lcd0.gotoxy(0,0);
-				adcvalue=analog.read(0);
 				str=function.i16toa(adcvalue);
 				lcd0.string_size(str,5);
-				timer1.compareB(function.trimmer(adcvalue,0,1023,450,2450));
 				break;
+			/*
 			case '2':
 				lcd0.gotoxy(0,0);
 				lcd0.string_size(keypad.get().string,5);
@@ -131,6 +130,7 @@ int main(void)
 					strcpy(str,keypad.get().string);
 				timer1.compareB(function.trimmer(function.strToInt(str),0,1023,450,2450));
 				break;
+				*/
 		};
 		lcd0.hspace(3);
 		lcd0.string(relogio.show());
