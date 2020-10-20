@@ -1,28 +1,18 @@
 /************************************************************************
-Title:    SUNTRACK.c
-Author:   Sergio Manuel Santos <sergio.salazar.santos@gmail.com>
-File:     $Id: MAIN,v 1.8.2.1 2015/04/11 13:00:00 sergio Exp $
+Title:		SUNTRACK.c
+Author:  Sergio Manuel Santos 
+	<sergio.salazar.santos@gmail.com>
+File:  $Id: MAIN,v 1.8.2.1 20/10/2020 Exp $
 Software: AVR-GCC 4.1, AVR Libc 1.4
 Hardware: 
     Atmega128 by ETT ET-BASE
 	-PORTA LCD
-	-PORTC Keyboard
+	-PORTE Keyboard
 	-PF0 Sensor LDR
 	-PB6 Servo Motor
-	
+	-PORTD RTC
 License:  GNU General Public License
-Usage:    see Doxygen manual
-LICENSE:
-    Copyright (C) 2014
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    any later version.
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-    GNU General Public License for more details.
-COMMENT:
+Comment:
 	In Progress
 ************************************************************************/
 #define F_CPU 16000000UL
@@ -41,22 +31,19 @@ COMMENT:
 #include "atmega128timer.h"
 #include "function.h"
 #include "lcd.h"
-#include "clock.h"
-#include "mm74c923.h"
+#include "pcf8563rtc.h"
 #include "keypad.h"
 /*********/
 /*
 ** constant and macro
 */
 #define TRUE 1
-#define FALSE 0
-#define GI 7
-#define vector_size 16
+#define ZERO 0
 /*
-** variable
+** Global File variable
 */
-uint16_t TIMER0_COMPARE_MATCH;
-CLOCK relogio;
+struct time tm;
+struct date dt;
 /*
 ** procedure and function header
 */
@@ -70,10 +57,8 @@ int main(void)
 	LCD0 lcd0 = LCD0enable(&DDRA,&PINA,&PORTA);
 	KEYPAD keypad = KEYPADenable(&DDRE,&PINE,&PORTE);
 	ANALOG analog = ANALOGenable(1, 128, 1, 0); // channel 0 for position
-	TIMER_COUNTER0 timer0 = TIMER_COUNTER0enable(2,2); // for clock
 	TIMER_COUNTER1 timer1 = TIMER_COUNTER1enable(9,0); // PWM positioning
 	//TIMER_COUNTER3 timer3 = TIMER_COUNTER3enable(12,12);
-	relogio=CLOCKenable(12,0,0);
 	/******/
 	char Menu='1';
 	int adcvalue;
@@ -81,13 +66,11 @@ int main(void)
 	int mvalue=90;
 	char mstr[4]="90";
 	/***Parameters timers***/
-	timer0.compare(249);
 	timer1.compoutmodeB(2);
 	timer1.compareA(20000);
 	timer1.start(8);
-	timer0.start(64);
-	//timer3.compoutmodeC(1);
-	//timer3.start(255);
+	PCF8563RTC_Init(16);
+	PCF8563RTC_SetClkOut(1, 2);
 	/**********/
 	//TODO:: Please write your application code
 	while(TRUE){
@@ -149,8 +132,26 @@ int main(void)
 					lcd0.clear();
 					keypad.flush();
 				}else{
+					/* Read the Time from RTC(PCF8563) */
+					tm=PCF8563RTC_GetTime();
 					lcd0.gotoxy(1,0);
-					lcd0.string_size("Nothing to see here!",20);
+					lcd0.string_size(function.ui16toa(PCF8563RTC_bcd2dec(tm.hours)),2);
+					lcd0.putch(':');
+					lcd0.string_size(function.ui16toa(PCF8563RTC_bcd2dec(tm.minutes)),2);
+					lcd0.putch(':');
+					lcd0.string_size(function.ui16toa(PCF8563RTC_bcd2dec(tm.VL_seconds)),2);
+					lcd0.hspace(7);
+					lcd0.string_size(function.ui16toa(tm.VL_seconds),2);
+					
+					dt=PCF8563RTC_GetDate();
+					lcd0.gotoxy(2,0);
+					lcd0.string_size(function.ui16toa(PCF8563RTC_bcd2dec(dt.days)),2);
+					//lcd.putch(':');
+					//lcd.string_size(function.ui16toa(PCF8563RTC_bcd2dec(dt.weekdays & ~0xF8)),2);
+					lcd0.putch(':');
+					lcd0.string_size(function.ui16toa(PCF8563RTC_bcd2dec(dt.century_months & ~0xE0)),2);
+					lcd0.putch(':');
+					lcd0.string_size(function.ui16toa(PCF8563RTC_bcd2dec(dt.years)),2);
 				}
 				break;
 			default:
@@ -163,7 +164,6 @@ int main(void)
 				break;
 		};
 		lcd0.gotoxy(0,12);
-		lcd0.string(relogio.show());
 	}
 }
 /*
@@ -182,22 +182,8 @@ void PORTINIT()
 	DDRC=0XFF;
 	PORTC=0x00;
 	DDRB|=(1<<5) | (1<<6) | (1<<7);
-	//UART0
-	//DDRE=0X02;
-	SREG|=(1<<GI);
 }
 /*
 ** interrupt
 */
-ISR(TIMER0_COMP_vect) // TIMER0_COMP_vect used for clock
-{
-	TIMER0_COMPARE_MATCH++;
-	if(TIMER0_COMPARE_MATCH > 999){
-		TIMER0_COMPARE_MATCH=0;
-		relogio.increment();
-	}
-}
 /***EOF***/
-/***COMMENTS
-set hour mode
-***/

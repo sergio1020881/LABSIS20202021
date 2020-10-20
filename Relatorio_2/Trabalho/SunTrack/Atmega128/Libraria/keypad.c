@@ -12,11 +12,9 @@ Comment:
 */
 #include <avr/io.h>
 #include <inttypes.h>
-/***/
 #include "keypad.h"
-/***preamble inic***/
 /*
-** constant and macro
+** Constant and Macro
 */
 #ifndef GLOBAL_INTERRUPT_ENABLE
 	#define GLOBAL_INTERRUPT_ENABLE 7
@@ -24,7 +22,7 @@ Comment:
 #define KEYPADLINES 4
 #define KEYPADCOLUMNS 4
 /*
-** variable
+** Global File Variable
 */
 volatile uint8_t *keypad_DDR;
 volatile uint8_t *keypad_PIN;
@@ -47,7 +45,7 @@ volatile uint8_t KEYPADSTRINGINDEX;
 struct keypadata data;
 //can not assign something outside a function
 /*
-** procedure and function header
+** Procedure and Function Header
 */
 /***getkey***/
 char KEYPAD_getkey(void);
@@ -66,7 +64,7 @@ uint8_t KEYPADhl(uint8_t xi, uint8_t xf);
 */
 KEYPAD KEYPADenable(volatile uint8_t *ddr, volatile uint8_t *pin, volatile uint8_t *port)
 {
-	//LOCAL VARIABLES
+	//LOCAL VARIABLE
 	uint8_t tSREG;
 	tSREG=SREG;
 	data.character=' ';

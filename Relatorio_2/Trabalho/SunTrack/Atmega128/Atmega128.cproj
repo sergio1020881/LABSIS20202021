@@ -178,6 +178,9 @@
     <Compile Include="Libraria\i2c.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Libraria\i2c.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Libraria\keypad.c">
       <SubType>compile</SubType>
     </Compile>
@@ -194,6 +197,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Libraria\pcf8563rtc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Libraria\pcf8563rtc.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Libraria\rotenc.c">
