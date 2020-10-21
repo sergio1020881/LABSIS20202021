@@ -1,8 +1,8 @@
 /************************************************************************
-Title:		SUNTRACK.c
-Author:  Sergio Manuel Santos 
+Title: SUNTRACK.c
+Author: Sergio Manuel Santos 
 	<sergio.salazar.santos@gmail.com>
-File:  $Id: MAIN,v 1.8.2.1 20/10/2020 Exp $
+File: $Id: MAIN,v 1.8.2.1 20/10/2020 Exp $
 Software: AVR-GCC 4.1, AVR Libc 1.4
 Hardware: 
     Atmega128 by ETT ET-BASE
@@ -11,7 +11,7 @@ Hardware:
 	-PF0 Sensor LDR
 	-PB6 Servo Motor
 	-PORTD RTC
-License:  GNU General Public License
+License: GNU General Public License
 Comment:
 	In Progress
 ************************************************************************/
@@ -63,9 +63,9 @@ int main(void)
 	/******/
 	char Menu='1';
 	int adcvalue;
-	char str[4]="0";
+	char str[6]="0";
 	int mvalue=90;
-	char mstr[4]="90";
+	char mstr[6]="90";
 	char cal='0';
 	uint16_t set;
 	/***Parameters timers***/
@@ -80,7 +80,7 @@ int main(void)
 		lcd0.reboot();
 		keypad.read();
 		/***Entry Start***/
-		lcd0.gotoxy(3,10);
+		lcd0.gotoxy(3,14);
 		lcd0.string_size(keypad.get().printstring,6);
 		/***ENTRY END***/
 		switch(Menu){
@@ -98,7 +98,7 @@ int main(void)
 					/***Set Position***/
 					timer1.compareB(function.trimmer(adcvalue,0,1023,Min,Max));
 					lcd0.gotoxy(0,0);
-					lcd0.string_size("Sensor:",7);
+					lcd0.string_size("Sense: ",7);
 					//lcd0.hspace(1);
 					strcpy(str,function.i16toa(adcvalue));
 					lcd0.string_size(str,4);
@@ -123,11 +123,11 @@ int main(void)
 				}else{
 					lcd0.gotoxy(0,0);
 					lcd0.string_size("Manual: ",8);
-					lcd0.string_size(mstr,6);
+					lcd0.string_size(mstr,3);
 					if(keypad.get().character==KEYPADENTERKEY){
-						strcpy(mstr,keypad.get().string);
+						strncpy(mstr,keypad.get().string,6);
 						mvalue=function.strToInt(mstr);
-						if(mvalue >=0 && mvalue <=180){
+						if(mvalue >=0 && mvalue <181){
 							timer1.compareB(function.trimmer(mvalue,0,180,Min,Max));
 						}else{
 							strcpy(mstr,"err");
@@ -156,7 +156,7 @@ int main(void)
 							lcd0.string_size("5-Min",8);
 							lcd0.string_size("6-Sec",5);
 							lcd0.gotoxy(3,0);
-							lcd0.string_size("A, B exit",9);
+							lcd0.string_size("A,B exit",8);
 							if(!strcmp(keypad.get().string,"1")){cal='1';keypad.flush();lcd0.clear();}
 							if(!strcmp(keypad.get().string,"2")){cal='2';keypad.flush();lcd0.clear();}
 							if(!strcmp(keypad.get().string,"3")){cal='3';keypad.flush();lcd0.clear();}
@@ -288,13 +288,7 @@ void PORTINIT()
 	//INPUT
 	DDRF=0x00;
 	PORTF=0x0F;
-	DDRE=0X00;
-	PORTE=0XFF;
-	DDRD=0X00;
-	PORTD=0XFF;
 	//OUTPUT
-	DDRC=0XFF;
-	PORTC=0x00;
 	DDRB|=(1<<5) | (1<<6) | (1<<7);
 }
 /*
