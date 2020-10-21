@@ -1,28 +1,10 @@
 /*************************************************************************
-Title:    TIMER
-Author:   Sergio Manuel Santos <sergio.salazar.santos@gmail.com>
-File:     $Id: timer.c,v 0.1 2015/04/11 14:30:00 sergio Exp $
+Title: TIMER
+Author: Sergio Manuel Santos <sergio.salazar.santos@gmail.com>
+File: $Id: timer.c,v 0.1 2015/04/11 14:30:00 sergio Exp $
 Software: AVR-GCC 4.1, AVR Libc 1.4.6 or higher
-Hardware:
-	AVR ATmega128 at 16 Mhz,
-	Atmega 328p at 16Mhz
-License:  GNU General Public License 
-DESCRIPTION:
-	Refer to datasheet
-USAGE:
-	function oriented
-NOTES:
-    Based on Atmega128 Datasheet
-LICENSE:
-    Copyright (C) 2014
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    any later version.
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+Hardware: AVR ATmega128 at 16 Mhz, Atmega 328p at 16Mhz
+License:  GNU General Public License
 COMMENT:
 	Very Stable
 *************************************************************************/

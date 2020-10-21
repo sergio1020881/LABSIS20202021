@@ -20,7 +20,6 @@ Comment:
 #define PCF8563WeekdayRegAddress_U8  0x06    // Address to access PC8563 WEEKDAY register
 #define PCF8563MonthRegAddress_U8    0x07    // Address to access PC8563 MONTH register
 #define PCF8563YearRegAddress_U8     0x08    // Address to access PC8563 YEAR register
-
 #define PCF8563ControlRegAddress_U8  0x00    // Address to access PC8563 CONTROL register
 #define PCF8563CLKOUT_control_U8     0x0D	 // External oscillating pin
 /******/

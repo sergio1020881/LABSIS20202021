@@ -251,7 +251,6 @@ feedbacks. Little defect of keypads !
 A byte has 8bit 256 possible combinations, being zero [0] the first data address and two hundred and fifty five [255] the last, 
 making the 256 possible addresses for data storage. In a string of length 256 in this case the address 255 or the 256 character 
 is always the "\0" character has an indicator of end of string.
-should try doing circular buffer just for fun, or maybe nor, who knows.
 ************************************************************************/
 /*************************************************************************
 KEYPAD API END
