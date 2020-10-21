@@ -15,19 +15,19 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   5 .debug_aranges 000006a0  00000000  00000000  000035a4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00007de1  00000000  00000000  00003c44  2**0
+  6 .debug_info   00007de2  00000000  00000000  00003c44  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00001c28  00000000  00000000  0000ba25  2**0
+  7 .debug_abbrev 00001c2a  00000000  00000000  0000ba26  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00004345  00000000  00000000  0000d64d  2**0
+  8 .debug_line   00004345  00000000  00000000  0000d650  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00001334  00000000  00000000  00011994  2**2
+  9 .debug_frame  00001334  00000000  00000000  00011998  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00001626  00000000  00000000  00012cc8  2**0
+ 10 .debug_str    00001626  00000000  00000000  00012ccc  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    0000688e  00000000  00000000  000142ee  2**0
+ 11 .debug_loc    0000688e  00000000  00000000  000142f2  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000630  00000000  00000000  0001ab7c  2**0
+ 12 .debug_ranges 00000630  00000000  00000000  0001ab80  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -3938,25 +3938,25 @@ uint8_t KEYPADhl(uint8_t xi, uint8_t xf)
     1644:	94 30       	cpi	r25, 0x04	; 4
     1646:	19 f4       	brne	.+6      	; 0x164e <KEYPAD_getkey+0x214>
 						c=keypadvalue[3][0];
-    1648:	80 91 0c 01 	lds	r24, 0x010C	; 0x80010c <__DATA_REGION_ORIGIN__+0xc>
+    1648:	80 91 0c 01 	lds	r24, 0x010C	; 0x80010c <__data_start+0xc>
     164c:	0a c0       	rjmp	.+20     	; 0x1662 <KEYPAD_getkey+0x228>
 					if(HL == (1<<KEYPADDATA_2))
     164e:	90 31       	cpi	r25, 0x10	; 16
     1650:	19 f4       	brne	.+6      	; 0x1658 <KEYPAD_getkey+0x21e>
 						c=keypadvalue[3][1];
-    1652:	80 91 0d 01 	lds	r24, 0x010D	; 0x80010d <__DATA_REGION_ORIGIN__+0xd>
+    1652:	80 91 0d 01 	lds	r24, 0x010D	; 0x80010d <__data_start+0xd>
     1656:	09 c0       	rjmp	.+18     	; 0x166a <KEYPAD_getkey+0x230>
 					if(HL == (1<<KEYPADDATA_3))
     1658:	90 32       	cpi	r25, 0x20	; 32
     165a:	19 f4       	brne	.+6      	; 0x1662 <KEYPAD_getkey+0x228>
 						c=keypadvalue[3][2];
-    165c:	80 91 0e 01 	lds	r24, 0x010E	; 0x80010e <__DATA_REGION_ORIGIN__+0xe>
+    165c:	80 91 0e 01 	lds	r24, 0x010E	; 0x80010e <__data_start+0xe>
     1660:	04 c0       	rjmp	.+8      	; 0x166a <KEYPAD_getkey+0x230>
 					if(HL == (1<<KEYPADDATA_4))
     1662:	90 34       	cpi	r25, 0x40	; 64
     1664:	11 f4       	brne	.+4      	; 0x166a <KEYPAD_getkey+0x230>
 						c=keypadvalue[3][3];
-    1666:	80 91 0f 01 	lds	r24, 0x010F	; 0x80010f <__DATA_REGION_ORIGIN__+0xf>
+    1666:	80 91 0f 01 	lds	r24, 0x010F	; 0x80010f <__data_start+0xf>
 				}
 				*keypad_DDR&=~(1<<KEYPADLINE_4);
     166a:	e0 91 aa 02 	lds	r30, 0x02AA	; 0x8002aa <keypad_DDR>
@@ -5713,7 +5713,7 @@ PCF8563RTC PCF8563RTCenable(uint8_t prescaler)
 000021c8 <PORTINIT>:
 ** procedure and function
 */
-void PORTINIT()
+void PORTINIT(void)
 {
 	//INPUT
 	DDRF=0x00;
@@ -5961,7 +5961,7 @@ int main(void)
     238e:	c0 55       	subi	r28, 0x50	; 80
     2390:	d1 40       	sbci	r29, 0x01	; 1
 	/******/
-	char Menu='1'; // Main menu sellector
+	char Menu='1'; // Main menu selector
 	int16_t adcvalue; // analog reading
 	char str[6]="0"; // analog vector
     2392:	fe 01       	movw	r30, r28
@@ -6032,7 +6032,7 @@ int main(void)
     2400:	88 e0       	ldi	r24, 0x08	; 8
     2402:	90 e0       	ldi	r25, 0x00	; 0
     2404:	09 95       	icall
-	rtc.SetClkOut(1, 2); // oscilate pin at 1 sec
+	rtc.SetClkOut(1, 2); // oscillate pin at 1 sec
     2406:	ce 5e       	subi	r28, 0xEE	; 238
     2408:	de 4f       	sbci	r29, 0xFE	; 254
     240a:	e8 81       	ld	r30, Y
@@ -6065,7 +6065,7 @@ int main(void)
 	TIMER_COUNTER1 timer1 = TIMER_COUNTER1enable(9,0); // PWM positioning
 	PCF8563RTC rtc = PCF8563RTCenable(16); // RTC with I2C
 	/******/
-	char Menu='1'; // Main menu sellector
+	char Menu='1'; // Main menu selector
     2430:	e1 e3       	ldi	r30, 0x31	; 49
     2432:	c8 5c       	subi	r28, 0xC8	; 200
     2434:	de 4f       	sbci	r29, 0xFE	; 254
@@ -6085,7 +6085,7 @@ int main(void)
     2444:	f8 83       	st	Y, r31
     2446:	c7 54       	subi	r28, 0x47	; 71
     2448:	d1 40       	sbci	r29, 0x01	; 1
-	rtc.SetClkOut(1, 2); // oscilate pin at 1 sec
+	rtc.SetClkOut(1, 2); // oscillate pin at 1 sec
 	/**********/
 	//TODO:: Please write your application code
 	while(TRUE){
@@ -6164,7 +6164,7 @@ int main(void)
     24c8:	09 f0       	breq	.+2      	; 0x24cc <main+0x2f2>
     24ca:	a6 c6       	rjmp	.+3404   	; 0x3218 <main+0x103e>
 			/***MENU 1***/
-			case '1': //Main Program Menu
+			case '1': // Main Program Menu
 				if(!strcmp(keypad.get().string,"A")){Menu='2';keypad.flush();lcd0.clear();break;}
     24cc:	f4 01       	movw	r30, r8
     24ce:	09 95       	icall
@@ -7059,7 +7059,7 @@ int main(void)
     2b48:	91 e0       	ldi	r25, 0x01	; 1
     2b4a:	f3 01       	movw	r30, r6
     2b4c:	09 95       	icall
-					/***Calibrate***/
+					/***Calibrate Menu***/
 					switch(cal){
     2b4e:	c9 5b       	subi	r28, 0xB9	; 185
     2b50:	de 4f       	sbci	r29, 0xFE	; 254
@@ -7077,7 +7077,7 @@ int main(void)
     2b68:	ef 59       	subi	r30, 0x9F	; 159
     2b6a:	ff 4f       	sbci	r31, 0xFF	; 255
     2b6c:	f1 c3       	rjmp	.+2018   	; 0x3350 <__tablejump2__>
-						case '0':
+						case '0': // choice
 							lcd0.gotoxy(1,0);
     2b6e:	60 e0       	ldi	r22, 0x00	; 0
     2b70:	70 e0       	ldi	r23, 0x00	; 0
@@ -8061,7 +8061,7 @@ int main(void)
     3212:	d1 40       	sbci	r29, 0x01	; 1
     3214:	09 95       	icall
     3216:	19 c9       	rjmp	.-3534   	; 0x244a <main+0x270>
-	rtc.SetClkOut(1, 2); // oscilate pin at 1 sec
+	rtc.SetClkOut(1, 2); // oscillate pin at 1 sec
 	/**********/
 	//TODO:: Please write your application code
 	while(TRUE){

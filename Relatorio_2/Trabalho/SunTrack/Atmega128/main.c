@@ -2,10 +2,9 @@
 Title: SUNTRACK.c
 Author: Sergio Manuel Santos 
 	<sergio.salazar.santos@gmail.com>
-File: $Id: MAIN,v 1.8.2.1 20/10/2020 Exp $
-Software: AVR-GCC 4.1, AVR Libc 1.4
-Hardware: 
-    Atmega128 by ETT ET-BASE
+File: $Id: MAIN,v 1.8.2.1 21/10/2020 Exp $
+Software: Atmel Studio 7 (ver 7.0.129)
+Hardware: Atmega128 by ETT ET-BASE
 	-PORTA LCD
 	-PORTE Keyboard
 	-PF0 Sensor LDR
@@ -56,11 +55,11 @@ int main(void)
 	FUNC function= FUNCenable(); // Function Library
 	LCD0 lcd0 = LCD0enable(&DDRA,&PINA,&PORTA); // LCD Display 4X20
 	KEYPAD keypad = KEYPADenable(&DDRE,&PINE,&PORTE); // Keyboard
-	ANALOG analog = ANALOGenable(1, 128, 1, 0); // channel 0 for position
-	TIMER_COUNTER1 timer1 = TIMER_COUNTER1enable(9,0); // PWM positioning
+	ANALOG analog = ANALOGenable(1, 128, 1, 0); // Channel 0 for Position
+	TIMER_COUNTER1 timer1 = TIMER_COUNTER1enable(9,0); // PWM Positioning
 	PCF8563RTC rtc = PCF8563RTCenable(16); // RTC with I2C
 	/******/
-	char Menu='1'; // Main menu sellector
+	char Menu='1'; // Main menu selector
 	int16_t adcvalue; // analog reading
 	char str[6]="0"; // analog vector
 	int16_t mvalue=90; // manual position reading
@@ -73,7 +72,7 @@ int main(void)
 	timer1.compoutmodeB(2);
 	timer1.compareA(20000);
 	timer1.start(8);
-	rtc.SetClkOut(1, 2); // oscilate pin at 1 sec
+	rtc.SetClkOut(1, 2); // oscillate pin at 1 sec
 	/**********/
 	//TODO:: Please write your application code
 	while(TRUE){
@@ -87,7 +86,7 @@ int main(void)
 		/***ENTRY END***/
 		switch(Menu){
 			/***MENU 1***/
-			case '1': //Main Program Menu
+			case '1': // Main Program Menu
 				if(!strcmp(keypad.get().string,"A")){Menu='2';keypad.flush();lcd0.clear();break;}
 				if(!strcmp(keypad.get().string,"B")){Menu='3';keypad.flush();lcd0.clear();break;}
 					/***RTC***/
@@ -137,7 +136,6 @@ int main(void)
 					}else
 						timer1.compareB(function.trimmer(m_value,0,180,Min,Max));
 					lcd0.gotoxy(3,0);
-					lcd0.string_size("C - exit",8);lcd0.gotoxy(3,0);
 					lcd0.string_size("C - exit",8);
 				break;
 			/***MENU 3***/
@@ -148,9 +146,9 @@ int main(void)
 					/*** Menu to set RTC Time and Date ***/
 					lcd0.gotoxy(0,0);
 					lcd0.string_size("Date and Time Setup",19);
-					/***Calibrate***/
+					/***Calibrate Menu***/
 					switch(cal){
-						case '0':
+						case '0': // choice
 							lcd0.gotoxy(1,0);
 							lcd0.string_size("1-Year",7);
 							lcd0.string_size("2-Month",8);
@@ -298,7 +296,7 @@ int main(void)
 /*
 ** procedure and function
 */
-void PORTINIT()
+void PORTINIT(void)
 {
 	//INPUT
 	DDRF=0x00;
