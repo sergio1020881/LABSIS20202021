@@ -1,0 +1,23 @@
+Commercially available solar trackers include single-axis tracking which tracks 
+the sun across the sky during each day at a fixed constant tilt angle. 
+This increases the solar radiation received by up to 25-30% compared to no tracking.
+Twin or dual-axis tracking, tracks the sun across the sky during each day but also 
+adjusts the tilt angle of the array more in winter and less in summer to accurately 
+locate the position of the sun in the sky. Dual-axis tracking increase the solar 
+radiation received by up to 33-38% compared to no tracking. Sunnier locations 
+benefit more from dual-axis tracking.
+This advice applies to any type of panel that gets energy from the sun; 
+photovoltaic, solar hot water, etc. We assume that the panel is fixed, or has a 
+tilt that can be adjusted seasonally. (Panels that track the movement of the sun 
+throughout the day can receive 10% (in winter) to 40% (in summer) more energy than 
+fixed panels. This page doesn’t discuss tracking panels.)
+But because the sun is higher in the summer and lower in the winter, you can 
+capture more energy during the whole year by adjusting the tilt of the panels 
+according to the season. The following table shows the effect of adjusting the angle, 
+using a system at 40° latitude as an example. (The comparison would be a little 
+different for different latitudes.) Each option is compared with the energy received 
+by the best possible tracker that always keeps the panel pointed directly at the sun.
+
+Also, if you live where there is snow, adjusting the panels to a steeper angle in 
+winter makes it more likely that they will shed snow. A panel covered in snow produces 
+little or no power.
