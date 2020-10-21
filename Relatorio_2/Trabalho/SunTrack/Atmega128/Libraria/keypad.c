@@ -8,7 +8,7 @@ Comment:
 *************************************************************************/
 /***preamble inic***/
 /*
-** Library
+** library
 */
 #include <avr/io.h>
 #include <inttypes.h>
@@ -44,7 +44,7 @@ struct keypadata data;
 char KEYPAD_char;
 //can not assign something outside a function
 /*
-** Procedure and Function Header
+** header
 */
 /***getkey***/
 char KEYPAD_getkey(void);
@@ -81,7 +81,7 @@ KEYPAD KEYPADenable(volatile uint8_t *ddr, volatile uint8_t *pin, volatile uint8
 	keypad_datai.line_3=keypad_dataf.line_3=(1<<KEYPADDATA_1) | (1<<KEYPADDATA_2) | (1<<KEYPADDATA_3) | (1<<KEYPADDATA_4);
 	keypad_datai.line_4=keypad_dataf.line_4=(1<<KEYPADDATA_1) | (1<<KEYPADDATA_2) | (1<<KEYPADDATA_3) | (1<<KEYPADDATA_4);
 	KEYPADSTRINGINDEX=0;
-	//Direccionar apontadores para PROTOTIPOS
+	//Vtable
 	keypad.getkey=KEYPAD_getkey;
 	keypad.read=KEYPAD_read;
 	keypad.get=KEYPAD_get;
@@ -90,7 +90,6 @@ KEYPAD KEYPADenable(volatile uint8_t *ddr, volatile uint8_t *pin, volatile uint8
 	//
 	*keypad_PORT|=(1<<KEYPADLINE_1) | (1<<KEYPADLINE_2) | (1<<KEYPADLINE_3) | (1<<KEYPADLINE_4);
 	//Going to use pull down method.
-	//Inic String Vec
 	return keypad;
 }
 char KEYPAD_getkey(void)
@@ -203,10 +202,10 @@ struct keypadata KEYPAD_read(void)
 			KEYPAD_string[KEYPADSTRINGINDEX-1]='\0';
 			KEYPADSTRINGINDEX=0;
 			data.printstring="\0";
-			data.string=KEYPAD_string;
+			data.string=KEYPAD_string; // shift output
 		}else{
 			data.printstring=KEYPAD_string;
-			data.string="\0";
+			data.string="\0"; // clear output
 		}
 	}
 	return data;
@@ -251,6 +250,7 @@ feedbacks. Little defect of keypads !
 A byte has 8bit 256 possible combinations, being zero [0] the first data address and two hundred and fifty five [255] the last, 
 making the 256 possible addresses for data storage. In a string of length 256 in this case the address 255 or the 256 character 
 is always the "\0" character has an indicator of end of string.
+Simply Magic.
 ************************************************************************/
 /*************************************************************************
 KEYPAD API END

@@ -14,7 +14,7 @@ Comment:
 	#error "This library requires AVR-GCC 3.4 or later, update to newer AVR-GCC compiler !"
 #endif
 /*
-** Library
+** library
 */
 #include <inttypes.h>
 /*
@@ -57,6 +57,7 @@ KEYPAD KEYPADenable(volatile uint8_t *ddr, volatile uint8_t *pin, volatile uint8
 /************************************************************************
 The matrix buttons should have a diode in series so each button would only let current flow in one direction not allowing
 feedbacks. Little defect of keypads !
+Simply Magic.
 ************************************************************************/
 /************************************************************************
 KEYPAD API END

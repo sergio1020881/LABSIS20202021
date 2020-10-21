@@ -13,7 +13,7 @@ Hardware:
 	-PORTD RTC
 License: GNU General Public License
 Comment:
-	In Progress
+	Excellence in progress
 ************************************************************************/
 #define F_CPU 16000000UL
 /*
@@ -37,13 +37,13 @@ Comment:
 */
 #define TRUE 1
 #define ZERO 0
-#define Min 500     // 450
-#define Max 2350    // 2450
+#define Min 500     // 450 PWM servo motor
+#define Max 2350    // 2450 PWM servo motor
 /*
 ** Global File variable
 */
-struct time tm;
-struct date dt;
+struct time tm; // time struct RTC
+struct date dt; // date struct RTC
 /*
 ** Header
 */
@@ -51,47 +51,45 @@ void PORTINIT();
 /****MAIN****/
 int main(void)
 {
-	PORTINIT();
+	PORTINIT(); // Inic Ports
 	/***INICIALIZE OBJECTS***/
-	FUNC function= FUNCenable();
-	LCD0 lcd0 = LCD0enable(&DDRA,&PINA,&PORTA);
-	KEYPAD keypad = KEYPADenable(&DDRE,&PINE,&PORTE);
+	FUNC function= FUNCenable(); // Function Library
+	LCD0 lcd0 = LCD0enable(&DDRA,&PINA,&PORTA); // LCD Display 4X20
+	KEYPAD keypad = KEYPADenable(&DDRE,&PINE,&PORTE); // Keyboard
 	ANALOG analog = ANALOGenable(1, 128, 1, 0); // channel 0 for position
 	TIMER_COUNTER1 timer1 = TIMER_COUNTER1enable(9,0); // PWM positioning
-	//TIMER_COUNTER3 timer3 = TIMER_COUNTER3enable(12,12);
-	PCF8563RTC rtc = PCF8563RTCenable(16);
+	PCF8563RTC rtc = PCF8563RTCenable(16); // RTC with I2C
 	/******/
-	char Menu='1';
-	int16_t adcvalue;
-	char str[6]="0";
-	int16_t mvalue=90; //inic value
-	int16_t m_value;
-	char mstr[6]="90";
-	char tstr[6];
-	char cal='0';
+	char Menu='1'; // Main menu sellector
+	int16_t adcvalue; // analog reading
+	char str[6]="0"; // analog vector
+	int16_t mvalue=90; // manual position reading
+	int16_t m_value; // manual positioning
+	char mstr[6]="90"; // manual position vector
+	char tstr[6]; // time vector
+	char cal='0'; // Sub Menu for setting up date and time
 	uint16_t set;
 	/***Parameters timers***/
 	timer1.compoutmodeB(2);
 	timer1.compareA(20000);
 	timer1.start(8);
-	rtc.SetClkOut(1, 2);
+	rtc.SetClkOut(1, 2); // oscilate pin at 1 sec
 	/**********/
 	//TODO:: Please write your application code
 	while(TRUE){
-		//PREAMBLE
+		/***PREAMBLE***/
 		lcd0.reboot();
 		keypad.read();
-		/***Entry Start***/
-		lcd0.gotoxy(3,14);
+		/***Reading input***/
+		lcd0.gotoxy(3,13);
+		lcd0.putch(':');
 		lcd0.string_size(keypad.get().printstring,6);
 		/***ENTRY END***/
 		switch(Menu){
 			/***MENU 1***/
 			case '1': //Main Program Menu
-				if(!strcmp(keypad.get().string,"A")){Menu='2';keypad.flush();lcd0.clear();}
-				else 
-				if(!strcmp(keypad.get().string,"B")){Menu='3';keypad.flush();lcd0.clear();}
-				else{
+				if(!strcmp(keypad.get().string,"A")){Menu='2';keypad.flush();lcd0.clear();break;}
+				if(!strcmp(keypad.get().string,"B")){Menu='3';keypad.flush();lcd0.clear();break;}
 					/***RTC***/
 					tm=rtc.GetTime();
 					dt=rtc.GetDate();
@@ -116,18 +114,16 @@ int main(void)
 					lcd0.string_size(function.ui16toa(rtc.bcd2dec(tm.minutes)),2);
 					lcd0.putch(':');
 					lcd0.string_size(function.ui16toa(rtc.bcd2dec(tm.VL_seconds)),2);
-				}
 				break;
 			/***MENU 2***/
 			case '2': // Manual position override 
-				if(!strcmp(keypad.get().string,"A")){Menu='3';keypad.flush();lcd0.clear();
-				}else if(!strcmp(keypad.get().string,"B")){Menu='1';keypad.flush();lcd0.clear();
-				}else{
+				if(!strcmp(keypad.get().string,"A")){Menu='3';keypad.flush();lcd0.clear();break;}
+				if(!strcmp(keypad.get().string,"B")){Menu='1';keypad.flush();lcd0.clear();break;}
+				if(!strcmp(keypad.get().string,"C")){Menu='1';keypad.flush();lcd0.clear();break;}
 					lcd0.gotoxy(0,0);
 					lcd0.string_size("Manual: ",8);
 					lcd0.string_size(mstr,3);
 					if(keypad.get().character==KEYPADENTERKEY){
-						if(!strcmp(keypad.get().string,"C")){Menu='1';keypad.flush();lcd0.clear();break;}
 						strncpy(mstr,keypad.get().string,6);
 						mvalue=function.strToInt(mstr);
 						if(mvalue >=0 && mvalue <181){
@@ -143,13 +139,12 @@ int main(void)
 					lcd0.gotoxy(3,0);
 					lcd0.string_size("C - exit",8);lcd0.gotoxy(3,0);
 					lcd0.string_size("C - exit",8);
-				}
 				break;
 			/***MENU 3***/
 			case '3': //Set Time and Date
-				if(!strcmp(keypad.get().string,"A")){Menu='1';keypad.flush();lcd0.clear();
-				}else if(!strcmp(keypad.get().string,"B")){Menu='2';keypad.flush();lcd0.clear();
-				}else{
+				if(!strcmp(keypad.get().string,"A")){Menu='1';keypad.flush();lcd0.clear();break;}
+				if(!strcmp(keypad.get().string,"B")){Menu='2';keypad.flush();lcd0.clear();break;}
+				if(!strcmp(keypad.get().string,"C")){Menu='1';cal='0';keypad.flush();lcd0.clear();break;}
 					/*** Menu to set RTC Time and Date ***/
 					lcd0.gotoxy(0,0);
 					lcd0.string_size("Date and Time Setup",19);
@@ -173,17 +168,15 @@ int main(void)
 							if(!strcmp(keypad.get().string,"5")){cal='5';keypad.flush();lcd0.clear();}
 							if(!strcmp(keypad.get().string,"6")){cal='6';keypad.flush();lcd0.clear();}
 							//if(keypad.get().character=='1'){cal='1';keypad.flush();lcd0.clear();}
-							if(!strcmp(keypad.get().string,"C")){Menu='1';keypad.flush();lcd0.clear();}
 							break;
 						/********************************************************************/
 						case '1': // YEAR
 							lcd0.gotoxy(1,0);
-							lcd0.string_size("Enter Value:",9);
+							lcd0.string_size("Enter Year:",11);
 							lcd0.gotoxy(3,0);
 							lcd0.string_size("C - exit",8);	
 							/***YEAR***/
 							if(keypad.get().character==KEYPADENTERKEY){
-								if(!strcmp(keypad.get().string,"C")){cal='0';keypad.flush();break;}
 								strcpy(tstr,keypad.get().string);
 								set=function.strToInt(tstr);
 								if(set >=0 && set <100){
@@ -198,14 +191,13 @@ int main(void)
 						/********************************************************************/
 						case '2': // MONTH
 							lcd0.gotoxy(1,0);
-							lcd0.string_size("Enter Value:",9);
+							lcd0.string_size("Enter Month:",12);
 							lcd0.gotoxy(3,0);
 							lcd0.string_size("C - exit",8);
 							/***MONTH***/
 							if(keypad.get().character==KEYPADENTERKEY){
 								strcpy(tstr,keypad.get().string);
 								set=function.strToInt(tstr);
-								if(!strcmp(tstr,"C")){cal='0';keypad.flush();break;}
 								if(set >=0 && set <13){
 									rtc.SetMonth(rtc.bintobcd(set));
 									cal='0';
@@ -218,14 +210,13 @@ int main(void)
 						/********************************************************************/
 						case '3': // DAY
 							lcd0.gotoxy(1,0);
-							lcd0.string_size("Enter Value:",9);
+							lcd0.string_size("Enter Day:",10);
 							lcd0.gotoxy(3,0);
 							lcd0.string_size("C - exit",8);
 							/***DAY***/
 							if(keypad.get().character==KEYPADENTERKEY){
 								strcpy(tstr,keypad.get().string);
 								set=function.strToInt(tstr);
-								if(!strcmp(tstr,"C")){cal='0';keypad.flush();break;}
 								if(set >=0 && set <32){
 									rtc.SetDay(rtc.bintobcd(set));
 									cal='0';
@@ -238,14 +229,13 @@ int main(void)
 						/********************************************************************/
 						case '4': // HOUR
 							lcd0.gotoxy(1,0);
-							lcd0.string_size("Enter Value:",9);
+							lcd0.string_size("Enter Hour:",11);
 							lcd0.gotoxy(3,0);
 							lcd0.string_size("C - exit",8);
 							/***HOUR***/
 							if(keypad.get().character==KEYPADENTERKEY){
 								strcpy(tstr,keypad.get().string);
 								set=function.strToInt(tstr);
-								if(!strcmp(tstr,"C")){cal='0';keypad.flush();break;}
 								if(set >=0 && set <24){
 									rtc.SetHour(rtc.bintobcd(set));
 									cal='0';
@@ -258,14 +248,13 @@ int main(void)
 						/********************************************************************/
 						case '5': // MINUTE
 							lcd0.gotoxy(1,0);
-							lcd0.string_size("Enter Value:",9);
+							lcd0.string_size("Enter Minutes:",13);
 							lcd0.gotoxy(3,0);
 							lcd0.string_size("C - exit",8);
 							/***MINUTE***/
 							if(keypad.get().character==KEYPADENTERKEY){
 								strcpy(tstr,keypad.get().string);
 								set=function.strToInt(tstr);
-								if(!strcmp(tstr,"C")){cal='0';keypad.flush();break;}
 								if(set >=0 && set <60){
 									rtc.SetMinute(rtc.bintobcd(set));
 									cal='0';
@@ -278,14 +267,13 @@ int main(void)
 						/********************************************************************/
 						case '6': // SECOND
 							lcd0.gotoxy(1,0);
-							lcd0.string_size("Enter Value:",9);
+							lcd0.string_size("Enter Seconds:",13);
 							lcd0.gotoxy(3,0);
 							lcd0.string_size("C - exit",8);
 							/***SECOND***/
 							if(keypad.get().character==KEYPADENTERKEY){
 								strcpy(tstr,keypad.get().string);
 								set=function.strToInt(tstr);
-								if(!strcmp(tstr,"C")){cal='0';keypad.flush();break;}
 								if(set >=0 && set <60){
 									rtc.SetSecond(rtc.bintobcd(set));
 									cal='0';
@@ -299,7 +287,6 @@ int main(void)
 							cal='0';
 						break;
 					};
-				}
 				break;
 				/********************************************************************/
 			default:
