@@ -66,6 +66,7 @@ int main(void)
 	char str[6]="0";
 	int mvalue=90;
 	char mstr[6]="90";
+	char tstr[6];
 	char cal='0';
 	uint16_t set;
 	/***Parameters timers***/
@@ -156,7 +157,7 @@ int main(void)
 							lcd0.string_size("5-Min",8);
 							lcd0.string_size("6-Sec",5);
 							lcd0.gotoxy(3,0);
-							lcd0.string_size("A,B exit",8);
+							lcd0.string_size("C - exit",8);
 							if(!strcmp(keypad.get().string,"1")){cal='1';keypad.flush();lcd0.clear();}
 							if(!strcmp(keypad.get().string,"2")){cal='2';keypad.flush();lcd0.clear();}
 							if(!strcmp(keypad.get().string,"3")){cal='3';keypad.flush();lcd0.clear();}
@@ -171,14 +172,15 @@ int main(void)
 							lcd0.string_size("Enter Value:",9);	
 							/***YEAR***/
 							if(keypad.get().character==KEYPADENTERKEY){
-								strcpy(mstr,keypad.get().string);
-								set=function.strToInt(mstr);
+								strcpy(tstr,keypad.get().string);
+								set=function.strToInt(tstr);
+								if(!strcmp(tstr,"C")){cal='0';keypad.flush();break;}
 								if(set >=0 && set <100){
-									//lcd0.string_size(mstr,4);
+									//lcd0.string_size(tstr,4);
 									rtc.SetYear(rtc.bintobcd(set));
 									cal='0';
 									}else{
-									strcpy(mstr,"err");
+									strcpy(tstr,"err");
 								}
 								keypad.flush();
 							}
@@ -189,13 +191,14 @@ int main(void)
 							lcd0.string_size("Enter Value:",9);
 							/***MONTH***/
 							if(keypad.get().character==KEYPADENTERKEY){
-								strcpy(mstr,keypad.get().string);
-								set=function.strToInt(mstr);
+								strcpy(tstr,keypad.get().string);
+								set=function.strToInt(tstr);
+								if(!strcmp(tstr,"C")){cal='0';keypad.flush();break;}
 								if(set >=0 && set <13){
 									rtc.SetMonth(rtc.bintobcd(set));
 									cal='0';
 								}else{
-									strcpy(mstr,"err");
+									strcpy(tstr,"err");
 								}
 								keypad.flush();
 							}
@@ -206,13 +209,14 @@ int main(void)
 							lcd0.string_size("Enter Value:",9);
 							/***DAY***/
 							if(keypad.get().character==KEYPADENTERKEY){
-								strcpy(mstr,keypad.get().string);
-								set=function.strToInt(mstr);
+								strcpy(tstr,keypad.get().string);
+								set=function.strToInt(tstr);
+								if(!strcmp(tstr,"C")){cal='0';keypad.flush();break;}
 								if(set >=0 && set <32){
 									rtc.SetDay(rtc.bintobcd(set));
 									cal='0';
 								}else{
-									strcpy(mstr,"err");
+									strcpy(tstr,"err");
 								}
 								keypad.flush();
 							}
@@ -223,13 +227,14 @@ int main(void)
 							lcd0.string_size("Enter Value:",9);
 							/***HOUR***/
 							if(keypad.get().character==KEYPADENTERKEY){
-								strcpy(mstr,keypad.get().string);
-								set=function.strToInt(mstr);
+								strcpy(tstr,keypad.get().string);
+								set=function.strToInt(tstr);
+								if(!strcmp(tstr,"C")){cal='0';keypad.flush();break;}
 								if(set >=0 && set <24){
 									rtc.SetHour(rtc.bintobcd(set));
 									cal='0';
 								}else{
-									strcpy(mstr,"err");
+									strcpy(tstr,"err");
 								}
 								keypad.flush();
 							}
@@ -240,13 +245,14 @@ int main(void)
 							lcd0.string_size("Enter Value:",9);
 							/***MINUTE***/
 							if(keypad.get().character==KEYPADENTERKEY){
-								strcpy(mstr,keypad.get().string);
-								set=function.strToInt(mstr);
+								strcpy(tstr,keypad.get().string);
+								set=function.strToInt(tstr);
+								if(!strcmp(tstr,"C")){cal='0';keypad.flush();break;}
 								if(set >=0 && set <24){
 									rtc.SetMinute(rtc.bintobcd(set));
 									cal='0';
 								}else{
-									strcpy(mstr,"err");
+									strcpy(tstr,"err");
 								}
 								keypad.flush();
 							}
@@ -257,13 +263,14 @@ int main(void)
 							lcd0.string_size("Enter Value:",9);
 							/***SECOND***/
 							if(keypad.get().character==KEYPADENTERKEY){
-								strcpy(mstr,keypad.get().string);
-								set=function.strToInt(mstr);
+								strcpy(tstr,keypad.get().string);
+								set=function.strToInt(tstr);
+								if(!strcmp(tstr,"C")){cal='0';keypad.flush();break;}
 								if(set >=0 && set <24){
 									rtc.SetSecond(rtc.bintobcd(set));
 									cal='0';
 								}else{
-									strcpy(mstr,"err");
+									strcpy(tstr,"err");
 								}
 								keypad.flush();
 							}
