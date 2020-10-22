@@ -84,7 +84,7 @@ int main(void)
 	char cal='0'; // Sub Menu for setting up date and time
 	uint16_t set;
 	ptr=str;
-	uint16_t positionhour=7;
+	uint16_t positionhour=12;
 	//int16_t sense;
 	/***Parameters timers***/
 	timer0.compare(249);
@@ -140,12 +140,16 @@ int main(void)
 					/***Message from uart***/
 					lcd0.gotoxy(2,0);
 					lcd0.string_size(uartreceive,20);
+					//if(!strcmp(uartreceive,"position\r")){
+						//uart.putc('>');uart.puts("analog Reading: ");uart.puts(ptr);uart.puts("\r\n");
+						//uart.Txflush();
+					//}
 				break;
 			/***MENU 2***/
 			case '2': // Manual position override 
 				if(!strcmp(keypad.get().string,"A")){Menu='3';keypad.flush();lcd0.clear();break;}
 				if(!strcmp(keypad.get().string,"B")){Menu='1';keypad.flush();lcd0.clear();break;}
-				if(!strcmp(keypad.get().string,"C")){Menu='1';keypad.flush();lcd0.clear();break;}
+				if(!strcmp(keypad.get().string,"C")){Menu='1';keypad.flush();lcd0.clear();uart.puts("Manual exit\r\n");break;}
 					lcd0.gotoxy(0,0);
 					lcd0.string_size("Manual: ",8);
 					lcd0.string_size(mstr,3);
@@ -172,7 +176,7 @@ int main(void)
 			case '3': //Set Time and Date
 				if(!strcmp(keypad.get().string,"A")){Menu='1';keypad.flush();lcd0.clear();break;}
 				if(!strcmp(keypad.get().string,"B")){Menu='2';keypad.flush();lcd0.clear();break;}
-				if(!strcmp(keypad.get().string,"C")){Menu='1';cal='0';keypad.flush();lcd0.clear();break;}
+				if(!strcmp(keypad.get().string,"C")){Menu='1';cal='0';keypad.flush();lcd0.clear();uart.puts("Clock exit\r\n");break;}
 					/*** Menu to set RTC Time and Date ***/
 					lcd0.gotoxy(0,0);
 					lcd0.string_size("Date and Time Setup",19);
