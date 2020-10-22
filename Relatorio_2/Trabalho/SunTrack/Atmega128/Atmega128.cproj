@@ -166,6 +166,9 @@
     <Compile Include="Libraria\atmega128uart.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Libraria\atmega128uart.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Libraria\clock.c">
       <SubType>compile</SubType>
     </Compile>

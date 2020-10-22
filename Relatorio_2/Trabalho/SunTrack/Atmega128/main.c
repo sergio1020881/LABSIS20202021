@@ -52,7 +52,10 @@ uint8_t state=0;
 uint8_t count=0;
 uint8_t increment=0;
 uint8_t uartcount=0;
-char* ptr; // pointing to analog reading string
+char* ptr=NULL; // pointing to analog reading string
+char* uartreceive=NULL; // pointing to Rx Buffer
+char tmp[20]="empty";
+uint8_t countmp=0;
 /*
 ** Header
 */
@@ -95,6 +98,7 @@ int main(void)
 		/***PREAMBLE***/
 		lcd0.reboot();
 		keypad.read();
+		uartreceive=uart.read();
 		/***Reading input***/
 		lcd0.gotoxy(3,13);
 		lcd0.putch(':');
@@ -345,7 +349,9 @@ ISR(TIMER0_COMP_vect) // TIMER0_COMP_vect used for clock
 		count++;
 	/***Send Data to Putty***/
 	if(uartcount>200){
-		uart.putc('>');uart.puts("analog Reading: ");uart.puts(ptr);uart.puts("\r\n");
+		if(!strcmp(uartreceive,"r")){
+			uart.putc('>');uart.puts("analog Reading: ");uart.puts(ptr);uart.puts("\r\n");
+		}
 		uartcount=0;
 	}
 	else
