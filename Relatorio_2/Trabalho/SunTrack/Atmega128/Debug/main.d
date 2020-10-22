@@ -20,7 +20,7 @@ main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
  ../Libraria/atmega128analog.h ../Libraria/atmega128timer.h \
  ../Libraria/function.h ../Libraria/lcd.h ../Libraria/pcf8563rtc.h \
- ../Libraria/keypad.h
+ ../Libraria/keypad.h ../Libraria/74hc595.h ../Libraria/atmega128uart.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -71,3 +71,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../Libraria/pcf8563rtc.h:
 
 ../Libraria/keypad.h:
+
+../Libraria/74hc595.h:
+
+../Libraria/atmega128uart.h:

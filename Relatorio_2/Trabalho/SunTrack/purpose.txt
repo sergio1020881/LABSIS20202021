@@ -8,3 +8,7 @@ number of precise position, and the diference between these angles is then recti
 or in certain small partions of time the sensor will do the positioning around a determined precise value.
 Could use the SPA library and use only the clock for positioning, but the mcu does not have suficient float precision, 
 or use a table, ignoring completely the sensor part, but for academic purpose is so.
+
+
+https://videoconf-colibri.zoom.us/j/89934674910?pwd=Nk82d0M5VTJyQnZyRnEwR1ZvOHlidz09
+

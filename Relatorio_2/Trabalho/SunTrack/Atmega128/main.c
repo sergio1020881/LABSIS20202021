@@ -9,7 +9,8 @@ Hardware: Atmega128 by ETT ET-BASE
 	-PORTE Keyboard
 	-PF0 Sensor LDR
 	-PB6 Servo Motor
-	-PORTD RTC
+	-PORTD RTC and UART1->FTDI chip->PC Putty
+	-PORTG HC595
 License: GNU General Public License
 Comment:
 	Excellence in progress
@@ -31,6 +32,8 @@ Comment:
 #include "lcd.h"
 #include "pcf8563rtc.h"
 #include "keypad.h"
+#include "74hc595.h"
+#include "atmega128uart.h"
 /*
 ** Constant and Macro
 */
@@ -43,6 +46,13 @@ Comment:
 */
 struct time tm; // time struct RTC
 struct date dt; // date struct RTC
+HC595 shift;
+UART1 uart;
+uint8_t state=0;
+uint8_t count=0;
+uint8_t increment=0;
+uint8_t uartcount=0;
+char* ptr; // pointing to analog reading string
 /*
 ** Header
 */
@@ -56,8 +66,11 @@ int main(void)
 	LCD0 lcd0 = LCD0enable(&DDRA,&PINA,&PORTA); // LCD Display 4X20
 	KEYPAD keypad = KEYPADenable(&DDRE,&PINE,&PORTE); // Keyboard
 	ANALOG analog = ANALOGenable(1, 128, 1, 0); // Channel 0 for Position
+	TIMER_COUNTER0 timer0 = TIMER_COUNTER0enable(2,2); // 1Hz to HC595
 	TIMER_COUNTER1 timer1 = TIMER_COUNTER1enable(9,0); // PWM Positioning
 	PCF8563RTC rtc = PCF8563RTCenable(16); // RTC with I2C
+	shift = HC595enable(&DDRG,&PORTG,2,0,1);
+	uart = UART1enable(103,8,1,NONE);//UART 103 para 9600, 68 para 14400
 	/******/
 	char Menu='1'; // Main menu selector
 	int16_t adcvalue; // analog reading
@@ -68,7 +81,10 @@ int main(void)
 	char tstr[6]; // time vector
 	char cal='0'; // Sub Menu for setting up date and time
 	uint16_t set;
+	ptr=str;
 	/***Parameters timers***/
+	timer0.compare(249);
+	timer0.start(64);
 	timer1.compoutmodeB(2);
 	timer1.compareA(20000);
 	timer1.start(8);
@@ -122,6 +138,8 @@ int main(void)
 					lcd0.gotoxy(0,0);
 					lcd0.string_size("Manual: ",8);
 					lcd0.string_size(mstr,3);
+					lcd0.gotoxy(1,0);
+					lcd0.string_size("Enter Angle",11);
 					if(keypad.get().character==KEYPADENTERKEY){
 						strncpy(mstr,keypad.get().string,6);
 						mvalue=function.strToInt(mstr);
@@ -133,8 +151,9 @@ int main(void)
 							lcd0.string_size("  err",5);
 						}
 						keypad.flush();
-					}else
-						timer1.compareB(function.trimmer(m_value,0,180,Min,Max));
+					}
+					//else
+					//	timer1.compareB(function.trimmer(m_value,0,180,Min,Max));
 					lcd0.gotoxy(3,0);
 					lcd0.string_size("C - exit",8);
 				break;
@@ -307,4 +326,37 @@ void PORTINIT(void)
 /*
 ** interrupt
 */
+ISR(TIMER0_COMP_vect) // TIMER0_COMP_vect used for clock
+{
+	uint8_t Sreg;
+	Sreg=SREG;
+	SREG&=~(1<<7);
+	if(count>59){ //59 -> 1Hz
+		increment++;
+		if((increment & 0x0F) < 8){
+			shift.bit(0);
+			shift.out();
+		}else{
+			shift.bit(1);
+			shift.out();
+		}
+		count=0;
+	}else
+		count++;
+	/***Send Data to Putty***/
+	if(uartcount>200){
+		uart.putc('>');uart.puts("analog Reading: ");uart.puts(ptr);uart.puts("\r\n");
+		uartcount=0;
+	}
+	else
+		uartcount++;
+	SREG=Sreg;
+}
 /***EOF***/
+/**** Comment:
+The most important of programming MCU is dominating the datasheet of the 
+components and creating a API library, then after that there will be a abstraction layer
+easier to work with the hardware and moving to a much much more productive environment.
+Achieving this takes lots of work but satisfying, especially when all works has expected.
+To not work with the hardware directly but just by code is the primordial objective !!!
+****/
