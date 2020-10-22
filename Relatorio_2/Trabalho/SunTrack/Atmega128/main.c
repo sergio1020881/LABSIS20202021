@@ -48,6 +48,8 @@ struct time tm; // time struct RTC
 struct date dt; // date struct RTC
 HC595 shift;
 UART1 uart;
+FUNC function;
+PCF8563RTC rtc;
 uint8_t count=0;
 uint8_t increment=0;
 uint8_t uartcount=0;
@@ -62,13 +64,13 @@ int main(void)
 {
 	PORTINIT(); // Inic Ports
 	/***INICIALIZE OBJECTS***/
-	FUNC function= FUNCenable(); // Function Library
+	function= FUNCenable(); // Function Library
 	LCD0 lcd0 = LCD0enable(&DDRA,&PINA,&PORTA); // LCD Display 4X20
 	KEYPAD keypad = KEYPADenable(&DDRE,&PINE,&PORTE); // Keyboard
 	ANALOG analog = ANALOGenable(1, 128, 1, 0); // Channel 0 for Position
 	TIMER_COUNTER0 timer0 = TIMER_COUNTER0enable(2,2); // 1Hz to HC595
 	TIMER_COUNTER1 timer1 = TIMER_COUNTER1enable(9,0); // PWM Positioning
-	PCF8563RTC rtc = PCF8563RTCenable(16); // RTC with I2C
+	rtc = PCF8563RTCenable(16); // RTC with I2C
 	shift = HC595enable(&DDRG,&PORTG,2,0,1);
 	uart = UART1enable(103,8,1,NONE);//UART 103 para 9600, 68 para 14400
 	/******/
@@ -100,8 +102,6 @@ int main(void)
 		lcd0.gotoxy(3,13);
 		lcd0.putch(':');
 		lcd0.string_size(keypad.get().printstring,6);
-		lcd0.gotoxy(2,0);
-		lcd0.string_size(uartreceive,20);
 		/***ENTRY END***/
 		switch(Menu){
 			/***MENU 1***/
@@ -132,6 +132,9 @@ int main(void)
 					lcd0.string_size(function.ui16toa(rtc.bcd2dec(tm.minutes)),2);
 					lcd0.putch(':');
 					lcd0.string_size(function.ui16toa(rtc.bcd2dec(tm.VL_seconds)),2);
+					/***Message from uart***/
+					lcd0.gotoxy(2,0);
+					lcd0.string_size(uartreceive,20);
 				break;
 			/***MENU 2***/
 			case '2': // Manual position override 
@@ -333,7 +336,7 @@ ISR(TIMER0_COMP_vect) // TIMER0_COMP_vect used for clock
 {
 	uint8_t Sreg;
 	Sreg=SREG;
-	SREG&=~(1<<7);
+	//SREG&=~(1<<7);
 	if(count>59){ //59 -> 1Hz
 		increment++;
 		if((increment & 0x0F) < 8){
@@ -347,14 +350,24 @@ ISR(TIMER0_COMP_vect) // TIMER0_COMP_vect used for clock
 	}else
 		count++;
 	/***Send Data to Putty***/
-	if(uartcount>200){
-		if(!strcmp(uartreceive,"read\r")){
+	if(uartcount>100){
+		if(!strcmp(uartreceive,"position\r")){
 			uart.putc('>');uart.puts("analog Reading: ");uart.puts(ptr);uart.puts("\r\n");
+		}
+		if(!strcmp(uartreceive,"time\r")){
+			//uart.putc('>');uart.puts("analog Reading: ");uart.puts(ptr);uart.puts("\r\n");
+			uart.puts(function.ui16toa(rtc.bcd2dec(tm.hours)));
+			uart.putc(':');
+			uart.puts(function.ui16toa(rtc.bcd2dec(tm.minutes)));
+			uart.putc(':');
+			uart.puts(function.ui16toa(rtc.bcd2dec(tm.VL_seconds)));
+			uart.puts("\r\n");
 		}
 		uartcount=0;
 	}
-	else
+	else{
 		uartcount++;
+	}
 	SREG=Sreg;
 }
 /***EOF***/
