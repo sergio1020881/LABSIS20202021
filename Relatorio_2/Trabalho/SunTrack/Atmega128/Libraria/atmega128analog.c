@@ -167,7 +167,6 @@ ANALOG ANALOGenable( uint8_t Vreff, uint8_t Divfactor, int n_channel, ... )
 }
 int ANALOG_read(int selection)
 /*
-* 
 * Returns selected Channel ADC_VALUE
 */
 {

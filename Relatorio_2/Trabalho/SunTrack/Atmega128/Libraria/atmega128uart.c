@@ -520,6 +520,9 @@ int8_t uart1_Rxavailable(void)
 /***void uart1_Rxflush(void)***/
 void uart1_Rxflush(void)
 {
+	uart1_msg[0]='\0';
+	uart1_msg[1]='\0';
+	uart1_msg[2]='\0';
 	UART1_RxHead = UART1_RxTail;
 }
 /***void uart1_Txflush(void)***/

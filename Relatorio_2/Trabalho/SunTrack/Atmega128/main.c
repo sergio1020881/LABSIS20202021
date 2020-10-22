@@ -52,7 +52,6 @@ FUNC function;
 PCF8563RTC rtc;
 uint8_t count=0; // 1Hz
 uint8_t increment=0; // 1Hz
-uint8_t uartcount=0; // USART
 char* ptr=NULL; // pointing to analog reading string
 char* uartreceive=NULL; // pointing to Rx Buffer
 /*
@@ -85,7 +84,6 @@ int main(void)
 	uint16_t set;
 	ptr=str;
 	uint16_t positionhour=12;
-	//int16_t sense;
 	/***Parameters timers***/
 	timer0.compare(249);
 	timer0.start(64);
@@ -140,10 +138,20 @@ int main(void)
 					/***Message from uart***/
 					lcd0.gotoxy(2,0);
 					lcd0.string_size(uartreceive,20);
-					//if(!strcmp(uartreceive,"position\r")){
+					if(!strcmp(uartreceive,"position\r")){
+						uart.putc('>');uart.puts("analog Reading: ");uart.puts(ptr);uart.puts("\r\n");
+						uart.Rxflush();
+					}
+					if(!strcmp(uartreceive,"time\r")){
 						//uart.putc('>');uart.puts("analog Reading: ");uart.puts(ptr);uart.puts("\r\n");
-						//uart.Txflush();
-					//}
+						uart.puts(function.ui16toa(rtc.bcd2dec(tm.hours)));
+						uart.putc(':');
+						uart.puts(function.ui16toa(rtc.bcd2dec(tm.minutes)));
+						uart.putc(':');
+						uart.puts(function.ui16toa(rtc.bcd2dec(tm.VL_seconds)));
+						uart.puts("\r\n");
+						uart.Rxflush();
+					}
 				break;
 			/***MENU 2***/
 			case '2': // Manual position override 
@@ -358,25 +366,6 @@ ISR(TIMER0_COMP_vect) // 1Hz and usart Tx
 		count=0;
 	}else
 		count++;
-	/***Send Data to Putty***/
-	if(uartcount>100){
-		if(!strcmp(uartreceive,"position\r")){
-			uart.putc('>');uart.puts("analog Reading: ");uart.puts(ptr);uart.puts("\r\n");
-		}
-		if(!strcmp(uartreceive,"time\r")){
-			//uart.putc('>');uart.puts("analog Reading: ");uart.puts(ptr);uart.puts("\r\n");
-			uart.puts(function.ui16toa(rtc.bcd2dec(tm.hours)));
-			uart.putc(':');
-			uart.puts(function.ui16toa(rtc.bcd2dec(tm.minutes)));
-			uart.putc(':');
-			uart.puts(function.ui16toa(rtc.bcd2dec(tm.VL_seconds)));
-			uart.puts("\r\n");
-		}
-		uartcount=0;
-	}
-	else{
-		uartcount++;
-	}
 	SREG=Sreg;
 }
 /***EOF***/
