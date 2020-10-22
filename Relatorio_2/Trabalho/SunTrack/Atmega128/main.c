@@ -50,9 +50,9 @@ HC595 shift;
 UART1 uart;
 FUNC function;
 PCF8563RTC rtc;
-uint8_t count=0;
-uint8_t increment=0;
-uint8_t uartcount=0;
+uint8_t count=0; // 1Hz
+uint8_t increment=0; // 1Hz
+uint8_t uartcount=0; // USART
 char* ptr=NULL; // pointing to analog reading string
 char* uartreceive=NULL; // pointing to Rx Buffer
 /*
@@ -75,7 +75,7 @@ int main(void)
 	uart = UART1enable(103,8,1,NONE);//UART 103 para 9600, 68 para 14400
 	/******/
 	char Menu='1'; // Main menu selector
-	int16_t adcvalue; // analog reading
+	uint16_t adcvalue; // analog reading
 	char str[6]="0"; // analog vector
 	int16_t mvalue=90; // manual position reading
 	int16_t m_value; // manual positioning
@@ -84,6 +84,8 @@ int main(void)
 	char cal='0'; // Sub Menu for setting up date and time
 	uint16_t set;
 	ptr=str;
+	uint16_t positionhour=7;
+	//int16_t sense;
 	/***Parameters timers***/
 	timer0.compare(249);
 	timer0.start(64);
@@ -114,7 +116,8 @@ int main(void)
 					/***Reading analog***/
 					adcvalue=analog.read(0);
 					/***Set Position***/
-					timer1.compareB(function.trimmer(adcvalue,0,1023,Min,Max));
+					if(positionhour>5 && positionhour<21)
+						timer1.compareB(function.trimmer(positionhour,2,23,Min,Max)+function.trimmer(adcvalue,0,1023,-200,200));
 					lcd0.gotoxy(0,0);
 					lcd0.string_size("Sense: ",7);
 					//lcd0.hspace(1);
@@ -127,7 +130,9 @@ int main(void)
 					lcd0.putch(':');
 					lcd0.string_size(function.ui16toa(rtc.bcd2dec(dt.years)),2);
 					lcd0.gotoxy(1,12);
-					lcd0.string_size(function.ui16toa(rtc.bcd2dec(tm.hours)),2);
+					/***set hour for positioning***/
+					positionhour=rtc.bcd2dec(tm.hours);
+					lcd0.string_size(function.ui16toa(positionhour),2);
 					lcd0.putch(':');
 					lcd0.string_size(function.ui16toa(rtc.bcd2dec(tm.minutes)),2);
 					lcd0.putch(':');
@@ -332,11 +337,11 @@ void PORTINIT(void)
 /*
 ** interrupt
 */
-ISR(TIMER0_COMP_vect) // TIMER0_COMP_vect used for clock
+ISR(TIMER0_COMP_vect) // 1Hz and usart Tx
 {
 	uint8_t Sreg;
 	Sreg=SREG;
-	//SREG&=~(1<<7);
+	SREG&=~(1<<7);
 	if(count>59){ //59 -> 1Hz
 		increment++;
 		if((increment & 0x0F) < 8){
