@@ -48,14 +48,11 @@ struct time tm; // time struct RTC
 struct date dt; // date struct RTC
 HC595 shift;
 UART1 uart;
-uint8_t state=0;
 uint8_t count=0;
 uint8_t increment=0;
 uint8_t uartcount=0;
 char* ptr=NULL; // pointing to analog reading string
 char* uartreceive=NULL; // pointing to Rx Buffer
-char tmp[20]="empty";
-uint8_t countmp=0;
 /*
 ** Header
 */
@@ -103,6 +100,8 @@ int main(void)
 		lcd0.gotoxy(3,13);
 		lcd0.putch(':');
 		lcd0.string_size(keypad.get().printstring,6);
+		lcd0.gotoxy(2,0);
+		lcd0.string_size(uartreceive,20);
 		/***ENTRY END***/
 		switch(Menu){
 			/***MENU 1***/
@@ -349,7 +348,7 @@ ISR(TIMER0_COMP_vect) // TIMER0_COMP_vect used for clock
 		count++;
 	/***Send Data to Putty***/
 	if(uartcount>200){
-		if(!strcmp(uartreceive,"r")){
+		if(!strcmp(uartreceive,"read\r")){
 			uart.putc('>');uart.puts("analog Reading: ");uart.puts(ptr);uart.puts("\r\n");
 		}
 		uartcount=0;

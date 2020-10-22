@@ -309,7 +309,7 @@ Returns:  Buffer Data
 char* uart_read(void)
 {
 	char* ret;
-	ret="empty";
+	ret="\0";
 	if((UART_RxTail != UART_RxHead) && (uart_index < UART_RX_BUFFER_MASK)){
 		uart_msg[uart_index]=UART_Rx_pop();
 		uart_index++;
@@ -597,7 +597,7 @@ Returns:  Buffer Data
 char* uart1_read(void)
 {
 	char* ret;
-	ret="empty";
+	ret="\0";
 	if((UART1_RxTail != UART1_RxHead) && (uart1_index < UART_RX_BUFFER_MASK)){
 		uart1_msg[uart1_index]=UART1_Rx_pop();
 		uart1_index++;
