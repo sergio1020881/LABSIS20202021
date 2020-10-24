@@ -15,19 +15,19 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   5 .debug_aranges 000006d0  00000000  00000000  000040e8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00008411  00000000  00000000  000047b8  2**0
+  6 .debug_info   00008448  00000000  00000000  000047b8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00001e42  00000000  00000000  0000cbc9  2**0
+  7 .debug_abbrev 00001e42  00000000  00000000  0000cc00  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   0000468a  00000000  00000000  0000ea0b  2**0
+  8 .debug_line   00004695  00000000  00000000  0000ea42  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000013e4  00000000  00000000  00013098  2**2
+  9 .debug_frame  000013e4  00000000  00000000  000130d8  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000016e9  00000000  00000000  0001447c  2**0
+ 10 .debug_str    000016e9  00000000  00000000  000144bc  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00006a09  00000000  00000000  00015b65  2**0
+ 11 .debug_loc    00006aab  00000000  00000000  00015ba5  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000620  00000000  00000000  0001c56e  2**0
+ 12 .debug_ranges 00000620  00000000  00000000  0001c650  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -2094,26 +2094,28 @@ ISR(UART0_TRANSMIT_INTERRUPT)
      d42:	ef 93       	push	r30
      d44:	ff 93       	push	r31
 	uint8_t tail = UART_TxTail;
-     d46:	e0 91 dd 02 	lds	r30, 0x02DD	; 0x8002dd <UART_TxTail>
-	UART_TxTail = (UART_TxTail + 1) & UART_TX_BUFFER_MASK;
-     d4a:	81 e0       	ldi	r24, 0x01	; 1
-     d4c:	8e 0f       	add	r24, r30
-     d4e:	8f 73       	andi	r24, 0x3F	; 63
-     d50:	80 93 dd 02 	sts	0x02DD, r24	; 0x8002dd <UART_TxTail>
 	UART0_DATA = UART_TxBuf[tail];
-     d54:	f0 e0       	ldi	r31, 0x00	; 0
-     d56:	ee 59       	subi	r30, 0x9E	; 158
-     d58:	fc 4f       	sbci	r31, 0xFC	; 252
-     d5a:	80 81       	ld	r24, Z
-     d5c:	8c b9       	out	0x0c, r24	; 12
-	if ( UART_TxTail == UART_TxHead ) {
-     d5e:	90 91 dd 02 	lds	r25, 0x02DD	; 0x8002dd <UART_TxTail>
-     d62:	80 91 98 02 	lds	r24, 0x0298	; 0x800298 <UART_TxHead>
-     d66:	98 13       	cpse	r25, r24
+     d46:	e0 91 dd 02 	lds	r30, 0x02DD	; 0x8002dd <UART_TxTail>
+     d4a:	f0 e0       	ldi	r31, 0x00	; 0
+     d4c:	ee 59       	subi	r30, 0x9E	; 158
+     d4e:	fc 4f       	sbci	r31, 0xFC	; 252
+     d50:	80 81       	ld	r24, Z
+     d52:	8c b9       	out	0x0c, r24	; 12
+	UART_TxBuf[tail]='\0';
+     d54:	10 82       	st	Z, r1
+	UART_TxTail = (UART_TxTail + 1) & UART_TX_BUFFER_MASK;
+     d56:	80 91 dd 02 	lds	r24, 0x02DD	; 0x8002dd <UART_TxTail>
+     d5a:	8f 5f       	subi	r24, 0xFF	; 255
+     d5c:	8f 73       	andi	r24, 0x3F	; 63
+     d5e:	80 93 dd 02 	sts	0x02DD, r24	; 0x8002dd <UART_TxTail>
+	if ( UART_TxTail != UART_TxHead )
+     d62:	90 91 98 02 	lds	r25, 0x0298	; 0x800298 <UART_TxHead>
+     d66:	89 13       	cpse	r24, r25
      d68:	01 c0       	rjmp	.+2      	; 0xd6c <__vector_19+0x3c>
+		;
+	else
 		UART0_CONTROL &= ~_BV(UART0_UDRIE);
      d6a:	55 98       	cbi	0x0a, 5	; 10
-	}
 }
      d6c:	ff 91       	pop	r31
      d6e:	ef 91       	pop	r30
@@ -4961,25 +4963,25 @@ uint8_t KEYPADhl(uint8_t xi, uint8_t xf)
     1c64:	94 30       	cpi	r25, 0x04	; 4
     1c66:	19 f4       	brne	.+6      	; 0x1c6e <KEYPAD_getkey+0x214>
 						c=keypadvalue[3][0];
-    1c68:	80 91 0c 01 	lds	r24, 0x010C	; 0x80010c <__data_start+0xc>
+    1c68:	80 91 0c 01 	lds	r24, 0x010C	; 0x80010c <__DATA_REGION_ORIGIN__+0xc>
     1c6c:	0a c0       	rjmp	.+20     	; 0x1c82 <KEYPAD_getkey+0x228>
 					if(HL == (1<<KEYPADDATA_2))
     1c6e:	90 31       	cpi	r25, 0x10	; 16
     1c70:	19 f4       	brne	.+6      	; 0x1c78 <KEYPAD_getkey+0x21e>
 						c=keypadvalue[3][1];
-    1c72:	80 91 0d 01 	lds	r24, 0x010D	; 0x80010d <__data_start+0xd>
+    1c72:	80 91 0d 01 	lds	r24, 0x010D	; 0x80010d <__DATA_REGION_ORIGIN__+0xd>
     1c76:	09 c0       	rjmp	.+18     	; 0x1c8a <KEYPAD_getkey+0x230>
 					if(HL == (1<<KEYPADDATA_3))
     1c78:	90 32       	cpi	r25, 0x20	; 32
     1c7a:	19 f4       	brne	.+6      	; 0x1c82 <KEYPAD_getkey+0x228>
 						c=keypadvalue[3][2];
-    1c7c:	80 91 0e 01 	lds	r24, 0x010E	; 0x80010e <__data_start+0xe>
+    1c7c:	80 91 0e 01 	lds	r24, 0x010E	; 0x80010e <__DATA_REGION_ORIGIN__+0xe>
     1c80:	04 c0       	rjmp	.+8      	; 0x1c8a <KEYPAD_getkey+0x230>
 					if(HL == (1<<KEYPADDATA_4))
     1c82:	90 34       	cpi	r25, 0x40	; 64
     1c84:	11 f4       	brne	.+4      	; 0x1c8a <KEYPAD_getkey+0x230>
 						c=keypadvalue[3][3];
-    1c86:	80 91 0f 01 	lds	r24, 0x010F	; 0x80010f <__data_start+0xf>
+    1c86:	80 91 0f 01 	lds	r24, 0x010F	; 0x80010f <__DATA_REGION_ORIGIN__+0xf>
 				}
 				*keypad_DDR&=~(1<<KEYPADLINE_4);
     1c8a:	e0 91 08 04 	lds	r30, 0x0408	; 0x800408 <keypad_DDR>
