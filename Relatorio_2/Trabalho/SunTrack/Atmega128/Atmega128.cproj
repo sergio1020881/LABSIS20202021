@@ -160,6 +160,12 @@
     <Compile Include="Libraria\atmega128analog.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Libraria\atmega128i2c.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Libraria\atmega128i2c.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Libraria\atmega128timer.c">
       <SubType>compile</SubType>
     </Compile>
@@ -179,12 +185,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Libraria\function.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Libraria\i2c.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Libraria\i2c.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Libraria\keypad.c">

@@ -13,7 +13,7 @@ Hardware: Atmega128 by ETT ET-BASE
 	-PORTG HC595
 License: GNU General Public License
 Comment:
-	Excellence in progress
+	Nice
 ************************************************************************/
 #define F_CPU 16000000UL
 /*
@@ -82,6 +82,7 @@ int main(void)
 	char tstr[6]; // time vector
 	char cal='0'; // Sub Menu for setting up date and time
 	uint16_t set;
+	char uartmessage[64];
 	ptr=str;
 	uint16_t positionhour=12;
 	/***Parameters timers***/
@@ -137,9 +138,13 @@ int main(void)
 					lcd0.string_size(function.ui16toa(rtc.bcd2dec(tm.VL_seconds)),2);
 					/***Message from uart***/
 					lcd0.gotoxy(2,0);
-					lcd0.string_size(uartreceive,20);
+					strcpy(uartmessage,uartreceive);
+					if(uartreceive[0]!='\0'){lcd0.string_size("u> ",3);lcd0.string_size(uartmessage,17);}
 					if(!strcmp(uartreceive,"position\r")){
-						uart.putc('>');uart.puts("analog Reading: ");uart.puts(ptr);uart.puts("\r\n");
+						uart.puts("> ");
+						uart.puts("analog Reading: ");
+						uart.puts(ptr);
+						uart.puts("\r\n");
 						uart.Rxflush();
 					}
 					if(!strcmp(uartreceive,"time\r")){

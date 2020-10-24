@@ -6,6 +6,8 @@ Libraria\74hc595.c
 
 Libraria\atmega128analog.c
 
+Libraria\atmega128i2c.c
+
 Libraria\atmega128timer.c
 
 Libraria\atmega128uart.c
@@ -15,8 +17,6 @@ Libraria\clock.c
 Libraria\eeprom.c
 
 Libraria\function.c
-
-Libraria\i2c.c
 
 Libraria\keypad.c
 
