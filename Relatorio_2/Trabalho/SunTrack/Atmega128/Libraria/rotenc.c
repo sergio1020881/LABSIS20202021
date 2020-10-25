@@ -3,7 +3,7 @@
 Author: Sergio Santos 
 	<sergio.salazar.santos@gmail.com>
 Hardware: Rottary encoder Potentiometer
-Date: 05102020
+Date: 25102020
 Comment:
 	Stable
 ************************************************************************/

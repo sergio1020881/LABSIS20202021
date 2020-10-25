@@ -3,11 +3,10 @@
 Author: Sergio Santos 
 	<sergio.salazar.santos@gmail.com>
 License: GNU General Public License
-date:
-Hardware: all        
+Hardware: all
+Date: 25102020
 Comment:
-   Tested Atemga128 16Mhz and Atmega328 8Mhz
-   reviewed 29/09/2020                    
+   Tested Atemga128 16Mhz and Atmega328 8Mhz                    
 ************************************************************************/
 #ifndef F_CPU
 /***Mandatory to use util/delay.h***/

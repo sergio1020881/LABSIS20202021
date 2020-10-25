@@ -15,19 +15,19 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   5 .debug_aranges 000006d0  00000000  00000000  000040e8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   0000843a  00000000  00000000  000047b8  2**0
+  6 .debug_info   00008439  00000000  00000000  000047b8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00001e7f  00000000  00000000  0000cbf2  2**0
+  7 .debug_abbrev 00001e70  00000000  00000000  0000cbf1  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00004693  00000000  00000000  0000ea71  2**0
+  8 .debug_line   000046a5  00000000  00000000  0000ea61  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000013e4  00000000  00000000  00013104  2**2
+  9 .debug_frame  000013e4  00000000  00000000  00013108  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000016e9  00000000  00000000  000144e8  2**0
+ 10 .debug_str    000016e9  00000000  00000000  000144ec  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00006aab  00000000  00000000  00015bd1  2**0
+ 11 .debug_loc    00006aab  00000000  00000000  00015bd5  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000620  00000000  00000000  0001c67c  2**0
+ 12 .debug_ranges 00000620  00000000  00000000  0001c680  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -1147,10 +1147,10 @@ I2C I2Cenable(uint8_t prescaler)
      6ae:	08 95       	ret
 
 000006b0 <TIMER_COUNTER0_start>:
+	timer3.compareB=TIMER_COUNTER3_compareB;
 	timer3.compareC=TIMER_COUNTER3_compareC;
 	timer3.start=TIMER_COUNTER3_start;
 	timer3.stop=TIMER_COUNTER3_stop;
-	//
 	return timer3;
 }
      6b0:	20 91 57 02 	lds	r18, 0x0257	; 0x800257 <timer0_state>
@@ -1897,7 +1897,7 @@ ISR(TIMER3_OVF_vect){ }
 {
     UART_TxHead = (UART_TxHead + 1) & UART_TX_BUFFER_MASK;
     while ( UART_TxHead == UART_TxTail ){
-		; /* wait for free space in buffer, Tx interrupt will send to free space [Poll] */
+		; /***wait for free space in buffer, Tx interrupt will send to free space [Poll]***/
 	}	
     UART_TxBuf[UART_TxHead] = data;
      c08:	e0 91 a4 03 	lds	r30, 0x03A4	; 0x8003a4 <UART1_RxTail>
@@ -2013,17 +2013,17 @@ ISR(UART0_RECEIVE_INTERRUPT)
 	unsigned char data;
 	unsigned char bit9;
     unsigned char usr;
-    /* read UART status register and UART data register */
+    /***read UART status register and UART data register***/
 	usr  = UART0_STATUS;
      cda:	8b b1       	in	r24, 0x0b	; 11
     bit9 = UART0_CONTROL;
      cdc:	9a b1       	in	r25, 0x0a	; 10
     bit9 = 0x01 & (bit9>>1);
-    /* */
+    /***/
     UART_LastRxError = (usr & (_BV(FE0)|_BV(DOR0)) );
      cde:	88 71       	andi	r24, 0x18	; 24
      ce0:	80 93 99 02 	sts	0x0299, r24	; 0x800299 <UART_LastRxError>
-	/* calculate buffer index */ 
+	/***calculate buffer index***/ 
     tmphead = ( UART_RxHead + 1) & UART_RX_BUFFER_MASK;
      ce4:	e0 91 a2 03 	lds	r30, 0x03A2	; 0x8003a2 <UART_RxHead>
      ce8:	ef 5f       	subi	r30, 0xFF	; 255
@@ -2032,7 +2032,7 @@ ISR(UART0_RECEIVE_INTERRUPT)
      cec:	90 91 a3 03 	lds	r25, 0x03A3	; 0x8003a3 <UART_RxTail>
      cf0:	e9 13       	cpse	r30, r25
      cf2:	04 c0       	rjmp	.+8      	; 0xcfc <__vector_18+0x38>
-        /* error: receive buffer overflow */
+        /***error: receive buffer overflow***/
         UART_LastRxError = UART_BUFFER_OVERFLOW >> 8; 
      cf4:	82 e0       	ldi	r24, 0x02	; 2
      cf6:	80 93 99 02 	sts	0x0299, r24	; 0x800299 <UART_LastRxError>
@@ -2040,14 +2040,13 @@ ISR(UART0_RECEIVE_INTERRUPT)
 	}else{
 		data = UART0_DATA;
      cfc:	9c b1       	in	r25, 0x0c	; 12
-        /* store new index */
+        /***store new index***/
         UART_RxHead = tmphead;
      cfe:	e0 93 a2 03 	sts	0x03A2, r30	; 0x8003a2 <UART_RxHead>
 		if(UART_LastRxError){
      d02:	88 23       	and	r24, r24
      d04:	31 f0       	breq	.+12     	; 0xd12 <__vector_18+0x4e>
-			/* store indication data error in buffer */
-			
+			/***store indication data error in buffer***/
 			UART_RxBuf[tmphead] = 'X';
      d06:	f0 e0       	ldi	r31, 0x00	; 0
      d08:	eb 55       	subi	r30, 0x5B	; 91
@@ -2056,7 +2055,7 @@ ISR(UART0_RECEIVE_INTERRUPT)
      d0e:	80 83       	st	Z, r24
      d10:	04 c0       	rjmp	.+8      	; 0xd1a <__vector_18+0x56>
 		}else{
-			/* store received data in buffer */
+			/***store received data in buffer***/
 			UART_RxBuf[tmphead] = data;
      d12:	f0 e0       	ldi	r31, 0x00	; 0
      d14:	eb 55       	subi	r30, 0x5B	; 91
@@ -2130,6 +2129,7 @@ ISR(UART0_TRANSMIT_INTERRUPT)
 
 00000d82 <UART1enable>:
 /***these functions are only for ATmegas with two USART***/
+/***UART1 UART1enable(unsigned int baudrate, unsigned int FDbits, unsigned int Stopbits, unsigned int Parity )***/
 UART1 UART1enable(unsigned int baudrate, unsigned int FDbits, unsigned int Stopbits, unsigned int Parity )
 {
      d82:	0f 93       	push	r16
@@ -2168,7 +2168,7 @@ UART1 UART1enable(unsigned int baudrate, unsigned int FDbits, unsigned int Stopb
 	uart.Rxavailable=uart1_Rxavailable;
 	uart.Rxflush=uart1_Rxflush;
 	uart.Txflush=uart1_Txflush;
-    /* Set baud rate */
+    /***Set baud rate***/
     if ( baudrate & 0x8000 ) 
      db2:	77 23       	and	r23, r23
      db4:	24 f4       	brge	.+8      	; 0xdbe <UART1enable+0x3c>
@@ -2183,7 +2183,7 @@ UART1 UART1enable(unsigned int baudrate, unsigned int FDbits, unsigned int Stopb
      dbe:	70 93 98 00 	sts	0x0098, r23	; 0x800098 <__TEXT_REGION_LENGTH__+0x7e0098>
     UBRR1L = (unsigned char) baudrate;
      dc2:	60 93 99 00 	sts	0x0099, r22	; 0x800099 <__TEXT_REGION_LENGTH__+0x7e0099>
-    /* Enable USART receiver and transmitter and receive complete interrupt */
+    /***Enable USART receiver and transmitter and receive complete interrupt***/
     UART1_CONTROL = _BV(RXCIE1)|(1<<RXEN1)|(1<<TXEN1);
      dc6:	88 e9       	ldi	r24, 0x98	; 152
      dc8:	80 93 9a 00 	sts	0x009A, r24	; 0x80009a <__TEXT_REGION_LENGTH__+0x7e009a>
@@ -2428,7 +2428,6 @@ UART1 UART1enable(unsigned int baudrate, unsigned int FDbits, unsigned int Stopb
      f10:	8f b7       	in	r24, 0x3f	; 63
      f12:	80 68       	ori	r24, 0x80	; 128
      f14:	8f bf       	out	0x3f, r24	; 63
-	/******/
 	return uart;
      f16:	a0 83       	st	Z, r26
      f18:	41 83       	std	Z+1, r20	; 0x01
@@ -2590,17 +2589,17 @@ SIGNAL(UART1_RECEIVE_INTERRUPT)
 	unsigned char data;
 	unsigned char bit9;
     unsigned char usr;
-    /* read UART status register and UART data register */
+    /***read UART status register and UART data register***/
 	usr  = UART1_STATUS;
      ff2:	80 91 9b 00 	lds	r24, 0x009B	; 0x80009b <__TEXT_REGION_LENGTH__+0x7e009b>
     bit9 = UART1_CONTROL;
      ff6:	90 91 9a 00 	lds	r25, 0x009A	; 0x80009a <__TEXT_REGION_LENGTH__+0x7e009a>
     bit9 = 0x01 & (bit9>>1);
-    /* */
+    /***/
     UART1_LastRxError = (usr & (_BV(FE1)|_BV(DOR1)));
      ffa:	88 71       	andi	r24, 0x18	; 24
      ffc:	80 93 df 02 	sts	0x02DF, r24	; 0x8002df <UART1_LastRxError>
-	/* calculate buffer index */
+	/***calculate buffer index***/
     tmphead = ( UART1_RxHead + 1) & UART_RX_BUFFER_MASK;
     1000:	e0 91 de 02 	lds	r30, 0x02DE	; 0x8002de <UART1_RxHead>
     1004:	ef 5f       	subi	r30, 0xFF	; 255
@@ -2609,7 +2608,7 @@ SIGNAL(UART1_RECEIVE_INTERRUPT)
     1008:	90 91 a4 03 	lds	r25, 0x03A4	; 0x8003a4 <UART1_RxTail>
     100c:	e9 13       	cpse	r30, r25
     100e:	04 c0       	rjmp	.+8      	; 0x1018 <__vector_30+0x3c>
-        /* error: receive buffer overflow, caracter is lost*/
+        /***error: receive buffer overflow, caracter is lost***/
         UART1_LastRxError = UART_BUFFER_OVERFLOW >> 8; 
     1010:	82 e0       	ldi	r24, 0x02	; 2
     1012:	80 93 df 02 	sts	0x02DF, r24	; 0x8002df <UART1_LastRxError>
@@ -2617,13 +2616,13 @@ SIGNAL(UART1_RECEIVE_INTERRUPT)
 	}else{
 		data = UART1_DATA;
     1018:	90 91 9c 00 	lds	r25, 0x009C	; 0x80009c <__TEXT_REGION_LENGTH__+0x7e009c>
-        /* store new index */
+        /***store new index***/
         UART1_RxHead = tmphead;
     101c:	e0 93 de 02 	sts	0x02DE, r30	; 0x8002de <UART1_RxHead>
 		if(UART1_LastRxError){
     1020:	88 23       	and	r24, r24
     1022:	31 f0       	breq	.+12     	; 0x1030 <__vector_30+0x54>
-			/* store indication data error in buffer */
+			/***store indication data error in buffer***/
 			UART1_RxBuf[tmphead] = 'X';
     1024:	f0 e0       	ldi	r31, 0x00	; 0
     1026:	e5 56       	subi	r30, 0x65	; 101
@@ -2632,7 +2631,7 @@ SIGNAL(UART1_RECEIVE_INTERRUPT)
     102c:	80 83       	st	Z, r24
     102e:	04 c0       	rjmp	.+8      	; 0x1038 <__vector_30+0x5c>
 		}else{
-			/* store received data in buffer */
+			/***store received data in buffer***/
 			UART1_RxBuf[tmphead] = data;
     1030:	f0 e0       	ldi	r31, 0x00	; 0
     1032:	e5 56       	subi	r30, 0x65	; 101
