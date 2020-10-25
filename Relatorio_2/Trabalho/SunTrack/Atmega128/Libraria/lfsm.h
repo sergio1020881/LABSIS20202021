@@ -1,17 +1,16 @@
 /************************************************************************
 	LFSM
 Author: Sergio Santos
-   <sergio.salazar.santos@gmail.com>
-File: $Id: lfsm.h,v 0.1 01/10/2020 Exp $
+	<sergio.salazar.santos@gmail.com>
 License: GNU General Public License
-Hardware: all
-Date:
+Hardware: Atmel
+Date: 25102020
 Comment:
 	very stable
 ************************************************************************/
 #ifndef _LFSM_H_
 	#define _LFSM_H_
-/***Library***/
+/***/
 #include "eeprom.h"
 /***Constant & Macro***/
 /***Global Variable***/
@@ -24,7 +23,7 @@ struct lfsmdata{
 	uint16_t outhl;
 	uint16_t outlh;
 };
-/******/
+/***/
 struct lfsm{
 	//Local Variables
 	EEPROM* eprom;
