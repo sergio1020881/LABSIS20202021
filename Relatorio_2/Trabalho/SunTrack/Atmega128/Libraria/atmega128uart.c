@@ -1,5 +1,5 @@
 /*************************************************************************
-	UART
+	ATMEGA128UART
 Author: Sergio Santos 
 	<sergio.salazar.santos@gmail.com>
 Hardware: ATmega128
