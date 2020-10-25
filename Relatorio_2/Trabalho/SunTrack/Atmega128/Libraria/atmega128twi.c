@@ -1,18 +1,17 @@
 /*************************************************************************
-ATMEGA128 TWI API START
-API: TWI (still in progress)
+	TWI
 Author: Sergio Santos 
 	<sergio.salazar.santos@gmail.com>
 Date: 28092020
-Comment: Stable
+Hardware: ATmega128
+Comment:
+	In Progress
 *************************************************************************/
-/***preamble inic***/
+/***Preamble Inic***/
 #ifndef F_CPU
 	#define F_CPU 16000000UL
 #endif
-/*
-** library
-*/
+/***Library***/
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <avr/pgmspace.h>
@@ -20,28 +19,13 @@ Comment: Stable
 #include <inttypes.h>
 #include <stdarg.h>
 #include "atmega128twi.h"
-/***preamble inic***/
-/*
-** constant and macro
-*/
+/***Constant & Macro***/
 #ifndef GLOBAL_INTERRUPT_ENABLE
     #define GLOBAL_INTERRUPT_ENABLE 7
 #endif
-/*
-** variables
-*/
-/************************************************************************
-I2C API START (testing phase)
-************************************************************************/
 /* I2C clock in Hz */ 
 #define I2C_SCL_CLOCK 100000UL
-/*
-** constant and macro
-*/
-/*******************************************************************************/
-/*
-** Status Codes for MASTER Transmitter Mode
-*/
+/***Status Codes for MASTER Transmitter Mode***/
 #define TWI_SENT_START 0X08 //A START condition has been transmitted
 // SLA+W will be transmitted; ACK or NOT ACK will be received
 // Status Codes for Master Transmitter Mode and Status Codes for Master Receiver Mode
@@ -196,9 +180,7 @@ I2C API START (testing phase)
 // own SLA will be recognized;
 // GCA will be recognized if TWGCE = “1”;
 // a START condition will be transmitted when the bus becomes free
-/*
-** Miscellaneous States
-*/
+/***Miscellaneous States***/
 #define TWI_TWINT_AT_ZERO 0XF8 // No relevant state information available; TWINT = “0”
 // Wait or proceed current transfer
 #define TWI_BUS_ERROR 0X00 // Bus error due to an illegal START or STOP condition
@@ -228,13 +210,9 @@ I2C API START (testing phase)
 #define TWI_DATA_NO_ACK 1
 #define TWI_DATA_ACK 2
 #define TWI_STOP_CONDITION 3
-/*
-** variable
-*/
+/***Global File Variables***/
 unsigned char twi_chip_id;
-/*
-** procedure function header
-*/
+/***Header***/
 void twi_transmit(unsigned char type);
 unsigned char twi_status(void);
 void twi_poll(unsigned int ticks);
@@ -243,9 +221,7 @@ void twi_master_connect(unsigned char addr, unsigned char rw);
 void twi_master_write(unsigned char data);
 unsigned char twi_master_read(unsigned char request);
 void twi_stop(void);
-/*
-** procedure and function
-*/
+/***Procedure & Function***/
 I2C I2Cenable(unsigned char device_id, unsigned char prescaler)
 {
 	// local variables
@@ -438,9 +414,5 @@ void twi_stop(void)
 	}
 	_delay_us(100);
 }
-/*
-** interrupt
-*/
-/************************************************************************
-I2C API END
-************************************************************************/
+/***Interrupt***/
+/***EOF***/

@@ -1,34 +1,26 @@
 /*************************************************************************
-Title: LFSM
+	LFSM
 Author: Sergio Santos 
-   <sergio.salazar.santos@gmail.com>
-File: $Id: lfsm.c, v 0.1 01/10/2020 Exp $
-Hardware: Atmega
+	<sergio.salazar.santos@gmail.com>
 License: GNU General Public License
+Hardware: all
+Date:
 Comment:
 	page=1 is dedicated for global logic, if page>1 is for local logic.
 	purpose is for machine programming, and encoders. General purpose algorithm.
 *************************************************************************/
-/*
-** library
-*/
+/***Library***/
 #include "lfsm.h"
-/*
-** constant and macro
-*/
+/***Constant & Macro***/
 #define ZERO 0 //0
 #define EMPTY 0 //0
 #define NPAGES 255 //1 to 254 possible pages
 #define BYTEL 0
 #define BYTEH 65535
-/*
-** variable
-*/
+/***Global File Variable***/
 struct lfsmdata data, tmp1, tmp2;
 const uint16_t tmask = 0xFFFF;
-/*
-** procedure and function header
-*/
+/***Header***/
 uint8_t LFSMread(struct lfsm *r, uint8_t input);
 uint8_t LFSMlearn(struct lfsm *r, const uint8_t input, const uint16_t next, const uint16_t mask, const uint8_t page);
 uint16_t LFSMquant(struct lfsm *r);
@@ -42,9 +34,7 @@ void LFSMsetpage(struct lfsm *r, uint8_t page);
 uint16_t LFSMlh(uint16_t xi, uint16_t xf);
 uint16_t LFSMhl(uint16_t xi, uint16_t xf);
 uint16_t LFSMoutputcalc(uint16_t feedback, uint16_t hl, uint16_t lh, uint16_t mask);
-/*
-** Object Initialize
-*/
+/***Object Initialize***/
 LFSM LFSMenable(EEPROM* eeprom, const uint16_t sizeeeprom)
 {
 	/***Local Variable***/
@@ -71,9 +61,7 @@ LFSM LFSMenable(EEPROM* eeprom, const uint16_t sizeeeprom)
 	/******/
 	return r;
 }
-/*
-** procedure and function
-*/
+/***Procedure & Function***/
 /***read***/
 uint8_t LFSMread(struct lfsm *r, uint8_t input)
 {
@@ -405,9 +393,7 @@ uint16_t LFSMoutputcalc(uint16_t feedback, uint16_t hl, uint16_t lh, uint16_t ma
 	feedback&=~(hl & mask);
 	return feedback;
 }
-/*
-** interrupt
-*/
+/***Interrupt***/
 /***   NOTES
 Noticed if using to many pointers in MCU programming may cause defective code due to the mcu not being able to
 jump to the specified address returning NULL as result. Can really make you waste time in troubleshooting if is

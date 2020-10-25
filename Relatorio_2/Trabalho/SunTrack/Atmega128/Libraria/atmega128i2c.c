@@ -1,8 +1,11 @@
 /***************************************************************************************************
-I2C API START
+	I2C API
 Author: Sergio Santos
 	<sergio.salazar.santos@gmail.com>
 Date: 20102020
+Comment:
+	Stable
+Hardware: ATmega128
 Comment:
 	Stable
 ***************************************************************************************************/
@@ -16,7 +19,7 @@ Comment:
 #include <util/delay.h>
 #include <inttypes.h>
 #include "atmega128i2c.h"
-/***Define***/
+/***Contant & Macros***/
 #if defined(__AVR_ATmega64__) || defined(__AVR_ATmega128__)
 	#define ATMEGA_I2C
 	#define I2C_DDR DDRD

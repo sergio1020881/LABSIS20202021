@@ -15,19 +15,19 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   5 .debug_aranges 000006d0  00000000  00000000  000040e8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00008448  00000000  00000000  000047b8  2**0
+  6 .debug_info   0000843a  00000000  00000000  000047b8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00001e42  00000000  00000000  0000cc00  2**0
+  7 .debug_abbrev 00001e7f  00000000  00000000  0000cbf2  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00004695  00000000  00000000  0000ea42  2**0
+  8 .debug_line   00004693  00000000  00000000  0000ea71  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000013e4  00000000  00000000  000130d8  2**2
+  9 .debug_frame  000013e4  00000000  00000000  00013104  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000016e9  00000000  00000000  000144bc  2**0
+ 10 .debug_str    000016e9  00000000  00000000  000144e8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00006aab  00000000  00000000  00015ba5  2**0
+ 11 .debug_loc    00006aab  00000000  00000000  00015bd1  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000620  00000000  00000000  0001c650  2**0
+ 12 .debug_ranges 00000620  00000000  00000000  0001c67c  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -336,10 +336,10 @@ void HC595_shift_byte(uint8_t byte)
      216:	08 95       	ret
 
 00000218 <HC595enable>:
+void HC595_shift_bit(uint8_t bool);
+void HC595_shift_byte(uint8_t byte);
 void HC595_shift_out(void);
-/*
-** procedure and function
-*/
+/***Procedure & Function***/
 HC595 HC595enable(volatile uint8_t *ddr, volatile uint8_t *port, uint8_t datapin, uint8_t clkpin, uint8_t outpin)
 {
      218:	0f 93       	push	r16
@@ -367,9 +367,9 @@ HC595 HC595enable(volatile uint8_t *ddr, volatile uint8_t *port, uint8_t datapin
 	hc595_PORT=port;
      238:	70 93 4e 02 	sts	0x024E, r23	; 0x80024e <hc595_PORT+0x1>
      23c:	60 93 4d 02 	sts	0x024D, r22	; 0x80024d <hc595_PORT>
-	HC595_datapin=datapin; 
+	HC595_datapin=datapin;
      240:	40 93 4f 02 	sts	0x024F, r20	; 0x80024f <HC595_datapin>
-	HC595_clkpin=clkpin; 
+	HC595_clkpin=clkpin;
      244:	20 93 51 02 	sts	0x0251, r18	; 0x800251 <HC595_clkpin>
 	HC595_outpin=outpin;
      248:	00 93 50 02 	sts	0x0250, r16	; 0x800250 <HC595_outpin>
@@ -447,8 +447,8 @@ HC595 HC595enable(volatile uint8_t *ddr, volatile uint8_t *port, uint8_t datapin
      2c8:	08 95       	ret
 
 000002ca <ANALOG_read>:
-* Returns selected Channel ADC_VALUE
-*/
+Returns selected Channel ADC_VALUE
+***/
 {
 	uint8_t ADSC_FLAG;
 	ADSC_FLAG=(1<<ADSC);
@@ -472,10 +472,10 @@ HC595 HC595enable(volatile uint8_t *ddr, volatile uint8_t *port, uint8_t datapin
 
 000002de <ANALOGenable>:
 ANALOG ANALOGenable( uint8_t Vreff, uint8_t Divfactor, int n_channel, ... )
-/*
-* Interrupt running mode setup
-* setup, and list of channels to be probed
-*/
+/***
+Interrupt running mode setup
+setup, and list of channels to be probed
+***/
 {
      2de:	0f 93       	push	r16
      2e0:	1f 93       	push	r17
@@ -1147,12 +1147,12 @@ I2C I2Cenable(uint8_t prescaler)
      6ae:	08 95       	ret
 
 000006b0 <TIMER_COUNTER0_start>:
-		timer3.compareC=TIMER_COUNTER3_compareC;
-		timer3.start=TIMER_COUNTER3_start;
-		timer3.stop=TIMER_COUNTER3_stop;
-		//
-		return timer3;
-	}
+	timer3.compareC=TIMER_COUNTER3_compareC;
+	timer3.start=TIMER_COUNTER3_start;
+	timer3.stop=TIMER_COUNTER3_stop;
+	//
+	return timer3;
+}
      6b0:	20 91 57 02 	lds	r18, 0x0257	; 0x800257 <timer0_state>
      6b4:	21 11       	cpse	r18, r1
      6b6:	40 c0       	rjmp	.+128    	; 0x738 <TIMER_COUNTER0_start+0x88>
@@ -1733,9 +1733,9 @@ I2C I2Cenable(uint8_t prescaler)
      b16:	08 95       	ret
 
 00000b18 <__vector_16>:
-/*
-** interrupt
-*/
+	timer3_state=0;
+}
+/***Interrupt***/
 // So that main will not freeze when not defined, therefore exclude here! before use.
 //ISR(TIMER0_COMP_vect){ }
 ISR(TIMER0_OVF_vect){ }
@@ -1993,9 +1993,8 @@ ISR(TIMER3_OVF_vect){ }
      cc2:	08 95       	ret
 
 00000cc4 <__vector_18>:
-/*
-** interrupt
-*/
+}
+/***Interrupt***/
 /***ISR(UART0_RECEIVE_INTERRUPT)***/
 ISR(UART0_RECEIVE_INTERRUPT)
 {
@@ -2130,9 +2129,7 @@ ISR(UART0_TRANSMIT_INTERRUPT)
      d80:	18 95       	reti
 
 00000d82 <UART1enable>:
-/*
-** these functions are only for ATmegas with two USART
-*/
+/***these functions are only for ATmegas with two USART***/
 UART1 UART1enable(unsigned int baudrate, unsigned int FDbits, unsigned int Stopbits, unsigned int Parity )
 {
      d82:	0f 93       	push	r16
@@ -2572,9 +2569,9 @@ char* uart1_read(void)
      fda:	08 95       	ret
 
 00000fdc <__vector_30>:
-/*
-** interrupt
-*/
+	UART1_TxHead = UART1_TxTail;
+}
+/***Interrupt***/
 /***SIGNAL(UART1_RECEIVE_INTERRUPT)***/
 SIGNAL(UART1_RECEIVE_INTERRUPT)
 {
@@ -3530,9 +3527,9 @@ char* FUNCresizestr(char *string, int size)
 
 0000144e <FUNCtrimmer>:
 long FUNCtrimmer(long x, long in_min, long in_max, long out_min, long out_max)
-/*
-	same as arduino map function.
-*/
+/***
+same as arduino map function.
+***/
 {
     144e:	4f 92       	push	r4
     1450:	5f 92       	push	r5
@@ -4345,10 +4342,10 @@ unsigned int FUNCmayia(unsigned int xi, unsigned int xf, uint8_t nbits)
     18b0:	08 95       	ret
 
 000018b2 <FUNCenable>:
+int FUNCreadint(int nmin, int nmax);
+***/
 // uint8_t TRANupdate(struct TRAN *tr, uint8_t idata);
-/*
-** procedure and function
-*/
+/***Procedure & Function***/
 FUNC FUNCenable( void )
 {
     18b2:	fc 01       	movw	r30, r24
@@ -5007,8 +5004,8 @@ char KEYPAD_getkey(void)
     1cac:	e1 ce       	rjmp	.-574    	; 0x1a70 <KEYPAD_getkey+0x16>
 			default:
 				break;
-		}//endswitch
-	}//endfor
+		}
+	}
 	return c;
 }
     1cae:	df 91       	pop	r29
@@ -5123,10 +5120,10 @@ struct keypadata KEYPAD_read(void)
     1d64:	08 95       	ret
 
 00001d66 <KEYPADenable>:
+uint8_t KEYPADlh(uint8_t xi, uint8_t xf);
+/***hl***/
 uint8_t KEYPADhl(uint8_t xi, uint8_t xf);
-/*
-** procedure and function
-*/
+/***Procedure & Function***/
 KEYPAD KEYPADenable(volatile uint8_t *ddr, volatile uint8_t *pin, volatile uint8_t *port)
 {
     1d66:	cf 93       	push	r28
@@ -5779,10 +5776,10 @@ void LCD0_inic(void)
     2262:	08 95       	ret
 
 00002264 <LCD0enable>:
+void LCD1_strobe(unsigned int num);
+void LCD1_reboot(void);
 unsigned int LCD_ticks(unsigned int num);
-/*
-** procedure and function
-*/
+/***Procedure & Function***/
 LCD0 LCD0enable(volatile uint8_t *ddr, volatile uint8_t *pin, volatile uint8_t *port)
 {
     2264:	1f 93       	push	r17

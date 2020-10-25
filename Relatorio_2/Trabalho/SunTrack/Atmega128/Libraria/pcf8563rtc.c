@@ -1,7 +1,8 @@
 /***************************************************************************************************
-PCF8563RTC API START
+	PCF8563RTC
 Author: Sergio Santos
 	<sergio.salazar.santos@gmail.com>
+Hardware: PCF8563
 Date: 20102020
 Comment:
 	Stable
@@ -18,13 +19,13 @@ Comment:
 #else
 	#include "i2c.h"
 #endif
-/***Define***/
+/***Constant & Macro***/
 #ifndef GLOBAL_INTERRUPT_ENABLE
 	#define GLOBAL_INTERRUPT_ENABLE 7
 #endif
 /***Global File Variables***/
 I2C i2c;
-/***Function Header***/
+/***Header***/
 void PCF8563RTC_Init(void);
 void PCF8563RTC_SetTime(uint8_t var_hour_u8, uint8_t var_min_u8, uint8_t var_sec_u8);
 void PCF8563RTC_SetHour(uint8_t var_hour_u8);

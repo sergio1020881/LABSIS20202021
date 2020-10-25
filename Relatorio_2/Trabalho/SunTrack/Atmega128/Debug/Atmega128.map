@@ -230,7 +230,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x70 Libraria/clock.o
  .debug_ranges  0x00000000       0x60 Libraria/clock.o
- .debug_line    0x00000000      0x3d9 Libraria/clock.o
+ .debug_line    0x00000000      0x3d8 Libraria/clock.o
  .debug_str     0x00000000      0x351 Libraria/clock.o
  .comment       0x00000000       0x31 Libraria/clock.o
  .debug_frame   0x00000000       0xec Libraria/clock.o
@@ -1559,50 +1559,50 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x8448
+.debug_info     0x00000000     0x843a
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x780 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega128/avr51/crtatmega128.o
  .debug_info    0x00000780      0x23b Libraria/74hc595.o
  .debug_info    0x000009bb      0x26e Libraria/atmega128analog.o
  .debug_info    0x00000c29      0x2d9 Libraria/atmega128i2c.o
  .debug_info    0x00000f02      0x924 Libraria/atmega128timer.o
- .debug_info    0x00001826      0x8cf Libraria/atmega128uart.o
- .debug_info    0x000020f5     0x11f7 Libraria/function.o
- .debug_info    0x000032ec      0x4ea Libraria/keypad.o
- .debug_info    0x000037d6     0x119e Libraria/lcd.o
- .debug_info    0x00004974      0xfb6 Libraria/lfsm.o
- .debug_info    0x0000592a      0x92f Libraria/pcf8563rtc.o
- .debug_info    0x00006259     0x21ef main.o
+ .debug_info    0x00001826      0x8cb Libraria/atmega128uart.o
+ .debug_info    0x000020f1     0x11f4 Libraria/function.o
+ .debug_info    0x000032e5      0x4ea Libraria/keypad.o
+ .debug_info    0x000037cf     0x119e Libraria/lcd.o
+ .debug_info    0x0000496d      0xfaf Libraria/lfsm.o
+ .debug_info    0x0000591c      0x92f Libraria/pcf8563rtc.o
+ .debug_info    0x0000624b     0x21ef main.o
 
-.debug_abbrev   0x00000000     0x1e42
+.debug_abbrev   0x00000000     0x1e7f
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x718 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega128/avr51/crtatmega128.o
  .debug_abbrev  0x00000718      0x15a Libraria/74hc595.o
  .debug_abbrev  0x00000872      0x136 Libraria/atmega128analog.o
  .debug_abbrev  0x000009a8      0x1e1 Libraria/atmega128i2c.o
  .debug_abbrev  0x00000b89      0x189 Libraria/atmega128timer.o
- .debug_abbrev  0x00000d12      0x2d7 Libraria/atmega128uart.o
- .debug_abbrev  0x00000fe9      0x2e7 Libraria/function.o
- .debug_abbrev  0x000012d0      0x1f2 Libraria/keypad.o
- .debug_abbrev  0x000014c2      0x2ed Libraria/lcd.o
- .debug_abbrev  0x000017af      0x2db Libraria/lfsm.o
- .debug_abbrev  0x00001a8a      0x1b6 Libraria/pcf8563rtc.o
- .debug_abbrev  0x00001c40      0x202 main.o
+ .debug_abbrev  0x00000d12      0x318 Libraria/atmega128uart.o
+ .debug_abbrev  0x0000102a      0x303 Libraria/function.o
+ .debug_abbrev  0x0000132d      0x1f2 Libraria/keypad.o
+ .debug_abbrev  0x0000151f      0x2ed Libraria/lcd.o
+ .debug_abbrev  0x0000180c      0x2bb Libraria/lfsm.o
+ .debug_abbrev  0x00001ac7      0x1b6 Libraria/pcf8563rtc.o
+ .debug_abbrev  0x00001c7d      0x202 main.o
 
-.debug_line     0x00000000     0x4695
+.debug_line     0x00000000     0x4693
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x169 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega128/avr51/crtatmega128.o
- .debug_line    0x00000169      0x185 Libraria/74hc595.o
- .debug_line    0x000002ee      0x313 Libraria/atmega128analog.o
- .debug_line    0x00000601      0x273 Libraria/atmega128i2c.o
- .debug_line    0x00000874      0xb86 Libraria/atmega128timer.o
- .debug_line    0x000013fa      0x877 Libraria/atmega128uart.o
- .debug_line    0x00001c71      0x81c Libraria/function.o
- .debug_line    0x0000248d      0x3fb Libraria/keypad.o
- .debug_line    0x00002888      0xbc9 Libraria/lcd.o
- .debug_line    0x00003451      0x70b Libraria/lfsm.o
- .debug_line    0x00003b5c      0x45d Libraria/pcf8563rtc.o
- .debug_line    0x00003fb9      0x6dc main.o
+ .debug_line    0x00000169      0x184 Libraria/74hc595.o
+ .debug_line    0x000002ed      0x312 Libraria/atmega128analog.o
+ .debug_line    0x000005ff      0x273 Libraria/atmega128i2c.o
+ .debug_line    0x00000872      0xb86 Libraria/atmega128timer.o
+ .debug_line    0x000013f8      0x876 Libraria/atmega128uart.o
+ .debug_line    0x00001c6e      0x81c Libraria/function.o
+ .debug_line    0x0000248a      0x3fa Libraria/keypad.o
+ .debug_line    0x00002884      0xbcb Libraria/lcd.o
+ .debug_line    0x0000344f      0x70b Libraria/lfsm.o
+ .debug_line    0x00003b5a      0x45d Libraria/pcf8563rtc.o
+ .debug_line    0x00003fb7      0x6dc main.o
 
 .debug_frame    0x00000000     0x13e4
  *(.debug_frame)

@@ -1,8 +1,11 @@
 /************************************************************************
-ATMEGA128 TWI API START
+	TWI
 Author: Sergio Santos 
 	<sergio.salazar.santos@gmail.com>
-	28092020
+Date: 28092020
+Hardware: ATmega128
+Comment:
+	In progress
 ************************************************************************/
 /***preamble inic***/
 #ifndef _ATMEGA128TWI_H_
@@ -11,17 +14,9 @@ Author: Sergio Santos
 #if (__GNUC__ * 100 + __GNUC_MINOR__) < 304
 	#error "This library requires AVR-GCC 3.4 or later, update to newer AVR-GCC compiler !"
 #endif
-/*
-** Library
-*/
+/***Library***/
 #include <inttypes.h>
-/************************************************************************
-I2C API START
-testing phase
-************************************************************************/
-/*
-** constant and macro
-*/
+/***Constant & Macro***/
 // devices
 #define DS1307_ID 0xD0			// I2C DS1307 Device Identifier
 #define DS1307_ADDR 0X00		// I2C DS1307 Device Address offset
@@ -37,9 +32,7 @@ testing phase
 #define TWI_NACK 0
 #define TWI_MASTER_MODE 0
 #define TWI_SLAVE_MODE 1
-/*
-** variable
-*/
+/***Global Variable***/
 unsigned char i2c_output;
 struct tw{
 	/***PROTOTYPES VTABLE***/
@@ -50,14 +43,7 @@ struct tw{
 	void (*stop)(void);
 };
 typedef struct tw I2C;
-/*
-** procedure and function header
-*/
+/***Header***/
 I2C I2Cenable(unsigned char device_id, unsigned char prescaler);
-/***EOF***/
-/************************************************************************
-I2C API END
-testing phase
-************************************************************************/
 #endif
 /***EOF***/

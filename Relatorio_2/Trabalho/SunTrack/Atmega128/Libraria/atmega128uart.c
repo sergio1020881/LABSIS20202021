@@ -1,39 +1,28 @@
 /*************************************************************************
-ATMEGA128 UART API START
-API: UART
+	UART
 Author: Sergio Santos 
 	<sergio.salazar.santos@gmail.com>
-Date:
-   28092020
+Date: 28092020
+Hardware: ATmega128
 Comment:
    Stable
 *************************************************************************/
-/***preamble inic***/
+/***preamble Inic***/
 #ifndef F_CPU
 	#define F_CPU 16000000UL
 #endif
-/*
-** library
-*/
+/***Library***/
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <avr/pgmspace.h>
 #include <stdarg.h>
 #include <util/delay.h>
 #include "atmega128uart.h"
-/*
-** constant and macro
-*/
+/***Constant & Macro***/
 #ifndef GLOBAL_INTERRUPT_ENABLE
     #define GLOBAL_INTERRUPT_ENABLE 7
 #endif
-/*
-** Global File variable
-*/
-/*
-** constant and macro
-*/
-/* size of RX/TX buffers */
+/***size of RX/TX buffers***/
 #define UART_RX_BUFFER_MASK ( UART_RX_BUFFER_SIZE - 1)
 #define UART_TX_BUFFER_MASK ( UART_TX_BUFFER_SIZE - 1)
 #if ( UART_RX_BUFFER_SIZE & UART_RX_BUFFER_MASK )
@@ -62,9 +51,7 @@ Comment:
 	#error "Not Atmega 128"
 #endif
 #define ZERO 0
-/*
-** variable
-*/
+/***Global File Variable***/
 unsigned char UART_TxBuf[UART_TX_BUFFER_SIZE];
 unsigned char UART_RxBuf[UART_RX_BUFFER_SIZE];
 uint8_t UART_TxHead;
@@ -83,9 +70,7 @@ uint8_t uart_index;
 char uart_msg[UART_RX_BUFFER_SIZE];
 int uart1_index;
 char uart1_msg[UART_RX_BUFFER_SIZE];
-/*
-**	procedure and function header
-*/
+/***Header***/
 char* uart_read(void);
 uint8_t uart_getc(void);
 void uart_putc(const char data);
@@ -104,9 +89,7 @@ void uart1_Rxflush(void);
 void uart1_Txflush(void);
 unsigned char UART1_Rx_pop(void);
 void UART1_Tx_push(const char data);
-/*
-** procedure and function
-*/
+/***Procedure & Function***/
 UART UARTenable(unsigned int baudrate, unsigned int FDbits, unsigned int Stopbits, unsigned int Parity )
 {
 	/***LOCAL VARIABLES***/
@@ -260,7 +243,7 @@ void uart_puts(const char *s )
 int8_t uart_available(void)
 {
 	return (UART_RX_BUFFER_MASK + UART_RxHead - UART_RxTail) % UART_RX_BUFFER_MASK;
-}/* uart_available */
+}
 /***void uart_flush(void)***/
 void uart_flush(void)
 {
@@ -299,9 +282,7 @@ void UART_Tx_push(unsigned char data)
 	}	
     UART_TxBuf[UART_TxHead] = data;
 }
-/*
-** interrupt
-*/
+/***Interrupt***/
 /***ISR(UART0_RECEIVE_INTERRUPT)***/
 ISR(UART0_RECEIVE_INTERRUPT)
 {
@@ -346,9 +327,7 @@ ISR(UART0_TRANSMIT_INTERRUPT)
 	else
 		UART0_CONTROL &= ~_BV(UART0_UDRIE);
 }
-/*
-** these functions are only for ATmegas with two USART
-*/
+/***these functions are only for ATmegas with two USART***/
 UART1 UART1enable(unsigned int baudrate, unsigned int FDbits, unsigned int Stopbits, unsigned int Parity )
 {
 	/***LOCAL VARIABLES***/
@@ -541,9 +520,7 @@ void uart1_Txflush(void)
 {
 	UART1_TxHead = UART1_TxTail;
 }
-/*
-** interrupt
-*/
+/***Interrupt***/
 /***SIGNAL(UART1_RECEIVE_INTERRUPT)***/
 SIGNAL(UART1_RECEIVE_INTERRUPT)
 {

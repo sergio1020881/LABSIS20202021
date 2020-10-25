@@ -1,35 +1,28 @@
 /*************************************************************************
-Title: MM74C923
-Author: Sergio Manuel Santos <sergio.salazar.santos@gmail.com>
-File: $Id: mm74c923.c,v 0.2 2015/4/11 21:00:00 sergio Exp $
-Software: AVR-GCC 4.1, AVR Libc 1.4.6 or higher
-Hardware: AVR with built-in ADC, tested on ATmega128 at 16 Mhz, 
+	MM74C923
+Author: Sergio Manuel Santos
+	<sergio.salazar.santos@gmail.com> 
 License: GNU General Public License
-COMMENT:
+Hardware: 74C923
+Date:
+Comment:
 	stable
 *************************************************************************/
 #ifndef F_CPU
 	#define F_CPU 16000000UL
 #endif
-/*
-** Library
-*/
+/***Library***/
 #include <avr/io.h>
 #include <util/delay.h>
 #include <inttypes.h>
-/***/
 #include "mm74c923.h"
 #include "function.h"
-/*
-** constant and macro
-*/
+/***Constant & Macro***/
 #ifndef GLOBAL_INTERRUPT_ENABLE
 	#define GLOBAL_INTERRUPT_ENABLE 7
 #endif
 #define MM74C923_KEY_BUFFER_SIZE 16
-/*
-** variable
-*/
+/***Global File Variable***/
 FUNC func;
 volatile uint8_t *mm74c923_DDR;
 volatile uint8_t *mm74c923_PIN;
@@ -46,17 +39,13 @@ uint8_t MM74C923_KEY_BUFFER_INDEX;
 char MM74C923_KEY_BUFFER[MM74C923_KEY_BUFFER_SIZE];
 char MM74C923_KEY_BUFFER_EMPTY[]="";
 char* MM74C923_pointer;
-/*
-** procedure and function header
-*/
+/***Header***/
 void MM74C923_activate(void);
 char MM74C923_getch(void);
 char* MM74C923_gets(void);
 char* MM74C923_data(void);
 void MM74C923_data_clear(void);
-/*
-** procedure and function
-*/
+/***Procedure & Function***/
 MM74C923 MM74C923enable(volatile uint8_t *ddr, volatile uint8_t *pin, volatile uint8_t *port)
 {
 	//LOCAL VARIABLES
@@ -139,7 +128,5 @@ void MM74C923_data_clear(void){
 	MM74C923_KEY_BUFFER[MM74C923_KEY_BUFFER_INDEX]='\0';
 }
 
-/*
-** interrupt
-*/
+/***Interrupt***/
 /***EOF***/
