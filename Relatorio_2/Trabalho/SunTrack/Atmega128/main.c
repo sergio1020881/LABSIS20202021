@@ -375,9 +375,5 @@ ISR(TIMER0_COMP_vect) // 1Hz and usart Tx
 }
 /***EOF***/
 /**** Comment:
-The most important of programming MCU is dominating the datasheet of the 
-components and creating a API library, then after that there will be a abstraction layer
-easier to work with the hardware and moving to a much much more productive environment.
-Achieving this takes lots of work but satisfying, especially when all works has expected.
-To not work with the hardware directly but just by code is the primordial objective !!!
+To not work with the hardware directly but just by code is the primordial objective.
 ****/
