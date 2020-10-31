@@ -1,8 +1,8 @@
-/***sergio manuel salazar dos santos***/
-/***Tel:- 916919898***/
-/***Rua do relogio 268, 4770-245 Joane, Vila Nova de famalicao, Braga, Portugal***/
+/***sergio santos***/
+/******/
+/******/
 /***CABECALHO Libraries***/
-//this program is a learning finite state machine.
+
 
 #include "creation_7.h"
 /***MAIN***/

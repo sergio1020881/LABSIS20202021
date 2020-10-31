@@ -85,9 +85,5 @@ int SerialRead(char *State)
 //char *X, X is a variable that stores a fisical
 //address with a cast type char.
 //getnum works with string terminating with only NULL or '\0'
-//my style
-//Lesson always be flexible and except and obey the good practices,
-// without any desobidience, and for extra culture if desired try to 
-// clarify the why things are as they are. Never be stuborn.
-//must flush buffer in the PC side.
+
 

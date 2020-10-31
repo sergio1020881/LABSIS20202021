@@ -1,5 +1,5 @@
 //PROTOTYPE
-/**sergio manuel salazar dos santos 934805603**/
+/**sergio santos**/
 
 #include "creation_7.h"
 
