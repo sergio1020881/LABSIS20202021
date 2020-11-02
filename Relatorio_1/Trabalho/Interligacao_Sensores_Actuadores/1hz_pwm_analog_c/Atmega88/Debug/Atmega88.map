@@ -76,7 +76,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x100 src/ASF/common/boards/user_board/init.o
  .debug_macro   0x00000000      0x2d2 src/ASF/common/boards/user_board/init.o
  .debug_line    0x00000000      0x390 src/ASF/common/boards/user_board/init.o
- .debug_str     0x00000000     0xfd4c src/ASF/common/boards/user_board/init.o
+ .debug_str     0x00000000     0xfd4f src/ASF/common/boards/user_board/init.o
  .comment       0x00000000       0x31 src/ASF/common/boards/user_board/init.o
  .debug_frame   0x00000000       0x24 src/ASF/common/boards/user_board/init.o
  .group         0x00000000        0x8 src/main.o
@@ -533,11 +533,11 @@ END GROUP
  *(.debug_frame)
  .debug_frame   0x00000000       0xec src/main.o
 
-.debug_str      0x00000000     0x7f36
+.debug_str      0x00000000     0x7f39
  *(.debug_str)
  .debug_str     0x00000000      0x208 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega88/avr4/crtatmega88.o
- .debug_str     0x00000208     0x7d2e src/main.o
-                               0x7e06 (size before relaxing)
+ .debug_str     0x00000208     0x7d31 src/main.o
+                               0x7e09 (size before relaxing)
 
 .debug_loc      0x00000000      0x6fc
  *(.debug_loc)

@@ -1,0 +1,109 @@
+\input{./input/PREAMBLEREPORT}
+\include{./include/CAPAREPORT}
+\tableofcontents
+\appendix
+\pagestyle{plain} %plain headings empty
+%\setcounter{chapter}{0}
+%\numberwithin{page}{section}
+%\renewcommand{\abstractname}{Executive Summary}
+%\captionsetup{justification = raggedright, singlelinecheck = false}
+\setlength{\parindent}{0in}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\label{Resumo}
+\begin{abstract}
+	Estado da arte, fazer uma analise das escolhas feitas e alternativas.
+\qquad Explain.
+\vfill
+\textbf{Palavras Chave: Sensores, Componentes}
+\end{abstract} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Introdução}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qquad \bf{Material usado} \\
+
+\begin{minipage}{\linewidth}
+\begin{minipage}{0.55\linewidth}
+\begin{itemize}
+	\item LDR - Light Controlled Resistor \\
+		Dark resistance 1M.\\
+		40k at 10 lux.\\
+		Max voltage 100V.\\
+		Max power 80mW.\\
+	\item INA128PA - Instrumentation Amplifier \\
+		Banda de transmissão: 1.3MHz \\
+		Montagem: THT \\
+		Número de canais: 1 \\
+		Carcaça: DIP8 \\
+		Rapidez de subida de tensão: 4V / $\mu$ s \\
+		Temperatura de trabalho: -40...85°C \\
+		Entradas de tensão instável: 0.025mV \\
+		Tensão de trabalho: 2.25...18V \\
+	\item LCD 20x4 Blue NHD-0420DZ-NSW-BBW \\
+		4x20 Characters HD44780 compatible\\
+	\item Keypad 16 button White \\
+\end{itemize}
+\end{minipage}
+\begin{minipage}{0.65\linewidth}
+\begin{itemize}
+	\item Hitec HS \- 311 Servo Motor \\
+		Control System:\\
+		+Pulse Width Control 1500 $\mu$ sec \\
+		Operating Voltage:\\ 
+		4.8-6.0 Volts \\
+		Operating Speed (4.8V):\\
+		0.19sec/60° at no load \\
+		Stall Torque (4.8V):\\
+		42 oz/in (3.0 kg/cm) \\
+	\item PCF8563 RTC Board \\
+		Real-time clock/calendar function. \\ 
+		Battery on board. \\
+		I2C communication. \\
+		\\
+		\\
+		\\
+		\\
+		\\
+		\\
+		\\
+\end{itemize}
+\end{minipage}
+\end{minipage}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\section{Desenvolvimento}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qquad Explain
+\newpage
+\section{Conclusões}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qquad Explain
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Figuras Bibliografia Index
+\listoffigures
+\cite{*}
+\bibliography{./bibliography/Bibliography}
+%\printindex
+\newpage
+\footnote{Apontamento}
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+
+\end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
