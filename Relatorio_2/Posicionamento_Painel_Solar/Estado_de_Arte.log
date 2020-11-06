@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.25)  20 OCT 2020 13:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.25)  6 NOV 2020 02:46
 entering extended mode
-**./Relatorio_2.tex
-(Relatorio_2.tex
+**./Estado_de_Arte.tex
+(Estado_de_Arte.tex
 LaTeX2e <2020-02-02> patch level 5
 L3 programming layer <2020-06-18> (input/PREAMBLEREPORT.tex
 ("C:\Program Files\MiKTeX\tex/latex/base\report.cls"
@@ -455,27 +455,27 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \c@definition=\count288
 \c@notation=\count289
 \@indexfile=\write3
-\openout3 = `Relatorio_2.idx'.
+\openout3 = `Estado_de_Arte.idx'.
 
 
-Writing index file Relatorio_2.idx
-(Relatorio_2.aux (include/CAPAREPORT.aux))
-\openout1 = `Relatorio_2.aux'.
+Writing index file Estado_de_Arte.idx
+) (Estado_de_Arte.aux (include/CAPAREPORT.aux))
+\openout1 = `Estado_de_Arte.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 185.
-LaTeX Font Info:    ... okay on input line 185.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 185.
-LaTeX Font Info:    ... okay on input line 185.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 185.
-LaTeX Font Info:    ... okay on input line 185.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 185.
-LaTeX Font Info:    ... okay on input line 185.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 185.
-LaTeX Font Info:    ... okay on input line 185.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 185.
-LaTeX Font Info:    ... okay on input line 185.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 185.
-LaTeX Font Info:    ... okay on input line 185.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
 
 ("C:\Program Files\MiKTeX\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -541,7 +541,7 @@ File: portuguese.bdf 2019/03/11 v1.32 babelbib: multilingual bibliographies (HH
 
 babelbib extension \bibsportuguese added to \extrasportuguese
 babelbib extension \btxifchangecaseoff added to \extrasportuguese
-))
+)
 \openout2 = `./include/CAPAREPORT.aux'.
 
  (include/CAPAREPORT.tex
@@ -561,7 +561,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 34.
  ("C:\Program Files\MiKTeX\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ))
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 32--2
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 32--12
 []$[]$ 
  []
 
@@ -569,19 +569,96 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 32--2
 
 
 {C:/Users/sergi/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./image/capa/IS
-EP_marca_cor_grande.png>] (Relatorio_2.toc)
+EP_marca_cor_grande.png>] (Estado_de_Arte.toc)
 \tf@toc=\write4
-\openout4 = `Relatorio_2.toc'.
+\openout4 = `Estado_de_Arte.toc'.
 
  [2
 
 
-] [1] [1] [2] [3]
-(Relatorio_2.lof)
-\tf@lof=\write5
-\openout5 = `Relatorio_2.lof'.
+] [1]
+<./image/Mount_Method.jpg, id=23, 386.94562pt x 359.09157pt>
+File: ./image/Mount_Method.jpg Graphic file (type jpg)
+<use ./image/Mount_Method.jpg>
+Package pdftex.def Info: ./image/Mount_Method.jpg  used on input line 36.
+(pdftex.def)             Requested size: 270.86008pt x 251.36238pt.
+ [1 <./image/Mount_Method.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 44--47
 
- (Relatorio_2.bbl [4
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 48--49
+
+ []
+
+[2]
+<./image/Sensor_Actuator_Principle.jpg, id=34, 295.85532pt x 204.765pt>
+File: ./image/Sensor_Actuator_Principle.jpg Graphic file (type jpg)
+<use ./image/Sensor_Actuator_Principle.jpg>
+Package pdftex.def Info: ./image/Sensor_Actuator_Principle.jpg  used on input l
+ine 54.
+(pdftex.def)             Requested size: 153.84564pt x 106.4784pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 58--59
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--70
+
+ []
+
+[3 <./image/Sensor_Actuator_Principle.jpg>] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 107--109
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 109--114
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 114--123
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 123--125
+
+ []
+
+
+Underfull \hbox (badness 6364) in paragraph at lines 131--140
+\T1/cmr/m/n/12 +Pulse Width Con-trol
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--140
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--144
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 144--146
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 103--150
+
+ []
+
+[5] [6] [7] [8] (Estado_de_Arte.lof)
+\tf@lof=\write5
+\openout5 = `Estado_de_Arte.lof'.
+
+ (Estado_de_Arte.bbl [9
 
 ]
 babelbib: Using the BibTeX style's default font for `name'.
@@ -595,38 +672,42 @@ babelbib: Using the BibTeX style's default font for `ISBN'.
 babelbib: Using the BibTeX style's default font for `ISSN'.
 babelbib: Using the BibTeX style's default font for `url'.
 babelbib: Using the BibTeX style's default font for `numeral'.
-) [5
+) [10
 
-] [6] (Relatorio_2.aux (include/CAPAREPORT.aux)) ) 
+] [11] (Estado_de_Arte.aux (include/CAPAREPORT.aux)) ) 
 Here is how much of TeX's memory you used:
- 8750 strings out of 480790
- 136675 string characters out of 2907055
- 537056 words of memory out of 3000000
- 24556 multiletter control sequences out of 15000+200000
- 551553 words of font info for 72 fonts, out of 3000000 for 9000
+ 8759 strings out of 480790
+ 137143 string characters out of 2907055
+ 536059 words of memory out of 3000000
+ 24560 multiletter control sequences out of 15000+200000
+ 552728 words of font info for 73 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,15n,45p,321b,590s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\sergi\AppData\Loca
-l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\sergi\AppDat
-a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\sergi\
-AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\
-sergi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcti1200.pk> <C:\
-Users\sergi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk
-> <C:\Users\sergi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1
-200.pk> <C:\Users\sergi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600
-\ecbx1728.pk> <C:\Users\sergi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/
-dpi600\ecbx1200.pk> <C:\Users\sergi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknapp
-en/ec/dpi600\ecrm1200.pk> <C:\Users\sergi\AppData\Local\MiKTeX\fonts/pk/ljfour/
-jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\sergi\AppData\Local\MiKTeX\fonts/pk/l
-jfour/jknappen/ec/dpi600\ecti1440.pk> <C:\Users\sergi\AppData\Local\MiKTeX\font
-s/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\sergi\AppData\Local\MiKTe
-X\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\sergi\AppData\Local
-\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2074.pk><C:/Program Files/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmmi12.pfb>
-Output written on Relatorio_2.pdf (9 pages, 197794 bytes).
+ 42i,15n,50p,1019b,415s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\sergi\AppData\
+Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\sergi\Ap
+pData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\se
+rgi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Us
+ers\sergi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> 
+<C:\Users\sergi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm120
+0.pk> <C:\Users\sergi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\e
+crm1095.pk> <C:\Users\sergi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dp
+i600\ecbx1095.pk> <C:\Users\sergi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen
+/ec/dpi600\ecbx1728.pk> <C:\Users\sergi\AppData\Local\MiKTeX\fonts/pk/ljfour/jk
+nappen/ec/dpi600\ecbx1200.pk> <C:\Users\sergi\AppData\Local\MiKTeX\fonts/pk/ljf
+our/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\sergi\AppData\Local\MiKTeX\fonts/
+pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\sergi\AppData\Local\MiKTeX\
+fonts/pk/ljfour/jknappen/ec/dpi600\ecti1440.pk> <C:\Users\sergi\AppData\Local\M
+iKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\sergi\AppData\L
+ocal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\sergi\App
+Data\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2074.pk><C:/Program Fi
+les/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb
+><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on Estado_de_Arte.pdf (14 pages, 338174 bytes).
 PDF statistics:
- 378 PDF objects out of 1000 (max. 8388607)
+ 432 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
