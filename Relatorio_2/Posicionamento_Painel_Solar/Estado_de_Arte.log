@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.25)  6 NOV 2020 02:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.25)  6 NOV 2020 03:05
 entering extended mode
 **./Estado_de_Arte.tex
 (Estado_de_Arte.tex
@@ -576,19 +576,29 @@ EP_marca_cor_grande.png>] (Estado_de_Arte.toc)
  [2
 
 
-] [1]
-<./image/Mount_Method.jpg, id=23, 386.94562pt x 359.09157pt>
-File: ./image/Mount_Method.jpg Graphic file (type jpg)
-<use ./image/Mount_Method.jpg>
-Package pdftex.def Info: ./image/Mount_Method.jpg  used on input line 36.
-(pdftex.def)             Requested size: 270.86008pt x 251.36238pt.
- [1 <./image/Mount_Method.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 44--47
+]
+Underfull \hbox (badness 10000) in paragraph at lines 23--31
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 48--49
+Underfull \hbox (badness 10000) in paragraph at lines 23--31
+
+ []
+
+[1]
+<./image/Mount_Method.jpg, id=23, 386.94562pt x 359.09157pt>
+File: ./image/Mount_Method.jpg Graphic file (type jpg)
+<use ./image/Mount_Method.jpg>
+Package pdftex.def Info: ./image/Mount_Method.jpg  used on input line 40.
+(pdftex.def)             Requested size: 270.86008pt x 251.36238pt.
+ [1 <./image/Mount_Method.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 48--51
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
 
  []
 
@@ -597,60 +607,60 @@ Underfull \hbox (badness 10000) in paragraph at lines 48--49
 File: ./image/Sensor_Actuator_Principle.jpg Graphic file (type jpg)
 <use ./image/Sensor_Actuator_Principle.jpg>
 Package pdftex.def Info: ./image/Sensor_Actuator_Principle.jpg  used on input l
-ine 54.
+ine 58.
 (pdftex.def)             Requested size: 153.84564pt x 106.4784pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--59
+Underfull \hbox (badness 10000) in paragraph at lines 62--63
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 60--70
+Underfull \hbox (badness 10000) in paragraph at lines 64--74
 
  []
 
 [3 <./image/Sensor_Actuator_Principle.jpg>] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 107--109
+Underfull \hbox (badness 10000) in paragraph at lines 111--113
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 109--114
+Underfull \hbox (badness 10000) in paragraph at lines 113--118
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--123
+Underfull \hbox (badness 10000) in paragraph at lines 118--127
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 123--125
+Underfull \hbox (badness 10000) in paragraph at lines 127--129
 
  []
 
 
-Underfull \hbox (badness 6364) in paragraph at lines 131--140
+Underfull \hbox (badness 6364) in paragraph at lines 135--144
 \T1/cmr/m/n/12 +Pulse Width Con-trol
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 131--140
+Underfull \hbox (badness 10000) in paragraph at lines 135--144
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 140--144
+Underfull \hbox (badness 10000) in paragraph at lines 144--148
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 144--146
+Underfull \hbox (badness 10000) in paragraph at lines 148--150
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 103--150
+Underfull \hbox (badness 10000) in paragraph at lines 107--154
 
  []
 
@@ -705,9 +715,9 @@ onts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX/fonts/type1/p
 ublic/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfont
 s/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb
 ><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Estado_de_Arte.pdf (14 pages, 338174 bytes).
+Output written on Estado_de_Arte.pdf (14 pages, 339214 bytes).
 PDF statistics:
- 432 PDF objects out of 1000 (max. 8388607)
+ 434 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
