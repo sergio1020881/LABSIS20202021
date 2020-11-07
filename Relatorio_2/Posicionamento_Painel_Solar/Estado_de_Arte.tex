@@ -22,29 +22,53 @@
 \begin{abstract}
 \qquad O projeto que se pretende fazer é um sistema de posicionamento de painel fotovoltaico para obter maior rendimento de produção de energia, já que é conhecido que se pode tirar proveito até 40\%. \\
 \\
-O objetivo é desenvolver um meio de controlo tendo em mente ser um sistema Stand Alone de tamanho considerável, o trabalho não vai ser concentrado ao redor do painel fotovoltaico em si e suas características ou modos de funcionamento, mas apenas o sistema de Sun Track, também supondo que tem baterias de carga com o intuito que o sistema possa ser autónomo. \\
+O objetivo é desenvolver um meio de controlo tendo em mente ser um sistema \textcolor{blue}{Stand Alone} de tamanho considerável, o trabalho não vai ser concentrado ao redor do painel fotovoltaico em si e suas características ou modos de funcionamento, mas apenas o sistema de {\bf \textcolor{blue}{Sun Track}}, também supondo que tem baterias de carga com o intuito que o sistema possa ser autónomo. \\
 \\
 O projeto é apenas académico e de simulação em escala pequena ou de bancada.
 \\
 \vspace{15cm}\\
 \textbf{Palavras Chave:} Sensores, Componentes, Motores
 \end{abstract}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \section{Introdução}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qquad Os painéis fotovoltaicos é uma tecnologia que transforma energia solar (Luz) em eletricidade DC, a primeira célula fotovoltaica foi criada em 1954 e depois aplicado na industria espacial, a combinação de células em serie e paralelo determina sua diferença de potencial e potencia.\cite{article_1}\\
+\\
+Ao primeiro esta tecnologia foi vista como uma curiosidade e depois como uma possibilidade, após o preço de construção ter diminuído é que começou a entrar no mercado, isto aconteceu a partir dos anos 70, quando se estava a atravessar uma crise energética.\cite{article_1}\\
+\\
+Abaixo esta os tipos conhecidos de possíveis montagens.\\
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.7]{./image/Mount_Method.jpg}
+\includegraphics[scale=0.6]{./image/Mount_Method.jpg}
 \caption{Tipos de Montagem \cite{book_2}}
 \end{figure}
-
+Pelo mapa abaixo, podemos determinar os locais mais aptos para aplicar esta tecnologia, Portugal como vemos não é das mais favoravies, também notamos que onde passa a linha de equador é onde podemos tirar maior proveito, ou seja maior {\bf $Kw/m^2$}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{./image/World_Solar_Radiation.jpg}
+	\caption{Solar radiation by region of the world \cite{book_2}}
+\end{figure}
 \newpage
 
-
-
+\qquad Os painéis fotovoltaicos tem vários parâmetros que determinam sua eficiência, a temperatura de funcionamento, otimização da carga, sua orientação e até limpeza são alguns pormenores, este estado de arte apenas é uma tentativa de melhor garantir tirar maior proveito da energia coletada pelo meio de orientação.\\
+\\
+\begin{minipage}{0.5\linewidth}
+\begin{figure}[H]
+	\includegraphics[scale=0.6]{./image/Graph/Anualkwh_1.jpg}
+	\caption{Resposta a inclinação}
+\end{figure}
+\end{minipage}
+\begin{minipage}[t]{0.5\linewidth}
+\flushleft
+Neste gráfico podemos ver um exemplo da diferença entre o rendimento de sistemas sem controlo de orientação, orientação parcial e total.\\
+\end{minipage}\\
+\\
+\\
+\\
+%\begin{minipage}[t][10cm]{\linewidth}
+%	trial
+%\end{minipage}
 More energy is collected by the end of the day if the PV module is installed on a tracker with an actuator that follows the sun. There are two types of sun trackers:\\
 • One-axis tracker, which follows the sun from east to west during the day.\\
 • Two-axis tracker, which follows the sun from east to west during the day, and from north to south during the seasons of the year (Figure 9.18).\cite{book_2} \\

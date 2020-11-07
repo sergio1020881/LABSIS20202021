@@ -7,47 +7,51 @@ Reallocating 'name_of_file' (item size: 1) to 25 items.
 A level-1 auxiliary file: ./include/CAPAREPORT.aux
 Reallocating 'name_of_file' (item size: 1) to 28 items.
 Database file #1: ./bibliography/Bibliography.bib
+Warning--to sort, need author or key in article_1
 Reallocating 'singl_function' (item size: 4) to 100 items.
-Warning--empty language in book_2
-You've used 2 entries,
+Warning--empty language in article_1
+Warning--empty author in article_1
+Warning--empty journal in article_1
+Warning--empty year in article_1
+You've used 3 entries,
             2788 wiz_defined-function locations,
-            643 strings with 6182 characters,
-and the built_in function-call counts, 567 in all, are:
-= -- 44
-> -- 14
+            645 strings with 6260 characters,
+and the built_in function-call counts, 762 in all, are:
+= -- 58
+> -- 15
 < -- 0
-+ -- 6
++ -- 7
 - -- 4
-* -- 36
-:= -- 89
-add.period$ -- 4
-call.type$ -- 2
-change.case$ -- 6
+* -- 56
+:= -- 112
+add.period$ -- 5
+call.type$ -- 3
+change.case$ -- 9
 chr.to.int$ -- 0
-cite$ -- 3
-duplicate$ -- 34
-empty$ -- 63
+cite$ -- 8
+duplicate$ -- 47
+empty$ -- 88
 format.name$ -- 6
-if$ -- 117
+if$ -- 159
 int.to.chr$ -- 0
-int.to.str$ -- 2
-missing$ -- 4
-newline$ -- 24
+int.to.str$ -- 3
+missing$ -- 6
+newline$ -- 27
 num.names$ -- 4
-pop$ -- 20
+pop$ -- 30
 preamble$ -- 1
-purify$ -- 6
+purify$ -- 8
 quote$ -- 0
-skip$ -- 15
+skip$ -- 23
 stack$ -- 0
-substring$ -- 10
-swap$ -- 8
+substring$ -- 15
+swap$ -- 9
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 4
-warning$ -- 1
+type$ -- 8
+warning$ -- 5
 while$ -- 4
-width$ -- 3
-write$ -- 33
-(There was 1 warning)
+width$ -- 4
+write$ -- 38
+(There were 5 warnings)

@@ -13,6 +13,10 @@
   \expandafter\btxselectlanguage\expandafter {\btxfallbacklanguage}
 
 \expandafter\btxselectlanguage\expandafter {\btxfallbacklanguage}
+\bibitem {article_1}
+\btxjtitlefont {\btxifchangecase
+  {https://science.nasa.gov/science-news/science-at-nasa/2002/solarcells}{https://science.nasa.gov/science-news/science-at-nasa/2002/solarcells}}.
+
 \bibitem {book_2}
 \btxnamefont {\btxlastnamefont {Patel}, Mukund\btxfnamespacelong
   R.}\btxauthorcolon\ \btxtitlefont {Wind and Solar Power Systems Design,
