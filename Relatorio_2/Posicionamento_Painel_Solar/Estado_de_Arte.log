@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.25)  7 NOV 2020 19:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.25)  7 NOV 2020 20:47
 entering extended mode
 **./Estado_de_Arte.tex
 (Estado_de_Arte.tex
@@ -620,103 +620,103 @@ File: ./image/Graph/Anualkwh_1.jpg Graphic file (type jpg)
 Package pdftex.def Info: ./image/Graph/Anualkwh_1.jpg  used on input line 63.
 (pdftex.def)             Requested size: 211.84306pt x 201.00247pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--79
+Underfull \hbox (badness 10000) in paragraph at lines 54--75
 
  []
 
 
-Overfull \hbox (25.54283pt too wide) in paragraph at lines 54--79
+Overfull \hbox (25.54283pt too wide) in paragraph at lines 54--75
 []   $[]$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--79
+Underfull \hbox (badness 10000) in paragraph at lines 54--75
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--79
+Underfull \hbox (badness 10000) in paragraph at lines 54--75
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--79
+Underfull \hbox (badness 10000) in paragraph at lines 85--88
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--79
+Underfull \hbox (badness 10000) in paragraph at lines 85--88
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--81
-
- []
-
-[2 <./image/Graph/Anualkwh_1.jpg>]
-<./image/Sensor_Actuator_Principle.jpg, id=38, 295.85532pt x 204.765pt>
-File: ./image/Sensor_Actuator_Principle.jpg Graphic file (type jpg)
-<use ./image/Sensor_Actuator_Principle.jpg>
-Package pdftex.def Info: ./image/Sensor_Actuator_Principle.jpg  used on input l
-ine 86.
-(pdftex.def)             Requested size: 153.84564pt x 106.4784pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 90--91
 
  []
 
+[2 <./image/Graph/Anualkwh_1.jpg>] [3]
+<./image/Sensor_Actuator_Principle.jpg, id=42, 295.85532pt x 204.765pt>
+File: ./image/Sensor_Actuator_Principle.jpg Graphic file (type jpg)
+<use ./image/Sensor_Actuator_Principle.jpg>
+Package pdftex.def Info: ./image/Sensor_Actuator_Principle.jpg  used on input l
+ine 96.
+(pdftex.def)             Requested size: 153.84564pt x 106.4784pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 92--102
-
- []
-
-[3 <./image/Sensor_Actuator_Principle.jpg>] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 139--141
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 141--146
+Underfull \hbox (badness 10000) in paragraph at lines 100--101
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 146--155
+Underfull \hbox (badness 10000) in paragraph at lines 102--112
+
+ []
+
+[4 <./image/Sensor_Actuator_Principle.jpg>] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 149--151
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 155--157
+Underfull \hbox (badness 10000) in paragraph at lines 151--156
 
  []
 
 
-Underfull \hbox (badness 6364) in paragraph at lines 163--172
+Underfull \hbox (badness 10000) in paragraph at lines 156--165
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--167
+
+ []
+
+
+Underfull \hbox (badness 6364) in paragraph at lines 173--182
 \T1/cmr/m/n/12 +Pulse Width Con-trol
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 163--172
+Underfull \hbox (badness 10000) in paragraph at lines 173--182
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 172--176
+Underfull \hbox (badness 10000) in paragraph at lines 182--186
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 176--178
+Underfull \hbox (badness 10000) in paragraph at lines 186--188
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--182
+Underfull \hbox (badness 10000) in paragraph at lines 145--192
 
  []
 
-[5] [6] [7] [8] (Estado_de_Arte.lof)
+[6] [7] [8] (Estado_de_Arte.lof)
 \tf@lof=\write5
 \openout5 = `Estado_de_Arte.lof'.
 
@@ -738,40 +738,41 @@ babelbib: Using the BibTeX style's default font for `numeral'.
 
 ] [11] (Estado_de_Arte.aux (include/CAPAREPORT.aux)) ) 
 Here is how much of TeX's memory you used:
- 8785 strings out of 480790
- 137668 string characters out of 2907055
- 536059 words of memory out of 3000000
- 24577 multiletter control sequences out of 15000+200000
- 554583 words of font info for 79 fonts, out of 3000000 for 9000
+ 8790 strings out of 480790
+ 137754 string characters out of 2907055
+ 539059 words of memory out of 3000000
+ 24581 multiletter control sequences out of 15000+200000
+ 554960 words of font info for 80 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,15n,51p,1019b,432s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,15n,51p,1240b,432s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\sergi\AppData\
 Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\sergi\Ap
 pData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\se
 rgi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Us
-ers\sergi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> 
-<C:\Users\sergi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm120
+ers\sergi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> 
+<C:\Users\sergi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcti120
 0.pk> <C:\Users\sergi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\e
-crm1095.pk> <C:\Users\sergi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dp
-i600\ecbx1095.pk> <C:\Users\sergi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen
-/ec/dpi600\ecbx1728.pk> <C:\Users\sergi\AppData\Local\MiKTeX\fonts/pk/ljfour/jk
-nappen/ec/dpi600\ecbx1200.pk> <C:\Users\sergi\AppData\Local\MiKTeX\fonts/pk/ljf
-our/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\sergi\AppData\Local\MiKTeX\fonts/
-pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\sergi\AppData\Local\MiKTeX\
-fonts/pk/ljfour/jknappen/ec/dpi600\ecti1440.pk> <C:\Users\sergi\AppData\Local\M
-iKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\sergi\AppData\L
-ocal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\sergi\App
-Data\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2074.pk><C:/Program Fi
-les/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/f
-onts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Program Files/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfont
-s/cm/cmmi12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.p
-fb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Progra
-m Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Estado_de_Arte.pdf (14 pages, 466301 bytes).
+cti1200.pk> <C:\Users\sergi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dp
+i600\ecrm1095.pk> <C:\Users\sergi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen
+/ec/dpi600\ecbx1095.pk> <C:\Users\sergi\AppData\Local\MiKTeX\fonts/pk/ljfour/jk
+nappen/ec/dpi600\ecbx1728.pk> <C:\Users\sergi\AppData\Local\MiKTeX\fonts/pk/ljf
+our/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\sergi\AppData\Local\MiKTeX\fonts/
+pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\sergi\AppData\Local\MiKTeX\
+fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\sergi\AppData\Local\M
+iKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1440.pk> <C:\Users\sergi\AppData\L
+ocal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\sergi\App
+Data\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\ser
+gi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2074.pk><C:/Prog
+ram Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Program Files/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/c
+mmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/
+Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on Estado_de_Arte.pdf (14 pages, 468071 bytes).
 PDF statistics:
- 466 PDF objects out of 1000 (max. 8388607)
+ 471 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

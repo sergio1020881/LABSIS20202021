@@ -69,22 +69,32 @@ Pelo mapa abaixo, podemos determinar os locais mais aptos para aplicar esta tecn
 \end{minipage}\\
 \\
 \\
+Mais energia pode ser coletada ao fim do dia se o Painel fotovoltaico tiver instalado um sistema de orientação solar, através de um atuador mecânico.\\
+Existe dois tipos de sistemas de orientação solar:\cite{book_2}
+\begin{enumerate}
+	\setlength\itemsep{-0.1em}
+	\item Sistema de um eixo, este segue o posicionamento do sol durante o dia de Este a Oeste.
+	\item Sistema de dois eixos, o mesmo que de um eixo mais a orientação Norte e Sul que tem  em consideração a influencia de inclinação provocada pelas estações do ano.
+\end{enumerate}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Estado da Arte}
+\qquad O projeto em causa pertence a disciplina de Laboratório de Sistemas que da continuidade as disciplinas de Sistemas Digitais, sendo o foco processadores, micro-controladores e {\it Fpga´s} (Field programmable arrays). Um Micro-controlador da {\it ATmel} é o que vai ser usado como o cérebro do sistema, o tipo de sistema de orientação vai ser de um eixo, um servo motor para simulação de posicionamento e dois sensores LDR (Light dependent resitor) ligados a uma ponte wheatstone e amplificador de instrumentação para ajusto fino. Um RTC (Real Time Clock) como ferramenta de posicionamento principal, disponível um override manual, sendo seus dados visíveis num LCD (Liquid crystal display), o motor a ser usado se for numa aplicação real seria de corrente continua com íman permanente \cite{book_1} de preferência, com uma caixa redutora e sem fim para que quando estivesse em estado de paragem poder se desligar sem perder sua posição, já que se sabe que a melhor maneira de poupar energia é não a gastar. Como o objetivo é obter o maior rendimento possível pretende-se não desperdiçar, se houve-se meio de não usar energia para seu posicionamento seria o ideal.\\
+No mundo das energias renováveis só é justificado sua implementação se for em grande escala pois seus rendimentos são baixos e intermitentes, e melhor ainda se os preços forem atrativos, a não ser que haja algum avanço tecnológico de relevo.\\
 \\
-%\begin{minipage}[t][10cm]{\linewidth}
-%	trial
-%\end{minipage}
-More energy is collected by the end of the day if the PV module is installed on a tracker with an actuator that follows the sun. There are two types of sun trackers:\\
-• One-axis tracker, which follows the sun from east to west during the day.\\
-• Two-axis tracker, which follows the sun from east to west during the day, and from north to south during the seasons of the year (Figure 9.18).\cite{book_2} \\
+
 
 A sun-tracking design can increase the energy yield up to 40\% over the year compared to the fixed-array design. Dual-axis tracking is done by two linear actuator motors, which follow the sun within one degree of accuracy (Figure 9.19). During the day, it tracks the sun east to west. At night it turns east to position itself for the next morning’s sun. Old trackers did this after sunset using a small nickel-cadmium battery. The new design eliminates the battery requirement by doing the turning in the weak light of the dusk and/or dawn. The Kelly cosine presented in Table 9.1 is useful in assessing accurately the power available in sunlight incident at extreme angles in the morning or evening. When a dark cloud obscures the sun, the tracker may aim at the next brightest object, which is generally the edge of a cloud. When the cloud is gone, the tracker aims at the sun once again, and so on and so forth. Such sun hunting is eliminated in newer sun trackers. \cite{book_2}\\
 
 \newpage
 
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.52]{./image/Sensor_Actuator_Principle.jpg}
-\caption{Principio de Funcionamento Sensor \cite{book_2}}
+	\centering
+	\includegraphics[scale=0.52]{./image/Sensor_Actuator_Principle.jpg}
+	\caption{Principio de Funcionamento Sensor \cite{book_2}}
 \end{figure}
 
 One method of designing the sun tracker is to use two PV cells mounted on two 45° wedges , and connecting them differentially in series through an actuator motor. When the sun is normal, the currents on both cells are equal to $I_o \cos (45^o)$. \\
@@ -133,7 +143,7 @@ $SOC = \frac{Ah capacity remaning in the battery}
 \newpage
 
 \begin{minipage}[t]{.60\linewidth}
-%	\quad List 1:
+	%	\quad List 1:
 	\begin{itemize}
 		\setlength\itemsep{-0.3em}
 		\item ET-BASE AVR ATmega128 \\
@@ -157,7 +167,7 @@ $SOC = \frac{Ah capacity remaning in the battery}
 	\end{itemize}
 \end{minipage}
 \begin{minipage}[t]{.31\linewidth}
-%	\quad List 2:
+	%	\quad List 2:
 	\begin{itemize}
 		\setlength\itemsep{-0.3em}
 		\item Model Craft RS-2 \- Servo Motor \\
@@ -216,8 +226,24 @@ $SOC = \frac{Ah capacity remaning in the battery}
 %\caption{Dimensões da Cultura Organizacional \cite{book_4}}
 %\end{figure}\par
 \newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Organização}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 %\begin{figure}[ht]
 %\begin{center}
 %\includegraphics[scale=0.5]{./image/ROQ/maquinas/ECO-P18_600x600-2-275x275.jpg}
