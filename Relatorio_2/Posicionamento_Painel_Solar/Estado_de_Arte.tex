@@ -92,15 +92,18 @@ Um dos métodos de orientação solar é usar duas células PV em serie com pola
 \end{figure}
 Assim o atuador mecânico (motor) recebe o diferencial da corrente fornecida, estando assim sempre orientado a fonte de luz. A corrente no motor é dada pela expressão \; $I_m = I_1 - I_2 = 2 I_o \; \delta \; \sin (45^o) = \sqrt{2} \; I_o \; \delta \; se \; \delta \; é \; em \; radianos$. \cite{book_2} \\
 \\
-No Projeto usado não vai ser utilizado este método mas um análogo utilizando dois sensores LDR também em serie e a $45^o$ um do outro dando uma saída proporcional ao desfasamento da fonte de luz e utilizado apenas para ajuste fino, já que o posicionamento vai ser sincronizado pelo RTC (relógio), já existe algoritmos criados usando os parâmetros de localização e tempo que nos fornece os dados do local exato da posição do sol, sendo desnecessário a utilização de sensores, aqui este projeto é flexível pois ja entrega um relógio RTC (Real time clock) com calendário de atualização automática.
+No Projeto não vai ser usado este método mas um análogo utilizando dois sensores LDR também em serie e a $45^o$ um do outro dando uma saída proporcional ao desfasamento da fonte de luz apenas para ajuste fino, já que o posicionamento vai ser sincronizado pelo RTC (relógio), já existe algoritmos criados usando os parâmetros de localização e tempo que nos fornece os dados do local exato da posição do sol, sendo desnecessário a utilização de sensores, aqui este projeto é flexível pois já íntegra um relógio RTC (Real time clock) com calendário de atualização automática.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
+\section{Equipamento}
+{\Large O equipamento do projeto esta abaixo descrito:}\\
+\\
 \begin{minipage}[t]{.60\linewidth}
 	%	\quad List 1:
 	\begin{itemize}
 		\setlength\itemsep{-0.3em}
 		\item ET-BASE AVR ATmega128 \\
-		Mainboard com MCU atmega 128 da ETT. \\
+		Mainboard com MCU Atmega 128 da ETT. \\
 		\item LDR - Light Controlled Resistor \\
 		Dark resistance 1M.\\
 		40k at 10 lux.\\
@@ -133,7 +136,7 @@ No Projeto usado não vai ser utilizado este método mas um análogo utilizando 
 		Stall Torque (4.8V):\\
 		42 oz/in (3.0 kg/cm) \\
 		\item PCF8563 RTC Board \\
-		Real-time clock/calendar function. \\ 
+		Real-time clock/calendar. \\ 
 		Battery on board. \\
 		I2C communication. \\
 		\item KEYPAD4X4W \\
@@ -142,9 +145,21 @@ No Projeto usado não vai ser utilizado este método mas um análogo utilizando 
 \end{minipage}\\
 {\it https://www.ptrobotics.com/} \\
 {\it https://www.futurlec.com/index.shtml} \\
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
-\section{Equipamento}
+\\
+\begin{figure}[H]
+\includegraphics[scale=0.135]{./image/img/KIT.jpg} \hspace{.2cm}
+\includegraphics[scale=0.135]{./image/img/InstAmpSen_1.jpg} \\
+\end{figure}
+\begin{figure}[H]
+\begin{center}
+\flushleft
+\includegraphics[scale=0.1]{./image/img/RTC_1.jpg} \hspace{1.5cm}
+\includegraphics[scale=0.1]{./image/img/HC595_2.jpg} \\
+\vspace*{.5cm}
+\includegraphics[scale=0.1]{./image/img/ServMot_1.jpg}
+\caption{Kit Desenvolvimento}
+\end{center}
+\end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
