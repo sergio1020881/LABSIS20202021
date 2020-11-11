@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.25)  9 NOV 2020 20:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.25)  11 NOV 2020 17:47
 entering extended mode
 **./Estado_de_Arte.tex
 (Estado_de_Arte.tex
@@ -761,8 +761,17 @@ File: ./image/img/ServMot_1.jpg Graphic file (type jpg)
 Package pdftex.def Info: ./image/img/ServMot_1.jpg  used on input line 159.
 (pdftex.def)             Requested size: 169.94482pt x 215.11623pt.
 [4 <./image/img/KIT.jpg> <./image/img/InstAmpSen_1.jpg>] [5 <./image/img/RTC_1.
-jpg> <./image/img/HC595_2.jpg> <./image/img/ServMot_1.jpg>] [6]
-(Estado_de_Arte.lof)
+jpg> <./image/img/HC595_2.jpg> <./image/img/ServMot_1.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 168--175
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 168--175
+
+ []
+
+[6] (Estado_de_Arte.lof)
 \tf@lof=\write5
 \openout5 = `Estado_de_Arte.lof'.
 
@@ -785,12 +794,12 @@ babelbib: Using the BibTeX style's default font for `numeral'.
 ] [9] (Estado_de_Arte.aux (include/CAPAREPORT.aux)) ) 
 Here is how much of TeX's memory you used:
  8821 strings out of 480790
- 138211 string characters out of 2907055
+ 138497 string characters out of 2907055
  539059 words of memory out of 3000000
  24606 multiletter control sequences out of 15000+200000
  554960 words of font info for 80 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,15n,51p,754b,435s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,15n,51p,816b,435s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\sergi\AppData\L
 ocal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\sergi\App
 Data\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\ser
@@ -817,9 +826,9 @@ lic/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts
 /cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb
 ><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program F
 iles/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Estado_de_Arte.pdf (12 pages, 5894300 bytes).
+Output written on Estado_de_Arte.pdf (12 pages, 5898011 bytes).
 PDF statistics:
- 492 PDF objects out of 1000 (max. 8388607)
+ 499 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
