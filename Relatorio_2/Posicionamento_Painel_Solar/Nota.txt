@@ -1,0 +1,3 @@
+pandoc -s -o output.html input.txt
+
+
