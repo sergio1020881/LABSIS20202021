@@ -1,0 +1,9 @@
+pandoc -s -o output.html input.txt
+
+
+pandoc  --standalone index.html --output index.tex
+
+
+
+
+

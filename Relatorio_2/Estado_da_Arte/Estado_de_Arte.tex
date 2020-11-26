@@ -1,0 +1,267 @@
+\input{./input/PREAMBLEREPORT}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%\bibliographystyle{apacite}
+\bibliographystyle{babplain}
+%\bibliographystyle{bstfilename}
+%%%%%%%%%%%%%FIX SECTION NUMBERING IN CASE REPORT%%%%%%%%%%%%%%%%
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesection.\thesubsection.\arabic{subsubsection}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{./include/CAPAREPORT}
+\tableofcontents
+\appendix
+\pagestyle{plain} %plain headings empty
+%\setcounter{chapter}{0}
+%\numberwithin{page}{section}
+%\renewcommand{\abstractname}{Executive Summary}
+\setlength{\parindent}{0in}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\label{Resumo}
+\begin{abstract}
+\qquad O projeto que se pretende fazer é um sistema de posicionamento de painel fotovoltaico para obter maior rendimento de produção de energia, já que é conhecido que se pode tirar proveito até 40\%. \\
+\\
+O objetivo é desenvolver um meio de controlo tendo em mente ser um sistema \textcolor{blue}{Stand Alone} de tamanho considerável, o trabalho não vai ser concentrado ao redor do painel fotovoltaico em si e suas características ou modos de funcionamento, mas apenas o sistema de {\bf \textcolor{blue}{Sun Track}}, também supondo que tem baterias de carga com o intuito que o sistema possa ser autónomo. \\
+\\
+O projeto é apenas académico e de simulação em escala pequena ou de bancada.
+\\
+\vspace{18cm}\\
+\textbf{Palavras Chave:} Sensores, Componentes, Motores
+\end{abstract}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Introdução}
+\qquad Os painéis fotovoltaicos é uma tecnologia que transforma energia solar (Luz) em eletricidade DC, a primeira célula fotovoltaica foi criada em 1954 e depois aplicado na industria espacial, a combinação de células em serie e paralelo determina sua diferença de potencial e potencia.\cite{article_1}\\
+\\
+Ao primeiro esta tecnologia foi vista como uma curiosidade e depois como uma possibilidade, após o preço de construção ter diminuído é que começou a entrar no mercado, isto aconteceu a partir dos anos 70, quando se estava a atravessar uma crise energética.\cite{article_1}\\
+\\
+Abaixo esta os tipos conhecidos de possíveis montagens.\\
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{./image/Mount_Method.jpg}
+\caption{Tipos de Montagem \cite{book_2}}
+\end{figure}
+Pelo mapa abaixo, podemos determinar os locais mais aptos para aplicar esta tecnologia, Portugal como vemos não é das mais favoravies, também notamos que onde passa a linha de equador é onde podemos tirar maior proveito, ou seja maior {$\bf KW/m^2$}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{./image/World_Solar_Radiation.jpg}
+	\caption{Radiação solar por região mundial \cite{book_2}}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\qquad Os painéis fotovoltaicos tem vários parâmetros que determinam sua eficiência, a temperatura de funcionamento, otimização da carga, sua orientação e até limpeza são alguns pormenores, este estado de arte apenas é uma tentativa de melhor garantir tirar maior proveito da energia coletada pelo meio de orientação.\\
+\\
+\fbox{
+\begin{minipage}{0.5\linewidth}\vspace{0pt}
+\begin{figure}[H]
+	\includegraphics[scale=0.6]{./image/Graph/Anualkwh_1.jpg}
+	\caption{Resposta a inclinação}
+\end{figure}
+\end{minipage}
+}
+\hspace{0.2cm}
+\begin{minipage}[!t]{0.5\linewidth}
+\flushleft
+ Neste gráfico podemos ver um exemplo da diferença entre o rendimento de sistemas sem controlo de orientação, orientação parcial e total.\\
+\vspace{7cm}
+\end{minipage}\\
+\\
+\\
+Mais energia pode ser coletada ao fim do dia se o Painel fotovoltaico tiver instalado um sistema de orientação solar, através de um atuador mecânico.\\
+Existe dois tipos de sistemas de orientação solar:\cite{book_2}
+\begin{enumerate}
+	\setlength\itemsep{-0.1em}
+	\item Sistema de um eixo, este segue o posicionamento do sol durante o dia de Este a Oeste.
+	\item Sistema de dois eixos, o mesmo que de um eixo mais a orientação Norte e Sul que tem  em consideração a influencia de inclinação provocada pelas estações do ano.
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Estado da Arte}
+\qquad O projeto em causa pertence a disciplina de Laboratório de Sistemas que da continuidade as disciplinas de Sistemas Digitais, sendo o foco processadores, micro-controladores e {\it Fpga´s} (Field programmable arrays). Um Micro-controlador da {\it ATmel} é o que vai ser usado como o cérebro do sistema, o tipo de sistema de orientação vai ser de um eixo, um servo motor para simulação de posicionamento e dois sensores LDR (Light dependent resitor) ligados a uma ponte wheatstone e amplificador de instrumentação para ajusto fino. Um RTC (Real Time Clock) como ferramenta de posicionamento principal, disponível um override manual, sendo seus dados visíveis num LCD (Liquid crystal display). \\
+\\
+O motor a ser usado se for numa aplicação real seria de corrente continua de preferência com íman permanente \cite{book_1} , com uma caixa redutora e sem fim para que quando estivesse em estado de paragem poder se desligar sem perder sua posição, já que se sabe que a melhor maneira de poupar energia é não a gastar. Como o objetivo é obter o maior rendimento possível pretende-se não haver desperdício, se houve-se meio de não usar energia para seu posicionamento seria o ideal.\\
+No mundo das energias renováveis só é justificado sua implementação se for em grande escala pois seus rendimentos são baixos e intermitentes, e melhor ainda se os preços forem atrativos, a não ser que haja algum avanço tecnológico de relevo.\\
+\\
+O sistema de posicionamento pode aumentar a energia acumulada até 40\% durante o ano comparado com os sistemas fixos, durante o dia o painel acompanha a posição dos sol de Este para Oeste e durante a noite regressa a posição Este para o dia seguinte, os sistemas antigos tinham uma bateria para esta operação depois do pôr do sol, os novos modelos já não utilizam bateria mas usam a luz fraca do por do sol para regressar a origem. \cite{book_2} \\
+\\
+Um dos métodos de orientação solar é usar duas células PV em serie com polarização oposta em ângulo de $45^o$ como demonstrado na figura:
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.52]{./image/Sensor_Actuator_Principle.jpg}
+	\caption{Principio de Funcionamento Sensor \cite{book_2}}
+\end{figure}
+Assim o atuador mecânico (motor) recebe o diferencial da corrente fornecida, estando assim sempre orientado a fonte de luz. A corrente no motor é dada pela expressão \; $I_m = I_1 - I_2 = 2 I_o \; \delta \; \sin (45^o) = \sqrt{2} \; I_o \; \delta \; se \; \delta \; é \; em \; radianos$. \cite{book_2} \\
+\\
+No Projeto não vai ser usado este método mas um análogo utilizando dois sensores LDR também em serie e a $45^o$ um do outro dando uma saída proporcional ao desfasamento da fonte de luz apenas para ajuste fino, já que o posicionamento vai ser sincronizado pelo RTC (relógio), já existe algoritmos criados usando os parâmetros de localização e tempo que nos fornece os dados do local exato da posição do sol, sendo desnecessário a utilização de sensores, aqui este projeto é flexível pois já íntegra um relógio RTC (Real time clock) com calendário de atualização automática.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Equipamento}
+{\Large O equipamento do projeto esta abaixo descrito:}\\
+\\
+\begin{minipage}[t]{.60\linewidth}
+	%	\quad List 1:
+	\begin{itemize}
+		\setlength\itemsep{-0.3em}
+		\item ET-BASE AVR ATmega128 \\
+		Mainboard com MCU Atmega 128 da ETT. \\
+		\item LDR - Light Controlled Resistor \\
+		Dark resistance 1M.\\
+		40k at 10 lux.\\
+		Max voltage 100V.\\
+		Max power 80mW.\\
+		\item INA128PA - Instrumentation Amplifier \\
+		Banda de transmissão: 1.3MHz \\
+		Montagem: THT \\
+		Número de canais: 1 \\
+		Carcaça: DIP8 \\
+		Rapidez de subida de tensão: 4V / $\mu$ s \\
+		Temperatura de trabalho: -40...85°C \\
+		Entradas de tensão instável: 0.025mV \\
+		Tensão de trabalho: 2.25...18V \\
+		\item LCD 20x4 Blue NHD-0420DZ-NSW-BBW \\
+		4x20 Characters HD44780 compatible\\
+	\end{itemize}
+\end{minipage}
+\begin{minipage}[t]{.31\linewidth}
+	%	\quad List 2:
+	\begin{itemize}
+		\setlength\itemsep{-0.3em}
+		\item Model Craft RS-2 \- Servo Motor \\
+		Control System:\\
+		+Pulse Width Control 1500 $\mu$ sec \\
+		Operating Voltage:\\ 
+		4.8-6.0 Volts \\
+		Operating Speed (4.8V):\\
+		0.19sec/60° at no load \\
+		Stall Torque (4.8V):\\
+		42 oz/in (3.0 kg/cm) \\
+		\item PCF8563 RTC Board \\
+		Real-time clock/calendar. \\ 
+		Battery on board. \\
+		I2C communication. \\
+		\item KEYPAD4X4W \\
+		16 Button Keypad switch. \\
+	\end{itemize}
+\end{minipage}\\
+{\it https://www.ptrobotics.com/} \\
+{\it https://www.futurlec.com/index.shtml} \\
+\\
+\begin{figure}[H]
+\includegraphics[scale=0.135]{./image/img/KIT.jpg} \hspace{.2cm}
+\includegraphics[scale=0.135]{./image/img/InstAmpSen_1.jpg} \\
+\end{figure}
+\begin{figure}[H]
+\begin{center}
+\flushleft
+\includegraphics[scale=0.1]{./image/img/RTC_1.jpg} \hspace{1.5cm}
+\includegraphics[scale=0.1]{./image/img/HC595_2.jpg} \\
+\vspace*{.5cm}
+\includegraphics[scale=0.1]{./image/img/ServMot_1.jpg}
+\caption{Kit Desenvolvimento}
+\end{center}
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Conclusões}
+\qquad O sistema de posicionamento fotovoltaico tem diversas soluções de diferentes Impressas que apostam nas energias renováveis, diferentes métodos na parte mecânica e elétrica, como esta disciplina pertence na área digital, considero importante a manipulação dos {\it datasheets} dos componentes e o código, manipular o hardware unicamente por programação através de uma camada de interface [API] acho de maior importância pois cria uma abstração dos problemas que podemos enfrentar e os resolver seguindo uma metodologia sintática, sendo possível o manipular para fazer o que é requerido e desejado. Através do código podemos alterar, modificar e adaptar qualquer projeto ao mundo exterior usando uma linguagem de nível alto ou médio com facilidade.\\
+\\
+Dai este projeto pode ser atualizado a qualquer altura acrescentando funcionalidades e dispositivos que possam beneficiar sua performance, caso necessário.\\
+\\
+Este projeto esta online no link descrito: \\ {\it \textcolor{green}{https://github.com/sergio1020881/LABSIS20202021/tree/main/Relatorio\_2}},\\
+tudo que é necessário para o desenvolver e executar esta ao dispor, O programa usado foi o {\bf Atmel Studio 7} basta fazer download, compilar e programar o chip [ATmega128], e depois ligar os periféricos respeitando as ligações.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Figuras Bibliografia Index
+\listoffigures
+\cite{*}
+\bibliography{./bibliography/Bibliography}
+%\printindex
+\newpage
+\footnote{Apontamento}
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+\textcolor{orange}{O}pportunity (oportunidades)
+\textcolor{purple}{I}nterno
+The battery stores energy in an electrochemical form and is the most widely used device for energy storage in a variety of applications. The electrochemical energy is in a semiordered form, which is in between the electrical and thermal forms. It has a one-way conversion efficiency of 85 to 90\%.
+There are two basic types of electrochemical batteries:
+The primary battery, which converts chemical energy into electric energy.\\
+The electrochemical reaction in a primary battery is nonreversible, and the battery is discarded after a full discharge. For this reason, it finds applica- tions where a high energy density for one-time use is required.
+The secondary battery, which is also known as the rechargeable battery.
+The electrochemical reaction in the secondary battery is reversible. After a discharge, it can be recharged by injecting a direct current from an external source. This type of battery converts chemical energy into electric energyin the discharge mode. In the charge mode, it converts the electric energy into chemical energy. In both modes, a small fraction of energy is converted into heat, which is dissipated to the surrounding medium. The round-trip conversion efficiency is between 70 and 80\%.
+The internal construction of a typical electrochemical cell is shown in Figure 10.1. It has positive and negative electrode plates with insulating separators and a chemical electrolyte in between. The two groups of electrode plates are connected to two external terminals mounted on the casing. The cell stores electrochemical energy at a low electrical potential, typically a few volts. The cell capacity, denoted by C , is measured in ampere-hours (Ah), meaning it can deliver C A for one hour or C / n A for n hours.
+The battery is made of numerous electrochemical cells connected in a series–par-allel combination to obtain the desired battery voltage and current. The higher the battery voltage, the higher the number of cells required in series. The battery rating is stated in terms of the average voltage during discharge and the ampere-hour capacity it can deliver before the voltage drops below the specified limit. The product of the voltage and ampere-hour forms the watthour (Wh) energy rating the battery
+can deliver to a load from the fully charged condition. The battery charge and discharge rates are stated in units of its capacity in Ah. For example, charging a 100-Ah battery at C
+/10 rate means charging at 100/10 = 10 A. Discharging that
+battery at C /2 rate means drawing 100/2 = 50 A, at which rate the battery will be fully discharged in 2 h. The state of charge ( SOC ) of the battery at any time is defined as the following:
+FIGURE 10.1
+Electrochemical energy storage cell construction.
+$SOC = \frac{Ah capacity remaning in the battery}
+{Rated Ah capacity}$
+%\vspace{1cm}
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale=.6]{./image/OB/Culture.jpg}\\
+%\caption{Inquérito do tipo de Cultura Organizacional \cite{article_1}}
+%\end{figure}\par
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale=.35]{./image/OB/Ogbonna_Harris.jpg}\\
+%\caption{Modelo Ogbonna \& Harris \cite{article_1}}
+%\label{Modelo}
+%\end{figure}\par
+%\vspace{1cm}\\
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale=.5]{./image/OB/Leadership.jpg}\\
+%\caption{Inquérito do Estilos de Liderança \cite{article_1}}
+%\end{figure}\par
+%\begin{figure}[ht]
+%\begin{center}
+%\includegraphics[scale=0.5]{./image/ROQ/maquinas/ECO-P18_600x600-2-275x275.jpg}
+%\includegraphics[scale=0.5]{./image/ROQ/maquinas/EVO-600x600-275x275.jpg}
+%\includegraphics[scale=0.5]{./image/ROQ/maquinas/nanop10-275x275.jpg}
+%\includegraphics[scale=0.5]{./image/ROQ/maquinas/NEXTP18-600x6001-275x275.jpg}
+%\includegraphics[scale=0.5]{./image/ROQ/maquinas/PRO-600x600-275x275.jpg}
+%\includegraphics[scale=0.5]{./image/ROQ/maquinas/You-600x600-275x275}
+%\end{center}
+%\caption{Produtos Principais}
+%\end{figure}
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale=0.52]{./image/OB/OB_contributions.jpg}
+%\caption{Contribuições para OB \cite{book_2}}
+%\end{figure}
+%\cite{book_10}\\
+%\begin{figure}[H]
+%\begin{minipage}{0.3\linewidth}
+%\flushleft
+%\includegraphics[scale=0.30]{./image/OB/OB_MUltilevelmodelCulture.jpg}
+%\end{minipage}
+%\hspace{1cm}
+%\begin{minipage}{0.4\linewidth}
+%\flushleft
+%\includegraphics[scale=0.44]{./image/OB/Hofstede_pt}
+%\end{minipage}
+%\caption{Modelo de Multi-níveis \cite{book_11} da cultura e Modelo Hofstede, Portugal}
+%\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\textcolor{blue}{Visão} e seus \textcolor{blue}{Valores}.\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\textcolor{blue}{missão} 
+%\begin{figure}[H]
+%\flushleft
+%\captionsetup{justification=raggedright,singlelinecheck=false}
+%\includegraphics[scale=0.4]{./image/OB/OC_Dimensions.jpg}
+%\caption{Dimensões da Cultura Organizacional \cite{book_4}}
+%\end{figure}\par
+\end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%END%%%END%%%END%%%END%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
