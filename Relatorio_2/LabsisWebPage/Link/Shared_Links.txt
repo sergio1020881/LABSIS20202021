@@ -1,0 +1,13 @@
+Datasheet Atmega28L:
+
+https://drive.google.com/file/d/1KPEKnF4J-fjG6dQ2Y7R2Xjqz8o8PnUwU/view?usp=sharing
+
+Datasheet PCF8563:
+
+https://drive.google.com/file/d/1kNUhLnPjzuBvvHeEddS8pxQpXWmrj9dW/view?usp=sharing
+
+
+Datasheet INA128:
+
+https://drive.google.com/file/d/11SjXBlMGSuONgVlr12jhFOHGfcWbJYRh/view?usp=sharing
+
