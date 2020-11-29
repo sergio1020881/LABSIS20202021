@@ -384,8 +384,9 @@
 			</P>
 		</TD>
 	</TR>
-	<!-- ***IMAGE with linked video*** -->
     <BR/>
+	<!-- ***MENU 0*** -->
+	<!-- ***Video & Image with link *** -->
 	<TR>
       	<TD COLSPAN=1 WIDTH=10% BGCOLOR="#eeeeee">
       		</TD>
@@ -456,7 +457,10 @@
 	<TR>
 		<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
 			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; border: none; padding: 0cm">
-			  	Introducao
+			  	Explicar do que consist o projecto <br/>
+				Apresentacao <br/>
+				objectivos <br/>
+				Tipos de technolgias (estado da arte)
 			</P>
 			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; background: #eeeeee">
 				<BR>
@@ -510,9 +514,17 @@
 	<TR>
 		<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
 			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; border: none; padding: 0cm">
+				Diagrama de blocos 
+				<br/>
+
+				
+				
 
 
 
+
+        	</P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm">
 				O <b> CPU </b> (Unidade Central de Processamento) dos microcontroldores da Atmel de 8 e 32 bits s\~{a}o baseados na arquitetura avan\c{c}ada de {\bf Harvard} na qual esta concebido para baixos consumos e performance. \par
 				Este tipo de arquitetura tem dois  busses (barramentos) um dedicado a leitura das instruções a executar e outra para escrita e leitura de data (informa\c{c}\~{a}o ou dados), isto assegura que uma nova instru\c{c}\~{a}o pode ser executada em cada ciclo de rel\'{o}gio, na qual elimina estados de espera quando n\~{a}o ha instru\c{c}\~{o}es prontas a executar. \par
 				Nos microcontroladores da AVR os barramentos est\~{a}o configurados de forma a dar prioridade ao barramento das instru\c{c}\~{o}es do CPU acesso a memoria flash enquanto o barramento da CPU de dados tem prioridade de acesso a {\bf SRAM} (Static Random Access Memory). \par
@@ -521,18 +533,15 @@
 				Os microcontroladores da AVR utiliza uma arquitetura de instru\c{c}\~{o}es {\bf RISC} (Reduced Instruction Set Computer ou Reduced COMPLEXITY Instruction Set Computer) na qual reduz a complexidade dos circuitos na codifica\c{c}\~{a}o de cada instru\c{c}\~{a}o. \par
 				Dai que os microcontroladores que se baseiam nestes tipos de arquitetura s\~{a}o sinonimo de c\'{o}digo reduzido, alta performance e baixo consumo energ\'{e}tico \par
 
-
-
-
-
-        	</P>
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm"><BR><BR>
-			  	<img src="image/arquitecture/Harvard_architecture.png" width="450">
+			  	
 			</P>
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm"><BR><BR>
-			  	Arquitetura
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm">
+				<BR>
+				<BR>
+				<img src="image/arquitecture/Harvard_architecture.png" width="450">
 			</P>
-			<P ALIGN=LEFT><BR>
+			<P ALIGN=LEFT>
+				<BR>
 		    	Arquitetura
 			</P>
 		</TD>
@@ -575,10 +584,41 @@
 	<!-- ***Hardware*** -->
 	<TR>
 		<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; border: none; padding: 0cm">
-				<BR/>
-				<BR/>
-			</P>
+			<p>
+				Explicar chip usado e suas configuracões dos fuse bits
+				<br/>
+				pecas
+				<br/>
+				componentes
+				<br/>
+				esquemas
+				<br/>
+				pcb 
+				<br/>
+
+			</p>
+			<BR/>
+			<table>
+				<tr>
+					<td WIDTH=45% VALIGN=TOP>
+						<p>
+							explicar programdor usado e fichas de comunicacao ISP
+						</p>
+					</td>
+					<td WIDTH=25% VALIGN=TOP>
+						<IMG SRC="image/software/programmer/Atmel_Ice.png" NAME="ISP_6PIN" ALIGN=BOTTOM HEIGHT=275 BORDER=0>
+					</td>
+					<td WIDTH=20% VALIGN=TOP>
+						<div>
+							<IMG SRC="image/software/ISP_JTAG/isp_6pin.png" NAME="ISP_6PIN" ALIGN=BOTTOM HEIGHT=125 BORDER=0>
+						</div>
+						<BR/>
+						<div>
+							<IMG SRC="image/software/ISP_JTAG/isp_connector.png" NAME="ISP_CONNECTOR" ALIGN=BOTTOM HEIGHT=125 BORDER=0>
+						</div>
+					</td>
+				</tr>
+			</table>
 			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm">
 			  	<BR/>
 				<BR/>
@@ -589,17 +629,17 @@
 			</P>
 			<P ALIGN=LEFT>
 				<div>
-					<img src="image/hardware/chips_1.jpg" width="450">
-					<img src="image/hardware/DevBoard_1.jpg" width="450">
-					<img src="image/hardware/DevBoard_2.jpg" width="450">
-					<img src="image/hardware/ESP8266_1.jpg" width="450">
-					<img src="image/hardware/HC595_1.jpg" width="450">
-					<img src="image/hardware/HC595_2.jpg" width="450">
-					<img src="image/hardware/INA128_1.jpg" width="450">
-					<img src="image/hardware/Kit_1.jpg" width="450">
-					<img src="image/hardware/PCF8563_1.jpg" width="450">
-					<img src="image/hardware/Power_Supply_1.jpg" width="450">
-					<img src="image/hardware/RS2_1.jpg" width="450">
+					<img src="image/hardware/chips_1.jpg" width="150">
+					<img src="image/hardware/DevBoard_1.jpg" width="150">
+					<img src="image/hardware/DevBoard_2.jpg" width="150">
+					<img src="image/hardware/ESP8266_1.jpg" width="150">
+					<img src="image/hardware/HC595_1.jpg" width="150">
+					<img src="image/hardware/HC595_2.jpg" width="150">
+					<img src="image/hardware/INA128_1.jpg" width="150">
+					<img src="image/hardware/Kit_1.jpg" width="150">
+					<img src="image/hardware/PCF8563_1.jpg" width="150">
+					<img src="image/hardware/Power_Supply_1.jpg" width="150">
+					<img src="image/hardware/RS2_1.jpg" width="150">
 				</div>
 			</P>
 		</TD>
@@ -646,14 +686,10 @@
 				<BR/>
 				Programa:
 				<BR/>
-				<A HREF="https://github.com/sergio1020881/LABSIS20202021/tree/main/Relatorio_2/Projecto/SunTrack" target="_blank">
+				<A HREF="https://microchipdeveloper.com/atstudio:studio7intro" target="_blank">
 					<IMG SRC="image/software/Atmel_Studio_7_1.bmp" NAME="Atmel Studio 7" ALIGN=BOTTOM HEIGHT=100 BORDER=0>
 				</A>
 				<BR/>
-				Programador:
-				<BR/>
-				<IMG SRC="image/software/ISP_JTAG/isp_6pin.png" NAME="ISP_6PIN" ALIGN=BOTTOM HEIGHT=125 BORDER=0>
-				<IMG SRC="image/software/ISP_JTAG/isp_connector.png" NAME="ISP_CONNECTOR" ALIGN=BOTTOM HEIGHT=125 BORDER=0>
 			</P>
 			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm">
 			  	<BR/>
@@ -723,6 +759,7 @@
 		<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
 			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; border: none; padding: 0cm">
 			  	<BR/>
+				  evidencias, imagens, fotografias, videos
 				<BR/>
 			</P>
 			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm">
@@ -778,6 +815,7 @@
     	<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
         	<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; border: none; padding: 0cm">
           		<BR/>
+				  objectivos compridos, alternativas e melhorias.
           		<BR/>
         	</P>
        		<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm">
@@ -842,7 +880,7 @@
             <a href="Pages/page_8.html"><span> Page 8 </span></a>
 		</TD>
 	</TR>
-    <!-- ***********************Menu 7***************************** -->
+    <!-- ***Menu 7*** -->
 	<TR VALIGN=TOP>
 		<TD COLSPAN=5 WIDTH=94%>
 			<UL>
@@ -919,7 +957,7 @@
 		    		. CRC Press, 2008.
 	  			</SPAN>
 	  		</P>
-			  <P STYLE="margin-bottom: 0.5cm">
+			<P STYLE="margin-bottom: 0.5cm">
 				<A NAME="_Ref3">
 				</A>
 				<SPAN LANG="en-US">
@@ -932,6 +970,23 @@
 					<SPAN STYLE="text-decoration: none">
 						<SPAN LANG="en-US">
 							https://science.nasa.gov/science-news/science-at-nasa/2002/solarcells
+						</SPAN>
+					</SPAN>
+				</A>
+			</P>
+			<P STYLE="margin-bottom: 0.5cm">
+				<A NAME="_Ref4">
+				</A>
+				<SPAN LANG="en-US">
+					[4]
+				</SPAN>
+	  			<SPAN LANG="en-US">
+					app.diagrams.net;
+  				</SPAN>
+				<A HREF="https://app.diagrams.net/" target="_blank">
+					<SPAN STYLE="text-decoration: none">
+						<SPAN LANG="en-US">
+							https://app.diagrams.net/
 						</SPAN>
 					</SPAN>
 				</A>
