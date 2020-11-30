@@ -6,8 +6,3 @@ Datasheet PCF8563:
 
 https://drive.google.com/file/d/1kNUhLnPjzuBvvHeEddS8pxQpXWmrj9dW/view?usp=sharing
 
-
-Datasheet INA128:
-
-https://drive.google.com/file/d/11SjXBlMGSuONgVlr12jhFOHGfcWbJYRh/view?usp=sharing
-
