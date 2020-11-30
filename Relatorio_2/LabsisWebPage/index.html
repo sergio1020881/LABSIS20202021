@@ -684,12 +684,12 @@
 		<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
 			<!-- <p ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; background: #eeeeee"> -->
 			<section><h2><b>Programa</b></h2>
-				<div style="color:green;margin-right:1.25em; display:inline-block;">
+				<div style="color:green;margin-right:1.25em; margin-left: 20px; display:inline-block;">
 					<A HREF="https://www.microchip.com/mplab/microchip-studio" target="_blank">
 						<IMG SRC="image/software/Atmel_Studio_7_1.bmp" NAME="Atmel Studio 7" ALIGN=BOTTOM HEIGHT=200 BORDER=0>
 					</A>
 				</div>
-				<div style="color:black;margin-right:1.25em; display:inline-block; width: 22cm;">
+				<div style="color:black;margin-right:1.25em; margin-left: 20px; display:inline-block; width: 22cm;">
 					<p>
 						<pe>
 						O programa utilizado para executar este projecto foi o Atmel Studio 7 (Version: 7.0.2397), 2019 Microship Technology. Inc. <br>
@@ -726,11 +726,9 @@
 				&nbsp;
 				<p ALIGN=LEFT style="margin-left: 20px">
 					Acima demonstra a metodolgia usada para execução do Programa Principal, 
-					as subrotinas, isto é os programas 1 até 3 obedecem a mesma estrutura, 
-					que esta indicado abaixo, em que o <b>program 1</b> e <b>program 2</b> 
-					não tem os dois blocos iniciais, o de preamble routines e READ INPUTS 
-					pois partilha esses blocos com o Programa Principal. Também de notar 
-					que o bloco <b>READ INPUTS</b> inplica sinais de entrada na qual pode vir de 
+					as subrotinas, isto é os <it>programas 1 até 3</it> obedecem a mesma estrutura, 
+					que esta indicado abaixo, em que o bloco READ INPUTS é partilhado com o Programa Principal.
+					Também de notar que o bloco <b>READ INPUTS</b> inplica sinais de entrada na qual pode vir de 
 					qualquer origem, isto é também pode ser leituras de saidas, uart, i2c, etc. 
 					Outro pormenor é que só são aceites leituras diferentas das lidas anteriormente,
 					assim não existe redúndancia e o programa flui de forma <b>One Shot</b> podendo
@@ -741,7 +739,7 @@
 					Assim temos um sistema escalavel (<it><b>"recursion"</b></it>) e de fácil manuseamento.
 					<BR/>
 					<p ALIGN=CENTER>
-						<IMG SRC="image/fluxograma/flowchart_general.gif" NAME="flowchart_general" ALIGN=TOP HEIGHT=350 BORDER=0>
+						<IMG SRC="image/fluxograma/flowchart_general_2.gif" NAME="flowchart_general" ALIGN=TOP HEIGHT=350 BORDER=0>
 					</p>
 				</p>
 
