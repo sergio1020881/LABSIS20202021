@@ -456,21 +456,21 @@
 	<!-- ***Introducao*** -->
 	<TR>
 		<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; border: none; padding: 0cm">
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; border: none; padding: 0cm">
 			  	Explicar do que consist o projecto <br/>
 				Apresentacao <br/>
 				objectivos <br/>
 				Tipos de technolgias (estado da arte)
 			</P>
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; background: #eeeeee">
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; background: #eeeeee">
 				<BR>
 				<BR>
 				Introducao
 			</P>
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm"><BR><BR>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px;"><BR><BR>
 				Introducao
 			</P>
-			<P ALIGN=LEFT>
+			<P ALIGN=LEFT margin-left: 20px;>
           		<BR/>
 			</P>
 		</TD>
@@ -513,7 +513,7 @@
 	<!-- ***Arquitectura*** -->
 	<TR>
 		<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; border: none; padding: 0cm">
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; border: none; padding: 0cm">
 				Diagrama de blocos 
 				<br/>
 
@@ -524,7 +524,7 @@
 
 
         	</P>
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm">
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px;">
 				O <b> CPU </b> (Unidade Central de Processamento) dos microcontroldores da Atmel de 8 e 32 bits s\~{a}o baseados na arquitetura avan\c{c}ada de {\bf Harvard} na qual esta concebido para baixos consumos e performance. \par
 				Este tipo de arquitetura tem dois  busses (barramentos) um dedicado a leitura das instruções a executar e outra para escrita e leitura de data (informa\c{c}\~{a}o ou dados), isto assegura que uma nova instru\c{c}\~{a}o pode ser executada em cada ciclo de rel\'{o}gio, na qual elimina estados de espera quando n\~{a}o ha instru\c{c}\~{o}es prontas a executar. \par
 				Nos microcontroladores da AVR os barramentos est\~{a}o configurados de forma a dar prioridade ao barramento das instru\c{c}\~{o}es do CPU acesso a memoria flash enquanto o barramento da CPU de dados tem prioridade de acesso a {\bf SRAM} (Static Random Access Memory). \par
@@ -535,12 +535,12 @@
 
 			  	
 			</P>
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm">
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px;">
 				<BR>
 				<BR>
 				<img src="image/arquitecture/Harvard_architecture.png" width="450">
 			</P>
-			<P ALIGN=LEFT>
+			<P ALIGN=LEFT margin-left: 20px;>
 				<BR>
 		    	Arquitetura
 			</P>
@@ -584,7 +584,7 @@
 	<!-- ***Hardware*** -->
 	<TR>
 		<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
-			<p>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; border: none; padding: 0cm">
 				Explicar chip usado e suas configuracões dos fuse bits
 				<br/>
 				pecas
@@ -601,7 +601,7 @@
 			<table>
 				<tr>
 					<td WIDTH=45% VALIGN=TOP>
-						<p>
+						<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; border: none; padding: 0cm">
 							explicar programdor usado e fichas de comunicacao ISP
 						</p>
 					</td>
@@ -682,29 +682,71 @@
 	<!-- ***Software*** -->
 	<TR>
 		<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; border: none; padding: 0cm">
-				<BR/>
-				Programa:
-				<BR/>
-				<A HREF="https://microchipdeveloper.com/atstudio:studio7intro" target="_blank">
-					<IMG SRC="image/software/Atmel_Studio_7_1.bmp" NAME="Atmel Studio 7" ALIGN=BOTTOM HEIGHT=100 BORDER=0>
-				</A>
-				<BR/>
-			</P>
-			<section> <h2><b>Fluxograma</b></h2>
+			<!-- <p ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; background: #eeeeee"> -->
+			<section><h2><b>Programa</b></h2>
+				<div style="color:green;margin-right:1.25em; display:inline-block;">
+					<A HREF="https://www.microchip.com/mplab/microchip-studio" target="_blank">
+						<IMG SRC="image/software/Atmel_Studio_7_1.bmp" NAME="Atmel Studio 7" ALIGN=BOTTOM HEIGHT=200 BORDER=0>
+					</A>
+				</div>
+				<div style="color:black;margin-right:1.25em; display:inline-block; width: 22cm;">
+					<p>
+						<pe>
+						O programa utilizado para executar este projecto foi o Atmel Studio 7 (Version: 7.0.2397), 2019 Microship Technology. Inc. <br>
+						Já nos é conhecido que a marca <it><b>Atmel</b><it> foi comprada pela companhia que representa os PICS ou seja a <it>Microchip</it> sendo que 
+						seu <b>IDE</b> também já supporta seus microcontroladores e programadores, e o <b>MPLAB XC</b> é agora uma boa alternativa.
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						</pe>
+
+					</p>
+				</div>
+			</section>
+			<section><h2><b>Fluxograma</b></h2>
 				<BR/>
 				<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0 STYLE="page-break-before: always">
 					<TR>
 						<TD WIDTH=5%>
 						</TD>
 						<TD WIDTH=50%>
-							<IMG SRC="image/fluxograma/flowchart_1.gif" NAME="Demo_1" ALIGN=BOTTOM HEIGHT=550 BORDER=0>
+							<IMG SRC="image/fluxograma/flowchart_1.gif" NAME="flowchart_1" ALIGN=BOTTOM HEIGHT=550 BORDER=0>
 						</TD>
 						<TD VALIGN=TOP>
-							<IMG SRC="image/fluxograma/flowchart_2.gif" NAME="Demo_1" ALIGN=BOTTOM HEIGHT=230 BORDER=0>
+							<IMG SRC="image/fluxograma/flowchart_2.gif" NAME="flowchart_2" ALIGN=BOTTOM HEIGHT=230 BORDER=0>
 						</TD>
 					</TR>
 				</TABLE>
+				&nbsp;
+				<p ALIGN=LEFT style="margin-left: 20px">
+					Acima demonstra a metodolgia usada para execução do Programa Principal, 
+					as subrotinas, isto é os programas 1 até 3 obedecem a mesma estrutura, 
+					que esta indicado abaixo, em que o <b>program 1</b> e <b>program 2</b> 
+					não tem os dois blocos iniciais, o de preamble routines e READ INPUTS 
+					pois partilha esses blocos com o Programa Principal. Também de notar 
+					que o bloco <b>READ INPUTS</b> inplica sinais de entrada na qual pode vir de 
+					qualquer origem, isto é também pode ser leituras de saidas, uart, i2c, etc. 
+					Outro pormenor é que só são aceites leituras diferentas das lidas anteriormente,
+					assim não existe redúndancia e o programa flui de forma <b>One Shot</b> podendo
+					esta entrar e sair pelo sistema sem qualquer interferência se o sinal não for reconhecido 
+					mas só uma unica vez.
+					<BR/>
+					<BR/>
+					Assim temos um sistema escalavel (<it><b>"recursion"</b></it>) e de fácil manuseamento.
+					<BR/>
+					<p ALIGN=CENTER>
+						<IMG SRC="image/fluxograma/flowchart_general.gif" NAME="flowchart_general" ALIGN=TOP HEIGHT=350 BORDER=0>
+					</p>
+				</p>
+
+
+
 			</section>
 			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm">
 			  	<BR/>
@@ -753,20 +795,21 @@
 	<!-- ***Resultados*** -->
 	<TR>
 		<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; border: none; padding: 0cm">
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; border: none; padding: 0cm">
+			<!-- <p ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; background: #eeeeee"> -->
 			  	<BR/>
 				  evidencias, imagens, fotografias, videos
 				<BR/>
 			</P>
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm">
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm margin-left: 20px;">
 			  	<BR/>
 				<BR/>
 			</P>
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm">
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm margin-left: 20px;">
 			  	<BR/>
 				<BR/>
 			</P>
-			<P ALIGN=LEFT>
+			<P ALIGN=LEFT margin-left: 20px;>
 			  	<BR/>
 			</P>
 		</TD>
@@ -809,20 +852,20 @@
     <!-- ***Conclusoes*** -->
     <TR>
     	<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
-        	<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; border: none; padding: 0cm">
+        	<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; border: none; padding: 0cm">
           		<BR/>
 				  objectivos compridos, alternativas e melhorias.
           		<BR/>
         	</P>
-       		<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm">
+       		<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm margin-left: 20px;">
           		<BR/>
           		<BR/>
        		 </P>
-        	<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm">
+        	<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm margin-left: 20px;">
             	<BR/>
             	<BR/>
           	</P>
-        	<P ALIGN=LEFT>
+        	<P ALIGN=LEFT margin-left: 20px;>
          		<BR/>
         	</P>
       	</TD>
@@ -865,8 +908,8 @@
 	<!-- ***Test Code*** -->
 	<TR>
 		<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
-			<!-- <P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; border: none; padding: 0cm"> -->
-			<!-- <span style='color:red;margin-right:1.25em; display:inline-block;'>&nbsp;</span> -->
+			<!-- <P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; border: none; padding: 0cm"> -->
+			<!-- <span style='color:red;margin-right:1.25em; margin-left: 20px; display:inline-block;'>&nbsp;</span> -->
 
     	    <a href="Pages/page_1.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> &nbsp; Page 1 </span></a>
             <a href="Pages/page_2.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> &nbsp; Page 2 </span></a>
