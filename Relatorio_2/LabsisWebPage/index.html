@@ -453,24 +453,106 @@
 			</P>
 		</TD>
 	</TR>
-	<!-- ***Introducao*** -->
+	<!-- ***Introdução*** -->
 	<TR>
 		<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; border: none; padding: 0cm">
-			  	Explicar do que consist o projecto <br/>
-				Apresentacao <br/>
-				objectivos <br/>
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; border: none; padding: 0cm">
+				O projeto que se pretende fazer é um sistema de posicionamento de painel fotovoltaico para obter maior rendimento
+				de produção de energia, já que é conhecido que se pode tirar proveito até 40%.
+				<br>
+				O objetivo é desenvolver um meio de controlo tendo em mente ser um sistema \textcolor{blue}{Stand Alone} de 
+				tamanho considerável, o trabalho não vai ser concentrado ao redor do painel fotovoltaico em si e suas 
+				características ou modos de funcionamento, mas apenas o sistema de {\bf \textcolor{blue}{Sun Track}}, também 
+				supondo que tem baterias de carga com o intuito que o sistema possa ser autónomo.
+				<br>
+				<br>
+				O projeto é apenas académico e de simulação em escala pequena ou de bancada.
+				<br>
+				<br>
+				Explicar do que consist o projecto <br/>
+				Apresentacao 
+				<br>
+				objectivos 
+				<br>
 				Tipos de technolgias (estado da arte)
 			</P>
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; background: #eeeeee">
-				<BR>
-				<BR>
-				Introducao
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; background: #eeeeee">
+				
+
+				\qquad Os painéis fotovoltaicos tem vários parâmetros que determinam sua eficiência, a temperatura de funcionamento, otimização da carga, sua orientação e até limpeza são alguns pormenores, este estado de arte apenas é uma tentativa de melhor garantir tirar maior proveito da energia coletada pelo meio de orientação.\\
+\\
+\fbox{
+\begin{minipage}{0.5\linewidth}\vspace{0pt}
+\begin{figure}[H]
+	\includegraphics[scale=0.6]{./image/Graph/Anualkwh_1.jpg}
+	\caption{Resposta a inclinação}
+\end{figure}
+\end{minipage}
+}
+\hspace{0.2cm}
+\begin{minipage}[!t]{0.5\linewidth}
+\flushleft
+ Neste gráfico podemos ver um exemplo da diferença entre o rendimento de sistemas sem controlo de orientação, orientação parcial e total.\\
+\vspace{7cm}
+\end{minipage}\\
+\\
+\\
+Mais energia pode ser coletada ao fim do dia se o Painel fotovoltaico tiver instalado um sistema de orientação solar, através de um atuador mecânico.\\
+Existe dois tipos de sistemas de orientação solar:\cite{book_2}
+\begin{enumerate}
+	\setlength\itemsep{-0.1em}
+	\item Sistema de um eixo, este segue o posicionamento do sol durante o dia de Este a Oeste.
+	\item Sistema de dois eixos, o mesmo que de um eixo mais a orientação Norte e Sul que tem  em consideração a influencia de inclinação provocada pelas estações do ano.
+\end{enumerate}
+
+
+
+
+
+
+
 			</P>
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px;"><BR><BR>
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px;">
 				Introducao
+
+				\qquad O projeto em causa pertence a disciplina de Laboratório de Sistemas que da continuidade as disciplinas de Sistemas Digitais, sendo o foco processadores, micro-controladores e {\it Fpga´s} (Field programmable arrays). Um Micro-controlador da {\it ATmel} é o que vai ser usado como o cérebro do sistema, o tipo de sistema de orientação vai ser de um eixo, um servo motor para simulação de posicionamento e dois sensores LDR (Light dependent resitor) ligados a uma ponte wheatstone e amplificador de instrumentação para ajusto fino. Um RTC (Real Time Clock) como ferramenta de posicionamento principal, disponível um override manual, sendo seus dados visíveis num LCD (Liquid crystal display). \\
+\\
+O motor a ser usado se for numa aplicação real seria de corrente continua de preferência com íman permanente \cite{book_1} , com uma caixa redutora e sem fim para que quando estivesse em estado de paragem poder se desligar sem perder sua posição, já que se sabe que a melhor maneira de poupar energia é não a gastar. Como o objetivo é obter o maior rendimento possível pretende-se não haver desperdício, se houve-se meio de não usar energia para seu posicionamento seria o ideal.\\
+No mundo das energias renováveis só é justificado sua implementação se for em grande escala pois seus rendimentos são baixos e intermitentes, e melhor ainda se os preços forem atrativos, a não ser que haja algum avanço tecnológico de relevo.\\
+\\
+O sistema de posicionamento pode aumentar a energia acumulada até 40\% durante o ano comparado com os sistemas fixos, durante o dia o painel acompanha a posição dos sol de Este para Oeste e durante a noite regressa a posição Este para o dia seguinte, os sistemas antigos tinham uma bateria para esta operação depois do pôr do sol, os novos modelos já não utilizam bateria mas usam a luz fraca do por do sol para regressar a origem. \cite{book_2} \\
+\\
+Um dos métodos de orientação solar é usar duas células PV em serie com polarização oposta em ângulo de $45^o$ como demonstrado na figura:
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.52]{./image/Sensor_Actuator_Principle.jpg}
+	\caption{Principio de Funcionamento Sensor \cite{book_2}}
+\end{figure}
+Assim o atuador mecânico (motor) recebe o diferencial da corrente fornecida, estando assim sempre orientado a fonte de luz. A corrente no motor é dada pela expressão \; $I_m = I_1 - I_2 = 2 I_o \; \delta \; \sin (45^o) = \sqrt{2} \; I_o \; \delta \; se \; \delta \; é \; em \; radianos$. \cite{book_2} \\
+\\
+No Projeto não vai ser usado este método mas um análogo utilizando dois sensores LDR também em serie e a $45^o$ um do outro dando uma saída proporcional ao desfasamento da fonte de luz apenas para ajuste fino, já que o posicionamento vai ser sincronizado pelo RTC (relógio), já existe algoritmos criados usando os parâmetros de localização e tempo que nos fornece os dados do local exato da posição do sol, sendo desnecessário a utilização de sensores, aqui este projeto é flexível pois já íntegra um relógio RTC (Real time clock) com calendário de atualização automática.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			</P>
-			<P ALIGN=LEFT margin-left: 20px;>
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px;">
           		<BR/>
 			</P>
 		</TD>
@@ -513,7 +595,7 @@
 	<!-- ***Arquitectura*** -->
 	<TR>
 		<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; border: none; padding: 0cm">
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; border: none; padding: 0cm">
 				Diagrama de blocos 
 				<br/>
 
@@ -524,7 +606,7 @@
 
 
         	</P>
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px;">
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px;">
 				O <b> CPU </b> (Unidade Central de Processamento) dos microcontroldores da Atmel de 8 e 32 bits s\~{a}o baseados na arquitetura avan\c{c}ada de {\bf Harvard} na qual esta concebido para baixos consumos e performance. \par
 				Este tipo de arquitetura tem dois  busses (barramentos) um dedicado a leitura das instruções a executar e outra para escrita e leitura de data (informa\c{c}\~{a}o ou dados), isto assegura que uma nova instru\c{c}\~{a}o pode ser executada em cada ciclo de rel\'{o}gio, na qual elimina estados de espera quando n\~{a}o ha instru\c{c}\~{o}es prontas a executar. \par
 				Nos microcontroladores da AVR os barramentos est\~{a}o configurados de forma a dar prioridade ao barramento das instru\c{c}\~{o}es do CPU acesso a memoria flash enquanto o barramento da CPU de dados tem prioridade de acesso a {\bf SRAM} (Static Random Access Memory). \par
@@ -535,13 +617,10 @@
 
 			  	
 			</P>
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px;">
-				<BR>
-				<BR>
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px;">
 				<img src="image/arquitecture/Harvard_architecture.png" width="450">
 			</P>
-			<P ALIGN=LEFT margin-left: 20px;>
-				<BR>
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px;">
 		    	Arquitetura
 			</P>
 		</TD>
@@ -584,7 +663,7 @@
 	<!-- ***Hardware*** -->
 	<TR>
 		<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; border: none; padding: 0cm">
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; border: none; padding: 0cm">
 				Explicar chip usado e suas configuracões dos fuse bits
 				<br/>
 				pecas
@@ -601,7 +680,7 @@
 			<table>
 				<tr>
 					<td WIDTH=45% VALIGN=TOP>
-						<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; border: none; padding: 0cm">
+						<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; border: none; padding: 0cm">
 							explicar programdor usado e fichas de comunicacao ISP
 						</p>
 					</td>
@@ -619,15 +698,15 @@
 					</td>
 				</tr>
 			</table>
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm">
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px;">
 			  	<BR/>
 				<BR/>
 			</P>
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm">
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px;">
 			 	<BR/>
 				<BR/>
 			</P>
-			<P ALIGN=LEFT>
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px;">
 				<div>
 					<img src="image/hardware/chips_1.jpg" width="150">
 					<img src="image/hardware/DevBoard_1.jpg" width="150">
@@ -682,7 +761,7 @@
 	<!-- ***Software*** -->
 	<TR>
 		<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
-			<!-- <p ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; background: #eeeeee"> -->
+			<!-- <p ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; background: #eeeeee"> -->
 			<section><h2><b>Programa</b></h2>
 				<div style="color:green;margin-right:1.25em; margin-left: 20px; display:inline-block;">
 					<A HREF="https://www.microchip.com/mplab/microchip-studio" target="_blank">
@@ -724,7 +803,7 @@
 					</TR>
 				</TABLE>
 				&nbsp;
-				<p ALIGN=LEFT style="margin-left: 20px">
+				<p ALIGN=LEFT style="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px;">
 					Acima demonstra a metodolgia usada para execução do Programa Principal, 
 					as subrotinas, isto é os <it>programas 1 até 3</it> obedecem a mesma estrutura, 
 					que esta indicado abaixo, em que o bloco READ INPUTS é partilhado com o Programa Principal.
@@ -746,11 +825,11 @@
 
 
 			</section>
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm">
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px;">
 			  	<BR/>
 				<BR/>
 			</P>
-			<P ALIGN=LEFT>
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px;">
 			  	<BR/>
 			</P>
 		</TD>
@@ -793,21 +872,21 @@
 	<!-- ***Resultados*** -->
 	<TR>
 		<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; border: none; padding: 0cm">
-			<!-- <p ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; background: #eeeeee"> -->
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; border: none; padding: 0cm">
+			<!-- <p ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; background: #eeeeee"> -->
 			  	<BR/>
 				  evidencias, imagens, fotografias, videos
 				<BR/>
 			</P>
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm margin-left: 20px;">
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px;">
 			  	<BR/>
 				<BR/>
 			</P>
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm margin-left: 20px;">
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px;">
 			  	<BR/>
 				<BR/>
 			</P>
-			<P ALIGN=LEFT margin-left: 20px;>
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px;">
 			  	<BR/>
 			</P>
 		</TD>
@@ -850,20 +929,43 @@
     <!-- ***Conclusoes*** -->
     <TR>
     	<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
-        	<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; border: none; padding: 0cm">
+        	<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; border: none; padding: 0cm">
           		<BR/>
 				  objectivos compridos, alternativas e melhorias.
           		<BR/>
+				<br>
+				<br>
+
+				\qquad O sistema de posicionamento fotovoltaico tem diversas soluções de diferentes Impressas que apostam nas energias renováveis, diferentes métodos na parte mecânica e elétrica, como esta disciplina pertence na área digital, considero importante a manipulação dos {\it datasheets} dos componentes e o código, manipular o hardware unicamente por programação através de uma camada de interface [API] acho de maior importância pois cria uma abstração dos problemas que podemos enfrentar e os resolver seguindo uma metodologia sintática, sendo possível o manipular para fazer o que é requerido e desejado. Através do código podemos alterar, modificar e adaptar qualquer projeto ao mundo exterior usando uma linguagem de nível alto ou médio com facilidade.\\
+\\
+Dai este projeto pode ser atualizado a qualquer altura acrescentando funcionalidades e dispositivos que possam beneficiar sua performance, caso necessário.\\
+\\
+Este projeto esta online no link descrito: \\ {\it \textcolor{green}{https://github.com/sergio1020881/LABSIS20202021/tree/main/Relatorio\_2}},\\
+tudo que é necessário para o desenvolver e executar esta ao dispor, O programa usado foi o {\bf Atmel Studio 7} basta fazer download, compilar e programar o chip [ATmega128], e depois ligar os periféricos respeitando as ligações.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         	</P>
-       		<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm margin-left: 20px;">
+       		<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px;">
           		<BR/>
           		<BR/>
        		 </P>
-        	<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm margin-left: 20px;">
+        	<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px;">
             	<BR/>
             	<BR/>
           	</P>
-        	<P ALIGN=LEFT margin-left: 20px;>
+        	<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px;">
          		<BR/>
         	</P>
       	</TD>
@@ -906,18 +1008,19 @@
 	<!-- ***Test Code*** -->
 	<TR>
 		<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
-			<!-- <P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; border: none; padding: 0cm"> -->
-			<!-- <span style='color:red;margin-right:1.25em; margin-left: 20px; display:inline-block;'>&nbsp;</span> -->
-
-    	    <a href="Pages/page_1.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> &nbsp; Page 1 </span></a>
-            <a href="Pages/page_2.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> &nbsp; Page 2 </span></a>
-            <a href="Pages/page_3.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> Page 3 </span></a>
-            <a href="Pages/page_4.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> Page 4 </span></a>
-            <a href="Pages/page_5.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> Page 5 </span></a>
-            <a href="Pages/page_6.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> Page 6 </span></a>
-            <a href="Pages/page_7.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> Page 7 </span></a>
-            <a href="Pages/page_8.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> Page 8 </span></a>
-			<a href="Pages/page_9.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> Page 9 </span></a>
+			<!-- <P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; border: none; padding: 0cm"> -->
+			<!-- <span style='color:red; margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; display:inline-block;'>&nbsp;</span> -->
+			<p ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; border: none; padding: 0cm">
+    	    	<a href="Pages/page_1.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> &nbsp; Page 1 </span></a>
+            	<a href="Pages/page_2.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> &nbsp; Page 2 </span></a>
+            	<a href="Pages/page_3.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> Page 3 </span></a>
+            	<a href="Pages/page_4.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> Page 4 </span></a>
+            	<a href="Pages/page_5.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> Page 5 </span></a>
+            	<a href="Pages/page_6.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> Page 6 </span></a>
+            	<a href="Pages/page_7.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> Page 7 </span></a>
+            	<a href="Pages/page_8.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> Page 8 </span></a>
+				<a href="Pages/page_9.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> Page 9 </span></a>
+			</p>
 		</TD>
 	</TR>
     <!-- ***Menu 7*** -->
