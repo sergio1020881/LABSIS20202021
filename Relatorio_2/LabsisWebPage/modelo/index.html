@@ -26,6 +26,20 @@
 	P { margin-bottom: 0.2cm }
 	A:link { so-language: zxx }
 	-->
+	<!--
+	figure {
+  		border: 1px #cccccc solid;
+  		padding: 4px;
+  		margin: auto;
+	}
+	figcaption {
+  		background-color: black;
+  		color: white;
+  		font-style: italic;
+  		padding: 2px;
+  		text-align: center;
+	}
+	-->
 </STYLE>
 </HEAD>
 <HR/>
@@ -370,17 +384,18 @@
   <!-- *******************************MAIN************************************ -->
   <!-- ***<main>*** -->
   <!-- ***Configure HTML structure table*** -->
-  <TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0 STYLE="page-break-before: always">
-  	<COL WIDTH=45*>
-    <COL WIDTH=45*>
-    <COL WIDTH=45*>
-    <COL WIDTH=45*>
-    <COL WIDTH=45*>
-    <COL WIDTH=45*>
+<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0 STYLE="page-break-before: always">
+  	<COL WIDTH=40*>
+    <COL WIDTH=40*>
+    <COL WIDTH=40*>
+    <COL WIDTH=40*>
+    <COL WIDTH=40*>
+    <COL WIDTH=40*>
 	<TR>
 		<TD COLSPAN=6 WIDTH=100% BGCOLOR="#ffffff" SDNUM="2070;1046;@">
 			<P ALIGN=CENTER STYLE="background: #0099ff">
 				<BR>
+				<br>
 			</P>
 		</TD>
 	</TR>
@@ -403,7 +418,7 @@
       	<TD COLSPAN=1 WIDTH=65% BGCOLOR="#eeeeee">
         	<BR/>
         	<P ALIGN=CENTER STYLE="margin-bottom: 0.5cm; background: #eeeeee">
-				<A HREF="file://localhost/C:\Users\sergi\Videos\LABSIS_REPORT\video\Bob_Marley_1.mp4" target="_blank">
+				<A HREF="https://www.youtube.com/watch?v=gGagPdT3L-s" target="_blank">
 				 	<IMG SRC="image/sample_1.gif" NAME="Demo_1" ALIGN=BOTTOM WIDTH=360 HEIGHT=256 BORDER=0>
 				</A>
 			</P>
@@ -423,9 +438,9 @@
 					<SDFIELD TYPE=DOCINFO SUBTYPE=TITLE>
 					</SDFIELD>
 					<FONT FACE="Thorndale, serif">
-						<FONT SIZE=4>
+						<FONT SIZE=5>
 							<SPAN STYLE="font-style: normal">
-								Introdu&ccedil;&atilde;o
+								<b>Introdu&ccedil;&atilde;o</b>
 							</SPAN>
 						</FONT>
 					</FONT>
@@ -438,7 +453,7 @@
 				  	<FONT COLOR="#000000">
 						<SPAN STYLE="text-decoration: none">
 							<FONT FACE="Thorndale, serif">
-								<FONT SIZE=2>
+								<FONT SIZE=3>
 									<SPAN STYLE="font-style: normal">
 										<SPAN STYLE="font-weight: normal">
                         					<BR/>
@@ -453,25 +468,129 @@
 			</P>
 		</TD>
 	</TR>
-	<!-- ***Introducao*** -->
+	<!-- ***Introdução*** -->
 	<TR>
 		<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; border: none; padding: 0cm">
-			  	Explicar do que consist o projecto <br/>
-				Apresentacao <br/>
-				objectivos <br/>
+			<section><h3>Resumo</h3>
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%; border: none; padding: 0cm">
+				O projeto que se pretende fazer é um sistema de posicionamento de painel fotovoltaico para obter maior rendimento
+				de produção de energia, já que é conhecido que se pode tirar proveito até 40%.
+				<br>
+				O objetivo é desenvolver um meio de controlo tendo em mente ser um sistema 
+				<span style="color: blue;"> Stand Alone </span> de tamanho considerável, o trabalho não vai ser concentrado ao redor 
+				do painel fotovoltaico em si e suas características ou modos de funcionamento, mas apenas o sistema de 
+				<b style="color: blue;"> Sun Track </b>, também supondo que tem baterias de carga com o intuito que o sistema possa 
+				ser autónomo.
+				<br>
+				<br>
+				O projeto é apenas académico e de simulação em escala pequena ou de bancada.
+			</p>
+			</section>
+			<section><h3>Apresentação</h3>
+				<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%;">
+					Os painéis fotovoltaicos tem vários parâmetros que determinam sua eficiência, a temperatura de funcionamento, 
+					otimização da carga, sua orientação e até limpeza são alguns pormenores, este estado de arte apenas é uma 
+					tentativa de melhor garantir tirar maior proveito da energia coletada pelo meio de orientação.
+					<br>
+					<br>
+					<table>
+						<tr>
+							<td ALIGN=LEFT width="25%">
+								<img src="./image/Graph/Anualkwh_1.jpg" width="350" alt="Not Found">
+								<h4 style="color:blue; margin-left: 2.1cm;">Resposta a inclinação</h4>
+							</td>
+							<td ALIGN=LEFT width="25%">
+								<p STYLE="font-size:120%;">
+	 							Neste gráfico podemos ver um exemplo da diferença entre o rendimento de sistemas sem controlo de orientação, 
+								orientação parcial e total.
+								</p>
+								<br>
+								<br>
+								<br>
+								<br>
+								<br>
+							</td>
+							<td ALIGN=LEFT width="40%">
+							</td>
+						</tr>
+					</table> 
+					Mais energia pode ser coletada ao fim do dia se o Painel fotovoltaico tiver instalado um sistema de orientação solar, 
+					através de um atuador mecânico.
+					<br>
+					<br>
+					Existe dois tipos de sistemas de orientação solar:[1]
+					<div STYLE="margin-left: 60px; margin-right: 300px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 120%;">
+						<ol>
+							<li>
+								Sistema de um eixo, este segue o posicionamento do sol durante o dia de Este a Oeste.
+							</li>
+							<br>
+							<li>
+								Sistema de dois eixos, o mesmo que de um eixo mais a orientação Norte e Sul que tem  em consideração a 
+								influencia de inclinação provocada pelas estações do ano.
+							</li>
+						</ol>
+					</div>
+
+				</P>
+			</section>
+			<section><h3>Estado da Arte</h3>
+				<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size:120%;">
+					O projeto em causa pertence a disciplina de Laboratório de Sistemas que da continuidade as disciplinas de 
+					Sistemas Digitais, sendo o foco processadores, micro-controladores e <it>Fpga´s</it> (Field programmable arrays). 
+					Um Micro-controlador da <it> ATmel </it> é o que vai ser usado como o cérebro do sistema, o tipo de sistema de 
+					orientação vai ser de um eixo, um servo motor para simulação de posicionamento e dois sensores LDR 
+					(Light dependent resitor) ligados a uma ponte wheatstone e amplificador de instrumentação para ajusto fino. 
+					Um RTC (Real Time Clock) como ferramenta de posicionamento principal, disponível um override manual, sendo seus 
+					dados visíveis num LCD (Liquid crystal display).
+					<br>
+					<br>
+					O motor a ser usado se for numa aplicação real seria de corrente continua de preferência com íman permanente 
+					\cite{book_1} , com uma caixa redutora e sem fim para que quando estivesse em estado de paragem poder se desligar 
+					sem perder sua posição, já que se sabe que a melhor maneira de poupar energia é não a gastar. Como o objetivo é 
+					obter o maior rendimento possível pretende-se não haver desperdício, se houve-se meio de não usar energia para seu 
+					posicionamento seria o ideal.
+					<br>
+					No mundo das energias renováveis só é justificado sua implementação se for em grande escala pois seus rendimentos 
+					são baixos e intermitentes, e melhor ainda se os preços forem atrativos, a não ser que haja algum avanço tecnológico 
+					de relevo.
+					<br>
+					<br>
+					O sistema de posicionamento pode aumentar a energia acumulada até 40 % durante o ano comparado com os sistemas fixos, 
+					durante o dia o painel acompanha a posição dos sol de Este para Oeste e durante a noite regressa a posição Este para o 
+					dia seguinte, os sistemas antigos tinham uma bateria para esta operação depois do pôr do sol, os novos modelos já não 
+					utilizam bateria mas usam a luz fraca do por do sol para regressar a origem. \cite{book_2}
+					<br>
+					<br>
+					Um dos métodos de orientação solar é usar duas células PV em serie com polarização oposta em ângulo de $45^o$ como 
+					demonstrado na figura:
+					<br>
+					\begin{figure}[H]
+						\centering
+						\includegraphics[scale=0.52]{./image/Sensor_Actuator_Principle.jpg}
+						\caption{Principio de Funcionamento Sensor \cite{book_2}}
+					\end{figure}
+					Assim o atuador mecânico (motor) recebe o diferencial da corrente fornecida, estando assim sempre orientado a fonte 
+					de luz. A corrente no motor é dada pela expressão \; $I_m = I_1 - I_2 = 2 I_o \; \delta \; \sin (45^o) = 
+					\sqrt{2} \; I_o \; \delta \; se \; \delta \; é \; em \; radianos$. \cite{book_2}
+					<br>
+					<br>
+					No Projeto não vai ser usado este método mas um análogo utilizando dois sensores LDR também em serie e a $45^o$ um 
+					do outro dando uma saída proporcional ao desfasamento da fonte de luz apenas para ajuste fino, já que o posicionamento 
+					vai ser sincronizado pelo RTC (relógio), já existe algoritmos criados usando os parâmetros de localização e tempo que 
+					nos fornece os dados do local exato da posição do sol, sendo desnecessário a utilização de sensores, aqui este projeto 
+					é flexível pois já íntegra um relógio RTC (Real time clock) com calendário de atualização automática.
+
+				</P>
+			</section>
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size:120%;">
+				<br>
+				Explicar do que consist o projecto <br/>
+				Apresentacao 
+				<br>
+				objectivos 
+				<br>
 				Tipos de technolgias (estado da arte)
-			</P>
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; background: #eeeeee">
-				<BR>
-				<BR>
-				Introducao
-			</P>
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px;"><BR><BR>
-				Introducao
-			</P>
-			<P ALIGN=LEFT margin-left: 20px;>
-          		<BR/>
 			</P>
 		</TD>
 	</TR>
@@ -483,8 +602,8 @@
 				<P ALIGN=LEFT STYLE="background: #0099ff; border: none; padding: 0cm">
 					<A NAME="Arquitetura">
 					</A>
-				  	<FONT SIZE=4>
-						Arquitetura
+				  	<FONT SIZE=5>
+						<b>Arquitetura</b>
 					</FONT>
 				</P>
 			</UL>
@@ -495,7 +614,7 @@
 					<FONT COLOR="#000000">
 					  	<SPAN STYLE="text-decoration: none">
 						  	<FONT FACE="Thorndale, serif">
-								<FONT SIZE=2>
+								<FONT SIZE=3>
 								  	<SPAN STYLE="font-style: normal">
 									  	<SPAN STYLE="font-weight: normal">
                         					<BR/>
@@ -513,37 +632,41 @@
 	<!-- ***Arquitectura*** -->
 	<TR>
 		<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; border: none; padding: 0cm">
-				Diagrama de blocos 
-				<br/>
-
-				
-				
-
-
-
-
-        	</P>
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px;">
-				O <b> CPU </b> (Unidade Central de Processamento) dos microcontroldores da Atmel de 8 e 32 bits s\~{a}o baseados na arquitetura avan\c{c}ada de {\bf Harvard} na qual esta concebido para baixos consumos e performance. \par
-				Este tipo de arquitetura tem dois  busses (barramentos) um dedicado a leitura das instruções a executar e outra para escrita e leitura de data (informa\c{c}\~{a}o ou dados), isto assegura que uma nova instru\c{c}\~{a}o pode ser executada em cada ciclo de rel\'{o}gio, na qual elimina estados de espera quando n\~{a}o ha instru\c{c}\~{o}es prontas a executar. \par
-				Nos microcontroladores da AVR os barramentos est\~{a}o configurados de forma a dar prioridade ao barramento das instru\c{c}\~{o}es do CPU acesso a memoria flash enquanto o barramento da CPU de dados tem prioridade de acesso a {\bf SRAM} (Static Random Access Memory). \par
-				O espa\c{c}o de memoria de dados \'{e} dividida em tr\^{e}s, os {\bf GPR} (General Purpose Registers) as {\bf SFRs} (Special Function Registers) ou memoria de I/O e a data SRAM. \par
-				<BR/>
-				Os microcontroladores da AVR utiliza uma arquitetura de instru\c{c}\~{o}es {\bf RISC} (Reduced Instruction Set Computer ou Reduced COMPLEXITY Instruction Set Computer) na qual reduz a complexidade dos circuitos na codifica\c{c}\~{a}o de cada instru\c{c}\~{a}o. \par
-				Dai que os microcontroladores que se baseiam nestes tipos de arquitetura s\~{a}o sinonimo de c\'{o}digo reduzido, alta performance e baixo consumo energ\'{e}tico \par
-
-			  	
-			</P>
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px;">
-				<BR>
-				<BR>
-				<img src="image/arquitecture/Harvard_architecture.png" width="450">
-			</P>
-			<P ALIGN=LEFT margin-left: 20px;>
-				<BR>
-		    	Arquitetura
-			</P>
+			<section><h3>Tipo de Microcontrolador</h3>
+				<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%; border: none; padding: 0cm">
+					Os microcontroldores da <b> Atmel </b> de 8 e 32 bits são baseados na arquitetura avançada de <b> Harvard </b> na 
+					qual esta concebido para baixos consumos e performance.
+					<br>
+					Este tipo de arquitetura tem dois  busses (barramentos) um dedicado a leitura das instruções a executar e outra para escrita 
+					e leitura de data (informação ou dados), isto assegura que uma nova instrução pode ser executada em cada ciclo de relógio, 
+					na qual elimina estados de espera quando não ha instruções prontas a executar.
+					<br>
+					Nos microcontroladores da AVR os barramentos estão configurados de forma a dar prioridade ao barramento das instruções do 
+					CPU acesso a memoria flash enquanto o barramento da CPU de dados tem prioridade de acesso a <b> SRAM </b> (Static Random 
+					Access Memory).
+					<br>
+					O espaço de memoria de dados é dividida em três, os <b> GPR </b> (General Purpose Registers) as <b> SFRs </b> (Special 
+					Function Registers) ou memoria de I/O e a data SRAM.
+					<br>
+					Os microcontroladores da AVR utiliza uma arquitetura de instruçõeses <b> RISC </b> (Reduced Instruction Set Computer ou 
+					Reduced COMPLEXITY Instruction Set Computer) na qual reduz a complexidade dos circuitos na codificaçãoo de cada instrução.
+					<br>
+					Dai que os microcontroladores que se baseiam nestes tipos de arquitetura são sinonimo de código reduzido, alta performance 
+					e baixo consumo energético.
+				</P>
+				<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%;">
+						<img src="image/arquitecture/Harvard_architecture.png" width="450">
+						<br>
+						<h4 style="color:blue; margin-left: 4.5cm;">Harvard Architecture<h4>
+				</P>
+			</section>
+			<section><h3>Diagrama de blocos do projecto</h3>
+				<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%;">
+				<br>
+				<br>
+				<br>
+				</P>
+			</section>
 		</TD>
 	</TR>
   	<!-- ***Menu 3*** -->
@@ -554,8 +677,8 @@
 				<P ALIGN=LEFT STYLE="background: #0099ff; border: none; padding: 0cm">
 				  	<A NAME="Hardware">
 					</A>
-				  	<FONT SIZE=4>
-				    	Hardware
+				  	<FONT SIZE=5>
+				    	<b>Hardware</b>
 				  	</FONT>
 			  	</P>
 		  	</UL>
@@ -566,7 +689,7 @@
 					<FONT COLOR="#000000">
 					  	<SPAN STYLE="text-decoration: none">
 						  	<FONT FACE="Thorndale, serif">
-							  	<FONT SIZE=2>
+							  	<FONT SIZE=3>
 								  	<SPAN STYLE="font-style: normal">
 									  	<SPAN STYLE="font-weight: normal">
                     					    <BR/>
@@ -584,64 +707,123 @@
 	<!-- ***Hardware*** -->
 	<TR>
 		<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; border: none; padding: 0cm">
-				Explicar chip usado e suas configuracões dos fuse bits
-				<br/>
-				pecas
-				<br/>
-				componentes
-				<br/>
-				esquemas
-				<br/>
-				pcb 
-				<br/>
-
-			</p>
-			<BR/>
+			<section><h3>Ferramentas</h3>
 			<table>
 				<tr>
 					<td WIDTH=45% VALIGN=TOP>
-						<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; border: none; padding: 0cm">
-							explicar programdor usado e fichas de comunicacao ISP
+						<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%; border: none; padding: 0cm">
+							Neste projecto foi utilizado um microcontrolador da Atmel especicifamente o 
+							<span style="color:blue;"> Atmega 128 </span> [5]. Foi usado o programador <span style="color:blue;">Atmel Ice</span>
+							também do mesmo fabricante, na qual veio a ser muito útil especialmente em combinação com o 
+							<span style="color:blue;"> Atmel Studio 7 </span>, este tem disponivel programação via <b> ISP </b> e 
+							<b> JTAG </b>, ao lado esta o kit de programação e as fichas de programação indicando as connecções.
+							<br>
+							Os parametros do MCU são:
+							<br>
+							Device signature = 0x1E9702; LOW Fuse = 0xBF; HIGH Fuse = 0xC7; EXTENDED Fuse = 0xFF e os 
+							<span style="color:red;">LOCK BITS</span> off, ou seja, 0xFF.
 						</p>
 					</td>
 					<td WIDTH=25% VALIGN=TOP>
-						<IMG SRC="image/software/programmer/Atmel_Ice.png" NAME="ISP_6PIN" ALIGN=BOTTOM HEIGHT=275 BORDER=0>
+						<IMG SRC="image/software/programmer/Atmel_Ice.png" NAME="ISP_6PIN" ALIGN=BOTTOM HEIGHT=280 BORDER=0>
 					</td>
 					<td WIDTH=20% VALIGN=TOP>
 						<div>
-							<IMG SRC="image/software/ISP_JTAG/isp_6pin.png" NAME="ISP_6PIN" ALIGN=BOTTOM HEIGHT=125 BORDER=0>
+							<IMG SRC="image/software/ISP_JTAG/isp_6pin.png" NAME="ISP_6PIN" ALIGN=BOTTOM HEIGHT=107 BORDER=0>
 						</div>
 						<BR/>
 						<div>
-							<IMG SRC="image/software/ISP_JTAG/isp_connector.png" NAME="ISP_CONNECTOR" ALIGN=BOTTOM HEIGHT=125 BORDER=0>
+							<IMG SRC="image/software/ISP_JTAG/isp_connector.png" NAME="ISP_CONNECTOR" ALIGN=BOTTOM HEIGHT=155 BORDER=0>
 						</div>
 					</td>
 				</tr>
 			</table>
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm">
-			  	<BR/>
-				<BR/>
-			</P>
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm">
-			 	<BR/>
-				<BR/>
-			</P>
-			<P ALIGN=LEFT>
-				<div>
-					<img src="image/hardware/chips_1.jpg" width="150">
-					<img src="image/hardware/DevBoard_1.jpg" width="150">
-					<img src="image/hardware/DevBoard_2.jpg" width="150">
-					<img src="image/hardware/ESP8266_1.jpg" width="150">
-					<img src="image/hardware/HC595_1.jpg" width="150">
-					<img src="image/hardware/HC595_2.jpg" width="150">
-					<img src="image/hardware/INA128_1.jpg" width="150">
-					<img src="image/hardware/Kit_1.jpg" width="150">
-					<img src="image/hardware/PCF8563_1.jpg" width="150">
-					<img src="image/hardware/Power_Supply_1.jpg" width="150">
-					<img src="image/hardware/RS2_1.jpg" width="150">
+			</section>
+			<section><h3>Equipamento</h3>
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%;">
+				<div style="margin-right:1.25em; margin-left: 20px; display:inline-block;">
+					<ul>
+						<li> ET-BASE AVR ATmega128 <br>
+							&nbsp; &nbsp; &nbsp; Mainboard com MCU Atmega 128 da ETT. <br>
+						</li>
+						<li> LDR - Light Controlled Resistor <br>
+							&nbsp; &nbsp; &nbsp; Dark resistance 1M. <br>
+							&nbsp; &nbsp; &nbsp; 40k at 10 lux. <br>
+							&nbsp; &nbsp; &nbsp; Max voltage 100V. <br>
+							&nbsp; &nbsp; &nbsp; Max power 80mW. <br>
+						</li>
+						<li> INA128PA - Instrumentation Amplifier <br>
+							&nbsp; &nbsp; &nbsp; Banda de transmissão: 1.3MHz <br>
+							&nbsp; &nbsp; &nbsp; Montagem: THT <br>
+							&nbsp; &nbsp; &nbsp; Número de canais: 1 <br>
+							&nbsp; &nbsp; &nbsp; Carcaça: DIP8 <br>
+							&nbsp; &nbsp; &nbsp; Rapidez de subida de tensão: 4V / $\mu$ s <br>
+							&nbsp; &nbsp; &nbsp; Temperatura de trabalho: -40...85°C <br>
+							&nbsp; &nbsp; &nbsp; Entradas de tensão instável: 0.025mV <br>
+							&nbsp; &nbsp; &nbsp; Tensão de trabalho: 2.25...18V <br>
+						</li>
+						<li> LCD 20x4 Blue NHD-0420DZ-NSW-BBW <br>
+							&nbsp; &nbsp; &nbsp; 4x20 Characters HD44780 compatible
+						</li>
+					</ul>
 				</div>
+				<div style="margin-right:1.25em; margin-left: 20px; display:inline-block; width: 16cm; font-size: 120%;">
+					<ul>
+						<li> Model Craft RS-2 \- Servo Motor <br>
+							&nbsp; &nbsp; &nbsp; Control System:<br>
+							&nbsp; &nbsp; &nbsp; +Pulse Width Control 1500 mu sec <br>
+							&nbsp; &nbsp; &nbsp; Operating Voltage: <br>
+							&nbsp; &nbsp; &nbsp; 4.8-6.0 Volts <br>
+							&nbsp; &nbsp; &nbsp; Operating Speed (4.8V):<br>
+							&nbsp; &nbsp; &nbsp; 0.19sec/60° at no load <br>
+							&nbsp; &nbsp; &nbsp; Stall Torque (4.8V): <br>
+							&nbsp; &nbsp; &nbsp; 42 oz/in (3.0 kg/cm) <br>
+						</li>
+						<li> PCF8563 RTC Board <br>
+							&nbsp; &nbsp; &nbsp; Real-time clock/calendar. <br>
+							&nbsp; &nbsp; &nbsp; Battery on board. <br>
+							&nbsp; &nbsp; &nbsp; I2C communication. <br>
+						</li>
+						<li> KEYPAD4X4W <br>
+							&nbsp; &nbsp; &nbsp; 16 Button Keypad. switch
+						</li>
+					</ul>
+				</div>
+				<br>
+				<a href="https://www.ptrobotics.com/" target="_blank">
+					<it style="margin-left: 40px;"> https://www.ptrobotics.com/ </it>
+				</a>
+				<br>
+				<a href="https://www.futurlec.com/index.shtml" target="_blank">
+					<it style="margin-left: 40px;"> https://www.futurlec.com/index.shtml </it>
+				</a>
+				<br>
 			</P>
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%;">
+				Foi criado um kit de desenvolvimento para facilitar sua programação e simulação, na qual seus perifericos são todos ligados
+				por fichas <span style="color:blue;"> IDC Socket </span> atraves de <span style="color:blue;"> flat-cable </span>
+				tornado-se num sistema de <span style="color:blue;"> plug and play </span>. A lista de material esta acima representado.
+			</P>
+				<div STYLE="margin-left: 40px;">
+					<!--<img src="image/hardware/chips_1.jpg" width="150">-->
+					<!--<img src="image/hardware/DevBoard_1.jpg" width="150">-->
+					<!--<img src="image/hardware/DevBoard_2.jpg" width="150">-->
+					<!--<img src="image/hardware/ESP8266_1.jpg" width="150">-->
+					<!--<img src="image/hardware/HC595_1.jpg" width="150">-->
+					<img src="image/hardware/Kit_1.jpg" width="300">
+					<!--<img src="image/hardware/PCF8563_1.jpg" width="300">-->
+					<!--<img src="image/hardware/INA128_1.jpg" width="200">-->
+					<!--<img src="image/hardware/HC595_2.jpg" width="200">-->
+					<!--<img src="image/hardware/RS2_1.jpg" width="200">-->
+					<!--<img src="image/hardware/Power_Supply_1.jpg" width="200">-->
+					
+				</div>
+			</section>
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%;"></P>
+
+				esquemas
+
+			</p>
 		</TD>
 	</TR>
   	<!-- ***Menu 4*** -->
@@ -652,8 +834,8 @@
 				<P ALIGN=LEFT STYLE="background: #0099ff; border: none; padding: 0cm">
 			  		<A NAME="Software">
 					</A>
-					<FONT SIZE=4>
-				 		Software
+					<FONT SIZE=5>
+				 		<b>Software</b>
 					</FONT>
 				</P>
 			</UL>
@@ -664,7 +846,7 @@
 				  	<FONT COLOR="#000000">
 					  	<SPAN STYLE="text-decoration: none">
 						  	<FONT FACE="Thorndale, serif">
-							  	<FONT SIZE=2>
+							  	<FONT SIZE=3>
 								  	<SPAN STYLE="font-style: normal">
 									  	<SPAN STYLE="font-weight: normal">
             					            <BR/>
@@ -682,58 +864,51 @@
 	<!-- ***Software*** -->
 	<TR>
 		<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
-			<!-- <p ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; background: #eeeeee"> -->
-			<section><h2><b>Programa</b></h2>
-				<div style="color:green;margin-right:1.25em; display:inline-block;">
-					<A HREF="https://www.microchip.com/mplab/microchip-studio" target="_blank">
-						<IMG SRC="image/software/Atmel_Studio_7_1.bmp" NAME="Atmel Studio 7" ALIGN=BOTTOM HEIGHT=200 BORDER=0>
-					</A>
-				</div>
-				<div style="color:black;margin-right:1.25em; display:inline-block; width: 22cm;">
-					<p>
-						<pe>
-						O programa utilizado para executar este projecto foi o Atmel Studio 7 (Version: 7.0.2397), 2019 Microship Technology. Inc. <br>
-						Já nos é conhecido que a marca <it><b>Atmel</b><it> foi comprada pela companhia que representa os PICS ou seja a <it>Microchip</it> sendo que 
-						seu <b>IDE</b> também já supporta seus microcontroladores e programadores, e o <b>MPLAB XC</b> é agora uma boa alternativa.
-						<br>
-						<br>
-						<br>
-						<br>
-						<br>
-						<br>
-						<br>
-						<br>
-						<br>
+			<section><h3>Programa</h3>
+				<p ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%;">
+					<div style="color:green; margin-right:1.25em; margin-left: 20px; display:inline-block;">
+						<A HREF="https://www.microchip.com/mplab/microchip-studio" target="_blank">
+							<IMG SRC="image/software/Atmel_Studio_7_1.bmp" NAME="Atmel Studio 7" ALIGN=BOTTOM HEIGHT=200 BORDER=0>
+						</A>
+					</div>
+					<div style="color:black;margin-right:1.25em; margin-left: 20px; display:inline-block; width: 16cm; font-size: 120%;">
+						<pe ALIGN=TOP>
+							O programa utilizado para executar este projecto foi o Atmel Studio 7 (Version: 7.0.2397), 2019 Microship 
+							Technology. Inc.
+							<br>
+							Já nos é conhecido que a marca <it><b>Atmel</b><it> foi comprada pela companhia que representa os PICS ou 
+							seja a <it>Microchip</it> sendo que seu <b>IDE</b> também já supporta seus microcontroladores e programadores, 
+							e o <b>MPLAB XC</b> é agora uma boa alternativa.
+							<br>
+							<br>
+							<br>
+							<br>
 						</pe>
-
-					</p>
-				</div>
+					</div>
+				</p>
 			</section>
-			<section><h2><b>Fluxograma</b></h2>
-				<BR/>
-				<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0 STYLE="page-break-before: always">
-					<TR>
-						<TD WIDTH=5%>
-						</TD>
-						<TD WIDTH=50%>
+			<section><h3>Fluxograma</h3>
+				<p ALIGN=LEFT style="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%;">
+					<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0 STYLE="page-break-before: always">
+						<TR>
+							<TD WIDTH=5%>
+							</TD>
+							<TD WIDTH=50%>
 							<IMG SRC="image/fluxograma/flowchart_1.gif" NAME="flowchart_1" ALIGN=BOTTOM HEIGHT=550 BORDER=0>
-						</TD>
-						<TD VALIGN=TOP>
-							<IMG SRC="image/fluxograma/flowchart_2.gif" NAME="flowchart_2" ALIGN=BOTTOM HEIGHT=230 BORDER=0>
-						</TD>
-					</TR>
-				</TABLE>
-				&nbsp;
-				<p ALIGN=LEFT style="margin-left: 20px">
+							</TD>
+							<TD VALIGN=TOP>
+								<IMG SRC="image/fluxograma/flowchart_2.gif" NAME="flowchart_2" ALIGN=BOTTOM HEIGHT=230 BORDER=0>
+							</TD>
+						</TR>
+					</TABLE>
+					<br>
 					Acima demonstra a metodolgia usada para execução do Programa Principal, 
-					as subrotinas, isto é os programas 1 até 3 obedecem a mesma estrutura, 
-					que esta indicado abaixo, em que o <b>program 1</b> e <b>program 2</b> 
-					não tem os dois blocos iniciais, o de preamble routines e READ INPUTS 
-					pois partilha esses blocos com o Programa Principal. Também de notar 
-					que o bloco <b>READ INPUTS</b> inplica sinais de entrada na qual pode vir de 
+					as subrotinas, isto é os <it>programas 1 até 3</it> obedecem a mesma estrutura, 
+					que esta indicado abaixo, em que o bloco READ INPUTS é partilhado com o Programa Principal.
+					Também de notar que o bloco <b>READ INPUTS</b> inplica sinais de entrada na qual pode vir de 
 					qualquer origem, isto é também pode ser leituras de saidas, uart, i2c, etc. 
-					Outro pormenor é que só são aceites leituras diferentas das lidas anteriormente,
-					assim não existe redúndancia e o programa flui de forma <b>One Shot</b> podendo
+					Outro pormenor é que só são aceites leituras diferentes das lidas anteriormente,
+					assim não existe redundância e o programa flui de forma <b>"One Shot"</b> podendo
 					esta entrar e sair pelo sistema sem qualquer interferência se o sinal não for reconhecido,
 					 mas só uma única vez.
 					<BR/>
@@ -741,19 +916,13 @@
 					Assim temos um sistema escalavel (<it><b>"recursion"</b></it>) e de fácil manuseamento.
 					<BR/>
 					<p ALIGN=CENTER>
-						<IMG SRC="image/fluxograma/flowchart_general.gif" NAME="flowchart_general" ALIGN=TOP HEIGHT=350 BORDER=0>
+						<IMG SRC="image/fluxograma/flowchart_general_2.gif" NAME="flowchart_general" ALIGN=TOP HEIGHT=350 BORDER=0>
 					</p>
 				</p>
-
-
-
 			</section>
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm">
-			  	<BR/>
-				<BR/>
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%;">
 			</P>
-			<P ALIGN=LEFT>
-			  	<BR/>
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%;">
 			</P>
 		</TD>
 	</TR>
@@ -765,8 +934,8 @@
 				<P ALIGN=LEFT STYLE="background: #0099ff; border: none; padding: 0cm">
 				  	<A NAME="Resultados">
 					</A>
-				  	<FONT SIZE=4>
-					  	Resultados
+				  	<FONT SIZE=5>
+					  	<b>Resultados</b>
 					</FONT>
 				</P>
 			</UL>
@@ -777,7 +946,7 @@
 				  	<FONT COLOR="#000000">
 					  	<SPAN STYLE="text-decoration: none">
 						  	<FONT FACE="Thorndale, serif">
-							  	<FONT SIZE=2>
+							  	<FONT SIZE=3>
 								  	<SPAN STYLE="font-style: normal">
 									  	<SPAN STYLE="font-weight: normal">
             					            <BR/>
@@ -795,22 +964,14 @@
 	<!-- ***Resultados*** -->
 	<TR>
 		<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; border: none; padding: 0cm">
-			<!-- <p ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; background: #eeeeee"> -->
-			  	<BR/>
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%; border: none; padding: 0cm">
 				  evidencias, imagens, fotografias, videos
-				<BR/>
 			</P>
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm margin-left: 20px;">
-			  	<BR/>
-				<BR/>
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%;">
 			</P>
-			<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm margin-left: 20px;">
-			  	<BR/>
-				<BR/>
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%;">
 			</P>
-			<P ALIGN=LEFT margin-left: 20px;>
-			  	<BR/>
+			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%;">
 			</P>
 		</TD>
 	</TR>
@@ -822,8 +983,8 @@
           	<P ALIGN=LEFT STYLE="background: #0099ff; border: none; padding: 0cm">
          		<A NAME="Conclus&otilde;es">
             	</A>
-            	<FONT SIZE=4>
-    	        	Conclus&otilde;es
+            	<FONT SIZE=5>
+    	        	<b>Conclus&otilde;es</b>
             	</FONT>
           	</P>
     	</UL>
@@ -834,7 +995,7 @@
             		<FONT COLOR="#000000">
               			<SPAN STYLE="text-decoration: none">
                				<FONT FACE="Thorndale, serif">
-                  				<FONT SIZE=2>
+                  				<FONT SIZE=3>
                     				<SPAN STYLE="font-style: normal">
                       					<SPAN STYLE="font-weight: normal">
                         					<BR/>
@@ -852,21 +1013,33 @@
     <!-- ***Conclusoes*** -->
     <TR>
     	<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
-        	<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; border: none; padding: 0cm">
-          		<BR/>
-				  objectivos compridos, alternativas e melhorias.
-          		<BR/>
+        	<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%; border: none; padding: 0cm">
+				O sistema de posicionamento fotovoltaico tem diversas soluções de diferentes Empresas que apostam nas energias 
+				renováveis, diferentes métodos na parte mecânica e elétrica, como esta disciplina pertence na área digital, 
+				considero importante a manipulação dos <it> datasheets </it> dos componentes e o código, manipular o hardware unicamente 
+				por programação através de uma camada de interface [API] acho de maior importância pois cria uma abstração 
+				dos problemas que podemos enfrentar e os resolver seguindo uma metodologia sintática, sendo possível o manipular 
+				para fazer o que é requerido e desejado. Através do código podemos alterar, modificar e adaptar qualquer projeto 
+				ao mundo exterior usando uma linguagem de nível alto ou médio com facilidade.
+				<br>
+				<br>
+				Dai este projeto pode ser atualizado a qualquer altura acrescentando funcionalidades e dispositivos que possam 
+				beneficiar sua performance, caso necessário.
+				<br>
+				<br>
+				Este projeto esta online no link descrito, 
+				<a href="https://github.com/sergio1020881/LABSIS20202021/tree/main/Relatorio_2/Projecto/SunTrack/Atmega128"  target="_blank">
+					<it> https://github.com/sergio1020881/LABSIS20202021/tree/main/Relatorio_2 </it>
+				</a>, 
+				tudo que é necessário para o desenvolver e executar esta ao dispor, o programa usado foi o <b> Atmel Studio 7 </b> basta 
+				fazer download, compilar e programar o chip [ATmega128], e depois ligar os periféricos respeitando as ligações.
         	</P>
-       		<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm margin-left: 20px;">
-          		<BR/>
-          		<BR/>
+       		<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%;">
        		 </P>
-        	<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm margin-left: 20px;">
-            	<BR/>
-            	<BR/>
+        	<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%;">
           	</P>
-        	<P ALIGN=LEFT margin-left: 20px;>
-         		<BR/>
+        	<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%;">
+				  objectivos compridos, alternativas e melhorias.
         	</P>
       	</TD>
     </TR>
@@ -878,8 +1051,8 @@
 				<P ALIGN=LEFT STYLE="background: #0099ff; border: none; padding: 0cm">
 				  	<A NAME="Testcode">
 					</A>
-				  	<FONT SIZE=4>
-						Test Code
+				  	<FONT SIZE=5>
+						<b>Test Code</b>
 					</FONT>
 				</P>
 			</UL>
@@ -890,7 +1063,7 @@
 				  	<FONT COLOR="#000000">
 					  	<SPAN STYLE="text-decoration: none">
 						  	<FONT FACE="Thorndale, serif">
-							  	<FONT SIZE=2>
+							  	<FONT SIZE=3>
 								  	<SPAN STYLE="font-style: normal">
 										<SPAN STYLE="font-weight: normal">
                         					<BR/>
@@ -908,18 +1081,19 @@
 	<!-- ***Test Code*** -->
 	<TR>
 		<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
-			<!-- <P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; margin-left: 20px; border: none; padding: 0cm"> -->
-			<!-- <span style='color:red;margin-right:1.25em; margin-left: 20px; display:inline-block;'>&nbsp;</span> -->
-
-    	    <a href="Pages/page_1.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> &nbsp; Page 1 </span></a>
-            <a href="Pages/page_2.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> &nbsp; Page 2 </span></a>
-            <a href="Pages/page_3.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> Page 3 </span></a>
-            <a href="Pages/page_4.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> Page 4 </span></a>
-            <a href="Pages/page_5.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> Page 5 </span></a>
-            <a href="Pages/page_6.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> Page 6 </span></a>
-            <a href="Pages/page_7.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> Page 7 </span></a>
-            <a href="Pages/page_8.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> Page 8 </span></a>
-			<a href="Pages/page_9.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> Page 9 </span></a>
+			<!-- <P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; border: none; padding: 0cm"> -->
+			<!-- <span style='color:red; margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; display:inline-block;'>&nbsp;</span> -->
+			<p ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 115%; border: none; padding: 0cm">
+    	    	<a href="Pages/page_1.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> &nbsp; Page 1 </span></a>
+            	<a href="Pages/page_2.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> &nbsp; Page 2 </span></a>
+            	<a href="Pages/page_3.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> Page 3 </span></a>
+            	<a href="Pages/page_4.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> Page 4 </span></a>
+            	<a href="Pages/page_5.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> Page 5 </span></a>
+            	<a href="Pages/page_6.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> Page 6 </span></a>
+            	<a href="Pages/page_7.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> Page 7 </span></a>
+            	<a href="Pages/page_8.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> Page 8 </span></a>
+				<a href="Pages/page_9.html"><span style="color:red;margin-right:1.25em; display:inline-block;"> Page 9 </span></a>
+			</p>
 		</TD>
 	</TR>
     <!-- ***Menu 7*** -->
@@ -930,8 +1104,8 @@
 				<P ALIGN=LEFT STYLE="background: #0099ff; border: none; padding: 0cm">
 				  	<A NAME="Refer&ecirc;ncias">
 					</A>
-				  	<FONT SIZE=4>
-					  	Refer&ecirc;ncias
+				  	<FONT SIZE=5>
+					  	<b>Refer&ecirc;ncias</b>
 					</FONT>
 				</P>
 			</UL>
@@ -942,7 +1116,7 @@
 				  	<FONT COLOR="#000000">
 					  	<SPAN STYLE="text-decoration: none">
 						  	<FONT FACE="Thorndale, serif">
-							  	<FONT SIZE=2>
+							  	<FONT SIZE=3>
 								  	<SPAN STYLE="font-style: normal">
 									  	<SPAN STYLE="font-weight: normal">
                         					<BR/>
@@ -1169,7 +1343,7 @@
             		<FONT COLOR="#000000">
               			<SPAN STYLE="text-decoration: none">
                 			<FONT FACE="Thorndale, serif">
-                  				<FONT SIZE=2>
+                  				<FONT SIZE=3>
                     				<SPAN STYLE="font-style: normal">
                       					<SPAN STYLE="font-weight: normal">
                         					In&iacute;cio
@@ -1183,30 +1357,20 @@
         	</P>
 	    </TD>
     </TR>
-		<!-- ********************************************************************* -->
+	<!-- ********************************************************************* -->
 </TABLE>
 <!-- ***</main>*** -->
 <HR/>
 <footer>
 <P ALIGN=LEFT>
-	<BR>
-	<BR>
 </P>
 <P ALIGN=LEFT>
-	<BR>
-	<BR>
 </P>
 <P ALIGN=LEFT>
-	<BR>
-	<BR>
 </P>
 <P ALIGN=LEFT>
-	<BR>
-	<BR>
 </P>
 <P ALIGN=CENTER>
-	<BR>
-	<BR>
 </P>
 </footer>
 </BODY>

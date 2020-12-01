@@ -632,37 +632,41 @@
 	<!-- ***Arquitectura*** -->
 	<TR>
 		<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
-			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%; border: none; padding: 0cm">
-				Diagrama de blocos.
-        	</P>
-			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%;">
-				O <b> CPU </b> (Unidade Central de Processamento) dos microcontroldores da Atmel de 8 e 32 bits são baseados na arquitetura 
-				avançada de <b> Harvard </b> na qual esta concebido para baixos consumos e performance.
-				<br>
-				Este tipo de arquitetura tem dois  busses (barramentos) um dedicado a leitura das instruções a executar e outra para escrita 
-				e leitura de data (informação ou dados), isto assegura que uma nova instrução pode ser executada em cada ciclo de relógio, 
-				na qual elimina estados de espera quando não ha instruções prontas a executar.
-				<br>
-				Nos microcontroladores da AVR os barramentos estão configurados de forma a dar prioridade ao barramento das instruções do 
-				CPU acesso a memoria flash enquanto o barramento da CPU de dados tem prioridade de acesso a <b> SRAM </b> (Static Random 
-				Access Memory).
-				<br>
-				O espaço de memoria de dados é dividida em três, os <b> GPR </b> (General Purpose Registers) as <b> SFRs </b> (Special 
-				Function Registers) ou memoria de I/O e a data SRAM.
-				<br>
-				Os microcontroladores da AVR utiliza uma arquitetura de instruçõeses <b> RISC </b> (Reduced Instruction Set Computer ou 
-				Reduced COMPLEXITY Instruction Set Computer) na qual reduz a complexidade dos circuitos na codificaçãoo de cada instrução.
-				<br>
-				Dai que os microcontroladores que se baseiam nestes tipos de arquitetura são sinonimo de código reduzido, alta performance 
-				e baixo consumo energético.
-			</P>
-			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%;">
-					<img src="image/arquitecture/Harvard_architecture.png" width="450">
+			<section><h3>Tipo de Microcontrolador</h3>
+				<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%; border: none; padding: 0cm">
+					Os microcontroldores da <b> Atmel </b> de 8 e 32 bits são baseados na arquitetura avançada de <b> Harvard </b> na 
+					qual esta concebido para baixos consumos e performance.
 					<br>
-					<h4 style="color:blue; margin-left: 4.5cm;">Harvard Architecture<h4>
-			</P>
-			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%;">
-			</P>
+					Este tipo de arquitetura tem dois  busses (barramentos) um dedicado a leitura das instruções a executar e outra para escrita 
+					e leitura de data (informação ou dados), isto assegura que uma nova instrução pode ser executada em cada ciclo de relógio, 
+					na qual elimina estados de espera quando não ha instruções prontas a executar.
+					<br>
+					Nos microcontroladores da AVR os barramentos estão configurados de forma a dar prioridade ao barramento das instruções do 
+					CPU acesso a memoria flash enquanto o barramento da CPU de dados tem prioridade de acesso a <b> SRAM </b> (Static Random 
+					Access Memory).
+					<br>
+					O espaço de memoria de dados é dividida em três, os <b> GPR </b> (General Purpose Registers) as <b> SFRs </b> (Special 
+					Function Registers) ou memoria de I/O e a data SRAM.
+					<br>
+					Os microcontroladores da AVR utiliza uma arquitetura de instruçõeses <b> RISC </b> (Reduced Instruction Set Computer ou 
+					Reduced COMPLEXITY Instruction Set Computer) na qual reduz a complexidade dos circuitos na codificaçãoo de cada instrução.
+					<br>
+					Dai que os microcontroladores que se baseiam nestes tipos de arquitetura são sinonimo de código reduzido, alta performance 
+					e baixo consumo energético.
+				</P>
+				<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%;">
+						<img src="image/arquitecture/Harvard_architecture.png" width="450">
+						<br>
+						<h4 style="color:blue; margin-left: 4.5cm;">Harvard Architecture<h4>
+				</P>
+			</section>
+			<section><h3>Diagrama de blocos do projecto</h3>
+				<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%;">
+				<br>
+				<br>
+				<br>
+				</P>
+			</section>
 		</TD>
 	</TR>
   	<!-- ***Menu 3*** -->
@@ -703,13 +707,21 @@
 	<!-- ***Hardware*** -->
 	<TR>
 		<TD COLSPAN=6 WIDTH=100% VALIGN=TOP BGCOLOR="#eeeeee">
-			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%; border: none; padding: 0cm">
-			</p>
+			<section><h3>Ferramentas</h3>
 			<table>
 				<tr>
 					<td WIDTH=45% VALIGN=TOP>
 						<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%; border: none; padding: 0cm">
-							explicar programdor usado e fichas de comunicacao ISP
+							Neste projecto foi utilizado um microcontrolador da Atmel especicifamente o 
+							<span style="color:blue;"> Atmega 128 </span> [5]. Foi usado o programador <span style="color:blue;">Atmel Ice</span>
+							também do mesmo fabricante, na qual veio a ser muito útil especialmente em combinação com o 
+							<span style="color:blue;"> Atmel Studio 7 </span>, este tem disponivel programação via <b> ISP </b> e 
+							<b> JTAG </b>, ao lado esta o kit de programação e as fichas de programação indicando as connecções.
+							<br>
+							Os parametros do MCU são:
+							<br>
+							Device signature = 0x1E9702; LOW Fuse = 0xBF; HIGH Fuse = 0xC7; EXTENDED Fuse = 0xFF e os 
+							<span style="color:red;">LOCK BITS</span> off, ou seja, 0xFF.
 						</p>
 					</td>
 					<td WIDTH=25% VALIGN=TOP>
@@ -726,8 +738,9 @@
 					</td>
 				</tr>
 			</table>
+			</section>
+			<section><h3>Equipamento</h3>
 			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%;">
-				<h3>Equipamento</h3>
 				<div style="margin-right:1.25em; margin-left: 20px; display:inline-block;">
 					<ul>
 						<li> ET-BASE AVR ATmega128 <br>
@@ -778,40 +791,38 @@
 				</div>
 				<br>
 				<a href="https://www.ptrobotics.com/" target="_blank">
-					<it style="margin-left: 20px;"> https://www.ptrobotics.com/ </it>
+					<it style="margin-left: 40px;"> https://www.ptrobotics.com/ </it>
 				</a>
 				<br>
 				<a href="https://www.futurlec.com/index.shtml" target="_blank">
-					<it style="margin-left: 20px;"> https://www.futurlec.com/index.shtml </it>
+					<it style="margin-left: 40px;"> https://www.futurlec.com/index.shtml </it>
 				</a>
 				<br>
 			</P>
 			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%;">
-				<div>
-					<img src="image/hardware/chips_1.jpg" width="150">
-					<img src="image/hardware/DevBoard_1.jpg" width="150">
-					<img src="image/hardware/DevBoard_2.jpg" width="150">
-					<img src="image/hardware/ESP8266_1.jpg" width="150">
-					<img src="image/hardware/HC595_1.jpg" width="150">
-					<img src="image/hardware/HC595_2.jpg" width="150">
-					<img src="image/hardware/INA128_1.jpg" width="150">
-					<img src="image/hardware/Kit_1.jpg" width="150">
-					<img src="image/hardware/PCF8563_1.jpg" width="150">
-					<img src="image/hardware/Power_Supply_1.jpg" width="150">
-					<img src="image/hardware/RS2_1.jpg" width="150">
-				</div>
+				Foi criado um kit de desenvolvimento para facilitar sua programação e simulação, na qual seus perifericos são todos ligados
+				por fichas <span style="color:blue;"> IDC Socket </span> atraves de <span style="color:blue;"> flat-cable </span>
+				tornado-se num sistema de <span style="color:blue;"> plug and play </span>. A lista de material esta acima representado.
 			</P>
+				<div STYLE="margin-left: 40px;">
+					<!--<img src="image/hardware/chips_1.jpg" width="150">-->
+					<!--<img src="image/hardware/DevBoard_1.jpg" width="150">-->
+					<!--<img src="image/hardware/DevBoard_2.jpg" width="150">-->
+					<!--<img src="image/hardware/ESP8266_1.jpg" width="150">-->
+					<!--<img src="image/hardware/HC595_1.jpg" width="150">-->
+					<img src="image/hardware/Kit_1.jpg" width="300">
+					<!--<img src="image/hardware/PCF8563_1.jpg" width="300">-->
+					<!--<img src="image/hardware/INA128_1.jpg" width="200">-->
+					<!--<img src="image/hardware/HC595_2.jpg" width="200">-->
+					<!--<img src="image/hardware/RS2_1.jpg" width="200">-->
+					<!--<img src="image/hardware/Power_Supply_1.jpg" width="200">-->
+					
+				</div>
+			</section>
 			<P ALIGN=LEFT STYLE="margin-top: 0.51cm; margin-bottom: 0.51cm; margin-left: 40px; margin-right: 40px; font-size: 120%;"></P>
 
-				Explicar chip usado e suas configuracões dos fuse bits
-				<br/>
-				pecas
-				<br/>
-				componentes
-				<br/>
 				esquemas
-				<br/>
-				pcb
+
 			</p>
 		</TD>
 	</TR>
