@@ -5,6 +5,13 @@
 <!-- charset reset -->
 <META charset="UTF-8">
 <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+<!-- KaTeX requires the use of the HTML5 doctype. Without it, KaTeX may not render properly -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.css" integrity="sha384-D+9gmBxUQogRLqvARvNLmA9hS2x//eK1FhVb9PiU86gmcrBrJAQT8okdJ4LMp2uv" crossorigin="anonymous">
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.js" integrity="sha384-483A6DwYfKeDa0Q52fJmxFXkcPCFfnXMoXblOkJ4JcA8zATN6Tm78UNL72AKk+0O" crossorigin="anonymous"></script>
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/contrib/auto-render.min.js" integrity="sha384-yACMu8JWxKzSp/C1YV86pzGiQ/l1YUfE8oPuahJQxzehAjEt2GiQuy/BIvl9KyeF" crossorigin="anonymous"
+onload="renderMathInElement(document.body);"></script>
 <TITLE>
 	LABSIS Sun-track
 </TITLE>
@@ -441,17 +448,19 @@
 	</section>
 	<section><h3>Estado da Arte</h3>
 		<P ALIGN=LEFT STYLE="margin-left: 12px; margin-right: 20px;">
-			O projeto em causa pertence a disciplina de Laboratório de Sistemas que da continuidade as disciplinas de 
-			Sistemas Digitais, sendo o foco processadores, micro-controladores e <it>Fpga´s</it> (Field programmable arrays). 
-			Um Micro-controlador da <it> ATmel </it> é o que vai ser usado como o cérebro do sistema, o tipo de sistema de 
-			orientação vai ser de um eixo, um servo motor para simulação de posicionamento e dois sensores LDR 
-			(Light dependent resitor) ligados a uma ponte wheatstone e amplificador de instrumentação para ajusto fino. 
-			Um RTC (Real Time Clock) como ferramenta de posicionamento principal, disponível um override manual, sendo seus 
+			O projeto em causa pertence a disciplina de <span style="color:green;">Laboratório de Sistemas</span> que da 
+			continuidade as disciplinas de <span style="color:green;">Sistemas Digitais</span> 
+			<A HREF="#Ref9"><span>[9]</span></A>, sendo o foco processadores, micro-controladores e 
+			<it>Fpga´s</it> (Field programmable arrays). Um Micro-controlador da <it><b> ATmel </b></it> é o que vai 
+			ser usado como o cérebro do sistema, o tipo de sistema de orientação vai ser de um eixo, um servo 
+			motor para simulação de posicionamento e dois sensores LDR 
+			(Light dependent resitor) ligados a uma ponte wheatstone e amplificador de instrumentação para ajuste fino. 
+			Um RTC (Real Time Clock) como ferramenta de posicionamento principal, e disponível um override manual, sendo seus 
 			dados visíveis num LCD (Liquid crystal display).
 			<br>
 			<br>
 			O motor a ser usado se for numa aplicação real seria de corrente continua de preferência com íman permanente 
-			<A HREF="#Ref2"><span>[2]</span></A> , com uma caixa redutora e sem fim para que quando estivesse em estado de 
+			<A HREF="#Ref2"><span>[2]</span></A> , com uma caixa redutora e sem fim para que quando estiver em estado de 
 			paragem poder se desligar sem perder sua posição, já que se sabe que a melhor maneira de poupar energia é não 
 			a gastar. Como o objetivo é obter o maior rendimento possível pretende-se não haver desperdício, se houve-se 
 			meio de não usar energia para seu posicionamento seria o ideal.
@@ -461,13 +470,16 @@
 			de relevo.
 			<br>
 			<br>
-			O sistema de posicionamento pode aumentar a energia acumulada até 40 % durante o ano comparado com os sistemas fixos, 
-			durante o dia o painel acompanha a posição dos sol de Este para Oeste e durante a noite regressa a posição Este para o 
+			O sistema de posicionamento pode aumentar a energia acumulada até <span style="color:purple"> 40 % </span> 
+			durante o ano comparado com os sistemas fixos, 
+			durante o dia o painel acompanha a posição dos sol de <span style="color:blue;"> Este </span> para 
+			<span style="color:blueviolet;"> Oeste </span> e durante a noite regressa a posição 
+			<span style="color:blue;"> Este </span> para o 
 			dia seguinte, os sistemas antigos tinham uma bateria para esta operação depois do pôr do sol, os novos modelos já não 
 			utilizam bateria mas usam a luz fraca do por do sol para regressar a origem. <A HREF="#Ref1"><span>[1]</span></A>
 			<br>
 			<br>
-			Um dos métodos de orientação solar é usar duas células PV em serie com polarização oposta em ângulo de $45^o$ como 
+			Um dos métodos de orientação solar é usar duas células PV em serie com polarização oposta em ângulo de <math>45 &#xb0; </math> como 
 			demonstrado na figura:
 			<br>
 		</P>
@@ -478,26 +490,33 @@
 		</div>
 		<P ALIGN=LEFT STYLE="margin-left: 12px; margin-right: 20px;">
 			Assim o atuador mecânico (motor) recebe o diferencial da corrente fornecida, estando assim sempre orientado a fonte 
-			de luz. A corrente no motor é dada pela expressão \; $I_m = I_1 - I_2 = 2 I_o \; \delta \; \sin (45^o) = 
-			\sqrt{2} \; I_o \; \delta \; se \; \delta \; é \; em \; radianos$. <A HREF="#Ref1"><span>[1]</span></A>
+			de luz. A corrente no motor é dada pela expressão &nbsp; $I_m &#x3d; I_1 - I_2 &#x3d; 2 I_o &nbsp; &delta; &nbsp; 
+			Sin(45 &#xb0;) &#x3d; &#x221A; 2 &nbsp; I_o &nbsp; &delta; &nbsp; se &nbsp; &delta; &nbsp; é &nbsp; em &nbsp; radianos. 
+			<A HREF="#Ref1"><span>[1]</span></A>
 			<br>
 			<br>
-			No Projeto não vai ser usado este método mas um análogo utilizando dois sensores LDR também em serie e a $45^o$ um 
-			do outro dando uma saída proporcional ao desfasamento da fonte de luz apenas para ajuste fino, já que o posicionamento 
+			No Projeto não vai ser usado este método mas um análogo utilizando dois sensores LDR também em serie e a <math> 45 &#xb0; </math> 
+			um do outro dando uma saída proporcional ao desfasamento da fonte de luz apenas para ajuste fino, já que o posicionamento 
 			vai ser sincronizado pelo RTC (relógio), já existe algoritmos criados usando os parâmetros de localização e tempo que 
 			nos fornece os dados do local exato da posição do sol, sendo desnecessário a utilização de sensores, aqui este projeto 
 			é flexível pois já íntegra um relógio RTC (Real time clock) com calendário de atualização automática.
 		</P>
-		
 	</section>
 	<P ALIGN=LEFT STYLE="margin-left: 12px; margin-right: 20px;">
+		O objectivo deste trabalho é executar um sistema de orientação solar fiavel utilizando um <b> RTC </b> e sensor <b> LDR </b>, 
+		com sistema interactivo através de <b> display </b> e <b> keypad </b> na qual tem integrado um override de 
+		positionamento manual para 
+		caso de manutenção, também com ligação ao <b> PC </b> através da porta <b> USB </b> para troubleshooting indicado a 
+		leitura da hora e 
+		posição do sensor a pedido, podia também integrar um control total pelo <it> PC </it> através de comandos criados.
+		Um servo motor vai ser usado como simulação do sistema para comprovar sua orientação e circuito do sensor,
+		na qual em practica seria aplicado outro tipo de motor, mas para propositos académicos é o mais practico.
 		<br>
-		Explicar do que consist o projecto <br/>
-		Apresentacao 
 		<br>
-		objectivos 
+		Quanto a melhorias, isto como é um sistema programado a imaginação é o horizonte pois com facilidade pode-se
+		acrescentar funcionalidades ou alterações para preencher o pretendido e desejado.
 		<br>
-		Tipos de technolgias (estado da arte)
+		<br>
 	</P>
 </DIV>
 <!-- ***Menu 2*** -->
@@ -669,7 +688,7 @@
 					&nbsp; &nbsp; &nbsp; Montagem: THT <br>
 					&nbsp; &nbsp; &nbsp; Número de canais: 1 <br>
 					&nbsp; &nbsp; &nbsp; Carcaça: DIP8 <br>
-					&nbsp; &nbsp; &nbsp; Rapidez de subida de tensão: 4V / $\mu$ s <br>
+					&nbsp; &nbsp; &nbsp; Rapidez de subida de tensão: 4V / &mu; s <br>
 					&nbsp; &nbsp; &nbsp; Temperatura de trabalho: -40...85°C <br>
 					&nbsp; &nbsp; &nbsp; Entradas de tensão instável: 0.025mV <br>
 					&nbsp; &nbsp; &nbsp; Tensão de trabalho: 2.25...18V <br>
@@ -684,7 +703,7 @@
 			<ul>
 				<li> Model Craft RS-2 \- Servo Motor <br>
 					&nbsp; &nbsp; &nbsp; Control System:<br>
-					&nbsp; &nbsp; &nbsp; +Pulse Width Control 1500 mu sec <br>
+					&nbsp; &nbsp; &nbsp; +Pulse Width Control 1500 &mu; sec <br>
 					&nbsp; &nbsp; &nbsp; Operating Voltage: <br>
 					&nbsp; &nbsp; &nbsp; 4.8-6.0 Volts <br>
 					&nbsp; &nbsp; &nbsp; Operating Speed (4.8V):<br>
@@ -826,20 +845,31 @@
 			qualquer origem, isto é também pode ser leituras de saidas, uart, i2c, etc. 
 			Outro pormenor é que só são aceites leituras diferentes das lidas anteriormente,
 			assim não existe redundância e o programa flui de forma <b>"One Shot"</b> podendo
-			esta entrar e sair pelo sistema sem qualquer interferência se o sinal não for reconhecido,
+			este entrar e sair pelo sistema sem qualquer interferência se o sinal não for reconhecido,
 			mas só uma única vez.
 			<BR/>
+			<p ALIGN=LEFT>
+				<IMG SRC="image/code/code_main_1.jpg" NAME="While_loop_resumed" ALIGN=TOP HEIGHT=330 BORDER=0> &nbsp;
+				<IMG SRC="image/code/code_while_1.jpg" NAME="While_loop_resumed" ALIGN=TOP HEIGHT=330 BORDER=0> &nbsp;
+				<IMG SRC="image/code/code_interrupt_1.jpg" NAME="While_loop_resumed" ALIGN=TOP HEIGHT=330 BORDER=0>
+			</p>
 			<BR/>
 			Assim temos um sistema escalavel (<it><b>"recursion"</b></it>) e de fácil manuseamento.
 			<BR/>
 			<p ALIGN=CENTER>
-				<IMG SRC="image/fluxograma/flowchart_general_2.gif" NAME="flowchart_general" ALIGN=TOP WIDTH=500 HEIGHT=300 BORDER=0>
+				<IMG SRC="image/fluxograma/flowchart_general_2.gif" NAME="flowchart_general_2" ALIGN=TOP WIDTH=500 HEIGHT=300 BORDER=0>
 			</p>
 		</p>
 	</section>
 	<P ALIGN=LEFT STYLE="margin-left: 12px; margin-right: 20px;">
+		A programação foi feita em <span style="color:gold;"> linguagem C </span> <A HREF="#Ref3"><span>[3]</span></A> 
+		aplicado nos integrados da <span style="color:gold;"> AVR </span> <A HREF="#Ref8"><span>[8]</span></A>.
+		<br>
+		Anexado [referências] tem links para literatura acerca destes assuntos.
 	</P>
 	<P ALIGN=LEFT STYLE="margin-left: 12px; margin-right: 20px;">
+		<br>
+		<br>
 	</P>
 </DIV>
 <!-- ***Menu 5*** -->
@@ -952,11 +982,16 @@
 		fazer download, compilar e programar o chip [ATmega128], e depois ligar os periféricos respeitando as ligações.
 	</P>
 	<P ALIGN=LEFT STYLE="margin-left: 12px; margin-right: 20px;">
-		</P>
-	<P ALIGN=LEFT STYLE="margin-left: 12px; margin-right: 20px;">
-	</P>
-	<P ALIGN=LEFT STYLE="margin-left: 12px; margin-right: 20px;">
-			objectivos compridos, alternativas e melhorias.
+		Dado este trabalho como concluido, posso dizer que satisfiz os objectivos pretendidos, existe sempre a 
+		possibilidade de alterações, mas considero que esta funcional e practico, como um exercicio académico, 
+		para aplicar na vida real necessita apenas de pequenas alterações, como utilizar um motor diferent para 
+		supportar a carga precisa.
+		<br>
+		<br>
+		Neste projecto não inclui a parte mecânica toda, além da restante instalação do sistema electrico 
+		que um painel fotovoltaico necessita.
+		<br>
+		<br>
 	</P>
 </DIV>
 <!-- ***Menu TEST*** -->
