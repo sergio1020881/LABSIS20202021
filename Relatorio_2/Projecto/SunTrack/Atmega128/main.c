@@ -118,7 +118,7 @@ int main(void)
 					if(positionhour>5 && positionhour<21)
 						timer1.compareB(function.trimmer(positionhour,2,23,Min,Max)+function.trimmer(adcvalue,0,1023,-200,200));
 					else
-						timer1.compareB(function.trimmer(2,2,23,Min,Max));
+						timer1.compareB(function.trimmer(6,2,23,Min,Max));
 					lcd0.gotoxy(0,0);
 					lcd0.string_size("Sense: ",7);
 					//lcd0.hspace(1);
