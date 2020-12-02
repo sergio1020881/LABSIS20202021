@@ -320,7 +320,7 @@
       	<TD COLSPAN=1 WIDTH=65% BGCOLOR="#eeeeee">
         	<BR/>
         	<P ALIGN=CENTER STYLE="margin-bottom: 0.5cm; background: #eeeeee">
-				<A HREF="https://www.youtube.com/watch?v=gGagPdT3L-s" target="_blank">
+				<A HREF="https://www.youtube.com/watch?v=xNV38nq1fqc" target="_blank">
 				 	<IMG SRC="image/sample_1.gif" NAME="Demo_1" ALIGN=BOTTOM WIDTH=250 BORDER=0>
 				</A>
 			</P>
@@ -423,7 +423,7 @@
 			através de um atuador mecânico.
 			<br>
 			<br>
-			Existe dois tipos de sistemas de orientação solar:[1]
+			Existe dois tipos de sistemas de orientação solar:<A HREF="#Ref1"><span>[1]</span></A>
 			<div STYLE="margin-left: 40px; margin-right: 20px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
 				<ol>
 					<li>
@@ -451,10 +451,10 @@
 			<br>
 			<br>
 			O motor a ser usado se for numa aplicação real seria de corrente continua de preferência com íman permanente 
-			\cite{book_1} , com uma caixa redutora e sem fim para que quando estivesse em estado de paragem poder se desligar 
-			sem perder sua posição, já que se sabe que a melhor maneira de poupar energia é não a gastar. Como o objetivo é 
-			obter o maior rendimento possível pretende-se não haver desperdício, se houve-se meio de não usar energia para seu 
-			posicionamento seria o ideal.
+			<A HREF="#Ref2"><span>[2]</span></A> , com uma caixa redutora e sem fim para que quando estivesse em estado de 
+			paragem poder se desligar sem perder sua posição, já que se sabe que a melhor maneira de poupar energia é não 
+			a gastar. Como o objetivo é obter o maior rendimento possível pretende-se não haver desperdício, se houve-se 
+			meio de não usar energia para seu posicionamento seria o ideal.
 			<br>
 			No mundo das energias renováveis só é justificado sua implementação se for em grande escala pois seus rendimentos 
 			são baixos e intermitentes, e melhor ainda se os preços forem atrativos, a não ser que haja algum avanço tecnológico 
@@ -464,20 +464,22 @@
 			O sistema de posicionamento pode aumentar a energia acumulada até 40 % durante o ano comparado com os sistemas fixos, 
 			durante o dia o painel acompanha a posição dos sol de Este para Oeste e durante a noite regressa a posição Este para o 
 			dia seguinte, os sistemas antigos tinham uma bateria para esta operação depois do pôr do sol, os novos modelos já não 
-			utilizam bateria mas usam a luz fraca do por do sol para regressar a origem. \cite{book_2}
+			utilizam bateria mas usam a luz fraca do por do sol para regressar a origem. <A HREF="#Ref1"><span>[1]</span></A>
 			<br>
 			<br>
 			Um dos métodos de orientação solar é usar duas células PV em serie com polarização oposta em ângulo de $45^o$ como 
 			demonstrado na figura:
 			<br>
-			\begin{figure}[H]
-				\centering
-				\includegraphics[scale=0.52]{./image/Sensor_Actuator_Principle.jpg}
-				\caption{Principio de Funcionamento Sensor \cite{book_2}}
-			\end{figure}
+		</P>
+		<div ALIGN=CENTER STYLE="margin-left: 12px; margin-right: 100px;">
+			<img src="./image/Sensor_Actuator_Principle.jpg" width="300" alt="Not Found">
+			<br>
+			<b>Principio de Funcionamento Sensor</b> <A HREF="#Ref1"><span>[1]</span></A>
+		</div>
+		<P ALIGN=LEFT STYLE="margin-left: 12px; margin-right: 20px;">
 			Assim o atuador mecânico (motor) recebe o diferencial da corrente fornecida, estando assim sempre orientado a fonte 
 			de luz. A corrente no motor é dada pela expressão \; $I_m = I_1 - I_2 = 2 I_o \; \delta \; \sin (45^o) = 
-			\sqrt{2} \; I_o \; \delta \; se \; \delta \; é \; em \; radianos$. \cite{book_2}
+			\sqrt{2} \; I_o \; \delta \; se \; \delta \; é \; em \; radianos$. <A HREF="#Ref1"><span>[1]</span></A>
 			<br>
 			<br>
 			No Projeto não vai ser usado este método mas um análogo utilizando dois sensores LDR também em serie e a $45^o$ um 
@@ -485,8 +487,8 @@
 			vai ser sincronizado pelo RTC (relógio), já existe algoritmos criados usando os parâmetros de localização e tempo que 
 			nos fornece os dados do local exato da posição do sol, sendo desnecessário a utilização de sensores, aqui este projeto 
 			é flexível pois já íntegra um relógio RTC (Real time clock) com calendário de atualização automática.
-
 		</P>
+		
 	</section>
 	<P ALIGN=LEFT STYLE="margin-left: 12px; margin-right: 20px;">
 		<br>
@@ -618,7 +620,7 @@
 				<td WIDTH=65% VALIGN=TOP>
 					<P ALIGN=LEFT STYLE="margin-left: 12px; margin-right: 20px; border: none; padding: 0cm">
 						Neste projecto foi utilizado um microcontrolador da Atmel especicifamente o 
-						<span style="color:blue;"> Atmega 128 </span> [5]. Foi usado o programador <span style="color:blue;">Atmel Ice</span>
+						<span style="color:blue;"> Atmega 128 </span> <A HREF="#Ref12"><span>[12]</span></A>. Foi usado o programador <span style="color:blue;">Atmel Ice</span>
 						também do mesmo fabricante, na qual veio a ser muito útil especialmente em combinação com o 
 						<span style="color:blue;"> Atmel Studio 7 </span>, este tem disponivel programação via <b> ISP </b> e 
 						<b> JTAG </b>, ao lado esta o kit de programação e as fichas de programação indicando as connecções.
@@ -1052,9 +1054,8 @@
 </TABLE>
 <!-- ***Referencias*** -->
 <DIV STYLE="background-color:#eeeeee;">
+	<h2>LIVROS</h2>
 	<P STYLE="margin-bottom: 0.5cm">
-		<A NAME="_Ref1">
-		</A>
 		<A NAME="_Ref1">
 		</A>
 		<SPAN LANG="en-GB">
@@ -1069,8 +1070,8 @@
 				Wind and Solar Power Systems Design, Analysis and Operation Second Edition
 			</I>
 		</SPAN>
-		<SPAN LANG="en-GB">.
-			Taylor & Francis Group LLC. 2006.
+		<SPAN LANG="en-GB">,
+			Taylor & Francis Group LLC, 2006.
 		</SPAN>
 	</P>
 	<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; border: none; padding: 0cm">
@@ -1085,18 +1086,151 @@
 		&mdash;
 		<SPAN LANG="en-US">
 			<I>
-				Electrical Power Systems Technology Third Edition
+				Electrical Power Systems Technology, Third Edition
 			</I>
 		</SPAN>
-		<SPAN LANG="en-US">
-			. CRC Press, 2008.
+		<SPAN LANG="en-US">,
+			CRC Press, 2008.
 		</SPAN>
 	</P>
-	<P STYLE="margin-bottom: 0.5cm">
+	<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; border: none; padding: 0cm">
 		<A NAME="_Ref3">
 		</A>
 		<SPAN LANG="en-US">
 			[3]
+		</SPAN>
+		<SPAN LANG="en-US">
+			Brian W. Kernighan, Dennis M. Ritchie
+		</SPAN>
+		&mdash;
+		<SPAN LANG="en-US">
+			<I>
+				The C Programming Language, Second Edition
+			</I>
+		</SPAN>
+		<SPAN LANG="en-US">,
+			Prentice Hall, Software Serries.
+		</SPAN>
+	</P>
+	<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; border: none; padding: 0cm">
+		<A NAME="_Ref4">
+		</A>
+		<SPAN LANG="en-US">
+			[4]
+		</SPAN>
+		<SPAN LANG="en-US">
+			Stephen W. Fardo, Dale R. Patrik
+		</SPAN>
+		&mdash;
+		<SPAN LANG="en-US">
+			<I>
+				Electrical Power Systems Technology, Third Edition
+			</I>
+		</SPAN>
+		<SPAN LANG="en-US">,
+			The Fairmont Press, 2009.
+		</SPAN>
+	</P>
+	<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; border: none; padding: 0cm">
+		<A NAME="_Ref5">
+		</A>
+		<SPAN LANG="en-US">
+			[5]
+		</SPAN>
+		<SPAN LANG="en-US">
+			George Chryssis
+		</SPAN>
+		&mdash;
+		<SPAN LANG="en-US">
+			<I>
+				High-Frequency switching Power Supplies: Theory and Design, Second Edition
+			</I>
+		</SPAN>
+		<SPAN LANG="en-US">,
+			McGraw Hill Book, 1989.
+		</SPAN>
+	</P>
+	<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; border: none; padding: 0cm">
+		<A NAME="_Ref6">
+		</A>
+		<SPAN LANG="en-US">
+			[6]
+		</SPAN>
+		<SPAN LANG="en-US">
+			Rudolf F. Graf, William Sheets
+		</SPAN>
+		&mdash;
+		<SPAN LANG="en-US">
+			<I>
+				Encyclopedia of ELECTRONIC CIRCUITS, Volume 4
+			</I>
+		</SPAN>
+		<SPAN LANG="en-US">,
+			TAB BOOKS (McGraw Hill), 1992.
+		</SPAN>
+	</P>
+	<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; border: none; padding: 0cm">
+		<A NAME="_Ref7">
+		</A>
+		<SPAN LANG="en-US">
+			[7]
+		</SPAN>
+		<SPAN LANG="en-US">
+			Hank Zumbahlen
+		</SPAN>
+		&mdash;
+		<SPAN LANG="en-US">
+			<I>
+				Linear Circuit Design Handbook
+			</I>
+		</SPAN>
+		<SPAN LANG="en-US">,
+			Analod Devices, 2008.
+		</SPAN>
+	</P>
+	<P ALIGN=LEFT STYLE="margin-bottom: 0.51cm; border: none; padding: 0cm">
+		<A NAME="_Ref8">
+		</A>
+		<SPAN LANG="en-US">
+			[8]
+		</SPAN>
+		<SPAN LANG="en-US">
+			Steven F, Barret
+		</SPAN>
+		&mdash;
+		<SPAN LANG="en-US">
+			<I>
+				Embedded Systems Design with the Atmel AVR Microcontroller
+			</I>
+		</SPAN>
+		<SPAN LANG="en-US">,
+			Morgan Claypool Publishers, 2009.
+		</SPAN>
+	</P>
+	<h2>Manuais</h2>
+	<P STYLE="margin-bottom: 0.5cm">
+		<A NAME="_Ref9">
+		</A>
+		<SPAN LANG="en-US">
+			[9]
+		</SPAN>
+		<SPAN LANG="en-US">
+			Sistemas Digitais 2, ISEP;
+		</SPAN>
+		<A HREF="https://drive.google.com/file/d/1wgOGf8WwYY0OzDhRca9ypXz-iBO55YOF/view?usp=sharing" target="_blank">
+			<SPAN STYLE="text-decoration: none">
+				<SPAN LANG="en-US">
+					Tranparências de Sistemas Digitais 2, 2008/2009.
+				</SPAN>
+			</SPAN>
+		</A>
+	</P>
+	<h2>WebSites</h2>
+	<P STYLE="margin-bottom: 0.5cm">
+		<A NAME="_Ref10">
+		</A>
+		<SPAN LANG="en-US">
+			[10]
 		</SPAN>
 		<SPAN LANG="en-US">
 			science.nasa.gov;
@@ -1110,10 +1244,10 @@
 		</A>
 	</P>
 	<P STYLE="margin-bottom: 0.5cm">
-		<A NAME="_Ref4">
+		<A NAME="_Ref11">
 		</A>
 		<SPAN LANG="en-US">
-			[4]
+			[11]
 		</SPAN>
 		<SPAN LANG="en-US">
 			app.diagrams.net;
@@ -1126,11 +1260,12 @@
 			</SPAN>
 		</A>
 	</P>
+	<h2>Datasheets</h2>
 	<P STYLE="margin-bottom: 0.5cm">
-		<A NAME="_Ref5">
+		<A NAME="_Ref12">
 		</A>
 		<SPAN LANG="en-US">
-			[5]
+			[12]
 		</SPAN>
 		<SPAN LANG="en-US">
 			Datasheet Atmega 128;
@@ -1145,10 +1280,10 @@
 		</A>
 	</P>
 	<P STYLE="margin-bottom: 0.5cm">
-		<A NAME="_Ref6">
+		<A NAME="_Ref13">
 		</A>
 		<SPAN LANG="en-US">
-			[6]
+			[13]
 		</SPAN>
 		<SPAN LANG="en-US">
 			Datasheet PCF8563;
@@ -1163,10 +1298,10 @@
 		</A>
 	</P>
 	<P STYLE="margin-bottom: 0.5cm">
-		<A NAME="_Ref7">
+		<A NAME="_Ref14">
 		</A>
 		<SPAN LANG="en-US">
-			[7]
+			[14]
 		</SPAN>
 		<SPAN LANG="en-US">
 			Datasheet INA128;
@@ -1175,73 +1310,10 @@
 		<A HREF="https://drive.google.com/file/d/11SjXBlMGSuONgVlr12jhFOHGfcWbJYRh/view?usp=sharing" target="_blank">
 			<SPAN STYLE="text-decoration: none">
 				<SPAN LANG="en-US">
-					Amplificador de Instrumentacao
+					Amplificador de Instrumentação
 				</SPAN>
 			</SPAN>
 		</A>
-	</P>
-	<P STYLE="margin-bottom: 0.5cm">
-		<A NAME="_Ref153776244">
-		</A>	
-		[2]
-		AZEVEDO, Carlos; AZEVEDO, Ana&mdash;
-		<I>
-			Metodologia Cient&iacute;fica:
-			contributos pr&aacute;ticos para a elabora&ccedil;&atilde;o de
-			trabalhos acad&eacute;micos
-		</I>
-		. 3&ordf; ed. Porto: Ed. C.
-		Azevedo, 1996. pp 67-91
-	</P>
-	<P STYLE="margin-bottom: 0.5cm">
-		<A NAME="_Ref153776279">
-		</A>
-		<SPAN LANG="en-GB">
-			[3]
-		</SPAN>
-		<SPAN LANG="de-DE">
-			Mukund R. Patel
-		</SPAN>
-		<SPAN LANG="en-GB">
-			Holzwarth, Frank; Kramer, Anna;
-		</SPAN>
-		<SPAN LANG="de-DE">
-			Siebert-Cole
-		</SPAN>
-		<SPAN LANG="en-GB">
-			,
-		</SPAN>
-		<SPAN LANG="de-DE">
-			Erika
-		</SPAN>
-		&mdash;
-		<SPAN LANG="en-US">
-			<I>
-				Lecture
-				Notes in Computer Science: Authors&rsquo; Instructions for the
-				Preparation of Camera-Ready Contributions to LNCS/LNAI/LNBI
-				Proceedings
-			</I>
-		</SPAN>
-		<SPAN LANG="en-US">
-			.
-		</SPAN>
-		<SPAN LANG="de-DE">
-			Springer-Verlag,
-			Computer Science Editorial, Tiergartenstr. 17, 69121 Heidelberg,
-			Germany
-		</SPAN>
-	</P>
-	<P STYLE="margin-bottom: 0.5cm">
-		<A NAME="_Ref153776459">
-		</A>
-		[6]
-		PINTO, J. A. Cardoso&mdash;
-		<I>
-			RETA, Manual de Refer&ecirc;ncia
-		</I>
-		.
-		PT-Comunica&ccedil;&otilde;es, 2004.
 	</P>
 	<P ALIGN=LEFT STYLE="border: none; padding: 0cm">
 		<BR>
