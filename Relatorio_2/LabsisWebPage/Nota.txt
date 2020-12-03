@@ -1,5 +1,3 @@
-This is going to be a walk in the park.
-
 
 <embed src="path_of_your_pdf/your_pdf_file.pdf" type="application/pdf"   height="700px" width="500">
 
