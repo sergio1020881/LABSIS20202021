@@ -116,7 +116,7 @@ int main(void)
 					adcvalue=analog.read(0);
 					/***Set Position***/
 					if(positionhour>5 && positionhour<21)
-						timer1.compareB(function.trimmer(positionhour,2,23,Min,Max)+function.trimmer(adcvalue,0,1023,-200,200));
+						timer1.compareB(function.trimmer(positionhour,2,23,Min,Max)+function.trimmer(adcvalue,0,1023,-300,300));
 					else
 						timer1.compareB(function.trimmer(6,2,23,Min,Max));
 					lcd0.gotoxy(0,0);
