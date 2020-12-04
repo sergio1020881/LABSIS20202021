@@ -615,42 +615,36 @@
 		</TD>
 	</TR>
 </TABLE>
-<section STYLE="background-color:#eeeeee;">
-	<div><h3>Ferramentas</h3>
+<SECTION STYLE="background-color:#eeeeee;">
+	<DIV><h3>Ferramentas</h3>
 		<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
-			<tr>
-				<td WIDTH=65% VALIGN=TOP>
+			<TR>
+				<TD WIDTH=65% VALIGN=TOP>
 					<P ALIGN=LEFT STYLE="margin-left: 12px; margin-right: 20px; border: none; padding: 0cm">
 						Neste projecto foi utilizado um microcontrolador da Atmel especicifamente o 
 						<span style="color:blue;"> Atmega 128 </span> <A HREF="#Ref9"><span>[9]</span></A> <A HREF="#Ref12"><span>[12]</span></A>. Foi usado o programador <span style="color:blue;">Atmel Ice</span>
 						também do mesmo fabricante, na qual veio a ser muito útil especialmente em combinação com o 
 						<span style="color:blue;"> Atmel Studio 7 </span>, este tem disponivel programação via <b> ISP </b> e 
-						<b> JTAG </b>, ao lado esta o kit de programação e as fichas de programação indicando as connecções.
+						<b> JTAG </b>.
 						<br>
 						Os parametros do MCU são:
 						<br>
 						Device signature = 0x1E9702; LOW Fuse = 0xBF; HIGH Fuse = 0xC7; EXTENDED Fuse = 0xFF e os 
 						<span style="color:red;">LOCK BITS</span> off, ou seja, 0xFF.
-					</p>
-				</td>
-				<td WIDTH=25% VALIGN=TOP>
+					</P>
+				</TD>
+				<TD WIDTH=25% VALIGN=TOP>
 					<IMG SRC="image/software/programmer/Atmel_Ice.png" NAME="ISP_6PIN" ALIGN=BOTTOM alt="Image Not Found" WIDTH=250 BORDER=0>
-						<br>
-						<br>
-						<div>
-							<div>
-								<IMG SRC="image/software/ISP_JTAG/isp_6pin.png" NAME="ISP_6PIN" ALIGN=BOTTOM WIDTH=250 alt="Image Not Found" BORDER=0>
-							</div>
-							<BR/>
-							<div>
-								<IMG SRC="image/software/ISP_JTAG/isp_connector.png" NAME="ISP_CONNECTOR" ALIGN=BOTTOM WIDTH=250 alt="Image Not Found" BORDER=0>
-							</div>
-						</div>
-				</td>
-			</tr>
-		</table>
-	</div>
-	<div><h3>Equipamento</h3>
+				</TD>
+			</TR>
+		</TABLE>
+		<P ALIGN=LEFT STYLE="margin-left: 12px; margin-right: 20px; border: none; padding: 0cm">
+			<IMG SRC="image/software/ISP_JTAG/isp_6pin.png" NAME="ISP_6PIN" ALIGN=BOTTOM WIDTH=250 alt="Image Not Found" BORDER=0>
+			&nbsp;
+			<IMG SRC="image/software/ISP_JTAG/isp_connector.png" NAME="ISP_CONNECTOR" ALIGN=BOTTOM WIDTH=250 alt="Image Not Found" BORDER=0>
+		</P>
+	</DIV>
+	<DIV><h3>Equipamento</h3>
 	<P ALIGN=LEFT STYLE="margin-left: 12px; margin-right: 20px;">
 		<div style="vertical-align: top; font-size:11px;">
 			<div style="margin-left: 12px; vertical-align: top; display: inline-block; width: 40%;">
@@ -721,7 +715,8 @@
 		por fichas <span style="color:blue;"> IDC Socket </span> atraves de <span style="color:blue;"> flat-cable </span>
 		tornado-se num sistema de <span style="color:blue;"> plug and play </span>. A lista de material esta acima representado.
 		<br>
-		<div STYLE="margin-left: 12px;">
+	</P>
+	<div STYLE="margin-left: 12px;">
 			<!--<img src="image/hardware/chips_1.jpg" alt="Image Not Found" width="150">-->
 			<!--<img src="image/hardware/DevBoard_1.jpg" alt="Image Not Found" width="150">-->
 			<!--<img src="image/hardware/DevBoard_2.jpg" alt="Image Not Found" width="150">-->
@@ -733,46 +728,40 @@
 			<!--<img src="image/hardware/HC595_2.jpg" alt="Image Not Found" width="200">-->
 			<!--<img src="image/hardware/RS2_1.jpg" alt="Image Not Found" width="200">-->
 			<!--<img src="image/hardware/Power_Supply_1.jpg" alt="Image Not Found" width="200">-->
-		</div>
 	</div>
-	<div><h3>Projecto e Execução da Mainboard</h3>
+	</DIV>
+	<DIV><h3>Projecto e Execução da Mainboard</h3>
 		<P ALIGN=LEFT STYLE="margin-left: 12px; margin-right: 20px;">
 			Nesta secção, apenas vou representar imagens do proceso de desenvolvimento 
 			da placa mãe, desde o schematic, board e a palaca populada e pronta a usar, 
 			sera demonstrado a funcionar por video na secção de resultados desta Webpage.
-			<br>
-			<br>
+			<BR>
+			<BR>
 			O software utilizado foi o &xrarr;
-			<a href="https://www.autodesk.com/products/eagle/overview?plc=F360&term=1-YEAR&support=ADVANCED&quantity=1" target="_blank">
-				<span style="margin-left: 40px; color:green; ">
+			<A href="https://www.autodesk.com/products/eagle/overview?plc=F360&term=1-YEAR&support=ADVANCED&quantity=1" target="_blank">
+				<SPAN style="margin-left: 40px; color:green; ">
 					Eagle PCB designer da autodesk
-				</span>
-			</a>
-		</p>
-		<div ALIGN=CENTER STYLE="margin-left: 12px;">
-			<img src="image/board/schematic_base_1.jpg" alt="Image Not Found" width="650">
-			<br>
-			<br>
-			<img src="image/board/schematic_header_1.jpg" alt="Image Not Found" width="650">
-			<br>
-			<br>
-			<img src="image/board/board_base_1.jpg" alt="Image Not Found" width="650">
-			<br>
-			<br>
-			<img src="image/board/board_header_1.jpg" alt="Image Not Found" width="650">
-			<br>
-			<br>
-			<img src="image/board/devboard_3.jpg" alt="Image Not Found" width="650">
-			<br>
-			<br>
-			<img src="image/board/devboard_2.jpg" alt="Image Not Found" width="650">
-			<br>
-			<br>
-			<img src="image/board/devboard_1.jpg" alt="Image Not Found" width="650">
-		</div>
-	</div>
+				</SPAN>
+			</A>
+		</P>
+		<DIV ALIGN=LEFT STYLE="margin-left: 12px;">
+			<img src="image/board/schematic_base_1.jpg" style="margin-top: 12px;" alt="Image Not Found" width="250" height="250">
+			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+			<img src="image/board/schematic_header_1.jpg" style="margin-top: 12px;" alt="Image Not Found" width="250" height="250">
+			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+			<img src="image/board/board_base_1.jpg" style="margin-top: 12px;" alt="Image Not Found" width="250">
+			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+			<img src="image/board/board_header_1.jpg" style="margin-top: 12px;" alt="Image Not Found" width="163">
+			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+			<img src="image/board/devboard_3.jpg" style="margin-top: 12px;" alt="Image Not Found" width="250" >
+			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+			<img src="image/board/devboard_2.jpg" style="margin-top: 12px;" alt="Image Not Found" width="250" >
+			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+			<img src="image/board/devboard_1.jpg" style="margin-top: 12px;" alt="Image Not Found" width="250" >
+		</DIV>
+	</DIV>
 	<br>
-</section>
+</SECTION>
 <!-- ***Software*** -->
 <TABLE STYLE="page-break-before: always;" WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
 	<TR VALIGN=TOP>
@@ -859,9 +848,9 @@
 			<IMG SRC="image/fluxograma/flowchart_general_2.gif" NAME="flowchart_general_2" ALIGN=TOP WIDTH=450 HEIGHT=300 alt="Image Not Found" BORDER=0>
 		</p>
 		<p ALIGN=LEFT style="margin-left: 12px; margin-right: 20px;">
-			<IMG SRC="image/code/code_main_1.jpg" NAME="While_loop_resumed" ALIGN=TOP HEIGHT=330 alt="Image Not Found" BORDER=0> &nbsp;
-			<IMG SRC="image/code/code_while_1.jpg" NAME="While_loop_resumed" ALIGN=TOP HEIGHT=330 alt="Image Not Found" BORDER=0> &nbsp;
-			<IMG SRC="image/code/code_interrupt_1.jpg" NAME="While_loop_resumed" ALIGN=TOP HEIGHT=330 alt="Image Not Found" BORDER=0>
+			<IMG SRC="image/code/code_main_1.jpg" style="margin-top: 12px;" NAME="code_main_1" ALIGN=TOP HEIGHT=330 alt="Image Not Found" BORDER=0> &nbsp;
+			<IMG SRC="image/code/code_while_1.jpg" style="margin-top: 12px;" NAME="code_while_1" ALIGN=TOP HEIGHT=330 alt="Image Not Found" BORDER=0> &nbsp;
+			<IMG SRC="image/code/code_interrupt_1.jpg" style="margin-top: 12px;" NAME="code_interrupt_1" ALIGN=TOP HEIGHT=330 alt="Image Not Found" BORDER=0>
 		</p>
 		<BR>
 		<p ALIGN=LEFT style="margin-left: 12px; margin-right: 20px;">
@@ -1100,7 +1089,7 @@
 	</TR>
 </TABLE>
 <section STYLE="background-color:#eeeeee;">
-	<h2>LIVROS</h2>
+	<h3>LIVROS</h3>
 	<P STYLE="margin-bottom: 0.5cm">
 		<A NAME="_Ref1">
 		</A>
@@ -1253,7 +1242,7 @@
 			Morgan Claypool Publishers, 2009.
 		</SPAN>
 	</P>
-	<h2>Manuais</h2>
+	<h3>Manuais</h3>
 	<P STYLE="margin-bottom: 0.5cm">
 		<A NAME="_Ref9">
 		</A>
@@ -1271,7 +1260,7 @@
 			</SPAN>
 		</A>
 	</P>
-	<h2>WebSites</h2>
+	<h3>WebSites</h3>
 	<P STYLE="margin-bottom: 0.5cm">
 		<A NAME="_Ref10">
 		</A>
@@ -1306,7 +1295,7 @@
 			</SPAN>
 		</A>
 	</P>
-	<h2>Datasheets</h2>
+	<h3>Datasheets</h3>
 	<P STYLE="margin-bottom: 0.5cm">
 		<A NAME="_Ref12">
 		</A>
