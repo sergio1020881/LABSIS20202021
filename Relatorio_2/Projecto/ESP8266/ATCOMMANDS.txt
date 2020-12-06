@@ -1,4 +1,4 @@
-The enter key is:
+The enter key is :
 Enter then Control + J
 
 AT+BAUD1			1200

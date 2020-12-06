@@ -10,5 +10,4 @@ Could use the SPA library and use only the clock for positioning, but the mcu do
 or use a table, ignoring completely the sensor part, but for academic purpose is so.
 
 
-https://videoconf-colibri.zoom.us/j/89934674910?pwd=Nk82d0M5VTJyQnZyRnEwR1ZvOHlidz09
 
