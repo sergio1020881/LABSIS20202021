@@ -41,6 +41,8 @@ Comment:
 #define ZERO 0
 #define Min 500     // 450 PWM servo motor
 #define Max 2350    // 2450 PWM servo motor
+#define SMIN -200
+#define SMAX +200
 /*
 ** Global File variable
 */
@@ -116,7 +118,7 @@ int main(void)
 					adcvalue=analog.read(0);
 					/***Set Position***/
 					if(positionhour>5 && positionhour<21)
-						timer1.compareB(function.trimmer(positionhour,2,23,Min,Max)+function.trimmer(adcvalue,0,1023,-300,300));
+						timer1.compareB(function.trimmer(positionhour,2,23,Min,Max)+function.trimmer(adcvalue,0,1023,SMIN,SMAX));
 					else
 						timer1.compareB(function.trimmer(6,2,23,Min,Max));
 					lcd0.gotoxy(0,0);
