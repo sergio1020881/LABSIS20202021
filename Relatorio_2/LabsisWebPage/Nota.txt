@@ -1,75 +1,8 @@
+START
+calcium bateries with green indicator are the best.
 
-<embed src="path_of_your_pdf/your_pdf_file.pdf" type="application/pdf"   height="700px" width="500">
-
-
-<embed src="study/sample.pdf" type="application/pdf"   height="300px" width="100%">
-
-
-<embed src="study/sample.pdf" type="application/pdf"   height="300px" width="100%" class="responsive">
-<a href="study/sample.pdf">download</a>
-
-
-<embed
-    src="http://infolab.stanford.edu/pub/papers/google.pdf#toolbar=0&navpanes=0&scrollbar=0"
-    type="application/pdf"
-    frameBorder="0"
-    scrolling="auto"
-    height="100%"
-    width="100%"
-></embed>
-
-
-
-<iframe
-    src="http://infolab.stanford.edu/pub/papers/google.pdf#toolbar=0&navpanes=0&scrollbar=0"
-    frameBorder="0"
-    scrolling="auto"
-    height="100%"
-    width="100%"
-></iframe>
-
-
-
-<iframe
-    src="https://drive.google.com/viewerng/viewer?embedded=true&url=http://infolab.stanford.edu/pub/papers/google.pdf#toolbar=0&scrollbar=0"
-    frameBorder="0"
-    scrolling="auto"
-    height="100%"
-    width="100%"
-></iframe>
-
-
-
-<iframe src="http://docs.google.com/gview?
-    url=http://infolab.stanford.edu/pub/papers/google.pdf&embedded=true"
-    style="width:600px; height:500px;" frameborder="0">
-</iframe>
-
-
-<embed type="application/pdf" 
-src="http://www.oracle.com/events/global/en/java-outreach/resources/java-a-beginners-guide-1720064.pdf" 
-width="100%" height="500" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html" 
-background-color="0xFF525659" top-toolbar-height="56" full-frame="" internalinstanceid="21" 
-title="CHROME">
-
-
-<iframe src="pdf-link">
-</iframe>
-
-
-
-<a href="path_of_your_pdf/your_pdf_file.pdf" tabindex="-1"><strong>click here</strong></a>
-
-
-<object width="400px" height="400px" data="https://s3.amazonaws.com/dq-blog-files/pandas-cheat-sheet.pdf"></object>
-
-
-<iframe src="your_pdf_file_path" height="100%" width="100%" scrolling="auto"></iframe>
-
-
-<a href="your_pdf_file_path">Link</a>
-
-
-
-
-
+Most bateries at sale in market are damaged goods, about 80%, 
+therefore need luck if buying in normal hypermarkets, they steal the consumers
+by selling out of date or end of life producta that will not perform not even 20%
+of normal usage. Therefore stay in the known good brand and a "reliable" and
+"honest" supplier if there is such a thing.
