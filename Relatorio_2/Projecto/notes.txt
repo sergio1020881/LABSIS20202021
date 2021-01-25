@@ -1,0 +1,13 @@
+Using putty, 
+first go on pc to check what port number 
+is being used to configure putty.
+
+For some reason putty stopped excepting writiing string and enter has send signal,
+therefore the text must be pasted on console by control v.
+First control c text, and on console pres control v.
+
+/*********************************/
+commands:
+time
+position
+/*********************************/

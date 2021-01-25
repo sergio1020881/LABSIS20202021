@@ -144,14 +144,16 @@ int main(void)
 					lcd0.gotoxy(2,0);
 					strcpy(uartmessage,uartreceive);
 					if(uartreceive[0]!='\0'){lcd0.string_size("u> ",3);lcd0.string_size(uartmessage,17);}
-					if(!strcmp(uartreceive,"position\r")){
+					//if(!strcmp(uartreceive,"position\r")){
+					if(!strcmp(uartreceive,"position")){
 						uart.puts("> ");
 						uart.puts("analog Reading: ");
 						uart.puts(ptr);
 						uart.puts("\r\n");
 						uart.Rxflush();
 					}
-					if(!strcmp(uartreceive,"time\r")){
+					//if(!strcmp(uartreceive,"time\r")){
+					if(!strcmp(uartreceive,"time")){
 						//uart.putc('>');uart.puts("analog Reading: ");uart.puts(ptr);uart.puts("\r\n");
 						uart.puts(function.ui16toa(rtc.bcd2dec(tm.hours)));
 						uart.putc(':');

@@ -1335,7 +1335,7 @@ END GROUP
  *(.fini0)
                 0x00003f2a                _etext = .
 
-.data           0x00800100      0x11c load address 0x00003f2a
+.data           0x00800100      0x11a load address 0x00003f2a
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -1348,115 +1348,115 @@ END GROUP
  .rodata        0x00800112        0x2 Libraria/keypad.o
  *(.rodata*)
  .rodata.str1.1
-                0x00800114      0x108 main.o
-                                0x10e (size before relaxing)
+                0x00800114      0x106 main.o
+                                0x10c (size before relaxing)
  *(.gnu.linkonce.r*)
-                0x0080021c                . = ALIGN (0x2)
-                0x0080021c                _edata = .
-                0x0080021c                PROVIDE (__data_end, .)
+                0x0080021a                . = ALIGN (0x2)
+                0x0080021a                _edata = .
+                0x0080021a                PROVIDE (__data_end, .)
 
-.bss            0x0080021c      0x2c1
-                0x0080021c                PROVIDE (__bss_start, .)
+.bss            0x0080021a      0x2c1
+                0x0080021a                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  .bss.adc_n_sample
-                0x0080021c        0x1 Libraria/atmega128analog.o
- .bss.adc_tmp   0x0080021d        0x2 Libraria/atmega128analog.o
+                0x0080021a        0x1 Libraria/atmega128analog.o
+ .bss.adc_tmp   0x0080021b        0x2 Libraria/atmega128analog.o
  .bss.adc_sample
-                0x0080021f        0x2 Libraria/atmega128analog.o
+                0x0080021d        0x2 Libraria/atmega128analog.o
  .bss.ADC_SELECTOR
-                0x00800221        0x2 Libraria/atmega128analog.o
+                0x0080021f        0x2 Libraria/atmega128analog.o
  .bss.ADC_N_CHANNEL
-                0x00800223        0x2 Libraria/atmega128analog.o
+                0x00800221        0x2 Libraria/atmega128analog.o
  .bss.ADC_CHANNEL_GAIN
-                0x00800225       0x10 Libraria/atmega128analog.o
+                0x00800223       0x10 Libraria/atmega128analog.o
  .bss.ADC_VALUE
-                0x00800235       0x10 Libraria/atmega128analog.o
+                0x00800233       0x10 Libraria/atmega128analog.o
  .bss.uartreceive
-                0x00800245        0x2 main.o
-                0x00800245                uartreceive
- .bss.ptr       0x00800247        0x2 main.o
-                0x00800247                ptr
+                0x00800243        0x2 main.o
+                0x00800243                uartreceive
+ .bss.ptr       0x00800245        0x2 main.o
+                0x00800245                ptr
  .bss.increment
-                0x00800249        0x1 main.o
-                0x00800249                increment
- .bss.count     0x0080024a        0x1 main.o
-                0x0080024a                count
+                0x00800247        0x1 main.o
+                0x00800247                increment
+ .bss.count     0x00800248        0x1 main.o
+                0x00800248                count
  *(COMMON)
- COMMON         0x0080024b        0x7 Libraria/74hc595.o
-                0x0080024b                hc595_DDR
-                0x0080024d                hc595_PORT
-                0x0080024f                HC595_datapin
-                0x00800250                HC595_outpin
-                0x00800251                HC595_clkpin
- COMMON         0x00800252        0x2 Libraria/atmega128i2c.o
-                0x00800252                ticks
- COMMON         0x00800254        0x4 Libraria/atmega128timer.o
-                0x00800254                timer1_state
-                0x00800255                timer3_state
-                0x00800256                timer2_state
-                0x00800257                timer0_state
- COMMON         0x00800258      0x18d Libraria/atmega128uart.o
-                0x00800258                uart_msg
-                0x00800298                UART_TxHead
-                0x00800299                UART_LastRxError
-                0x0080029a                UART1_TxTail
-                0x0080029b                UART1_RxBuf
-                0x008002db                uart1_index
-                0x008002dd                UART_TxTail
-                0x008002de                UART1_RxHead
-                0x008002df                UART1_LastRxError
-                0x008002e0                UART1_TxHead
-                0x008002e1                uart1_msg
-                0x00800321                uart_index
-                0x00800322                UART1_TxBuf
-                0x00800362                UART_TxBuf
-                0x008003a2                UART_RxHead
-                0x008003a3                UART_RxTail
-                0x008003a4                UART1_RxTail
-                0x008003a5                UART_RxBuf
- COMMON         0x008003e5       0x15 Libraria/function.o
-                0x008003e5                FUNCstr
- COMMON         0x008003fa       0x25 Libraria/keypad.o
-                0x008003fa                keypad_PORT
-                0x008003fc                KEYPAD_char
-                0x008003fd                keypad_dataf
-                0x00800401                keypad_datai
-                0x00800405                KEYPADSTRINGINDEX
-                0x00800406                keypad_PIN
-                0x00800408                keypad_DDR
-                0x0080040a                KEYPAD_string
- COMMON         0x0080041f        0xe Libraria/lcd.o
-                0x0080041f                lcd0_PIN
-                0x00800421                lcd1_DDR
-                0x00800423                lcd1_detect
-                0x00800424                lcd1_PIN
-                0x00800426                lcd0_DDR
-                0x00800428                lcd0_detect
-                0x00800429                lcd0_PORT
-                0x0080042b                lcd1_PORT
- COMMON         0x0080042d       0x21 Libraria/lfsm.o
-                0x0080042d                tmp2
-                0x00800438                data
-                0x00800443                tmp1
- COMMON         0x0080044e        0xa Libraria/pcf8563rtc.o
-                0x0080044e                i2c
- COMMON         0x00800458       0x85 main.o
-                0x00800458                shift
-                0x0080045e                function
-                0x008004a8                tm
-                0x008004ab                rtc
-                0x008004c7                dt
-                0x008004cb                uart
-                0x008004dd                PROVIDE (__bss_end, .)
+ COMMON         0x00800249        0x7 Libraria/74hc595.o
+                0x00800249                hc595_DDR
+                0x0080024b                hc595_PORT
+                0x0080024d                HC595_datapin
+                0x0080024e                HC595_outpin
+                0x0080024f                HC595_clkpin
+ COMMON         0x00800250        0x2 Libraria/atmega128i2c.o
+                0x00800250                ticks
+ COMMON         0x00800252        0x4 Libraria/atmega128timer.o
+                0x00800252                timer1_state
+                0x00800253                timer3_state
+                0x00800254                timer2_state
+                0x00800255                timer0_state
+ COMMON         0x00800256      0x18d Libraria/atmega128uart.o
+                0x00800256                uart_msg
+                0x00800296                UART_TxHead
+                0x00800297                UART_LastRxError
+                0x00800298                UART1_TxTail
+                0x00800299                UART1_RxBuf
+                0x008002d9                uart1_index
+                0x008002db                UART_TxTail
+                0x008002dc                UART1_RxHead
+                0x008002dd                UART1_LastRxError
+                0x008002de                UART1_TxHead
+                0x008002df                uart1_msg
+                0x0080031f                uart_index
+                0x00800320                UART1_TxBuf
+                0x00800360                UART_TxBuf
+                0x008003a0                UART_RxHead
+                0x008003a1                UART_RxTail
+                0x008003a2                UART1_RxTail
+                0x008003a3                UART_RxBuf
+ COMMON         0x008003e3       0x15 Libraria/function.o
+                0x008003e3                FUNCstr
+ COMMON         0x008003f8       0x25 Libraria/keypad.o
+                0x008003f8                keypad_PORT
+                0x008003fa                KEYPAD_char
+                0x008003fb                keypad_dataf
+                0x008003ff                keypad_datai
+                0x00800403                KEYPADSTRINGINDEX
+                0x00800404                keypad_PIN
+                0x00800406                keypad_DDR
+                0x00800408                KEYPAD_string
+ COMMON         0x0080041d        0xe Libraria/lcd.o
+                0x0080041d                lcd0_PIN
+                0x0080041f                lcd1_DDR
+                0x00800421                lcd1_detect
+                0x00800422                lcd1_PIN
+                0x00800424                lcd0_DDR
+                0x00800426                lcd0_detect
+                0x00800427                lcd0_PORT
+                0x00800429                lcd1_PORT
+ COMMON         0x0080042b       0x21 Libraria/lfsm.o
+                0x0080042b                tmp2
+                0x00800436                data
+                0x00800441                tmp1
+ COMMON         0x0080044c        0xa Libraria/pcf8563rtc.o
+                0x0080044c                i2c
+ COMMON         0x00800456       0x85 main.o
+                0x00800456                shift
+                0x0080045c                function
+                0x008004a6                tm
+                0x008004a9                rtc
+                0x008004c5                dt
+                0x008004c9                uart
+                0x008004db                PROVIDE (__bss_end, .)
                 0x00003f2a                __data_load_start = LOADADDR (.data)
-                0x00004046                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00004044                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x008004dd        0x0
+.noinit         0x008004db        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x008004dd                _end = .
+                0x008004db                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
