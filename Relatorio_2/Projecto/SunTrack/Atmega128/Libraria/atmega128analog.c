@@ -140,8 +140,8 @@ setup, and list of channels to be probed
 				ADC_CONTROL|=(7<<ADPS0);
 				analog.DIVISION_FACTOR=128;
 				break;
-		}		
-		
+		}
+	
 	STATUS_REGISTER=tSREG;
 	STATUS_REGISTER|=(1<<GLOBAL_INTERRUPT_ENABLE);
 	/******/
