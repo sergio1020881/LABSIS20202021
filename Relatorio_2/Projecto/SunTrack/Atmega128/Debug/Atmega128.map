@@ -292,7 +292,7 @@ Discarded input sections
  .text.LCD1enable
                 0x00000000       0xb0 Libraria/lcd.o
  .text.LCD1_reboot
-                0x00000000       0x24 Libraria/lcd.o
+                0x00000000       0x32 Libraria/lcd.o
  .text.LCD1_strobe
                 0x00000000       0x1e Libraria/lcd.o
  .text.LCD_ticks
@@ -815,7 +815,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x3f2a
+.text           0x00000000     0x3f38
  *(.vectors)
  .vectors       0x00000000       0x8c C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega128/avr51/crtatmega128.o
                 0x00000000                __vector_default
@@ -1214,105 +1214,105 @@ END GROUP
                 0x00002264       0xae Libraria/lcd.o
                 0x00002264                LCD0enable
  .text.LCD0_reboot
-                0x00002312       0x22 Libraria/lcd.o
+                0x00002312       0x30 Libraria/lcd.o
                 0x00002312                LCD0_reboot
  .text.PCF8563RTC_SetTime
-                0x00002334       0x54 Libraria/pcf8563rtc.o
-                0x00002334                PCF8563RTC_SetTime
+                0x00002342       0x54 Libraria/pcf8563rtc.o
+                0x00002342                PCF8563RTC_SetTime
  .text.PCF8563RTC_SetHour
-                0x00002388       0x38 Libraria/pcf8563rtc.o
-                0x00002388                PCF8563RTC_SetHour
+                0x00002396       0x38 Libraria/pcf8563rtc.o
+                0x00002396                PCF8563RTC_SetHour
  .text.PCF8563RTC_SetMinute
-                0x000023c0       0x38 Libraria/pcf8563rtc.o
-                0x000023c0                PCF8563RTC_SetMinute
+                0x000023ce       0x38 Libraria/pcf8563rtc.o
+                0x000023ce                PCF8563RTC_SetMinute
  .text.PCF8563RTC_SetSecond
-                0x000023f8       0x38 Libraria/pcf8563rtc.o
-                0x000023f8                PCF8563RTC_SetSecond
+                0x00002406       0x38 Libraria/pcf8563rtc.o
+                0x00002406                PCF8563RTC_SetSecond
  .text.PCF8563RTC_SetClkOut
-                0x00002430       0x44 Libraria/pcf8563rtc.o
-                0x00002430                PCF8563RTC_SetClkOut
+                0x0000243e       0x44 Libraria/pcf8563rtc.o
+                0x0000243e                PCF8563RTC_SetClkOut
  .text.PCF8563RTC_SetDate
-                0x00002474       0x62 Libraria/pcf8563rtc.o
-                0x00002474                PCF8563RTC_SetDate
+                0x00002482       0x62 Libraria/pcf8563rtc.o
+                0x00002482                PCF8563RTC_SetDate
  .text.PCF8563RTC_SetYear
-                0x000024d6       0x38 Libraria/pcf8563rtc.o
-                0x000024d6                PCF8563RTC_SetYear
+                0x000024e4       0x38 Libraria/pcf8563rtc.o
+                0x000024e4                PCF8563RTC_SetYear
  .text.PCF8563RTC_SetMonth
-                0x0000250e       0x38 Libraria/pcf8563rtc.o
-                0x0000250e                PCF8563RTC_SetMonth
+                0x0000251c       0x38 Libraria/pcf8563rtc.o
+                0x0000251c                PCF8563RTC_SetMonth
  .text.PCF8563RTC_SetWeekday
-                0x00002546       0x38 Libraria/pcf8563rtc.o
-                0x00002546                PCF8563RTC_SetWeekday
+                0x00002554       0x38 Libraria/pcf8563rtc.o
+                0x00002554                PCF8563RTC_SetWeekday
  .text.PCF8563RTC_SetDay
-                0x0000257e       0x38 Libraria/pcf8563rtc.o
-                0x0000257e                PCF8563RTC_SetDay
+                0x0000258c       0x38 Libraria/pcf8563rtc.o
+                0x0000258c                PCF8563RTC_SetDay
  .text.PCF8563RTC_GetTime
-                0x000025b6       0x74 Libraria/pcf8563rtc.o
-                0x000025b6                PCF8563RTC_GetTime
+                0x000025c4       0x74 Libraria/pcf8563rtc.o
+                0x000025c4                PCF8563RTC_GetTime
  .text.PCF8563RTC_GetDate
-                0x0000262a       0x84 Libraria/pcf8563rtc.o
-                0x0000262a                PCF8563RTC_GetDate
+                0x00002638       0x84 Libraria/pcf8563rtc.o
+                0x00002638                PCF8563RTC_GetDate
  .text.PCF8563RTC_bcd2dec
-                0x000026ae       0x16 Libraria/pcf8563rtc.o
-                0x000026ae                PCF8563RTC_bcd2dec
+                0x000026bc       0x16 Libraria/pcf8563rtc.o
+                0x000026bc                PCF8563RTC_bcd2dec
  .text.PCF8563RTC_bintobcd
-                0x000026c4       0x26 Libraria/pcf8563rtc.o
-                0x000026c4                PCF8563RTC_bintobcd
+                0x000026d2       0x26 Libraria/pcf8563rtc.o
+                0x000026d2                PCF8563RTC_bintobcd
  .text.PCF8563RTC_Init
-                0x000026ea       0x32 Libraria/pcf8563rtc.o
-                0x000026ea                PCF8563RTC_Init
+                0x000026f8       0x32 Libraria/pcf8563rtc.o
+                0x000026f8                PCF8563RTC_Init
  .text.PCF8563RTCenable
-                0x0000271c       0xce Libraria/pcf8563rtc.o
-                0x0000271c                PCF8563RTCenable
+                0x0000272a       0xce Libraria/pcf8563rtc.o
+                0x0000272a                PCF8563RTCenable
  .text.PORTINIT
-                0x000027ea       0x12 main.o
-                0x000027ea                PORTINIT
- .text.main     0x000027fc     0x1502 main.o
-                0x000027fc                main
+                0x000027f8       0x12 main.o
+                0x000027f8                PORTINIT
+ .text.main     0x0000280a     0x1502 main.o
+                0x0000280a                main
  .text.__vector_15
-                0x00003cfe       0xbe main.o
-                0x00003cfe                __vector_15
+                0x00003d0c       0xbe main.o
+                0x00003d0c                __vector_15
  .text.libgcc.mul
-                0x00003dbc       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_mulsi3.o)
-                0x00003dbc                __mulsi3
+                0x00003dca       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_mulsi3.o)
+                0x00003dca                __mulsi3
  .text.libgcc.div
-                0x00003dda       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_udivmodhi4.o)
-                0x00003dda                __udivmodhi4
+                0x00003de8       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_udivmodhi4.o)
+                0x00003de8                __udivmodhi4
  .text.libgcc.div
-                0x00003e02       0x26 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_divmodhi4.o)
-                0x00003e02                _div
-                0x00003e02                __divmodhi4
+                0x00003e10       0x26 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_divmodhi4.o)
+                0x00003e10                _div
+                0x00003e10                __divmodhi4
  .text.libgcc.div
-                0x00003e28       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_udivmodsi4.o)
-                0x00003e28                __udivmodsi4
+                0x00003e36       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_udivmodsi4.o)
+                0x00003e36                __udivmodsi4
  .text.libgcc.div
-                0x00003e6c       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_divmodsi4.o)
-                0x00003e6c                __divmodsi4
+                0x00003e7a       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_divmodsi4.o)
+                0x00003e7a                __divmodsi4
  .text.libgcc.div
-                0x00003e94       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_negsi2.o)
-                0x00003e94                __negsi2
- .text.libgcc   0x00003ea4       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_tablejump2.o)
-                0x00003ea4                __tablejump2__
+                0x00003ea2       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_negsi2.o)
+                0x00003ea2                __negsi2
+ .text.libgcc   0x00003eb2       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_tablejump2.o)
+                0x00003eb2                __tablejump2__
  .text.libgcc.mul
-                0x00003eb6       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_umulhisi3.o)
-                0x00003eb6                __umulhisi3
+                0x00003ec4       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_umulhisi3.o)
+                0x00003ec4                __umulhisi3
  .text.libgcc.mul
-                0x00003ed4       0x14 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_muluhisi3.o)
-                0x00003ed4                __muluhisi3
+                0x00003ee2       0x14 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_muluhisi3.o)
+                0x00003ee2                __muluhisi3
  .text.avr-libc
-                0x00003ee8       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr51\libc.a(strcmp.o)
-                0x00003ee8                strcmp
+                0x00003ef6       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr51\libc.a(strcmp.o)
+                0x00003ef6                strcmp
  .text.avr-libc
-                0x00003efa        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr51\libc.a(strcpy.o)
-                0x00003efa                strcpy
+                0x00003f08        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr51\libc.a(strcpy.o)
+                0x00003f08                strcpy
  .text.avr-libc
-                0x00003f08       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr51\libc.a(strncpy.o)
-                0x00003f08                strncpy
-                0x00003f26                . = ALIGN (0x2)
+                0x00003f16       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr51\libc.a(strncpy.o)
+                0x00003f16                strncpy
+                0x00003f34                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00003f26        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
-                0x00003f26                _exit
-                0x00003f26                exit
+ .fini9         0x00003f34        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
+                0x00003f34                _exit
+                0x00003f34                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -1331,11 +1331,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00003f26        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
+ .fini0         0x00003f34        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
  *(.fini0)
-                0x00003f2a                _etext = .
+                0x00003f38                _etext = .
 
-.data           0x00800100      0x11a load address 0x00003f2a
+.data           0x00800100      0x11a load address 0x00003f38
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -1449,8 +1449,8 @@ END GROUP
                 0x008004c5                dt
                 0x008004c9                uart
                 0x008004db                PROVIDE (__bss_end, .)
-                0x00003f2a                __data_load_start = LOADADDR (.data)
-                0x00004044                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00003f38                __data_load_start = LOADADDR (.data)
+                0x00004052                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x008004db        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
@@ -1559,7 +1559,7 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x848f
+.debug_info     0x00000000     0x84af
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x780 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega128/avr51/crtatmega128.o
  .debug_info    0x00000780      0x23b Libraria/74hc595.o
@@ -1569,10 +1569,10 @@ END GROUP
  .debug_info    0x00001826      0x8cc Libraria/atmega128uart.o
  .debug_info    0x000020f2     0x11f4 Libraria/function.o
  .debug_info    0x000032e6      0x4ea Libraria/keypad.o
- .debug_info    0x000037d0     0x119c Libraria/lcd.o
- .debug_info    0x0000496c      0xfaf Libraria/lfsm.o
- .debug_info    0x0000591b      0x92f Libraria/pcf8563rtc.o
- .debug_info    0x0000624a     0x2245 main.o
+ .debug_info    0x000037d0     0x11bc Libraria/lcd.o
+ .debug_info    0x0000498c      0xfaf Libraria/lfsm.o
+ .debug_info    0x0000593b      0x92f Libraria/pcf8563rtc.o
+ .debug_info    0x0000626a     0x2245 main.o
 
 .debug_abbrev   0x00000000     0x1e70
  *(.debug_abbrev)
@@ -1589,7 +1589,7 @@ END GROUP
  .debug_abbrev  0x00001ab8      0x1b6 Libraria/pcf8563rtc.o
  .debug_abbrev  0x00001c6e      0x202 main.o
 
-.debug_line     0x00000000     0x46ac
+.debug_line     0x00000000     0x46d0
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x169 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega128/avr51/crtatmega128.o
  .debug_line    0x00000169      0x184 Libraria/74hc595.o
@@ -1599,12 +1599,12 @@ END GROUP
  .debug_line    0x000013f8      0x888 Libraria/atmega128uart.o
  .debug_line    0x00001c80      0x81c Libraria/function.o
  .debug_line    0x0000249c      0x3fa Libraria/keypad.o
- .debug_line    0x00002896      0xbcb Libraria/lcd.o
- .debug_line    0x00003461      0x70b Libraria/lfsm.o
- .debug_line    0x00003b6c      0x45d Libraria/pcf8563rtc.o
- .debug_line    0x00003fc9      0x6e3 main.o
+ .debug_line    0x00002896      0xbef Libraria/lcd.o
+ .debug_line    0x00003485      0x70b Libraria/lfsm.o
+ .debug_line    0x00003b90      0x45d Libraria/pcf8563rtc.o
+ .debug_line    0x00003fed      0x6e3 main.o
 
-.debug_frame    0x00000000     0x13e4
+.debug_frame    0x00000000     0x13ec
  *(.debug_frame)
  .debug_frame   0x00000000       0x88 Libraria/74hc595.o
  .debug_frame   0x00000088       0x90 Libraria/atmega128analog.o
@@ -1613,10 +1613,10 @@ END GROUP
  .debug_frame   0x000004f0      0x248 Libraria/atmega128uart.o
  .debug_frame   0x00000738      0x400 Libraria/function.o
  .debug_frame   0x00000b38       0xc0 Libraria/keypad.o
- .debug_frame   0x00000bf8      0x28c Libraria/lcd.o
- .debug_frame   0x00000e84      0x278 Libraria/lfsm.o
- .debug_frame   0x000010fc      0x238 Libraria/pcf8563rtc.o
- .debug_frame   0x00001334       0xb0 main.o
+ .debug_frame   0x00000bf8      0x294 Libraria/lcd.o
+ .debug_frame   0x00000e8c      0x278 Libraria/lfsm.o
+ .debug_frame   0x00001104      0x238 Libraria/pcf8563rtc.o
+ .debug_frame   0x0000133c       0xb0 main.o
 
 .debug_str      0x00000000     0x16e9
  *(.debug_str)
@@ -1644,7 +1644,7 @@ END GROUP
  .debug_str     0x00001648       0xa1 main.o
                                 0x68c (size before relaxing)
 
-.debug_loc      0x00000000     0x6ab7
+.debug_loc      0x00000000     0x6af1
  *(.debug_loc)
  .debug_loc     0x00000000      0x228 Libraria/74hc595.o
  .debug_loc     0x00000228      0x32d Libraria/atmega128analog.o
@@ -1653,10 +1653,10 @@ END GROUP
  .debug_loc     0x00000fa7      0xd8b Libraria/atmega128uart.o
  .debug_loc     0x00001d32     0x16a1 Libraria/function.o
  .debug_loc     0x000033d3      0x444 Libraria/keypad.o
- .debug_loc     0x00003817     0x10ee Libraria/lcd.o
- .debug_loc     0x00004905     0x1355 Libraria/lfsm.o
- .debug_loc     0x00005c5a      0x851 Libraria/pcf8563rtc.o
- .debug_loc     0x000064ab      0x60c main.o
+ .debug_loc     0x00003817     0x1128 Libraria/lcd.o
+ .debug_loc     0x0000493f     0x1355 Libraria/lfsm.o
+ .debug_loc     0x00005c94      0x851 Libraria/pcf8563rtc.o
+ .debug_loc     0x000064e5      0x60c main.o
 
 .debug_macinfo
  *(.debug_macinfo)
