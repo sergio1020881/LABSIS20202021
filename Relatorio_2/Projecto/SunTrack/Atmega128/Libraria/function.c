@@ -14,6 +14,7 @@ Comment:
 #include <avr/pgmspace.h>
 #include <stdarg.h>
 #include <inttypes.h>
+#include <math.h>
 /***pc use***
 #include<stdio.h>
 #include<stdlib.h>
@@ -25,13 +26,16 @@ Comment:
 #ifndef GLOBAL_INTERRUPT_ENABLE
 	#define GLOBAL_INTERRUPT_ENABLE 7
 #endif
-#define FUNCSTRSIZE 20
+#define ZERO 0
+#define ONE 1
+#define FUNCSTRSIZE 32
 /***Global File Variable***/
-char FUNCstr[FUNCSTRSIZE+1];
+char FUNCstr[FUNCSTRSIZE+ONE];
 /***Header***/
 unsigned int Pwr(uint8_t bs, uint8_t n);
 int StringLength (const char string[]);
 void Reverse(char s[]);
+uint8_t  bintobcd(uint8_t bin);
 /******/
 unsigned int FUNCmayia(unsigned int xi, unsigned int xf, uint8_t nbits);
 uint8_t FUNCpinmatch(uint8_t match, uint8_t pin, uint8_t HL);
@@ -67,7 +71,9 @@ unsigned char FUNCbin2bcd(unsigned val);
 long FUNCgcd1(long a, long b);
 uint8_t FUNCpincheck(uint8_t port, uint8_t pin);
 char* FUNCprint_binary(uint8_t number);
-uint8_t  bintobcd(uint8_t bin);
+void FUNCreverse(char* str, int len);
+uint8_t FUNCintinvstr(int32_t n, char* res, uint8_t n_digit);
+char* FUNCftoa(float n, char* res, uint8_t afterpoint);
 /***pc use***
 char* FUNCfltos(FILE* stream);
 char* FUNCftos(FILE* stream);
@@ -124,6 +130,7 @@ FUNC FUNCenable( void )
 	func.gcd1=FUNCgcd1;
 	func.pincheck=FUNCpincheck;
 	func.print_binary=FUNCprint_binary;
+	func.ftoa=FUNCftoa;
 	/***pc use***
 	func.fltos=FUNCfltos;
 	func.ftos=FUNCftos;
@@ -261,7 +268,7 @@ char* FUNCi32toa(int32_t n)
 		FUNCstr[i++] = n % 10 + '0'; // get next digit
 	}while ((n /= 10) > 0); // delete it
 	if (sign < 0)
-	FUNCstr[i++] = '-';
+		FUNCstr[i++] = '-';
 	FUNCstr[i] = '\0';
 	Reverse(FUNCstr);
 	return FUNCstr;
@@ -524,7 +531,44 @@ uint8_t  bintobcd(uint8_t bin)
 {
 	return (((bin) / 10) << 4) + ((bin) % 10);
 }
-/***
+/***intinvstr***/
+uint8_t FUNCintinvstr(int32_t n, char* res, uint8_t n_digit)
+{
+	uint8_t k=0;
+	for(res[k++] = (n % 10) + '0' ; (n/=10) > ZERO ; res[k++] = (n % 10) + '0');
+	for( ; k < n_digit ; res[k++] = '0');
+	res[k]='\0';
+	return k;
+}
+/***ftoa***/
+char* FUNCftoa(float n, char* res, uint8_t afterpoint)
+{
+	uint8_t k=ZERO;
+	int32_t ipart;
+	float fpart;
+	int8_t sign;
+	if (n < ZERO){
+		n = -n;
+		sign=-ONE;
+	}else
+		sign=ONE;
+	ipart = (int32_t) n;
+	fpart = n - (float)ipart;
+	k=FUNCintinvstr( ipart, res, ONE );
+	if (sign < ZERO)
+		res[k++] = '-';
+	else
+		res[k++] = ' ';
+	res[k]='\0';
+	Reverse(res);
+	if (afterpoint > ZERO) {
+		res[k++] = '.';
+		FUNCintinvstr( fpart * pow(10, afterpoint), res+k, afterpoint );
+		Reverse(res+k);
+	}	
+	return res;
+}
+/******
 int gcd( int a, int b ) {
     int result ;
     // Compute Greatest Common Divisor using Euclid's Algorithm
@@ -693,4 +737,6 @@ int FUNCreadint(int nmin, int nmax)
 }
 ***/
 /***Interrupt***/
+/***Comment
+***/
 /***EOF***/
