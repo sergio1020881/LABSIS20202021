@@ -6,7 +6,7 @@ File: $Id: MAIN,v 1.8.2.1 21/10/2020 Exp $
 Software: Atmel Studio 7 (ver 7.0.129)
 Hardware: Atmega128 by ETT ET-BASE
 	-PORTA LCD
-	-PORTE Keyboard
+	-PORTE Keypad
 	-PF0 Sensor LDR
 	-PB6 Servo Motor
 	-PORTD RTC and UART1->FTDI chip->PC Putty
